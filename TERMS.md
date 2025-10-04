@@ -3,7 +3,7 @@
 **Last updated:** 04/10/2025
 
 ## 1. Acceptance of Terms
-By inviting and using **Hugo** (“the Bot”) in your Discord server, you agree to these Terms of Service. If you do not agree, you must remove the Bot from your server.
+By inviting and using **Hugo** in your Discord server, you agree to these Terms of Service. If you do not agree, you must remove the Bot from your server.
 
 ## 2. Eligibility
 - You must comply with [Discord’s Terms of Service](https://discord.com/terms) and [Community Guidelines](https://discord.com/guidelines).
