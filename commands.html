@@ -665,6 +665,15 @@
     </ul>
   </div>
 
+  <div class="command-block">
+    <h3>/purge</h3>
+    <p><strong>Description:</strong> Delete all messages from a specific user</p>
+    <p><strong>Options:</strong></p>
+    <ul>
+        <li><code>target</code> <span class="arg-meta">(required, user)</span>: <span class="argument-description">The user whose messages you want to delete</span></li>
+    </ul>
+  </div>
+
   <h2>Leveling Commands</h2>
     <div class="command-block">
     <h3>/xp</h3>
@@ -795,6 +804,107 @@
         <li><code>message</code> <span class="arg-meta">(required, string)</span>: <span class="argument-description">The message to measure</span></li>
     </ul>
   </div>
+
+  <div class="command-block">
+    <h3>/cleanup</h3>
+    <p><strong>Description:</strong> Kick members without a rank role</p>
+  </div>
+
+  <h2>Fun Commands</h2>
+
+  <div class="command-block">
+    <h3>/avatar</h3>
+    <p><strong>Description:</strong> Fetch a users avatar picture</p>
+    <p><strong>Options:</strong></p>
+    <ul>
+        <li><code>user</code> <span class="arg-meta">(optional, user)</span>: <span class="argument-description">The user to fetch the avatar for</span></li>
+    </ul>
+  </div>
+
+  <div class="command-block">
+    <h3>/cat</h3>
+    <p><strong>Description:</strong> Posts a random cat picture or GIF</p>
+    <p><strong>Options:</strong></p>
+    <ul>
+        <li><code>type</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Choose between a static image or a gif</span></li>
+    </ul>
+  </div>
+
+  <div class="command-block">
+    <h3>/wisdom</h3>
+    <p><strong>Description:</strong> Provides a random piece of wisdom</p>
+    <p><strong>Options:</strong></p>
+    <ul>
+        <li><code>number</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">The wisdom quote to retrieve</span></li>
+    </ul>
+  </div>
+
+  <div class="command-block">
+    <h3>/roll</h3>
+    <p><strong>Description:</strong> Roll a random number</p>
+    <p><strong>Options:</strong></p>
+    <ul>
+        <li><code>min</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">The minimum number to roll</span></li>
+        <li><code>max</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">The maximum number to roll</span></li>
+    </ul>
+  </div>
+
+  <div class="command-block">
+    <h3>/status</h3>
+    <p><strong>Description:</strong> Check when a user's status was last updated</p>
+    <p><strong>Options:</strong></p>
+    <ul>
+        <li><code>user</code> <span class="arg-meta">(required, user)</span>: <span class="argument-description">The user to check</span></li>
+    </ul>
+  </div>
+
+  <div class="command-block">
+    <h3>/fun</h3>
+    <p><strong>Description:</strong> Manage fun command settings</p>
+    <p><strong>Subcommands:</strong></p>
+    <ul>
+        <li><code class="subcommand-name">wisdom</code>: <span class="subcommand-description">Manage /wisdom command settings</span>
+            <ul>
+                <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable or disable the /wisdom command</span></li>
+                <li><code>cooldown</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Set the cooldown for the /wisdom command (in seconds)</span></li>
+                <li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Set the channel for /wisdom command usage</span></li>
+                <li><code>channel-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Limit the /wisdom command to the specified channel?</span></li>
+            </ul>
+        </li>
+        <li><code class="subcommand-name">roll</code>: <span class="subcommand-description">Manage /roll command settings</span>
+            <ul>
+                <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable or disable the /roll command</span></li>
+                <li><code>cooldown</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Set the cooldown for the /roll command (in seconds)</span></li>
+                <li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Set the channel for /roll command usage</span></li>
+                <li><code>channel-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Limit the /roll command to the specified channel?</span></li>
+            </ul>
+        </li>
+        <li><code class="subcommand-name">cat</code>: <span class="subcommand-description">Manage /cat command settings</span>
+            <ul>
+                <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable or disable the /cat command</span></li>
+                <li><code>cooldown</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Set the cooldown for the /cat command (in seconds)</span></li>
+                <li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Set the channel for /cat command usage</span></li>
+                <li><code>channel-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Limit the /cat command to the specified channel?</span></li>
+            </ul>
+        </li>
+        <li><code class="subcommand-name">avatar</code>: <span class="subcommand-description">Manage /avatar command settings</span>
+            <ul>
+                <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable or disable the /avatar command</span></li>
+                <li><code>cooldown</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Set the cooldown for the /avatar command (in seconds)</span></li>
+                <li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Set the channel for /avatar command usage</span></li>
+                <li><code>channel-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Limit the /avatar command to the specified channel?</span></li>
+            </ul>
+        </li>
+        <li><code class="subcommand-name">status</code>: <span class="subcommand-description">Manage /status command settings</span>
+            <ul>
+                <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable or disable the /status command</span></li>
+                <li><code>cooldown</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Set the cooldown for the /status command (in seconds)</span></li>
+                <li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Set the channel for /status command usage</span></li>
+                <li><code>channel-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Limit the /status command to the specified channel?</span></li>
+            </ul>
+        </li>
+    </ul>
+  </div>  
 </div>
 </body>
 </html>
