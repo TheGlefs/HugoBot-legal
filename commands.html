@@ -171,7 +171,7 @@
 
         <div class="command-block">
             <h3>/logs</h3>
-            <p><strong>Description:</strong> Server logging settings</p>
+            <p><strong>Description:</strong> Important server logging settings</p>
             <p><strong>Subcommands:</strong></p>
             <ul>
                 <li><code class="subcommand-name">error</code>: <span class="subcommand-description">The error log
@@ -211,16 +211,14 @@
                         log event type</span>
                     <ul>
                         <li><code>type</code> <span class="arg-meta">(optional, string)</span>: <span
-                                class="argument-description">The event type to enable (omit to see current
-                                status)</span></li>
+                                class="argument-description">The event type to enable</span></li>
                     </ul>
                 </li>
                 <li><code class="subcommand-name">disable</code>: <span class="subcommand-description">Disable a
                         specific log event type</span>
                     <ul>
                         <li><code>type</code> <span class="arg-meta">(optional, string)</span>: <span
-                                class="argument-description">The event type to disable (omit to see current
-                                status)</span></li>
+                                class="argument-description">The event type to disable</span></li>
                     </ul>
                 </li>
             </ul>
@@ -427,8 +425,8 @@
                     </ul>
                 </li>
                 <li><code class="subcommand-name">refresh-permissions</code>: <span
-                        class="subcommand-description">Refresh channel permissions for all members of a user group after
-                        editing them</span>
+                        class="subcommand-description">Refresh channel permissions for all members of a user
+                        group</span>
                     <ul>
                         <li><code>group</code> <span class="arg-meta">(required, string)</span>: <span
                                 class="argument-description">The name of the user group</span></li>
@@ -487,15 +485,43 @@
 
         <div class="command-block">
             <h3>/captcha</h3>
-            <p><strong>Description:</strong> Post the captcha verification embed</p>
-            <p><strong>Options:</strong></p>
+            <p><strong>Description:</strong> Manage captcha verification</p>
+            <p><strong>Subcommands:</strong></p>
             <ul>
-                <li><code>channel</code> <span class="arg-meta">(required, channel)</span>: <span
-                        class="argument-description">The channel to post the captcha in</span></li>
-                <li><code>title</code> <span class="arg-meta">(optional, string)</span>: <span
-                        class="argument-description">The title of the captcha</span></li>
-                <li><code>description</code> <span class="arg-meta">(optional, string)</span>: <span
-                        class="argument-description">The description of the captcha</span></li>
+                <li><code class="subcommand-name">post</code>: <span class="subcommand-description">Post the captcha
+                        verification embed</span>
+                    <ul>
+                        <li><code>channel</code> <span class="arg-meta">(required, channel)</span>: <span
+                                class="argument-description">Channel to post the captcha in</span></li>
+                        <li><code>title</code> <span class="arg-meta">(optional, string)</span>: <span
+                                class="argument-description">The title of the captcha</span></li>
+                        <li><code>description</code> <span class="arg-meta">(optional, string)</span>: <span
+                                class="argument-description">The description of the captcha</span></li>
+                    </ul>
+                </li>
+                <li><code class="subcommand-name">settings</code>: <span class="subcommand-description">Configure
+                        captcha settings</span>
+                    <ul>
+                        <li><code>fail-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                                class="argument-description">Enable max verification attempts?</span></li>
+                        <li><code>fail-max</code> <span class="arg-meta">(optional, integer)</span>: <span
+                                class="argument-description">Max verification attempts before kick/ban</span>
+                        </li>
+                        <li><code>fail-ban</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                                class="argument-description">Ban users who fail verification instead of kicking?</span>
+                        </li>
+                        <li><code>fail-reason</code> <span class="arg-meta">(optional, string)</span>: <span
+                                class="argument-description">Reason for kick/ban after failing verification</span></li>
+                        <li><code>time-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                                class="argument-description">Enable time limit?</span></li>
+                        <li><code>time-limit</code> <span class="arg-meta">(optional, integer)</span>: <span
+                                class="argument-description">Time limit in hours before automatic kick/ban</span></li>
+                        <li><code>time-ban</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                                class="argument-description">Ban users after time limit instead of kicking?</span></li>
+                        <li><code>time-reason</code> <span class="arg-meta">(optional, string)</span>: <span
+                                class="argument-description">Reason for kick/ban after time limit</span></li>
+                    </ul>
+                </li>
             </ul>
         </div>
 
@@ -1187,7 +1213,7 @@
 
         <div class="command-block">
             <h3>/rank</h3>
-            <p><strong>Description:</strong> Shows your chat XP/level and rank on the leaderboard</p>
+            <p><strong>Description:</strong> Shows chat XP/level and rank on the leaderboard</p>
             <p><strong>Options:</strong></p>
             <ul>
                 <li><code>user</code> <span class="arg-meta">(optional, string)</span>: <span
@@ -1197,7 +1223,7 @@
 
         <div class="command-block">
             <h3>/level</h3>
-            <p><strong>Description:</strong> Shows your chat XP/level</p>
+            <p><strong>Description:</strong> Show chat XP/level</p>
             <p><strong>Options:</strong></p>
             <ul>
                 <li><code>user</code> <span class="arg-meta">(optional, string)</span>: <span
@@ -1219,7 +1245,7 @@
 
         <div class="command-block">
             <h3>/set</h3>
-            <p><strong>Description:</strong> Set a user XP or level</p>
+            <p><strong>Description:</strong> Set a user's XP or level</p>
             <p><strong>Subcommands:</strong></p>
             <ul>
                 <li><code class="subcommand-name">xp</code>: <span class="subcommand-description">Set a user's XP</span>
@@ -1244,7 +1270,7 @@
 
         <div class="command-block">
             <h3>/delete</h3>
-            <p><strong>Description:</strong> Delete a user XP/level data</p>
+            <p><strong>Description:</strong> Delete a user's XP/level data</p>
             <p><strong>Options:</strong></p>
             <ul>
                 <li><code>user</code> <span class="arg-meta">(required, string)</span>: <span
@@ -1318,11 +1344,11 @@
 
         <div class="command-block">
             <h3>/avatar</h3>
-            <p><strong>Description:</strong> Fetch a users avatar picture</p>
+            <p><strong>Description:</strong> Fetch a user's profile picture</p>
             <p><strong>Options:</strong></p>
             <ul>
                 <li><code>user</code> <span class="arg-meta">(optional, user)</span>: <span
-                        class="argument-description">The user to fetch the avatar for</span></li>
+                        class="argument-description">The user to fetch the profile picture for</span></li>
             </ul>
         </div>
 
