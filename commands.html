@@ -646,12 +646,12 @@
             <p><strong>Subcommands:</strong></p>
             <ul>
                 <li><code class="subcommand-name">join</code>: <span class="subcommand-description">Announce when users
-                        join</span>
+                        join the server</span>
                     <ul>
                         <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
                                 class="argument-description">Enable announcing when users join?</span></li>
                         <li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span
-                                class="argument-description">The message to send when a user join</span>
+                                class="argument-description">Message to send when users join</span>
                             <div class="replacements"><code><span class="tag-replacement">{tag}</span></code>,
                                 <code><span class="tag-replacement">{name}</span></code>,
                                 <code><span class="tag-replacement">{user}</span></code>,
@@ -666,12 +666,12 @@
                     </ul>
                 </li>
                 <li><code class="subcommand-name">leave</code>: <span class="subcommand-description">Announce when users
-                        leave</span>
+                        leave the server</span>
                     <ul>
                         <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
                                 class="argument-description">Enable announcing when users leave?</span></li>
                         <li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span
-                                class="argument-description">The message to send when a user leave</span>
+                                class="argument-description">Message to send when users leave</span>
                             <div class="replacements"><code><span class="tag-replacement">{tag}</span></code>,
                                 <code><span class="tag-replacement">{name}</span></code>,
                                 <code><span class="tag-replacement">{user}</span></code>
@@ -687,7 +687,7 @@
                         <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
                                 class="argument-description">Enable announcing when verified users leave?</span></li>
                         <li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span
-                                class="argument-description">The message to send when a verified user leave</span>
+                                class="argument-description">Message to send when verified users leave</span>
                             <div class="replacements"><code><span class="tag-replacement">{tag}</span></code>,
                                 <code><span class="tag-replacement">{name}</span></code>,
                                 <code><span class="tag-replacement">{user}</span></code>
@@ -699,19 +699,19 @@
                     </ul>
                 </li>
                 <li><code class="subcommand-name">rejoin</code>: <span class="subcommand-description">Announce when
-                        users rejoin</span>
+                        users rejoin the server</span>
                     <ul>
                         <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
                                 class="argument-description">Enable announcing when users rejoin?</span></li>
                         <li><code>same-user</code> <span class="arg-meta">(optional, string)</span>: <span
-                                class="argument-description">The message to send when a user rejoin</span>
+                                class="argument-description">Message to send when users rejoin</span>
                             <div class="replacements"><code><span class="tag-replacement">{tag}</span></code>,
                                 <code><span class="tag-replacement">{name}</span></code>,
                                 <code><span class="tag-replacement">{user}</span></code>
                             </div>
                         </li>
-                        <li><code>new-user</code> <span class="arg-meta">(optional, string)</span>: <span
-                                class="argument-description">The message for users who changed their username</span>
+                        <li><code>name-change</code> <span class="arg-meta">(optional, string)</span>: <span
+                                class="argument-description">Message for users who changed their username</span>
                             <div class="replacements"><code><span class="tag-replacement">{tag}</span></code>,
                                 <code><span class="tag-replacement">{name}</span></code>,
                                 <code><span class="tag-replacement">{user}</span></code>,
@@ -729,14 +729,14 @@
                         <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
                                 class="argument-description">Enable announcing when verified users rejoin?</span></li>
                         <li><code>same-user</code> <span class="arg-meta">(optional, string)</span>: <span
-                                class="argument-description">The message to send when a verified user rejoin</span>
+                                class="argument-description">Message to send when verified users rejoin</span>
                             <div class="replacements"><code><span class="tag-replacement">{tag}</span></code>,
                                 <code><span class="tag-replacement">{name}</span></code>,
                                 <code><span class="tag-replacement">{user}</span></code>
                             </div>
                         </li>
-                        <li><code>new-user</code> <span class="arg-meta">(optional, string)</span>: <span
-                                class="argument-description">The message for verified users who changed their
+                        <li><code>name-change</code> <span class="arg-meta">(optional, string)</span>: <span
+                                class="argument-description">Message for verified users who changed their
                                 username</span>
                             <div class="replacements"><code><span class="tag-replacement">{tag}</span></code>,
                                 <code><span class="tag-replacement">{name}</span></code>,
@@ -751,12 +751,12 @@
                     </ul>
                 </li>
                 <li><code class="subcommand-name">ban</code>: <span class="subcommand-description">Announce when users
-                        are banned</span>
+                        are banned from the server</span>
                     <ul>
                         <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
                                 class="argument-description">Enable announcing when users are banned?</span></li>
                         <li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span
-                                class="argument-description">The message to send when a user is banned</span>
+                                class="argument-description">Message to send when users are banned</span>
                             <div class="replacements"><code><span class="tag-replacement">{tag}</span></code>,
                                 <code><span class="tag-replacement">{name}</span></code>,
                                 <code><span class="tag-replacement">{user}</span></code>,
@@ -777,7 +777,7 @@
                                 class="argument-description">Enable announcing when verified users are banned?</span>
                         </li>
                         <li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span
-                                class="argument-description">The message to send when a verified user is banned</span>
+                                class="argument-description">Message to send when verified users are banned</span>
                             <div class="replacements"><code><span class="tag-replacement">{tag}</span></code>,
                                 <code><span class="tag-replacement">{name}</span></code>,
                                 <code><span class="tag-replacement">{user}</span></code>,
@@ -793,12 +793,12 @@
                     </ul>
                 </li>
                 <li><code class="subcommand-name">unban</code>: <span class="subcommand-description">Announce when users
-                        are unbanned</span>
+                        are unbanned from the server</span>
                     <ul>
                         <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
                                 class="argument-description">Enable announcing when users are unbanned?</span></li>
                         <li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span
-                                class="argument-description">The message to send when a user is unbanned</span>
+                                class="argument-description">Message to send when users are unbanned</span>
                             <div class="replacements"><code><span class="tag-replacement">{tag}</span></code>,
                                 <code><span class="tag-replacement">{name}</span></code>,
                                 <code><span class="tag-replacement">{user}</span></code>,
@@ -819,7 +819,7 @@
                                 class="argument-description">Enable announcing when verified users are unbanned?</span>
                         </li>
                         <li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span
-                                class="argument-description">The message to send when a verified user is unbanned</span>
+                                class="argument-description">Message to send when verified users are unbanned</span>
                             <div class="replacements"><code><span class="tag-replacement">{tag}</span></code>,
                                 <code><span class="tag-replacement">{name}</span></code>,
                                 <code><span class="tag-replacement">{user}</span></code>,
@@ -835,12 +835,12 @@
                     </ul>
                 </li>
                 <li><code class="subcommand-name">kick</code>: <span class="subcommand-description">Announce when users
-                        are kicked</span>
+                        are kicked from the server</span>
                     <ul>
                         <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
                                 class="argument-description">Enable announcing when users are kicked?</span></li>
                         <li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span
-                                class="argument-description">The message to send when a user is kicked</span>
+                                class="argument-description">Message to send when users are kicked</span>
                             <div class="replacements"><code><span class="tag-replacement">{tag}</span></code>,
                                 <code><span class="tag-replacement">{name}</span></code>,
                                 <code><span class="tag-replacement">{user}</span></code>,
@@ -861,7 +861,7 @@
                                 class="argument-description">Enable announcing when verified users are kicked?</span>
                         </li>
                         <li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span
-                                class="argument-description">The message to send when a verified user is kicked</span>
+                                class="argument-description">Message to send when verified users are kicked</span>
                             <div class="replacements"><code><span class="tag-replacement">{tag}</span></code>,
                                 <code><span class="tag-replacement">{name}</span></code>,
                                 <code><span class="tag-replacement">{user}</span></code>,
@@ -882,7 +882,7 @@
                         <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
                                 class="argument-description">Enable announcing when users are timed out?</span></li>
                         <li><code>applied</code> <span class="arg-meta">(optional, string)</span>: <span
-                                class="argument-description">The message to send when a user is timed out</span>
+                                class="argument-description">Message to send when timeouts are applied</span>
                             <div class="replacements"><code><span class="tag-replacement">{tag}</span></code>,
                                 <code><span class="tag-replacement">{name}</span></code>,
                                 <code><span class="tag-replacement">{user}</span></code>,
@@ -895,7 +895,7 @@
                             </div>
                         </li>
                         <li><code>removed</code> <span class="arg-meta">(optional, string)</span>: <span
-                                class="argument-description">The message to send when a timeout is removed</span>
+                                class="argument-description">Message to send when timeouts are removed</span>
                             <div class="replacements"><code><span class="tag-replacement">{tag}</span></code>,
                                 <code><span class="tag-replacement">{name}</span></code>,
                                 <code><span class="tag-replacement">{user}</span></code>,
@@ -905,7 +905,7 @@
                             </div>
                         </li>
                         <li><code>expired</code> <span class="arg-meta">(optional, string)</span>: <span
-                                class="argument-description">The message to send when a timeout expires</span>
+                                class="argument-description">Message to send when timeouts expire</span>
                             <div class="replacements"><code><span class="tag-replacement">{tag}</span></code>,
                                 <code><span class="tag-replacement">{name}</span></code>,
                                 <code><span class="tag-replacement">{user}</span></code>
@@ -922,8 +922,8 @@
                                 class="argument-description">Enable announcing when verified users are timed out?</span>
                         </li>
                         <li><code>applied</code> <span class="arg-meta">(optional, string)</span>: <span
-                                class="argument-description">The message to send when a verified user is timed
-                                out</span>
+                                class="argument-description">Message to send when verified users timeouts are
+                                applied</span>
                             <div class="replacements"><code><span class="tag-replacement">{tag}</span></code>,
                                 <code><span class="tag-replacement">{name}</span></code>,
                                 <code><span class="tag-replacement">{user}</span></code>,
@@ -936,7 +936,7 @@
                             </div>
                         </li>
                         <li><code>removed</code> <span class="arg-meta">(optional, string)</span>: <span
-                                class="argument-description">The message to send when a verified user timeout is
+                                class="argument-description">Message to send when verified users timeouts are
                                 removed</span>
                             <div class="replacements"><code><span class="tag-replacement">{tag}</span></code>,
                                 <code><span class="tag-replacement">{name}</span></code>,
@@ -947,8 +947,7 @@
                             </div>
                         </li>
                         <li><code>expired</code> <span class="arg-meta">(optional, string)</span>: <span
-                                class="argument-description">The message to send when a verified user timeout
-                                expires</span>
+                                class="argument-description">Message to send when verified users timeouts expire</span>
                             <div class="replacements"><code><span class="tag-replacement">{tag}</span></code>,
                                 <code><span class="tag-replacement">{name}</span></code>,
                                 <code><span class="tag-replacement">{user}</span></code>
@@ -965,7 +964,7 @@
                         <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
                                 class="argument-description">Enable user become verified messages?</span></li>
                         <li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span
-                                class="argument-description">The message to send when a user become verified</span>
+                                class="argument-description">Message to send when users become verified</span>
                             <div class="replacements"><code><span class="tag-replacement">{tag}</span></code>,
                                 <code><span class="tag-replacement">{name}</span></code>,
                                 <code><span class="tag-replacement">{user}</span></code>
@@ -981,7 +980,7 @@
                         <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
                                 class="argument-description">Enable announcing when users become verified?</span></li>
                         <li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span
-                                class="argument-description">The message to send when a user become verified</span>
+                                class="argument-description">Message to send when users become verified</span>
                             <div class="replacements"><code><span class="tag-replacement">{tag}</span></code>,
                                 <code><span class="tag-replacement">{name}</span></code>,
                                 <code><span class="tag-replacement">{user}</span></code>
@@ -1079,24 +1078,16 @@
             <p><strong>Subcommands:</strong></p>
             <ul>
                 <li><code class="subcommand-name">settings</code>: <span class="subcommand-description">Enable the chat
-                        XP/level system and edit cooldown, min/max XP and channel</span>
+                        XP/level system and edit cooldown and min/max XP</span>
                     <ul>
-                        <li><code>xp-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Enable the chat XP/level system?</span></li>
-                        <li><code>xp-cooldown</code> <span class="arg-meta">(optional, integer)</span>: <span
+                        <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                                class="argument-description">Enable chat XP/level system?</span></li>
+                        <li><code>cooldown</code> <span class="arg-meta">(optional, integer)</span>: <span
                                 class="argument-description">Cooldown period for XP gain in ms (1000ms = 1s)</span></li>
-                        <li><code>xp-min</code> <span class="arg-meta">(optional, integer)</span>: <span
+                        <li><code>min</code> <span class="arg-meta">(optional, integer)</span>: <span
                                 class="argument-description">Minimum XP per message based on message length</span></li>
-                        <li><code>xp-max</code> <span class="arg-meta">(optional, integer)</span>: <span
+                        <li><code>max</code> <span class="arg-meta">(optional, integer)</span>: <span
                                 class="argument-description">Maximum XP per message based on message length</span></li>
-                        <li><code>role-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Enable roles assigned to users based on their level?</span>
-                        </li>
-                        <li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span
-                                class="argument-description">Channel for level up and role gain messages</span></li>
-                        <li><code>channel-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Use the channel or send messages where it happens?</span>
-                        </li>
                     </ul>
                 </li>
                 <li><code class="subcommand-name">level-up</code>: <span class="subcommand-description">Enable and edit
@@ -1105,8 +1096,9 @@
                         <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
                                 class="argument-description">Enable level up messages?</span></li>
                         <li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span
-                                class="argument-description">The message to send when a user levels up.</span>
-                            <div class="replacements"><code><span class="tag-replacement">{tag}</span></code>,
+                                class="argument-description">Message for new level notification</span>
+                            <div class="replacements">
+                                <code><span class="tag-replacement">{tag}</span></code>,
                                 <code><span class="tag-replacement">{name}</span></code>,
                                 <code><span class="tag-replacement">{user}</span></code>,
                                 <code><span class="tag-replacement">{level}</span></code>,
@@ -1114,6 +1106,11 @@
                                 <code><span class="tag-replacement">{xpneed}</span></code>,
                                 <code><span class="tag-replacement">{xpmiss}</span></code>
                             </div>
+                        </li>
+                        <li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span
+                                class="argument-description">Channel for level up messages</span></li>
+                        <li><code>channel-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                                class="argument-description">Limit level up messages to the selected channel?</span>
                         </li>
                     </ul>
                 </li>
@@ -1121,10 +1118,11 @@
                         response message for the /level command</span>
                     <ul>
                         <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Enable the /level command?</span></li>
+                                class="argument-description">Enable /level command?</span></li>
                         <li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span
-                                class="argument-description">Response message for the /level command</span>
-                            <div class="replacements"><code><span class="tag-replacement">{tag}</span></code>,
+                                class="argument-description">Response message for /level</span>
+                            <div class="replacements">
+                                <code><span class="tag-replacement">{tag}</span></code>,
                                 <code><span class="tag-replacement">{name}</span></code>,
                                 <code><span class="tag-replacement">{user}</span></code>,
                                 <code><span class="tag-replacement">{level}</span></code>,
@@ -1133,25 +1131,10 @@
                                 <code><span class="tag-replacement">{xpmiss}</span></code>
                             </div>
                         </li>
-                    </ul>
-                </li>
-                <li><code class="subcommand-name">rank-up</code>: <span class="subcommand-description">Enable and edit
-                        message sent when a user is granted a new role based on their level</span>
-                    <ul>
-                        <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Enable rank up messages?</span></li>
-                        <li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span
-                                class="argument-description">The message to send when a new role is granted</span>
-                            <div class="replacements"><code><span class="tag-replacement">{tag}</span></code>,
-                                <code><span class="tag-replacement">{name}</span></code>,
-                                <code><span class="tag-replacement">{user}</span></code>,
-                                <code><span class="tag-replacement">{level}</span></code>,
-                                <code><span class="tag-replacement">{xp}</span></code>,
-                                <code><span class="tag-replacement">{xpneed}</span></code>,
-                                <code><span class="tag-replacement">{xpmiss}</span></code>,
-                                <code><span class="tag-replacement">{roletag}</span></code>,
-                                <code><span class="tag-replacement">{rolename}</span></code>
-                            </div>
+                        <li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span
+                                class="argument-description">Channel for /level command usage</span></li>
+                        <li><code>channel-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                                class="argument-description">Limit /level command usage to the selected channel?</span>
                         </li>
                     </ul>
                 </li>
@@ -1159,12 +1142,13 @@
                         response message for the /rank command</span>
                     <ul>
                         <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Enable the /rank command?</span></li>
+                                class="argument-description">Enable /rank command?</span></li>
                         <li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span
-                                class="argument-description">Response message for the /rank command</span>
-                            <div class="replacements"><code><span class="tag-replacement">{tag}</span></code>,
-                                <code><span class="tag-replacement">{name}</span></code>,
+                                class="argument-description">Response message for /rank</span>
+                            <div class="replacements">
+                                <code><span class="tag-replacement">{tag}</span></code>,
                                 <code><span class="tag-replacement">{user}</span></code>,
+                                <code><span class="tag-replacement">{name}</span></code>,
                                 <code><span class="tag-replacement">{level}</span></code>,
                                 <code><span class="tag-replacement">{xp}</span></code>,
                                 <code><span class="tag-replacement">{xpneed}</span></code>,
@@ -1173,36 +1157,80 @@
                                 <code><span class="tag-replacement">{members}</span></code>
                             </div>
                         </li>
+                        <li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span
+                                class="argument-description">Channel for /rank command usage</span></li>
+                        <li><code>channel-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                                class="argument-description">Limit /rank command usage to the selected channel?</span>
+                        </li>
                     </ul>
                 </li>
-                <li><code class="subcommand-name">add-role</code>: <span class="subcommand-description">Add a role to be
+            </ul>
+        </div>
+
+        <div class="command-block">
+            <h3>/reward</h3>
+            <p><strong>Description:</strong> Rewards for the chat XP/level system</p>
+            <p><strong>Subcommands:</strong></p>
+            <ul>
+                <li><code class="subcommand-name">enable</code>: <span class="subcommand-description">Enable rewards for
+                        the chat XP/level system</span>
+                    <ul>
+                        <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                                class="argument-description">Enable rewards for the chat XP/level system?</span></li>
+                    </ul>
+                </li>
+                <li><code class="subcommand-name">add</code>: <span class="subcommand-description">Add a role to be
                         granted when a user reaches a specific level</span>
                     <ul>
                         <li><code>role</code> <span class="arg-meta">(required, role)</span>: <span
-                                class="argument-description">The role to be granted when a user reaches a specific
-                                level</span></li>
+                                class="argument-description">Role to grant</span></li>
                         <li><code>level</code> <span class="arg-meta">(required, integer)</span>: <span
-                                class="argument-description">The level at which to grant the role</span></li>
+                                class="argument-description">Level to grant the role</span></li>
                     </ul>
                 </li>
-                <li><code class="subcommand-name">remove-role</code>: <span class="subcommand-description">Remove a role
-                        to be granted when a user reaches a specific level</span>
+                <li><code class="subcommand-name">remove</code>: <span class="subcommand-description">Remove a role to
+                        be granted when a user reaches a specific level</span>
                     <ul>
                         <li><code>role</code> <span class="arg-meta">(required, role)</span>: <span
-                                class="argument-description">The role to remove</span></li>
+                                class="argument-description">Role to remove</span></li>
                     </ul>
                 </li>
-                <li><code class="subcommand-name">edit-role</code>: <span class="subcommand-description">Edit an
-                        existing role to be granted when a user reaches a specific level</span>
+                <li><code class="subcommand-name">edit</code>: <span class="subcommand-description">Edit an existing
+                        role to be granted when a user reaches a specific level</span>
                     <ul>
                         <li><code>role</code> <span class="arg-meta">(required, role)</span>: <span
-                                class="argument-description">The role to edit</span></li>
+                                class="argument-description">Role to edit</span></li>
                         <li><code>level</code> <span class="arg-meta">(required, integer)</span>: <span
-                                class="argument-description">The new level requirement</span></li>
+                                class="argument-description">New level requirement</span></li>
                     </ul>
                 </li>
-                <li><code class="subcommand-name">list-roles</code>: <span class="subcommand-description">List all role
-                        rewards</span></li>
+                <li><code class="subcommand-name">list</code>: <span class="subcommand-description">List all roles to be
+                        granted when a user reaches specific levels</span></li>
+                <li><code class="subcommand-name">rank-up</code>: <span class="subcommand-description">Enable and edit
+                        message sent when a user is granted a new role based on their level</span>
+                    <ul>
+                        <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                                class="argument-description">Enable rank up messages?</span></li>
+                        <li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span
+                                class="argument-description">Message for new rank notification</span>
+                            <div class="replacements">
+                                <code><span class="tag-replacement">{tag}</span></code>,
+                                <code><span class="tag-replacement">{user}</span></code>,
+                                <code><span class="tag-replacement">{name}</span></code>,
+                                <code><span class="tag-replacement">{level}</span></code>,
+                                <code><span class="tag-replacement">{xp}</span></code>,
+                                <code><span class="tag-replacement">{xpneed}</span></code>,
+                                <code><span class="tag-replacement">{xpmiss}</span></code>,
+                                <code><span class="tag-replacement">{roletag}</span></code>,
+                                <code><span class="tag-replacement">{rolename}</span></code>
+                            </div>
+                        </li>
+                        <li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span
+                                class="argument-description">Channel for rank up messages</span></li>
+                        <li><code>channel-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                                class="argument-description">Limit rank up messages to the selected channel?</span></li>
+                    </ul>
+                </li>
             </ul>
         </div>
 
