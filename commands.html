@@ -229,16 +229,16 @@
             <p><strong>Description:</strong> Self-assignable color roles sorted by hue</p>
             <p><strong>Subcommands:</strong></p>
             <ul>
-                <li><code class="subcommand-name">add</code>: <span class="subcommand-description">Add a color to the
+                <li><code class="subcommand-name">add</code>: <span class="subcommand-description">Add color to the
                         list</span>
                     <ul>
                         <li><code>name</code> <span class="arg-meta">(required, string)</span>: <span
                                 class="argument-description">Name of the color</span></li>
                         <li><code>color</code> <span class="arg-meta">(required, string)</span>: <span
-                                class="argument-description">RGB hex of the color</span></li>
+                                class="argument-description">Hex RGB of the color</span></li>
                     </ul>
                 </li>
-                <li><code class="subcommand-name">remove</code>: <span class="subcommand-description">Remove a color
+                <li><code class="subcommand-name">remove</code>: <span class="subcommand-description">Remove color
                         from the list</span>
                     <ul>
                         <li><code>name</code> <span class="arg-meta">(required, string)</span>: <span
@@ -247,7 +247,7 @@
                 </li>
                 <li><code class="subcommand-name">list</code>: <span class="subcommand-description">List all
                         colors</span></li>
-                <li><code class="subcommand-name">edit</code>: <span class="subcommand-description">Edit a color in the
+                <li><code class="subcommand-name">edit</code>: <span class="subcommand-description">Edit color in the
                         list</span>
                     <ul>
                         <li><code>name</code> <span class="arg-meta">(required, string)</span>: <span
@@ -255,7 +255,7 @@
                         <li><code>new-name</code> <span class="arg-meta">(optional, string)</span>: <span
                                 class="argument-description">New name for the color</span></li>
                         <li><code>new-color</code> <span class="arg-meta">(optional, string)</span>: <span
-                                class="argument-description">New RGB hex for the color</span></li>
+                                class="argument-description">New hex RGB for the color</span></li>
                     </ul>
                 </li>
                 <li><code class="subcommand-name">default</code>: <span class="subcommand-description">Default color for
@@ -308,7 +308,7 @@
                         <li><code>group</code> <span class="arg-meta">(required, string)</span>: <span
                                 class="argument-description">Name of the user group</span></li>
                         <li><code>revoke</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Revoke access to all channels in the group for all
+                                class="argument-description">Revoke access to all channels for all
                                 members?</span></li>
                     </ul>
                 </li>
@@ -373,7 +373,7 @@
                         <li><code>member</code> <span class="arg-meta">(required, user)</span>: <span
                                 class="argument-description">Member to remove</span></li>
                         <li><code>revoke</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Revoke access to all the channels in the group?</span></li>
+                                class="argument-description">Revoke access to all channels in the group?</span></li>
                         <li><code>inform</code> <span class="arg-meta">(optional, boolean)</span>: <span
                                 class="argument-description">Inform the member that they have been removed?</span></li>
                     </ul>
@@ -479,12 +479,12 @@
                         <li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span
                                 class="argument-description">Channel for level up message</span></li>
                         <li><code>channel-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Limit level up message to selected channel?</span>
+                                class="argument-description">Limit to selected channel?</span>
                         </li>
                     </ul>
                 </li>
                 <li><code class="subcommand-name">level</code>: <span class="subcommand-description">Response message
-                        for the /level command</span>
+                        for /level command</span>
                     <ul>
                         <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
                                 class="argument-description">Enable /level command?</span></li>
@@ -508,7 +508,7 @@
                     </ul>
                 </li>
                 <li><code class="subcommand-name">rank</code>: <span class="subcommand-description">Response message for
-                        the /rank command</span>
+                        /rank command</span>
                     <ul>
                         <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
                                 class="argument-description">Enable /rank command?</span></li>
@@ -538,46 +538,45 @@
 
         <div class="command-block">
             <h3>/reward</h3>
-            <p><strong>Description:</strong> Chat XP/level rewards</p>
+            <p><strong>Description:</strong> Chat XP/level role rewards</p>
             <p><strong>Subcommands:</strong></p>
             <ul>
                 <li><code class="subcommand-name">settings</code>: <span class="subcommand-description">Chat XP/level
-                        reward role
-                        settings</span>
+                        role reward settings</span>
                     <ul>
                         <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Enable reward roles?</span></li>
+                                class="argument-description">Enable role rewards?</span></li>
                     </ul>
                 </li>
-                <li><code class="subcommand-name">add</code>: <span class="subcommand-description">Add reward
-                        role</span>
+                <li><code class="subcommand-name">add</code>: <span class="subcommand-description">Add role
+                        reward</span>
                     <ul>
                         <li><code>role</code> <span class="arg-meta">(required, role)</span>: <span
-                                class="argument-description">Role to grant/edit/remove</span></li>
+                                class="argument-description">Role to grant</span></li>
                         <li><code>level</code> <span class="arg-meta">(required, integer)</span>: <span
                                 class="argument-description">Level to grant role</span></li>
                     </ul>
                 </li>
-                <li><code class="subcommand-name">remove</code>: <span class="subcommand-description">Remove reward
-                        role</span>
+                <li><code class="subcommand-name">remove</code>: <span class="subcommand-description">Remove role
+                        reward</span>
                     <ul>
                         <li><code>role</code> <span class="arg-meta">(required, role)</span>: <span
-                                class="argument-description">Role to grant/edit/remove</span></li>
+                                class="argument-description">Role to remove</span></li>
                     </ul>
                 </li>
                 <li><code class="subcommand-name">edit</code>: <span class="subcommand-description">Edit reward
                         role</span>
                     <ul>
                         <li><code>role</code> <span class="arg-meta">(required, role)</span>: <span
-                                class="argument-description">Role to grant/edit/remove</span></li>
+                                class="argument-description">Role to edit</span></li>
                         <li><code>level</code> <span class="arg-meta">(required, integer)</span>: <span
-                                class="argument-description">Level to grant role</span></li>
+                                class="argument-description">New level requirement</span></li>
                     </ul>
                 </li>
-                <li><code class="subcommand-name">list</code>: <span class="subcommand-description">List reward
-                        roles</span></li>
+                <li><code class="subcommand-name">list</code>: <span class="subcommand-description">List role
+                        rewards</span></li>
                 <li><code class="subcommand-name">promote</code>: <span class="subcommand-description">Message when
-                        users rank up</span>
+                        users gain a role reward</span>
                     <ul>
                         <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
                                 class="argument-description">Enable reward message?</span></li>
@@ -598,7 +597,7 @@
                         <li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span
                                 class="argument-description">Channel for reward message</span></li>
                         <li><code>channel-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Limit reward message to selected channel?</span></li>
+                                class="argument-description">Limit message to selected channel?</span></li>
                     </ul>
                 </li>
             </ul>
@@ -676,7 +675,7 @@
 
         <div class="command-block">
             <h3>/cleanup</h3>
-            <p><strong>Description:</strong> Kick members without a reward role</p>
+            <p><strong>Description:</strong> Kick members without role reward</p>
             <p><strong>Options:</strong></p>
             <ul>
                 <li><code>ban</code> <span class="arg-meta">(optional, boolean)</span>: <span
