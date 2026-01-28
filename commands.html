@@ -290,156 +290,6 @@
             </ul>
         </div>
 
-        <div class="command-block">
-            <h3>/group</h3>
-            <p><strong>Description:</strong> User groups that grant channel permissions</p>
-            <p><strong>Subcommands:</strong></p>
-            <ul>
-                <li><code class="subcommand-name">create</code>: <span class="subcommand-description">Create user
-                        group</span>
-                    <ul>
-                        <li><code>group</code> <span class="arg-meta">(required, string)</span>: <span
-                                class="argument-description">Name of the user group</span></li>
-                    </ul>
-                </li>
-                <li><code class="subcommand-name">delete</code>: <span class="subcommand-description">Delete user
-                        group</span>
-                    <ul>
-                        <li><code>group</code> <span class="arg-meta">(required, string)</span>: <span
-                                class="argument-description">Name of the user group</span></li>
-                        <li><code>revoke</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Revoke access to all channels for all
-                                members?</span></li>
-                    </ul>
-                </li>
-                <li><code class="subcommand-name">list</code>: <span class="subcommand-description">List all users and
-                        channels in user group</span>
-                    <ul>
-                        <li><code>group</code> <span class="arg-meta">(required, string)</span>: <span
-                                class="argument-description">Name of the user group</span></li>
-                    </ul>
-                </li>
-                <li><code class="subcommand-name">restore</code>: <span class="subcommand-description">Restore group
-                        membership when users rejoin?</span>
-                    <ul>
-                        <li><code>group</code> <span class="arg-meta">(required, string)</span>: <span
-                                class="argument-description">Name of the user group</span></li>
-                        <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Enable restoring group membership?</span></li>
-                    </ul>
-                </li>
-                <li><code class="subcommand-name">add-member</code>: <span class="subcommand-description">Add member to
-                        user group</span>
-                    <ul>
-                        <li><code>group</code> <span class="arg-meta">(required, string)</span>: <span
-                                class="argument-description">Name of the user group</span></li>
-                        <li><code>member</code> <span class="arg-meta">(required, user)</span>: <span
-                                class="argument-description">Member to add</span></li>
-                    </ul>
-                </li>
-                <li><code class="subcommand-name">add-channel</code>: <span class="subcommand-description">Add channel
-                        to user group</span>
-                    <ul>
-                        <li><code>group</code> <span class="arg-meta">(required, string)</span>: <span
-                                class="argument-description">Name of the user group</span></li>
-                        <li><code>channel</code> <span class="arg-meta">(required, channel)</span>: <span
-                                class="argument-description">Channel to add</span></li>
-                    </ul>
-                </li>
-                <li><code class="subcommand-name">add-channel-viewers</code>: <span class="subcommand-description">Add
-                        all users who can view channel to user group</span>
-                    <ul>
-                        <li><code>group</code> <span class="arg-meta">(required, string)</span>: <span
-                                class="argument-description">Name of the user group</span></li>
-                        <li><code>channel</code> <span class="arg-meta">(required, channel)</span>: <span
-                                class="argument-description">Channel to add all users who can view</span></li>
-                    </ul>
-                </li>
-                <li><code class="subcommand-name">add-role</code>: <span class="subcommand-description">Add all users
-                        with role to user group</span>
-                    <ul>
-                        <li><code>group</code> <span class="arg-meta">(required, string)</span>: <span
-                                class="argument-description">Name of the user group</span></li>
-                        <li><code>role</code> <span class="arg-meta">(required, role)</span>: <span
-                                class="argument-description">Role to add all users with</span>
-                        </li>
-                    </ul>
-                </li>
-                <li><code class="subcommand-name">remove-member</code>: <span class="subcommand-description">Remove
-                        member from user group</span>
-                    <ul>
-                        <li><code>group</code> <span class="arg-meta">(required, string)</span>: <span
-                                class="argument-description">Name of the user group</span></li>
-                        <li><code>member</code> <span class="arg-meta">(required, user)</span>: <span
-                                class="argument-description">Member to remove</span></li>
-                        <li><code>revoke</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Revoke access to all channels in the group?</span></li>
-                        <li><code>inform</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Inform the member that they have been removed?</span></li>
-                    </ul>
-                </li>
-                <li><code class="subcommand-name">remove-channel</code>: <span class="subcommand-description">Remove
-                        channel from user group</span>
-                    <ul>
-                        <li><code>group</code> <span class="arg-meta">(required, string)</span>: <span
-                                class="argument-description">Name of the user group</span></li>
-                        <li><code>channel</code> <span class="arg-meta">(required, channel)</span>: <span
-                                class="argument-description">Channel to remove</span></li>
-                        <li><code>revoke</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Revoke access for all group members?</span>
-                        </li>
-                    </ul>
-                </li>
-                <li><code class="subcommand-name">remove-role</code>: <span class="subcommand-description">Remove role
-                        from a user group</span>
-                    <ul>
-                        <li><code>group</code> <span class="arg-meta">(required, string)</span>: <span
-                                class="argument-description">Name of the user group</span></li>
-                        <li><code>role</code> <span class="arg-meta">(required, role)</span>: <span
-                                class="argument-description">Role to remove</span></li>
-                    </ul>
-                </li>
-                <li><code class="subcommand-name">edit-permissions</code>: <span class="subcommand-description">Edit
-                        channel permissions for user group</span>
-                    <ul>
-                        <li><code>group</code> <span class="arg-meta">(required, string)</span>: <span
-                                class="argument-description">Name of the user group</span></li>
-                        <li><code>permission</code> <span class="arg-meta">(required, string)</span>: <span
-                                class="argument-description">Permission to edit</span></li>
-                        <li><code>enable</code> <span class="arg-meta">(required, boolean)</span>: <span
-                                class="argument-description">Enable or disable?</span></li>
-                        <li><code>mod</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Permission for mods only?</span></li>
-                    </ul>
-                </li>
-                <li><code class="subcommand-name">list-permissions</code>: <span class="subcommand-description">List
-                        channel permissions for user group</span>
-                    <ul>
-                        <li><code>group</code> <span class="arg-meta">(required, string)</span>: <span
-                                class="argument-description">Name of the user group</span></li>
-                    </ul>
-                </li>
-                <li><code class="subcommand-name">refresh-permissions</code>: <span
-                        class="subcommand-description">Update channel permissions for all members of user group</span>
-                    <ul>
-                        <li><code>group</code> <span class="arg-meta">(required, string)</span>: <span
-                                class="argument-description">Name of the user group</span></li>
-                    </ul>
-                </li>
-                <li><code class="subcommand-name">copy-permissions</code>: <span class="subcommand-description">Copy
-                        channel permissions from one user group to another</span>
-                    <ul>
-                        <li><code>source</code> <span class="arg-meta">(required, string)</span>: <span
-                                class="argument-description">Name of the source group</span>
-                        </li>
-                        <li><code>recipient</code> <span class="arg-meta">(required, string)</span>: <span
-                                class="argument-description">Name of the recipient group</span>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-
         <h2>Verification Commands</h2>
 
         <div class="command-block">
@@ -887,6 +737,156 @@
                         class="argument-description">Ban instead of kick?</span></li>
                 <li><code>retroactive</code> <span class="arg-meta">(optional, boolean)</span>: <span
                         class="argument-description">Apply to users who joined before enabling?</span></li>
+            </ul>
+        </div>
+
+        <div class="command-block">
+            <h3>/group</h3>
+            <p><strong>Description:</strong> User groups that grant channel permissions</p>
+            <p><strong>Subcommands:</strong></p>
+            <ul>
+                <li><code class="subcommand-name">create</code>: <span class="subcommand-description">Create user
+                        group</span>
+                    <ul>
+                        <li><code>group</code> <span class="arg-meta">(required, string)</span>: <span
+                                class="argument-description">Name of the user group</span></li>
+                    </ul>
+                </li>
+                <li><code class="subcommand-name">delete</code>: <span class="subcommand-description">Delete user
+                        group</span>
+                    <ul>
+                        <li><code>group</code> <span class="arg-meta">(required, string)</span>: <span
+                                class="argument-description">Name of the user group</span></li>
+                        <li><code>revoke</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                                class="argument-description">Revoke access to all channels for all
+                                members?</span></li>
+                    </ul>
+                </li>
+                <li><code class="subcommand-name">list</code>: <span class="subcommand-description">List all users and
+                        channels in user group</span>
+                    <ul>
+                        <li><code>group</code> <span class="arg-meta">(required, string)</span>: <span
+                                class="argument-description">Name of the user group</span></li>
+                    </ul>
+                </li>
+                <li><code class="subcommand-name">restore</code>: <span class="subcommand-description">Restore group
+                        membership when users rejoin?</span>
+                    <ul>
+                        <li><code>group</code> <span class="arg-meta">(required, string)</span>: <span
+                                class="argument-description">Name of the user group</span></li>
+                        <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                                class="argument-description">Enable restoring group membership?</span></li>
+                    </ul>
+                </li>
+                <li><code class="subcommand-name">add-member</code>: <span class="subcommand-description">Add member to
+                        user group</span>
+                    <ul>
+                        <li><code>group</code> <span class="arg-meta">(required, string)</span>: <span
+                                class="argument-description">Name of the user group</span></li>
+                        <li><code>member</code> <span class="arg-meta">(required, user)</span>: <span
+                                class="argument-description">Member to add</span></li>
+                    </ul>
+                </li>
+                <li><code class="subcommand-name">add-channel</code>: <span class="subcommand-description">Add channel
+                        to user group</span>
+                    <ul>
+                        <li><code>group</code> <span class="arg-meta">(required, string)</span>: <span
+                                class="argument-description">Name of the user group</span></li>
+                        <li><code>channel</code> <span class="arg-meta">(required, channel)</span>: <span
+                                class="argument-description">Channel to add</span></li>
+                    </ul>
+                </li>
+                <li><code class="subcommand-name">add-channel-viewers</code>: <span class="subcommand-description">Add
+                        all users who can view channel to user group</span>
+                    <ul>
+                        <li><code>group</code> <span class="arg-meta">(required, string)</span>: <span
+                                class="argument-description">Name of the user group</span></li>
+                        <li><code>channel</code> <span class="arg-meta">(required, channel)</span>: <span
+                                class="argument-description">Channel to add all users who can view</span></li>
+                    </ul>
+                </li>
+                <li><code class="subcommand-name">add-role</code>: <span class="subcommand-description">Add all users
+                        with role to user group</span>
+                    <ul>
+                        <li><code>group</code> <span class="arg-meta">(required, string)</span>: <span
+                                class="argument-description">Name of the user group</span></li>
+                        <li><code>role</code> <span class="arg-meta">(required, role)</span>: <span
+                                class="argument-description">Role to add all users with</span>
+                        </li>
+                    </ul>
+                </li>
+                <li><code class="subcommand-name">remove-member</code>: <span class="subcommand-description">Remove
+                        member from user group</span>
+                    <ul>
+                        <li><code>group</code> <span class="arg-meta">(required, string)</span>: <span
+                                class="argument-description">Name of the user group</span></li>
+                        <li><code>member</code> <span class="arg-meta">(required, user)</span>: <span
+                                class="argument-description">Member to remove</span></li>
+                        <li><code>revoke</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                                class="argument-description">Revoke access to all channels in the group?</span></li>
+                        <li><code>inform</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                                class="argument-description">Inform the member that they have been removed?</span></li>
+                    </ul>
+                </li>
+                <li><code class="subcommand-name">remove-channel</code>: <span class="subcommand-description">Remove
+                        channel from user group</span>
+                    <ul>
+                        <li><code>group</code> <span class="arg-meta">(required, string)</span>: <span
+                                class="argument-description">Name of the user group</span></li>
+                        <li><code>channel</code> <span class="arg-meta">(required, channel)</span>: <span
+                                class="argument-description">Channel to remove</span></li>
+                        <li><code>revoke</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                                class="argument-description">Revoke access for all group members?</span>
+                        </li>
+                    </ul>
+                </li>
+                <li><code class="subcommand-name">remove-role</code>: <span class="subcommand-description">Remove role
+                        from a user group</span>
+                    <ul>
+                        <li><code>group</code> <span class="arg-meta">(required, string)</span>: <span
+                                class="argument-description">Name of the user group</span></li>
+                        <li><code>role</code> <span class="arg-meta">(required, role)</span>: <span
+                                class="argument-description">Role to remove</span></li>
+                    </ul>
+                </li>
+                <li><code class="subcommand-name">edit-permissions</code>: <span class="subcommand-description">Edit
+                        channel permissions for user group</span>
+                    <ul>
+                        <li><code>group</code> <span class="arg-meta">(required, string)</span>: <span
+                                class="argument-description">Name of the user group</span></li>
+                        <li><code>permission</code> <span class="arg-meta">(required, string)</span>: <span
+                                class="argument-description">Permission to edit</span></li>
+                        <li><code>enable</code> <span class="arg-meta">(required, boolean)</span>: <span
+                                class="argument-description">Enable or disable?</span></li>
+                        <li><code>mod</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                                class="argument-description">Permission for mods only?</span></li>
+                    </ul>
+                </li>
+                <li><code class="subcommand-name">list-permissions</code>: <span class="subcommand-description">List
+                        channel permissions for user group</span>
+                    <ul>
+                        <li><code>group</code> <span class="arg-meta">(required, string)</span>: <span
+                                class="argument-description">Name of the user group</span></li>
+                    </ul>
+                </li>
+                <li><code class="subcommand-name">refresh-permissions</code>: <span
+                        class="subcommand-description">Update channel permissions for all members of user group</span>
+                    <ul>
+                        <li><code>group</code> <span class="arg-meta">(required, string)</span>: <span
+                                class="argument-description">Name of the user group</span></li>
+                    </ul>
+                </li>
+                <li><code class="subcommand-name">copy-permissions</code>: <span class="subcommand-description">Copy
+                        channel permissions from one user group to another</span>
+                    <ul>
+                        <li><code>source</code> <span class="arg-meta">(required, string)</span>: <span
+                                class="argument-description">Name of the source group</span>
+                        </li>
+                        <li><code>recipient</code> <span class="arg-meta">(required, string)</span>: <span
+                                class="argument-description">Name of the recipient group</span>
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </div>
 
