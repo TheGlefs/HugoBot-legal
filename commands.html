@@ -171,54 +171,54 @@
 
         <div class="command-block">
             <h3>/logs</h3>
-            <p><strong>Description:</strong> Important server logging settings</p>
+            <p><strong>Description:</strong> Server and bot event logging</p>
             <p><strong>Subcommands:</strong></p>
             <ul>
-                <li><code class="subcommand-name">error</code>: <span class="subcommand-description">The error log
-                        channel where bot error logs are sent</span>
+                <li><code class="subcommand-name">error</code>: <span class="subcommand-description">Channel where bot
+                        error logs are sent</span>
                     <ul>
                         <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
                                 class="argument-description">Enable error logging?</span></li>
                         <li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span
-                                class="argument-description">The channel to send error logs in</span></li>
+                                class="argument-description">Channel to send error logs</span></li>
                         <li><code>mention</code> <span class="arg-meta">(optional, boolean)</span>: <span
                                 class="argument-description">Enable mentions in error logs?</span></li>
                     </ul>
                 </li>
-                <li><code class="subcommand-name">chat</code>: <span class="subcommand-description">The chat log channel
-                        where chat logs are sent</span>
+                <li><code class="subcommand-name">chat</code>: <span class="subcommand-description">Channel where chat
+                        logs are sent</span>
                     <ul>
                         <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
                                 class="argument-description">Enable chat logging?</span></li>
                         <li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span
-                                class="argument-description">The channel to send chat logs in</span></li>
+                                class="argument-description">Channel to send chat logs</span></li>
                         <li><code>mention</code> <span class="arg-meta">(optional, boolean)</span>: <span
                                 class="argument-description">Enable mentions in chat logs?</span></li>
                     </ul>
                 </li>
-                <li><code class="subcommand-name">general</code>: <span class="subcommand-description">The general log
-                        channel where all other logs are sent</span>
+                <li><code class="subcommand-name">general</code>: <span class="subcommand-description">Channel where all
+                        other logs are sent</span>
                     <ul>
                         <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
                                 class="argument-description">Enable general logging?</span></li>
                         <li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span
-                                class="argument-description">The channel to send general logs in</span></li>
+                                class="argument-description">Channel to send general logs</span></li>
                         <li><code>mention</code> <span class="arg-meta">(optional, boolean)</span>: <span
                                 class="argument-description">Enable mentions in general logs?</span></li>
                     </ul>
                 </li>
-                <li><code class="subcommand-name">enable</code>: <span class="subcommand-description">Enable a specific
+                <li><code class="subcommand-name">enable</code>: <span class="subcommand-description">Enable specific
                         log event type</span>
                     <ul>
                         <li><code>type</code> <span class="arg-meta">(optional, string)</span>: <span
-                                class="argument-description">The event type to enable</span></li>
+                                class="argument-description">Event type to enable</span></li>
                     </ul>
                 </li>
-                <li><code class="subcommand-name">disable</code>: <span class="subcommand-description">Disable a
-                        specific log event type</span>
+                <li><code class="subcommand-name">disable</code>: <span class="subcommand-description">Disable specific
+                        log event type</span>
                     <ul>
                         <li><code>type</code> <span class="arg-meta">(optional, string)</span>: <span
-                                class="argument-description">The event type to disable</span></li>
+                                class="argument-description">Event type to disable</span></li>
                     </ul>
                 </li>
             </ul>
@@ -226,847 +226,216 @@
 
         <div class="command-block">
             <h3>/color</h3>
-            <p><strong>Description:</strong> Create, manage and post color roles</p>
+            <p><strong>Description:</strong> Self-assignable color roles</p>
             <p><strong>Subcommands:</strong></p>
             <ul>
+                <li><code class="subcommand-name">add</code>: <span class="subcommand-description">Add a color to the
+                        list</span>
+                    <ul>
+                        <li><code>name</code> <span class="arg-meta">(required, string)</span>: <span
+                                class="argument-description">Name of the color</span></li>
+                        <li><code>color</code> <span class="arg-meta">(required, string)</span>: <span
+                                class="argument-description">RGB hex of the color</span></li>
+                    </ul>
+                </li>
+                <li><code class="subcommand-name">remove</code>: <span class="subcommand-description">Remove a color
+                        from the list</span>
+                    <ul>
+                        <li><code>name</code> <span class="arg-meta">(required, string)</span>: <span
+                                class="argument-description">Name of the color</span></li>
+                    </ul>
+                </li>
+                <li><code class="subcommand-name">list</code>: <span class="subcommand-description">List all
+                        colors</span></li>
+                <li><code class="subcommand-name">edit</code>: <span class="subcommand-description">Edit a color in the
+                        list</span>
+                    <ul>
+                        <li><code>name</code> <span class="arg-meta">(required, string)</span>: <span
+                                class="argument-description">Name of the color</span></li>
+                        <li><code>new-name</code> <span class="arg-meta">(optional, string)</span>: <span
+                                class="argument-description">New name for the color</span></li>
+                        <li><code>new-color</code> <span class="arg-meta">(optional, string)</span>: <span
+                                class="argument-description">New RGB hex for the color</span></li>
+                    </ul>
+                </li>
+                <li><code class="subcommand-name">default</code>: <span class="subcommand-description">Default color for
+                        users yet to select one</span>
+                    <ul>
+                        <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                                class="argument-description">Enable default color?</span></li>
+                        <li><code>name</code> <span class="arg-meta">(optional, string)</span>: <span
+                                class="argument-description">Name of the color</span></li>
+                    </ul>
+                </li>
                 <li><code class="subcommand-name">create</code>: <span class="subcommand-description">Create color
-                        roles, placing them above a selected role</span>
+                        roles</span>
                     <ul>
                         <li><code>target</code> <span class="arg-meta">(required, role)</span>: <span
-                                class="argument-description">The role above which the color roles will be placed</span>
-                        </li>
+                                class="argument-description">Role above which color roles will be placed</span></li>
                         <li><code>prefix</code> <span class="arg-meta">(optional, string)</span>: <span
-                                class="argument-description">Prefix for color roles</span></li>
+                                class="argument-description">Prefix for the roles</span></li>
                         <li><code>suffix</code> <span class="arg-meta">(optional, string)</span>: <span
-                                class="argument-description">Suffix for color roles</span></li>
+                                class="argument-description">Suffix for the roles</span></li>
                     </ul>
                 </li>
                 <li><code class="subcommand-name">post</code>: <span class="subcommand-description">Post color role
                         selection embeds</span>
                     <ul>
                         <li><code>channel</code> <span class="arg-meta">(required, channel)</span>: <span
-                                class="argument-description">The channel to post the color selection in</span></li>
+                                class="argument-description">Channel to post color selection in</span></li>
                     </ul>
                 </li>
-                <li><code class="subcommand-name">default</code>: <span class="subcommand-description">The default color
-                        granted to users who have not selected a color</span>
-                    <ul>
-                        <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Enable use of the default color?</span></li>
-                        <li><code>name</code> <span class="arg-meta">(optional, string)</span>: <span
-                                class="argument-description">The name of the color to grant</span></li>
-                    </ul>
-                </li>
-                <li><code class="subcommand-name">add</code>: <span class="subcommand-description">Add a color to the
-                        color list, automatically sorted by hue before saving</span>
-                    <ul>
-                        <li><code>name</code> <span class="arg-meta">(required, string)</span>: <span
-                                class="argument-description">The name of the color to add</span></li>
-                        <li><code>color</code> <span class="arg-meta">(required, string)</span>: <span
-                                class="argument-description">The rgb hex of the color to add</span></li>
-                    </ul>
-                </li>
-                <li><code class="subcommand-name">remove</code>: <span class="subcommand-description">Remove a color
-                        from the color list</span>
-                    <ul>
-                        <li><code>name</code> <span class="arg-meta">(required, string)</span>: <span
-                                class="argument-description">The name of the color to remove</span></li>
-                    </ul>
-                </li>
-                <li><code class="subcommand-name">edit</code>: <span class="subcommand-description">Edit a color in the
-                        color list, automatically sorted by hue before saving</span>
-                    <ul>
-                        <li><code>name</code> <span class="arg-meta">(required, string)</span>: <span
-                                class="argument-description">The name of the color to edit</span></li>
-                        <li><code>new-name</code> <span class="arg-meta">(optional, string)</span>: <span
-                                class="argument-description">The new name for the color</span></li>
-                        <li><code>new-color</code> <span class="arg-meta">(optional, string)</span>: <span
-                                class="argument-description">The new rgb hex for the color</span></li>
-                    </ul>
-                </li>
-                <li><code class="subcommand-name">list</code>: <span class="subcommand-description">List all colors in
-                        the color list</span></li>
-                <li><code class="subcommand-name">reset</code>: <span class="subcommand-description">Reset the color
-                        list to the default colors</span></li>
+                <li><code class="subcommand-name">reset</code>: <span class="subcommand-description">Reset color list to
+                        default colors</span></li>
             </ul>
         </div>
 
         <div class="command-block">
             <h3>/group</h3>
-            <p><strong>Description:</strong> Manage user groups that automatically grant channel permissions</p>
+            <p><strong>Description:</strong> User groups that grant channel permissions</p>
             <p><strong>Subcommands:</strong></p>
             <ul>
-                <li><code class="subcommand-name">create</code>: <span class="subcommand-description">Create a user
-                        group that automatically grant channel permissions</span>
-                    <ul>
-                        <li><code>group</code> <span class="arg-meta">(required, string)</span>: <span
-                                class="argument-description">The name of the user group</span></li>
-                    </ul>
-                </li>
-                <li><code class="subcommand-name">delete</code>: <span class="subcommand-description">Delete a user
+                <li><code class="subcommand-name">create</code>: <span class="subcommand-description">Create user
                         group</span>
                     <ul>
                         <li><code>group</code> <span class="arg-meta">(required, string)</span>: <span
-                                class="argument-description">The name of the user group</span></li>
+                                class="argument-description">Name of the user group</span></li>
+                    </ul>
+                </li>
+                <li><code class="subcommand-name">delete</code>: <span class="subcommand-description">Delete user
+                        group</span>
+                    <ul>
+                        <li><code>group</code> <span class="arg-meta">(required, string)</span>: <span
+                                class="argument-description">Name of the user group</span></li>
                         <li><code>revoke</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Revoke access to all the channels in the group for all
+                                class="argument-description">Revoke access to all channels in the group for all
                                 members?</span></li>
                     </ul>
                 </li>
                 <li><code class="subcommand-name">list</code>: <span class="subcommand-description">List all users and
-                        channels in a user group</span>
+                        channels in user group</span>
                     <ul>
-                        <li><code>group</code> <span class="arg-meta">(optional, string)</span>: <span
-                                class="argument-description">The name of the user group. Leave blank to list all
-                                groups.</span></li>
+                        <li><code>group</code> <span class="arg-meta">(required, string)</span>: <span
+                                class="argument-description">Name of the user group</span></li>
                     </ul>
                 </li>
-                <li><code class="subcommand-name">restore</code>: <span class="subcommand-description">Should group
-                        membership be restored when a user rejoins?</span>
+                <li><code class="subcommand-name">restore</code>: <span class="subcommand-description">Restore group
+                        membership when users rejoin?</span>
                     <ul>
-                        <li><code>group</code> <span class="arg-meta">(optional, string)</span>: <span
-                                class="argument-description">The name of the user group</span></li>
+                        <li><code>group</code> <span class="arg-meta">(required, string)</span>: <span
+                                class="argument-description">Name of the user group</span></li>
                         <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
                                 class="argument-description">Enable restoring group membership?</span></li>
                     </ul>
                 </li>
-                <li><code class="subcommand-name">add-member</code>: <span class="subcommand-description">Add a member
-                        to a user group</span>
+                <li><code class="subcommand-name">add-member</code>: <span class="subcommand-description">Add member to
+                        user group</span>
                     <ul>
                         <li><code>group</code> <span class="arg-meta">(required, string)</span>: <span
-                                class="argument-description">The name of the user group</span></li>
+                                class="argument-description">Name of the user group</span></li>
                         <li><code>member</code> <span class="arg-meta">(required, user)</span>: <span
-                                class="argument-description">The member to add to the user group</span></li>
+                                class="argument-description">Member to add</span></li>
                     </ul>
                 </li>
-                <li><code class="subcommand-name">add-channel</code>: <span class="subcommand-description">Add a channel
-                        to a user group all members will get permissions for</span>
+                <li><code class="subcommand-name">add-channel</code>: <span class="subcommand-description">Add channel
+                        to user group</span>
                     <ul>
                         <li><code>group</code> <span class="arg-meta">(required, string)</span>: <span
-                                class="argument-description">The name of the user group</span></li>
+                                class="argument-description">Name of the user group</span></li>
                         <li><code>channel</code> <span class="arg-meta">(required, channel)</span>: <span
-                                class="argument-description">The channel that all group members will get permissions
-                                for</span></li>
+                                class="argument-description">Channel to add</span></li>
                     </ul>
                 </li>
                 <li><code class="subcommand-name">add-channel-viewers</code>: <span class="subcommand-description">Add
-                        all users who can view a channel to a user group</span>
+                        all users who can view channel to user group</span>
                     <ul>
                         <li><code>group</code> <span class="arg-meta">(required, string)</span>: <span
-                                class="argument-description">The name of the user group</span></li>
+                                class="argument-description">Name of the user group</span></li>
                         <li><code>channel</code> <span class="arg-meta">(required, channel)</span>: <span
-                                class="argument-description">The channel to add all users who can view to the user
-                                group</span></li>
+                                class="argument-description">Channel to add all users who can view</span></li>
                     </ul>
                 </li>
                 <li><code class="subcommand-name">add-role</code>: <span class="subcommand-description">Add all users
-                        with a role to a user group</span>
+                        with role to user group</span>
                     <ul>
                         <li><code>group</code> <span class="arg-meta">(required, string)</span>: <span
-                                class="argument-description">The name of the user group</span></li>
+                                class="argument-description">Name of the user group</span></li>
                         <li><code>role</code> <span class="arg-meta">(required, role)</span>: <span
-                                class="argument-description">The role to add all users with to the user group</span>
+                                class="argument-description">Role to add all users with</span>
                         </li>
                     </ul>
                 </li>
-                <li><code class="subcommand-name">remove-member</code>: <span class="subcommand-description">Remove a
-                        member from a user group</span>
+                <li><code class="subcommand-name">remove-member</code>: <span class="subcommand-description">Remove
+                        member from user group</span>
                     <ul>
                         <li><code>group</code> <span class="arg-meta">(required, string)</span>: <span
-                                class="argument-description">The name of the user group</span></li>
-                        <li><code>member</code> <span class="arg-meta">(required, string)</span>: <span
-                                class="argument-description">The member to remove from the user group</span></li>
+                                class="argument-description">Name of the user group</span></li>
+                        <li><code>member</code> <span class="arg-meta">(required, user)</span>: <span
+                                class="argument-description">Member to remove</span></li>
                         <li><code>revoke</code> <span class="arg-meta">(optional, boolean)</span>: <span
                                 class="argument-description">Revoke access to all the channels in the group?</span></li>
                         <li><code>inform</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Inform the member that they have been removed from the
-                                group?</span></li>
+                                class="argument-description">Inform the member that they have been removed?</span></li>
                     </ul>
                 </li>
-                <li><code class="subcommand-name">remove-channel</code>: <span class="subcommand-description">Remove a
-                        channel from a user group</span>
+                <li><code class="subcommand-name">remove-channel</code>: <span class="subcommand-description">Remove
+                        channel from user group</span>
                     <ul>
                         <li><code>group</code> <span class="arg-meta">(required, string)</span>: <span
-                                class="argument-description">The name of the user group</span></li>
+                                class="argument-description">Name of the user group</span></li>
                         <li><code>channel</code> <span class="arg-meta">(required, channel)</span>: <span
-                                class="argument-description">The channel to remove from the user group</span></li>
+                                class="argument-description">Channel to remove</span></li>
                         <li><code>revoke</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Revoke access to the channel from all group members?</span>
+                                class="argument-description">Revoke access for all group members?</span>
                         </li>
                     </ul>
                 </li>
-                <li><code class="subcommand-name">remove-role</code>: <span class="subcommand-description">Remove a role
-                        from user a group</span>
+                <li><code class="subcommand-name">remove-role</code>: <span class="subcommand-description">Remove role
+                        from a user group</span>
                     <ul>
                         <li><code>group</code> <span class="arg-meta">(required, string)</span>: <span
-                                class="argument-description">The name of the user group</span></li>
+                                class="argument-description">Name of the user group</span></li>
                         <li><code>role</code> <span class="arg-meta">(required, role)</span>: <span
-                                class="argument-description">The role to remove from the user group</span></li>
+                                class="argument-description">Role to remove</span></li>
                     </ul>
                 </li>
-                <li><code class="subcommand-name">edit-permissions</code>: <span class="subcommand-description">Edit the
-                        automatic channel permissions for a user group</span>
+                <li><code class="subcommand-name">edit-permissions</code>: <span class="subcommand-description">Edit
+                        channel permissions for user group</span>
                     <ul>
                         <li><code>group</code> <span class="arg-meta">(required, string)</span>: <span
-                                class="argument-description">The name of the user group</span></li>
+                                class="argument-description">Name of the user group</span></li>
                         <li><code>permission</code> <span class="arg-meta">(required, string)</span>: <span
-                                class="argument-description">The permission to edit</span></li>
+                                class="argument-description">Permission to edit</span></li>
                         <li><code>enable</code> <span class="arg-meta">(required, boolean)</span>: <span
-                                class="argument-description">Enable or disable the permission</span></li>
+                                class="argument-description">Enable or disable?</span></li>
                         <li><code>mod</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Is this a permission for mods only?</span></li>
+                                class="argument-description">Permission for mods only?</span></li>
                     </ul>
                 </li>
-                <li><code class="subcommand-name">list-permissions</code>: <span class="subcommand-description">List the
-                        automatic channel permissions for a user group</span>
+                <li><code class="subcommand-name">list-permissions</code>: <span class="subcommand-description">List
+                        channel permissions for user group</span>
                     <ul>
                         <li><code>group</code> <span class="arg-meta">(required, string)</span>: <span
-                                class="argument-description">The name of the user group</span></li>
+                                class="argument-description">Name of the user group</span></li>
                     </ul>
                 </li>
                 <li><code class="subcommand-name">refresh-permissions</code>: <span
-                        class="subcommand-description">Refresh channel permissions for all members of a user
-                        group</span>
+                        class="subcommand-description">Update channel permissions for all members of user group</span>
                     <ul>
                         <li><code>group</code> <span class="arg-meta">(required, string)</span>: <span
-                                class="argument-description">The name of the user group</span></li>
+                                class="argument-description">Name of the user group</span></li>
                     </ul>
                 </li>
                 <li><code class="subcommand-name">copy-permissions</code>: <span class="subcommand-description">Copy
                         channel permissions from one user group to another</span>
                     <ul>
                         <li><code>source</code> <span class="arg-meta">(required, string)</span>: <span
-                                class="argument-description">The name of the user group to copy permissions from</span>
+                                class="argument-description">Name of the source group</span>
                         </li>
                         <li><code>recipient</code> <span class="arg-meta">(required, string)</span>: <span
-                                class="argument-description">The name of the user group to copy permissions to</span>
+                                class="argument-description">Name of the recipient group</span>
                         </li>
                     </ul>
-                </li>
-            </ul>
-        </div>
-
-        <h2>Verification Commands</h2>
-
-        <div class="command-block">
-            <h3>/role</h3>
-            <p><strong>Description:</strong> Important server roles</p>
-            <p><strong>Subcommands:</strong></p>
-            <ul>
-                <li><code class="subcommand-name">verified</code>: <span class="subcommand-description">Configure the
-                        role that counts as being verified</span>
-                    <ul>
-                        <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Enable use of the verified role?</span></li>
-                        <li><code>role</code> <span class="arg-meta">(optional, role)</span>: <span
-                                class="argument-description">The role that counts as being verified</span></li>
-                    </ul>
-                </li>
-                <li><code class="subcommand-name">unverified</code>: <span class="subcommand-description">Configure the
-                        role that counts as being unverified</span>
-                    <ul>
-                        <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Enable use of the unverified role?</span></li>
-                        <li><code>role</code> <span class="arg-meta">(optional, role)</span>: <span
-                                class="argument-description">The role that counts as being unverified</span></li>
-                    </ul>
-                </li>
-                <li><code class="subcommand-name">moderator</code>: <span class="subcommand-description">Configure the
-                        role that counts as being a moderator</span>
-                    <ul>
-                        <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Enable use of the moderator role?</span></li>
-                        <li><code>role</code> <span class="arg-meta">(optional, role)</span>: <span
-                                class="argument-description">The role that counts as being a moderator</span></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-
-        <div class="command-block">
-            <h3>/captcha</h3>
-            <p><strong>Description:</strong> Manage captcha verification</p>
-            <p><strong>Subcommands:</strong></p>
-            <ul>
-                <li><code class="subcommand-name">post</code>: <span class="subcommand-description">Post the captcha
-                        verification embed</span>
-                    <ul>
-                        <li><code>channel</code> <span class="arg-meta">(required, channel)</span>: <span
-                                class="argument-description">Channel to post the captcha in</span></li>
-                        <li><code>title</code> <span class="arg-meta">(optional, string)</span>: <span
-                                class="argument-description">The title of the captcha</span></li>
-                        <li><code>description</code> <span class="arg-meta">(optional, string)</span>: <span
-                                class="argument-description">The description of the captcha</span></li>
-                    </ul>
-                </li>
-                <li><code class="subcommand-name">settings</code>: <span class="subcommand-description">Configure
-                        captcha settings</span>
-                    <ul>
-                        <li><code>fail-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Enable max verification attempts?</span></li>
-                        <li><code>fail-max</code> <span class="arg-meta">(optional, integer)</span>: <span
-                                class="argument-description">Max verification attempts before kick/ban</span>
-                        </li>
-                        <li><code>fail-ban</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Ban users who fail verification instead of kicking?</span>
-                        </li>
-                        <li><code>fail-reason</code> <span class="arg-meta">(optional, string)</span>: <span
-                                class="argument-description">Reason for kick/ban after failing verification</span></li>
-                        <li><code>time-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Enable time limit?</span></li>
-                        <li><code>time-limit</code> <span class="arg-meta">(optional, integer)</span>: <span
-                                class="argument-description">Time limit in hours before automatic kick/ban</span></li>
-                        <li><code>time-ban</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Ban users after time limit instead of kicking?</span></li>
-                        <li><code>time-reason</code> <span class="arg-meta">(optional, string)</span>: <span
-                                class="argument-description">Reason for kick/ban after time limit</span></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-
-        <h2>Moderation Commands</h2>
-
-        <div class="command-block">
-            <h3>/rolekick</h3>
-            <p><strong>Description:</strong> Roles that get instantly kicked</p>
-            <p><strong>Subcommands:</strong></p>
-            <ul>
-                <li><code class="subcommand-name">settings</code>: <span class="subcommand-description">Enable forbidden
-                        roles and edit ban/kick mode and reason</span>
-                    <ul>
-                        <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Enable kicking users with forbidden roles?</span></li>
-                        <li><code>ban</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Ban instead of kick?</span></li>
-                        <li><code>reason</code> <span class="arg-meta">(optional, string)</span>: <span
-                                class="argument-description">The reason provided when kicking users</span>
-                            <div class="replacements"><code><span class="tag-replacement">{roletag}</span></code>,
-                                <code><span class="tag-replacement">{rolename}</span></code>
-                            </div>
-                        </li>
-                    </ul>
-                </li>
-                <li><code class="subcommand-name">add</code>: <span class="subcommand-description">Add a role to the
-                        list of roles that instantly get kicked</span>
-                    <ul>
-                        <li><code>role</code> <span class="arg-meta">(required, role)</span>: <span
-                                class="argument-description">The role to add to the list</span></li>
-                        <li><code>retroactive</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Apply to existing members with this role?</span></li>
-                    </ul>
-                </li>
-                <li><code class="subcommand-name">remove</code>: <span class="subcommand-description">Remove a role from
-                        the list of roles that instantly get kicked</span>
-                    <ul>
-                        <li><code>role</code> <span class="arg-meta">(required, role)</span>: <span
-                                class="argument-description">The role to remove from the list</span></li>
-                    </ul>
-                </li>
-                <li><code class="subcommand-name">list</code>: <span class="subcommand-description">List all roles that
-                        get instantly kicked</span></li>
-            </ul>
-        </div>
-
-        <div class="command-block">
-            <h3>/agekick</h3>
-            <p><strong>Description:</strong> Automatically kick joining users based on account age</p>
-            <p><strong>Options:</strong></p>
-            <ul>
-                <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                        class="argument-description">Enable kicking new accounts?</span></li>
-                <li><code>days</code> <span class="arg-meta">(optional, integer)</span>: <span
-                        class="argument-description">The minimum account age in days</span></li>
-                <li><code>reason</code> <span class="arg-meta">(optional, string)</span>: <span
-                        class="argument-description">The reason provided when kicking users</span></li>
-                <li><code>ban</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                        class="argument-description">Ban instead of kick?</span></li>
-                <li><code>retroactive</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                        class="argument-description">Apply to users who joined before enabling the feature?</span></li>
-            </ul>
-        </div>
-
-        <div class="command-block">
-            <h3>/purge</h3>
-            <p><strong>Description:</strong> Delete all messages from a specific user</p>
-            <p><strong>Options:</strong></p>
-            <ul>
-                <li><code>target</code> <span class="arg-meta">(required, user)</span>: <span
-                        class="argument-description">The user whose messages you want to delete</span></li>
-            </ul>
-        </div>
-
-        <h2>Automation Commands</h2>
-
-        <div class="command-block">
-            <h3>/autothread</h3>
-            <p><strong>Description:</strong> Automatically create threads on new messages</p>
-            <p><strong>Subcommands:</strong></p>
-            <ul>
-                <li><code class="subcommand-name">settings</code>: <span class="subcommand-description">Enable automatic
-                        thread creation and edit their title and response</span>
-                    <ul>
-                        <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Enable automatic thread creation?</span></li>
-                        <li><code>title</code> <span class="arg-meta">(optional, string)</span>: <span
-                                class="argument-description">The title of the threads</span>
-                            <div class="replacements"><code><span class="tag-replacement">{name}</span></code>,
-                                <code><span class="tag-replacement">{user}</span></code>,
-                                <code><span class="tag-replacement">{date}</span></code>,
-                                <code><span class="tag-replacement">{time}</span></code>
-                            </div>
-                        </li>
-                        <li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span
-                                class="argument-description">The message to send when a thread is created</span></li>
-                        <li><code>message-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Enable sending the message?</span></li>
-                    </ul>
-                </li>
-                <li><code class="subcommand-name">add</code>: <span class="subcommand-description">Add a channel to the
-                        list of channels with automatic thread creation</span>
-                    <ul>
-                        <li><code>channel</code> <span class="arg-meta">(required, channel)</span>: <span
-                                class="argument-description">The channel to add to the list</span></li>
-                    </ul>
-                </li>
-                <li><code class="subcommand-name">remove</code>: <span class="subcommand-description">Remove a channel
-                        from the list of channels with automatic thread creation</span>
-                    <ul>
-                        <li><code>channel</code> <span class="arg-meta">(required, channel)</span>: <span
-                                class="argument-description">The channel to remove from the list</span></li>
-                    </ul>
-                </li>
-                <li><code class="subcommand-name">list</code>: <span class="subcommand-description">List all channels
-                        with automatic thread creation</span></li>
-            </ul>
-        </div>
-        <div class="command-block">
-            <h3>/message</h3>
-            <p><strong>Description:</strong> User arrival and departure message settings</p>
-            <p><strong>Subcommands:</strong></p>
-            <ul>
-                <li><code class="subcommand-name">join</code>: <span class="subcommand-description">Announce when users
-                        join the server</span>
-                    <ul>
-                        <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Enable announcing when users join?</span></li>
-                        <li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span
-                                class="argument-description">Message to send when users join</span>
-                            <div class="replacements"><code><span class="tag-replacement">{tag}</span></code>,
-                                <code><span class="tag-replacement">{name}</span></code>,
-                                <code><span class="tag-replacement">{user}</span></code>,
-                                <code><span class="tag-replacement">{age}</span></code>,
-                                <code><span class="tag-replacement">{invitertag}</span></code>,
-                                <code><span class="tag-replacement">{invitername}</span></code>,
-                                <code><span class="tag-replacement">{inviteruser}</span></code>
-                            </div>
-                        </li>
-                        <li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span
-                                class="argument-description">The channel to send join messages in</span></li>
-                    </ul>
-                </li>
-                <li><code class="subcommand-name">leave</code>: <span class="subcommand-description">Announce when users
-                        leave the server</span>
-                    <ul>
-                        <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Enable announcing when users leave?</span></li>
-                        <li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span
-                                class="argument-description">Message to send when users leave</span>
-                            <div class="replacements"><code><span class="tag-replacement">{tag}</span></code>,
-                                <code><span class="tag-replacement">{name}</span></code>,
-                                <code><span class="tag-replacement">{user}</span></code>
-                            </div>
-                        </li>
-                        <li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span
-                                class="argument-description">The channel to send leave messages in</span></li>
-                    </ul>
-                </li>
-                <li><code class="subcommand-name">leave-verified</code>: <span class="subcommand-description">Extra
-                        announcement when verified users leave</span>
-                    <ul>
-                        <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Enable announcing when verified users leave?</span></li>
-                        <li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span
-                                class="argument-description">Message to send when verified users leave</span>
-                            <div class="replacements"><code><span class="tag-replacement">{tag}</span></code>,
-                                <code><span class="tag-replacement">{name}</span></code>,
-                                <code><span class="tag-replacement">{user}</span></code>
-                            </div>
-                        </li>
-                        <li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span
-                                class="argument-description">The channel to send verified user leave messages in</span>
-                        </li>
-                    </ul>
-                </li>
-                <li><code class="subcommand-name">rejoin</code>: <span class="subcommand-description">Announce when
-                        users rejoin the server</span>
-                    <ul>
-                        <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Enable announcing when users rejoin?</span></li>
-                        <li><code>same-user</code> <span class="arg-meta">(optional, string)</span>: <span
-                                class="argument-description">Message to send when users rejoin</span>
-                            <div class="replacements"><code><span class="tag-replacement">{tag}</span></code>,
-                                <code><span class="tag-replacement">{name}</span></code>,
-                                <code><span class="tag-replacement">{user}</span></code>
-                            </div>
-                        </li>
-                        <li><code>name-change</code> <span class="arg-meta">(optional, string)</span>: <span
-                                class="argument-description">Message for users who changed their username</span>
-                            <div class="replacements"><code><span class="tag-replacement">{tag}</span></code>,
-                                <code><span class="tag-replacement">{name}</span></code>,
-                                <code><span class="tag-replacement">{user}</span></code>,
-                                <code><span class="tag-replacement">{oldname}</span></code>,
-                                <code><span class="tag-replacement">{olduser}</span></code>
-                            </div>
-                        </li>
-                        <li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span
-                                class="argument-description">The channel to send rejoin messages in</span></li>
-                    </ul>
-                </li>
-                <li><code class="subcommand-name">rejoin-verified</code>: <span class="subcommand-description">Extra
-                        announcement when verified users rejoin</span>
-                    <ul>
-                        <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Enable announcing when verified users rejoin?</span></li>
-                        <li><code>same-user</code> <span class="arg-meta">(optional, string)</span>: <span
-                                class="argument-description">Message to send when verified users rejoin</span>
-                            <div class="replacements"><code><span class="tag-replacement">{tag}</span></code>,
-                                <code><span class="tag-replacement">{name}</span></code>,
-                                <code><span class="tag-replacement">{user}</span></code>
-                            </div>
-                        </li>
-                        <li><code>name-change</code> <span class="arg-meta">(optional, string)</span>: <span
-                                class="argument-description">Message for verified users who changed their
-                                username</span>
-                            <div class="replacements"><code><span class="tag-replacement">{tag}</span></code>,
-                                <code><span class="tag-replacement">{name}</span></code>,
-                                <code><span class="tag-replacement">{user}</span></code>,
-                                <code><span class="tag-replacement">{oldname}</span></code>,
-                                <code><span class="tag-replacement">{olduser}</span></code>
-                            </div>
-                        </li>
-                        <li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span
-                                class="argument-description">The channel to send verified user rejoin messages in</span>
-                        </li>
-                    </ul>
-                </li>
-                <li><code class="subcommand-name">ban</code>: <span class="subcommand-description">Announce when users
-                        are banned from the server</span>
-                    <ul>
-                        <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Enable announcing when users are banned?</span></li>
-                        <li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span
-                                class="argument-description">Message to send when users are banned</span>
-                            <div class="replacements"><code><span class="tag-replacement">{tag}</span></code>,
-                                <code><span class="tag-replacement">{name}</span></code>,
-                                <code><span class="tag-replacement">{user}</span></code>,
-                                <code><span class="tag-replacement">{modtag}</span></code>,
-                                <code><span class="tag-replacement">{modname}</span></code>,
-                                <code><span class="tag-replacement">{moduser}</span></code>,
-                                <code><span class="tag-replacement">{reason}</span></code>
-                            </div>
-                        </li>
-                        <li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span
-                                class="argument-description">The channel to send ban messages in</span></li>
-                    </ul>
-                </li>
-                <li><code class="subcommand-name">ban-verified</code>: <span class="subcommand-description">Extra
-                        announcement when verified users are banned</span>
-                    <ul>
-                        <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Enable announcing when verified users are banned?</span>
-                        </li>
-                        <li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span
-                                class="argument-description">Message to send when verified users are banned</span>
-                            <div class="replacements"><code><span class="tag-replacement">{tag}</span></code>,
-                                <code><span class="tag-replacement">{name}</span></code>,
-                                <code><span class="tag-replacement">{user}</span></code>,
-                                <code><span class="tag-replacement">{modtag}</span></code>,
-                                <code><span class="tag-replacement">{modname}</span></code>,
-                                <code><span class="tag-replacement">{moduser}</span></code>,
-                                <code><span class="tag-replacement">{reason}</span></code>
-                            </div>
-                        </li>
-                        <li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span
-                                class="argument-description">The channel to send verified user ban messages in</span>
-                        </li>
-                    </ul>
-                </li>
-                <li><code class="subcommand-name">unban</code>: <span class="subcommand-description">Announce when users
-                        are unbanned from the server</span>
-                    <ul>
-                        <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Enable announcing when users are unbanned?</span></li>
-                        <li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span
-                                class="argument-description">Message to send when users are unbanned</span>
-                            <div class="replacements"><code><span class="tag-replacement">{tag}</span></code>,
-                                <code><span class="tag-replacement">{name}</span></code>,
-                                <code><span class="tag-replacement">{user}</span></code>,
-                                <code><span class="tag-replacement">{modtag}</span></code>,
-                                <code><span class="tag-replacement">{modname}</span></code>,
-                                <code><span class="tag-replacement">{moduser}</span></code>,
-                                <code><span class="tag-replacement">{reason}</span></code>
-                            </div>
-                        </li>
-                        <li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span
-                                class="argument-description">The channel to send unban messages in</span></li>
-                    </ul>
-                </li>
-                <li><code class="subcommand-name">unban-verified</code>: <span class="subcommand-description">Extra
-                        announcement when verified users are unbanned</span>
-                    <ul>
-                        <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Enable announcing when verified users are unbanned?</span>
-                        </li>
-                        <li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span
-                                class="argument-description">Message to send when verified users are unbanned</span>
-                            <div class="replacements"><code><span class="tag-replacement">{tag}</span></code>,
-                                <code><span class="tag-replacement">{name}</span></code>,
-                                <code><span class="tag-replacement">{user}</span></code>,
-                                <code><span class="tag-replacement">{modtag}</span></code>,
-                                <code><span class="tag-replacement">{modname}</span></code>,
-                                <code><span class="tag-replacement">{moduser}</span></code>,
-                                <code><span class="tag-replacement">{reason}</span></code>
-                            </div>
-                        </li>
-                        <li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span
-                                class="argument-description">The channel to send verified user unban messages in</span>
-                        </li>
-                    </ul>
-                </li>
-                <li><code class="subcommand-name">kick</code>: <span class="subcommand-description">Announce when users
-                        are kicked from the server</span>
-                    <ul>
-                        <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Enable announcing when users are kicked?</span></li>
-                        <li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span
-                                class="argument-description">Message to send when users are kicked</span>
-                            <div class="replacements"><code><span class="tag-replacement">{tag}</span></code>,
-                                <code><span class="tag-replacement">{name}</span></code>,
-                                <code><span class="tag-replacement">{user}</span></code>,
-                                <code><span class="tag-replacement">{modtag}</span></code>,
-                                <code><span class="tag-replacement">{modname}</span></code>,
-                                <code><span class="tag-replacement">{moduser}</span></code>,
-                                <code><span class="tag-replacement">{reason}</span></code>
-                            </div>
-                        </li>
-                        <li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span
-                                class="argument-description">The channel to send kick messages in</span></li>
-                    </ul>
-                </li>
-                <li><code class="subcommand-name">kick-verified</code>: <span class="subcommand-description">Extra
-                        announcement when verified users are kicked</span>
-                    <ul>
-                        <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Enable announcing when verified users are kicked?</span>
-                        </li>
-                        <li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span
-                                class="argument-description">Message to send when verified users are kicked</span>
-                            <div class="replacements"><code><span class="tag-replacement">{tag}</span></code>,
-                                <code><span class="tag-replacement">{name}</span></code>,
-                                <code><span class="tag-replacement">{user}</span></code>,
-                                <code><span class="tag-replacement">{modtag}</span></code>,
-                                <code><span class="tag-replacement">{modname}</span></code>,
-                                <code><span class="tag-replacement">{moduser}</span></code>,
-                                <code><span class="tag-replacement">{reason}</span></code>
-                            </div>
-                        </li>
-                        <li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span
-                                class="argument-description">The channel to send verified user kick messages in</span>
-                        </li>
-                    </ul>
-                </li>
-                <li><code class="subcommand-name">timeout</code>: <span class="subcommand-description">Announce when
-                        users are timed out</span>
-                    <ul>
-                        <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Enable announcing when users are timed out?</span></li>
-                        <li><code>applied</code> <span class="arg-meta">(optional, string)</span>: <span
-                                class="argument-description">Message to send when timeouts are applied</span>
-                            <div class="replacements"><code><span class="tag-replacement">{tag}</span></code>,
-                                <code><span class="tag-replacement">{name}</span></code>,
-                                <code><span class="tag-replacement">{user}</span></code>,
-                                <code><span class="tag-replacement">{modtag}</span></code>,
-                                <code><span class="tag-replacement">{modname}</span></code>,
-                                <code><span class="tag-replacement">{moduser}</span></code>,
-                                <code><span class="tag-replacement">{reason}</span></code>,
-                                <code><span class="tag-replacement">{expiresat}</span></code>,
-                                <code><span class="tag-replacement">{expiresin}</span></code>
-                            </div>
-                        </li>
-                        <li><code>removed</code> <span class="arg-meta">(optional, string)</span>: <span
-                                class="argument-description">Message to send when timeouts are removed</span>
-                            <div class="replacements"><code><span class="tag-replacement">{tag}</span></code>,
-                                <code><span class="tag-replacement">{name}</span></code>,
-                                <code><span class="tag-replacement">{user}</span></code>,
-                                <code><span class="tag-replacement">{modtag}</span></code>,
-                                <code><span class="tag-replacement">{modname}</span></code>,
-                                <code><span class="tag-replacement">{moduser}</span></code>
-                            </div>
-                        </li>
-                        <li><code>expired</code> <span class="arg-meta">(optional, string)</span>: <span
-                                class="argument-description">Message to send when timeouts expire</span>
-                            <div class="replacements"><code><span class="tag-replacement">{tag}</span></code>,
-                                <code><span class="tag-replacement">{name}</span></code>,
-                                <code><span class="tag-replacement">{user}</span></code>
-                            </div>
-                        </li>
-                        <li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span
-                                class="argument-description">The channel to send timeout messages in</span></li>
-                    </ul>
-                </li>
-                <li><code class="subcommand-name">timeout-verified</code>: <span class="subcommand-description">Extra
-                        announcement when verified users are timed out</span>
-                    <ul>
-                        <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Enable announcing when verified users are timed out?</span>
-                        </li>
-                        <li><code>applied</code> <span class="arg-meta">(optional, string)</span>: <span
-                                class="argument-description">Message to send when verified users timeouts are
-                                applied</span>
-                            <div class="replacements"><code><span class="tag-replacement">{tag}</span></code>,
-                                <code><span class="tag-replacement">{name}</span></code>,
-                                <code><span class="tag-replacement">{user}</span></code>,
-                                <code><span class="tag-replacement">{modtag}</span></code>,
-                                <code><span class="tag-replacement">{modname}</span></code>,
-                                <code><span class="tag-replacement">{moduser}</span></code>,
-                                <code><span class="tag-replacement">{reason}</span></code>,
-                                <code><span class="tag-replacement">{expiresat}</span></code>,
-                                <code><span class="tag-replacement">{expiresin}</span></code>
-                            </div>
-                        </li>
-                        <li><code>removed</code> <span class="arg-meta">(optional, string)</span>: <span
-                                class="argument-description">Message to send when verified users timeouts are
-                                removed</span>
-                            <div class="replacements"><code><span class="tag-replacement">{tag}</span></code>,
-                                <code><span class="tag-replacement">{name}</span></code>,
-                                <code><span class="tag-replacement">{user}</span></code>,
-                                <code><span class="tag-replacement">{modtag}</span></code>,
-                                <code><span class="tag-replacement">{modname}</span></code>,
-                                <code><span class="tag-replacement">{moduser}</span></code>
-                            </div>
-                        </li>
-                        <li><code>expired</code> <span class="arg-meta">(optional, string)</span>: <span
-                                class="argument-description">Message to send when verified users timeouts expire</span>
-                            <div class="replacements"><code><span class="tag-replacement">{tag}</span></code>,
-                                <code><span class="tag-replacement">{name}</span></code>,
-                                <code><span class="tag-replacement">{user}</span></code>
-                            </div>
-                        </li>
-                        <li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span
-                                class="argument-description">The channel to send verified user timeout messages
-                                in</span></li>
-                    </ul>
-                </li>
-                <li><code class="subcommand-name">verified</code>: <span class="subcommand-description">Announce when
-                        users become verified</span>
-                    <ul>
-                        <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Enable user become verified messages?</span></li>
-                        <li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span
-                                class="argument-description">Message to send when users become verified</span>
-                            <div class="replacements"><code><span class="tag-replacement">{tag}</span></code>,
-                                <code><span class="tag-replacement">{name}</span></code>,
-                                <code><span class="tag-replacement">{user}</span></code>
-                            </div>
-                        </li>
-                        <li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span
-                                class="argument-description">The channel to send user verified messages in</span></li>
-                    </ul>
-                </li>
-                <li><code class="subcommand-name">verified-secondary</code>: <span class="subcommand-description">Extra
-                        announcement when users become verified</span>
-                    <ul>
-                        <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Enable announcing when users become verified?</span></li>
-                        <li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span
-                                class="argument-description">Message to send when users become verified</span>
-                            <div class="replacements"><code><span class="tag-replacement">{tag}</span></code>,
-                                <code><span class="tag-replacement">{name}</span></code>,
-                                <code><span class="tag-replacement">{user}</span></code>
-                            </div>
-                        </li>
-                        <li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span
-                                class="argument-description">The channel to send user verified messages in</span></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-
-        <div class="command-block">
-            <h3>/starboard</h3>
-            <p><strong>Description:</strong> Starboard channel which features messages reacted to with stars</p>
-            <p><strong>Options:</strong></p>
-            <ul>
-                <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                        class="argument-description">Enable the starboard feature?</span></li>
-                <li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span
-                        class="argument-description">The channel to set as the starboard channel</span></li>
-                <li><code>stars</code> <span class="arg-meta">(optional, integer)</span>: <span
-                        class="argument-description">The amount of stars a message needs to be featured</span></li>
-                <li><code>mod-stars</code> <span class="arg-meta">(optional, integer)</span>: <span
-                        class="argument-description">The amount of stars a message needs when reacted by a
-                        moderator</span></li>
-                <li><code>thread-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                        class="argument-description">Enable starboard thread creation?</span></li>
-                <li><code>thread-title</code> <span class="arg-meta">(optional, string)</span>: <span
-                        class="argument-description">The title of the starboard threads</span></li>
-                <li><code>thread-message</code> <span class="arg-meta">(optional, string)</span>: <span
-                        class="argument-description">The message to send when a thread is created</span></li>
-                <li><code>thread-message-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                        class="argument-description">Enable the sending the message?</span></li>
-            </ul>
-        </div>
-
-
-
-        <div class="command-block">
-            <h3>/autorole</h3>
-            <p><strong>Description:</strong> Automatically assign roles to users joining</p>
-            <p><strong>Subcommands:</strong></p>
-            <ul>
-                <li><code class="subcommand-name">enable</code>: <span class="subcommand-description">Enable automatic
-                        role assignment to joining users</span>
-                    <ul>
-                        <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Enable automatic role assignment to joining users?</span>
-                        </li>
-                    </ul>
-                </li>
-                <li><code class="subcommand-name">add</code>: <span class="subcommand-description">Add a role that get
-                        assigned to joining users</span>
-                    <ul>
-                        <li><code>role</code> <span class="arg-meta">(required, role)</span>: <span
-                                class="argument-description">The role to add</span></li>
-                        <li><code>retroactive</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Apply role to existing users?</span></li>
-                    </ul>
-                </li>
-                <li><code class="subcommand-name">remove</code>: <span class="subcommand-description">Remove a role that
-                        get assigned to joining users</span>
-                    <ul>
-                        <li><code>role</code> <span class="arg-meta">(required, role)</span>: <span
-                                class="argument-description">The role to remove</span></li>
-                        <li><code>retroactive</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Remove role from existing users?</span></li>
-                    </ul>
-                </li>
-                <li><code class="subcommand-name">list</code>: <span class="subcommand-description">List all roles that
-                        get assigned to joining users</span></li>
-            </ul>
-        </div>
-
-        <div class="command-block">
-            <h3>/bump</h3>
-            <p><strong>Description:</strong> Automatic bump reminder for the disboard bot</p>
-            <p><strong>Options:</strong></p>
-            <ul>
-                <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                        class="argument-description">Enable the automatic bump reminder?</span></li>
-                <li><code>bumped</code> <span class="arg-meta">(optional, string)</span>: <span
-                        class="argument-description">The message to send when a user bumps the server</span></li>
-                <li><code>reminder</code> <span class="arg-meta">(optional, string)</span>: <span
-                        class="argument-description">The reminder message to send when it's time to bump again</span>
                 </li>
             </ul>
         </div>
@@ -1081,22 +450,22 @@
                         XP/level system and edit cooldown and min/max XP</span>
                     <ul>
                         <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Enable chat XP/level system?</span></li>
+                                class="argument-description">Enable chat XP/level?</span></li>
                         <li><code>cooldown</code> <span class="arg-meta">(optional, integer)</span>: <span
-                                class="argument-description">Cooldown period for XP gain in ms (1000ms = 1s)</span></li>
+                                class="argument-description">Cooldown for XP gain in ms</span></li>
                         <li><code>min</code> <span class="arg-meta">(optional, integer)</span>: <span
-                                class="argument-description">Minimum XP per message based on message length</span></li>
+                                class="argument-description">Minimum XP per message based on length</span></li>
                         <li><code>max</code> <span class="arg-meta">(optional, integer)</span>: <span
-                                class="argument-description">Maximum XP per message based on message length</span></li>
+                                class="argument-description">Maximum XP per message based on length</span></li>
                     </ul>
                 </li>
-                <li><code class="subcommand-name">level-up</code>: <span class="subcommand-description">Enable and edit
-                        message sent when a user reaches a new level</span>
+                <li><code class="subcommand-name">advance</code>: <span class="subcommand-description">Message when
+                        users level up</span>
                     <ul>
                         <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Enable level up messages?</span></li>
+                                class="argument-description">Enable level up message?</span></li>
                         <li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span
-                                class="argument-description">Message for new level notification</span>
+                                class="argument-description">Level up message</span>
                             <div class="replacements">
                                 <code><span class="tag-replacement">{tag}</span></code>,
                                 <code><span class="tag-replacement">{name}</span></code>,
@@ -1108,14 +477,14 @@
                             </div>
                         </li>
                         <li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span
-                                class="argument-description">Channel for level up messages</span></li>
+                                class="argument-description">Channel for level up message</span></li>
                         <li><code>channel-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Limit level up messages to the selected channel?</span>
+                                class="argument-description">Limit level up message to selected channel?</span>
                         </li>
                     </ul>
                 </li>
-                <li><code class="subcommand-name">level-cmd</code>: <span class="subcommand-description">Enable and edit
-                        response message for the /level command</span>
+                <li><code class="subcommand-name">level</code>: <span class="subcommand-description">Response message
+                        for the /level command</span>
                     <ul>
                         <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
                                 class="argument-description">Enable /level command?</span></li>
@@ -1132,14 +501,14 @@
                             </div>
                         </li>
                         <li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span
-                                class="argument-description">Channel for /level command usage</span></li>
+                                class="argument-description">Channel for /level usage</span></li>
                         <li><code>channel-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Limit /level command usage to the selected channel?</span>
+                                class="argument-description">Limit /level to selected channel?</span>
                         </li>
                     </ul>
                 </li>
-                <li><code class="subcommand-name">rank-cmd</code>: <span class="subcommand-description">Enable and edit
-                        response message for the /rank command</span>
+                <li><code class="subcommand-name">rank</code>: <span class="subcommand-description">Response message for
+                        the /rank command</span>
                     <ul>
                         <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
                                 class="argument-description">Enable /rank command?</span></li>
@@ -1158,9 +527,9 @@
                             </div>
                         </li>
                         <li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span
-                                class="argument-description">Channel for /rank command usage</span></li>
+                                class="argument-description">Channel for /rank usage</span></li>
                         <li><code>channel-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Limit /rank command usage to the selected channel?</span>
+                                class="argument-description">Limit /rank to selected channel?</span>
                         </li>
                     </ul>
                 </li>
@@ -1169,50 +538,50 @@
 
         <div class="command-block">
             <h3>/reward</h3>
-            <p><strong>Description:</strong> Rewards for the chat XP/level system</p>
+            <p><strong>Description:</strong> Chat XP/level rewards</p>
             <p><strong>Subcommands:</strong></p>
             <ul>
-                <li><code class="subcommand-name">enable</code>: <span class="subcommand-description">Enable rewards for
-                        the chat XP/level system</span>
+                <li><code class="subcommand-name">settings</code>: <span class="subcommand-description">Reward role
+                        settings</span>
                     <ul>
                         <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Enable rewards for the chat XP/level system?</span></li>
+                                class="argument-description">Enable reward roles?</span></li>
                     </ul>
                 </li>
-                <li><code class="subcommand-name">add</code>: <span class="subcommand-description">Add a role to be
-                        granted when a user reaches a specific level</span>
+                <li><code class="subcommand-name">add</code>: <span class="subcommand-description">Add reward
+                        role</span>
                     <ul>
                         <li><code>role</code> <span class="arg-meta">(required, role)</span>: <span
-                                class="argument-description">Role to grant</span></li>
+                                class="argument-description">Role to grant/edit/remove</span></li>
                         <li><code>level</code> <span class="arg-meta">(required, integer)</span>: <span
-                                class="argument-description">Level to grant the role</span></li>
+                                class="argument-description">Level to grant role</span></li>
                     </ul>
                 </li>
-                <li><code class="subcommand-name">remove</code>: <span class="subcommand-description">Remove a role to
-                        be granted when a user reaches a specific level</span>
+                <li><code class="subcommand-name">remove</code>: <span class="subcommand-description">Remove reward
+                        role</span>
                     <ul>
                         <li><code>role</code> <span class="arg-meta">(required, role)</span>: <span
-                                class="argument-description">Role to remove</span></li>
+                                class="argument-description">Role to grant/edit/remove</span></li>
                     </ul>
                 </li>
-                <li><code class="subcommand-name">edit</code>: <span class="subcommand-description">Edit an existing
-                        role to be granted when a user reaches a specific level</span>
+                <li><code class="subcommand-name">edit</code>: <span class="subcommand-description">Edit reward
+                        role</span>
                     <ul>
                         <li><code>role</code> <span class="arg-meta">(required, role)</span>: <span
-                                class="argument-description">Role to edit</span></li>
+                                class="argument-description">Role to grant/edit/remove</span></li>
                         <li><code>level</code> <span class="arg-meta">(required, integer)</span>: <span
-                                class="argument-description">New level requirement</span></li>
+                                class="argument-description">Level to grant role</span></li>
                     </ul>
                 </li>
-                <li><code class="subcommand-name">list</code>: <span class="subcommand-description">List all roles to be
-                        granted when a user reaches specific levels</span></li>
-                <li><code class="subcommand-name">rank-up</code>: <span class="subcommand-description">Enable and edit
-                        message sent when a user is granted a new role based on their level</span>
+                <li><code class="subcommand-name">list</code>: <span class="subcommand-description">List reward
+                        roles</span></li>
+                <li><code class="subcommand-name">promote</code>: <span class="subcommand-description">Grant rewards to
+                        members who reached levels</span>
                     <ul>
                         <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
                                 class="argument-description">Enable rank up messages?</span></li>
                         <li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span
-                                class="argument-description">Message for new rank notification</span>
+                                class="argument-description">Message content</span>
                             <div class="replacements">
                                 <code><span class="tag-replacement">{tag}</span></code>,
                                 <code><span class="tag-replacement">{user}</span></code>,
@@ -1226,9 +595,9 @@
                             </div>
                         </li>
                         <li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span
-                                class="argument-description">Channel for rank up messages</span></li>
+                                class="argument-description">Channel for usage</span></li>
                         <li><code>channel-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Limit rank up messages to the selected channel?</span></li>
+                                class="argument-description">Limit to selected channel?</span></li>
                     </ul>
                 </li>
             </ul>
@@ -1241,11 +610,11 @@
 
         <div class="command-block">
             <h3>/rank</h3>
-            <p><strong>Description:</strong> Shows chat XP/level and rank on the leaderboard</p>
+            <p><strong>Description:</strong> Show chat XP/level and rank on the leaderboard</p>
             <p><strong>Options:</strong></p>
             <ul>
                 <li><code>user</code> <span class="arg-meta">(optional, string)</span>: <span
-                        class="argument-description">The user to check</span></li>
+                        class="argument-description">User to check</span></li>
             </ul>
         </div>
 
@@ -1255,40 +624,40 @@
             <p><strong>Options:</strong></p>
             <ul>
                 <li><code>user</code> <span class="arg-meta">(optional, string)</span>: <span
-                        class="argument-description">The user to check</span></li>
+                        class="argument-description">User to check</span></li>
             </ul>
         </div>
 
         <div class="command-block">
             <h3>/measure</h3>
-            <p><strong>Description:</strong> Measure how much XP a message would give</p>
+            <p><strong>Description:</strong> Measure how much XP message would give</p>
             <p><strong>Options:</strong></p>
             <ul>
                 <li><code>message</code> <span class="arg-meta">(required, string)</span>: <span
-                        class="argument-description">The message to measure</span></li>
+                        class="argument-description">Message to measure</span></li>
             </ul>
         </div>
 
         <div class="command-block">
             <h3>/set</h3>
-            <p><strong>Description:</strong> Set a user's XP or level</p>
+            <p><strong>Description:</strong> Set user XP or level</p>
             <p><strong>Subcommands:</strong></p>
             <ul>
                 <li><code class="subcommand-name">xp</code>: <span class="subcommand-description">Set a user's XP</span>
                     <ul>
                         <li><code>target</code> <span class="arg-meta">(required, user)</span>: <span
-                                class="argument-description">The user to set XP for</span></li>
+                                class="argument-description">User to set XP/level for</span></li>
                         <li><code>xp</code> <span class="arg-meta">(required, integer)</span>: <span
-                                class="argument-description">The XP to change to</span></li>
+                                class="argument-description">XP to change to</span></li>
                     </ul>
                 </li>
                 <li><code class="subcommand-name">level</code>: <span class="subcommand-description">Set a user's
                         level</span>
                     <ul>
                         <li><code>target</code> <span class="arg-meta">(required, user)</span>: <span
-                                class="argument-description">The user to set level for</span></li>
+                                class="argument-description">User to set XP/level for</span></li>
                         <li><code>level</code> <span class="arg-meta">(required, integer)</span>: <span
-                                class="argument-description">The level to change to</span></li>
+                                class="argument-description">Level to change to</span></li>
                     </ul>
                 </li>
             </ul>
@@ -1296,17 +665,480 @@
 
         <div class="command-block">
             <h3>/delete</h3>
-            <p><strong>Description:</strong> Delete a user's XP/level data</p>
+            <p><strong>Description:</strong> Delete user XP/level data</p>
             <p><strong>Options:</strong></p>
             <ul>
                 <li><code>user</code> <span class="arg-meta">(required, string)</span>: <span
-                        class="argument-description">The user to delete</span></li>
+                        class="argument-description">User to delete</span></li>
             </ul>
         </div>
 
         <div class="command-block">
             <h3>/cleanup</h3>
-            <p><strong>Description:</strong> Kick members without a rank role</p>
+            <p><strong>Description:</strong> Kick members without a reward role</p>
+            <p><strong>Options:</strong></p>
+            <ul>
+                <li><code>ban</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                        class="argument-description">Ban members instead of kicking them?</span></li>
+            </ul>
+        </div>
+
+        <h2>Verification Commands</h2>
+
+        <div class="command-block">
+            <h3>/role</h3>
+            <p><strong>Description:</strong> Important server roles</p>
+            <p><strong>Subcommands:</strong></p>
+            <ul>
+                <li><code class="subcommand-name">verified</code>: <span class="subcommand-description">Role that counts
+                        as being verified</span>
+                    <ul>
+                        <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                                class="argument-description">Enable use of the role?</span></li>
+                        <li><code>role</code> <span class="arg-meta">(optional, role)</span>: <span
+                                class="argument-description">Role to use</span></li>
+                    </ul>
+                </li>
+                <li><code class="subcommand-name">unverified</code>: <span class="subcommand-description">Role that
+                        counts as being unverified</span>
+                    <ul>
+                        <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                                class="argument-description">Enable use of the role?</span></li>
+                        <li><code>role</code> <span class="arg-meta">(optional, role)</span>: <span
+                                class="argument-description">Role to use</span></li>
+                    </ul>
+                </li>
+                <li><code class="subcommand-name">moderator</code>: <span class="subcommand-description">Role that
+                        counts as being a moderator</span>
+                    <ul>
+                        <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                                class="argument-description">Enable use of the role?</span></li>
+                        <li><code>role</code> <span class="arg-meta">(optional, role)</span>: <span
+                                class="argument-description">Role to use</span></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="command-block">
+            <h3>/captcha</h3>
+            <p><strong>Description:</strong> Captcha verification</p>
+            <p><strong>Subcommands:</strong></p>
+            <ul>
+                <li><code class="subcommand-name">post</code>: <span class="subcommand-description">Post captcha
+                        verification embed</span>
+                    <ul>
+                        <li><code>channel</code> <span class="arg-meta">(required, channel)</span>: <span
+                                class="argument-description">Channel to post the captcha in</span></li>
+                        <li><code>title</code> <span class="arg-meta">(optional, string)</span>: <span
+                                class="argument-description">Title of the captcha</span></li>
+                        <li><code>description</code> <span class="arg-meta">(optional, string)</span>: <span
+                                class="argument-description">Description of the captcha</span></li>
+                    </ul>
+                </li>
+                <li><code class="subcommand-name">settings</code>: <span class="subcommand-description">Max attempts and
+                        time limit</span>
+                    <ul>
+                        <li><code>fail-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                                class="argument-description">Enable max verification attempts?</span></li>
+                        <li><code>fail-max</code> <span class="arg-meta">(optional, integer)</span>: <span
+                                class="argument-description">Max verification attempts before kick</span></li>
+                        <li><code>fail-ban</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                                class="argument-description">Ban users who fail verification instead of kicking?</span>
+                        </li>
+                        <li><code>fail-reason</code> <span class="arg-meta">(optional, string)</span>: <span
+                                class="argument-description">Reason for kick after max attempts</span></li>
+                        <li><code>time-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                                class="argument-description">Enable time limit?</span></li>
+                        <li><code>time-limit</code> <span class="arg-meta">(optional, integer)</span>: <span
+                                class="argument-description">Time limit in hours before automatic kick</span></li>
+                        <li><code>time-ban</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                                class="argument-description">Ban users after time limit instead of kicking?</span></li>
+                        <li><code>time-reason</code> <span class="arg-meta">(optional, string)</span>: <span
+                                class="argument-description">Reason for kick after time limit</span></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <h2>Moderation Commands</h2>
+
+        <div class="command-block">
+            <h3>/rolekick</h3>
+            <p><strong>Description:</strong> Roles that get kicked from the server</p>
+            <p><strong>Subcommands:</strong></p>
+            <ul>
+                <li><code class="subcommand-name">settings</code>: <span class="subcommand-description">Forbidden roles
+                        settings</span>
+                    <ul>
+                        <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                                class="argument-description">Enable kicking users with forbidden roles?</span></li>
+                        <li><code>ban</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                                class="argument-description">Ban instead of kick?</span></li>
+                        <li><code>reason</code> <span class="arg-meta">(optional, string)</span>: <span
+                                class="argument-description">Reason provided when kicking</span></li>
+                    </ul>
+                </li>
+                <li><code class="subcommand-name">add</code>: <span class="subcommand-description">Add forbidden
+                        role</span>
+                    <ul>
+                        <li><code>role</code> <span class="arg-meta">(required, role)</span>: <span
+                                class="argument-description">Role to add</span></li>
+                        <li><code>retroactive</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                                class="argument-description">Apply to existing members with the role?</span></li>
+                    </ul>
+                </li>
+                <li><code class="subcommand-name">remove</code>: <span class="subcommand-description">Remove forbidden
+                        role</span>
+                    <ul>
+                        <li><code>role</code> <span class="arg-meta">(required, role)</span>: <span
+                                class="argument-description">Role to remove</span></li>
+                    </ul>
+                </li>
+                <li><code class="subcommand-name">list</code>: <span class="subcommand-description">List all forbidden
+                        roles</span></li>
+            </ul>
+        </div>
+
+        <div class="command-block">
+            <h3>/agekick</h3>
+            <p><strong>Description:</strong> Kick users with new accounts</p>
+            <p><strong>Options:</strong></p>
+            <ul>
+                <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                        class="argument-description">Enable kicking new accounts?</span></li>
+                <li><code>days</code> <span class="arg-meta">(optional, integer)</span>: <span
+                        class="argument-description">Minimum account age in days</span></li>
+                <li><code>reason</code> <span class="arg-meta">(optional, string)</span>: <span
+                        class="argument-description">Reason provided when kicking users</span></li>
+                <li><code>ban</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                        class="argument-description">Ban instead of kick?</span></li>
+                <li><code>retroactive</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                        class="argument-description">Apply to users who joined before enabling?</span></li>
+            </ul>
+        </div>
+
+        <div class="command-block">
+            <h3>/purge</h3>
+            <p><strong>Description:</strong> Delete all messages from specific user</p>
+            <p><strong>Options:</strong></p>
+            <ul>
+                <li><code>target</code> <span class="arg-meta">(required, user)</span>: <span
+                        class="argument-description">User whose messages to delete</span></li>
+            </ul>
+        </div>
+
+        <h2>Automation Commands</h2>
+
+        <div class="command-block">
+            <h3>/autothread</h3>
+            <p><strong>Description:</strong> Automatic threads on new messages</p>
+            <p><strong>Subcommands:</strong></p>
+            <ul>
+                <li><code class="subcommand-name">settings</code>: <span class="subcommand-description">Automatic thread
+                        settings</span>
+                    <ul>
+                        <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                                class="argument-description">Enable automatic threads?</span></li>
+                        <li><code>title</code> <span class="arg-meta">(optional, string)</span>: <span
+                                class="argument-description">Title of the threads</span></li>
+                        <li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span
+                                class="argument-description">Message to send in new threads</span></li>
+                        <li><code>message-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                                class="argument-description">Enable sending the message?</span></li>
+                    </ul>
+                </li>
+                <li><code class="subcommand-name">add</code>: <span class="subcommand-description">Add thread
+                        channel</span>
+                    <ul>
+                        <li><code>channel</code> <span class="arg-meta">(required, channel)</span>: <span
+                                class="argument-description">Channel to add</span></li>
+                    </ul>
+                </li>
+                <li><code class="subcommand-name">remove</code>: <span class="subcommand-description">Remove thread
+                        channel</span>
+                    <ul>
+                        <li><code>channel</code> <span class="arg-meta">(required, channel)</span>: <span
+                                class="argument-description">Channel to remove</span></li>
+                    </ul>
+                </li>
+                <li><code class="subcommand-name">list</code>: <span class="subcommand-description">List thread
+                        channels</span></li>
+            </ul>
+        </div>
+
+        <div class="command-block">
+            <h3>/message</h3>
+            <p><strong>Description:</strong> User arrival and departure messages</p>
+            <p><strong>Subcommands:</strong></p>
+            <ul>
+                <li><code class="subcommand-name">join</code>: <span class="subcommand-description">Announce when users
+                        join the server</span>
+                    <ul>
+                        <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                                class="argument-description">Enable announcing when users join?</span></li>
+                        <li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span
+                                class="argument-description">Message to send when users join</span></li>
+                        <li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span
+                                class="argument-description">Channel to send join messages in</span></li>
+                    </ul>
+                </li>
+                <li><code class="subcommand-name">leave</code>: <span class="subcommand-description">Announce when users
+                        leave the server</span>
+                    <ul>
+                        <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                                class="argument-description">Enable announcing when users leave?</span></li>
+                        <li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span
+                                class="argument-description">Message to send when users leave</span></li>
+                        <li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span
+                                class="argument-description">Channel to send leave messages in</span></li>
+                    </ul>
+                </li>
+                <li><code class="subcommand-name">leave-verified</code>: <span class="subcommand-description">Extra
+                        announcement when verified users leave</span>
+                    <ul>
+                        <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                                class="argument-description">Enable extra announcement when verified users leave?</span>
+                        </li>
+                        <li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span
+                                class="argument-description">Message to send when verified users leave</span></li>
+                        <li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span
+                                class="argument-description">Channel to send verified leave messages in</span></li>
+                    </ul>
+                </li>
+                <li><code class="subcommand-name">rejoin</code>: <span class="subcommand-description">Announce when
+                        users rejoin the server</span>
+                    <ul>
+                        <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                                class="argument-description">Enable announcing</span></li>
+                        <li><code>same-user</code> <span class="arg-meta">(optional, string)</span>: <span
+                                class="argument-description">Message to send when users rejoin</span></li>
+                        <li><code>name-change</code> <span class="arg-meta">(optional, string)</span>: <span
+                                class="argument-description">Message for users who changed their username</span></li>
+                        <li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span
+                                class="argument-description">Channel to send rejoin messages in</span></li>
+                    </ul>
+                </li>
+                <li><code class="subcommand-name">rejoin-verified</code>: <span class="subcommand-description">Extra
+                        announcement when verified users rejoin</span>
+                    <ul>
+                        <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                                class="argument-description">Enable extra announcement when verified users
+                                rejoin?</span></li>
+                        <li><code>same-user</code> <span class="arg-meta">(optional, string)</span>: <span
+                                class="argument-description">Message to send when verified users rejoin</span></li>
+                        <li><code>name-change</code> <span class="arg-meta">(optional, string)</span>: <span
+                                class="argument-description">Message for verified users who changed their
+                                username</span></li>
+                        <li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span
+                                class="argument-description">Channel to send verified rejoin messages in</span></li>
+                    </ul>
+                </li>
+                <li><code class="subcommand-name">ban</code>: <span class="subcommand-description">Announce when users
+                        are banned from the server</span>
+                    <ul>
+                        <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                                class="argument-description">Enable announcing</span></li>
+                        <li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span
+                                class="argument-description">Message to send when users are banned</span></li>
+                        <li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span
+                                class="argument-description">Channel to send ban messages in</span></li>
+                    </ul>
+                </li>
+                <li><code class="subcommand-name">ban-verified</code>: <span class="subcommand-description">Extra
+                        announcement when verified users are banned</span>
+                    <ul>
+                        <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                                class="argument-description">Enable extra announcement when verified users are
+                                banned?</span></li>
+                        <li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span
+                                class="argument-description">Message to send when verified users are banned</span></li>
+                        <li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span
+                                class="argument-description">Channel to send verified ban messages in</span></li>
+                    </ul>
+                </li>
+                <li><code class="subcommand-name">unban</code>: <span class="subcommand-description">Announce when users
+                        are unbanned from the server</span>
+                    <ul>
+                        <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                                class="argument-description">Enable announcing</span></li>
+                        <li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span
+                                class="argument-description">Message to send when users are unbanned</span></li>
+                        <li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span
+                                class="argument-description">Channel to send unban messages in</span></li>
+                    </ul>
+                </li>
+                <li><code class="subcommand-name">unban-verified</code>: <span class="subcommand-description">Extra
+                        announcement when verified users are unbanned</span>
+                    <ul>
+                        <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                                class="argument-description">Enable extra announcement when verified users are
+                                unbanned?</span></li>
+                        <li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span
+                                class="argument-description">Message to send when verified users are unbanned</span>
+                        </li>
+                        <li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span
+                                class="argument-description">Channel to send verified unban messages in</span></li>
+                    </ul>
+                </li>
+                <li><code class="subcommand-name">kick</code>: <span class="subcommand-description">Announce when users
+                        are kicked from the server</span>
+                    <ul>
+                        <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                                class="argument-description">Enable announcing</span></li>
+                        <li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span
+                                class="argument-description">Message to send when users are kicked</span></li>
+                        <li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span
+                                class="argument-description">Channel to send kick messages in</span></li>
+                    </ul>
+                </li>
+                <li><code class="subcommand-name">kick-verified</code>: <span class="subcommand-description">Extra
+                        announcement when verified users are kicked</span>
+                    <ul>
+                        <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                                class="argument-description">Enable extra announcement when verified users are
+                                kicked?</span></li>
+                        <li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span
+                                class="argument-description">Message to send when verified users are kicked</span></li>
+                        <li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span
+                                class="argument-description">Channel to send verified kick messages in</span></li>
+                    </ul>
+                </li>
+                <li><code class="subcommand-name">timeout</code>: <span class="subcommand-description">Announce when
+                        users are timed out</span>
+                    <ul>
+                        <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                                class="argument-description">Enable announcing</span></li>
+                        <li><code>applied</code> <span class="arg-meta">(optional, string)</span>: <span
+                                class="argument-description">Message to send when timeouts are applied</span></li>
+                        <li><code>removed</code> <span class="arg-meta">(optional, string)</span>: <span
+                                class="argument-description">Message to send when timeouts are removed</span></li>
+                        <li><code>expired</code> <span class="arg-meta">(optional, string)</span>: <span
+                                class="argument-description">Message to send when timeouts expire</span></li>
+                        <li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span
+                                class="argument-description">Channel to send messages in</span></li>
+                    </ul>
+                </li>
+                <li><code class="subcommand-name">timeout-verified</code>: <span class="subcommand-description">Extra
+                        announcement when verified users are timed out</span>
+                    <ul>
+                        <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                                class="argument-description">Enable extra announcement when verified users are timed
+                                out?</span></li>
+                        <li><code>applied</code> <span class="arg-meta">(optional, string)</span>: <span
+                                class="argument-description">Message to send when verified users timeouts are
+                                applied</span></li>
+                        <li><code>removed</code> <span class="arg-meta">(optional, string)</span>: <span
+                                class="argument-description">Message to send when verified users timeouts are
+                                removed</span></li>
+                        <li><code>expired</code> <span class="arg-meta">(optional, string)</span>: <span
+                                class="argument-description">Message to send when verified users timeouts expire</span>
+                        </li>
+                        <li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span
+                                class="argument-description">Channel to send verified timeout messages in</span></li>
+                    </ul>
+                </li>
+                <li><code class="subcommand-name">verified</code>: <span class="subcommand-description">Announce when
+                        users become verified</span>
+                    <ul>
+                        <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                                class="argument-description">Enable announcing when users become verified?</span></li>
+                        <li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span
+                                class="argument-description">Message to send when users become verified</span></li>
+                        <li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span
+                                class="argument-description">Channel to send verified messages in</span></li>
+                    </ul>
+                </li>
+                <li><code class="subcommand-name">verified-secondary</code>: <span class="subcommand-description">Extra
+                        announcement when users become verified</span>
+                    <ul>
+                        <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                                class="argument-description">Enable extra announcement when users become
+                                verified?</span></li>
+                        <li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span
+                                class="argument-description">Secondary message to send when users become verified</span>
+                        </li>
+                        <li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span
+                                class="argument-description">Channel to send secondary verified messages in</span></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="command-block">
+            <h3>/starboard</h3>
+            <p><strong>Description:</strong> Feature messages reacted to with stars</p>
+            <p><strong>Options:</strong></p>
+            <ul>
+                <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                        class="argument-description">Enable the starboard?</span></li>
+                <li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span
+                        class="argument-description">Channel to use as the starboard</span></li>
+                <li><code>stars</code> <span class="arg-meta">(optional, integer)</span>: <span
+                        class="argument-description">How many stars messages need</span></li>
+                <li><code>mod-stars</code> <span class="arg-meta">(optional, integer)</span>: <span
+                        class="argument-description">How many stars messages need from moderators</span></li>
+                <li><code>thread-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                        class="argument-description">Enable starboard threads?</span></li>
+                <li><code>thread-title</code> <span class="arg-meta">(optional, string)</span>: <span
+                        class="argument-description">Title of the threads</span></li>
+                <li><code>thread-message</code> <span class="arg-meta">(optional, string)</span>: <span
+                        class="argument-description">Message to send in new threads</span></li>
+                <li><code>thread-message-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                        class="argument-description">Enable the sending the message?</span></li>
+            </ul>
+        </div>
+
+        <div class="command-block">
+            <h3>/autorole</h3>
+            <p><strong>Description:</strong> Automatic roles when users join</p>
+            <p><strong>Subcommands:</strong></p>
+            <ul>
+                <li><code class="subcommand-name">settings</code>: <span class="subcommand-description">Automatic role
+                        settings</span>
+                    <ul>
+                        <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                                class="argument-description">Enable automatic roles?</span></li>
+                    </ul>
+                </li>
+                <li><code class="subcommand-name">add</code>: <span class="subcommand-description">Add automatic role
+                        for
+                        joining users</span>
+                    <ul>
+                        <li><code>role</code> <span class="arg-meta">(required, role)</span>: <span
+                                class="argument-description">Role to add</span></li>
+                        <li><code>retroactive</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                                class="argument-description">Apply to existing users?</span></li>
+                    </ul>
+                </li>
+                <li><code class="subcommand-name">remove</code>: <span class="subcommand-description">Remove automatic
+                        role
+                        for joining users</span>
+                    <ul>
+                        <li><code>role</code> <span class="arg-meta">(required, role)</span>: <span
+                                class="argument-description">Role to remove</span></li>
+                        <li><code>retroactive</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                                class="argument-description">Remove from existing users?</span></li>
+                    </ul>
+                </li>
+                <li><code class="subcommand-name">list</code>: <span class="subcommand-description">List automatic roles
+                        for
+                        joining users</span></li>
+            </ul>
+        </div>
+
+        <div class="command-block">
+            <h3>/bump</h3>
+            <p><strong>Description:</strong> Automatic bump reminder</p>
+            <p><strong>Options:</strong></p>
+            <ul>
+                <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                        class="argument-description">Enable bump reminder?</span></li>
+                <li><code>bumped</code> <span class="arg-meta">(optional, string)</span>: <span
+                        class="argument-description">Message to send on bump</span></li>
+                <li><code>reminder</code> <span class="arg-meta">(optional, string)</span>: <span
+                        class="argument-description">Reminder message</span></li>
+            </ul>
         </div>
 
         <h2>Utility Commands</h2>
@@ -1318,47 +1150,47 @@
             <ul>
                 <li><code class="subcommand-name">all</code>: <span class="subcommand-description">Emulate all user
                         action messages</span></li>
-                <li><code class="subcommand-name">join</code>: <span class="subcommand-description">Emulate a new user
-                        joining message</span></li>
-                <li><code class="subcommand-name">leave</code>: <span class="subcommand-description">Emulate a user
-                        leaving message</span></li>
-                <li><code class="subcommand-name">leave-verified</code>: <span class="subcommand-description">Emulate a
-                        verified user leaving message</span></li>
-                <li><code class="subcommand-name">rejoin</code>: <span class="subcommand-description">Emulate a user
-                        rejoining message</span></li>
-                <li><code class="subcommand-name">rejoin-verified</code>: <span class="subcommand-description">Emulate a
-                        verified user rejoining message</span></li>
-                <li><code class="subcommand-name">kick</code>: <span class="subcommand-description">Emulate a user being
-                        kicked message</span></li>
-                <li><code class="subcommand-name">kick-verified</code>: <span class="subcommand-description">Emulate a
-                        verified user being kicked message</span></li>
-                <li><code class="subcommand-name">ban</code>: <span class="subcommand-description">Emulate a user being
-                        banned message</span></li>
-                <li><code class="subcommand-name">ban-verified</code>: <span class="subcommand-description">Emulate a
-                        verified user being banned message</span></li>
-                <li><code class="subcommand-name">unban</code>: <span class="subcommand-description">Emulate a user
-                        being unbanned message</span></li>
-                <li><code class="subcommand-name">unban-verified</code>: <span class="subcommand-description">Emulate a
-                        verified user being unbanned message</span></li>
-                <li><code class="subcommand-name">timeout</code>: <span class="subcommand-description">Emulate a user
+                <li><code class="subcommand-name">join</code>: <span class="subcommand-description">Emulate user joining
+                        the server message</span></li>
+                <li><code class="subcommand-name">leave</code>: <span class="subcommand-description">Emulate user
+                        leaving the server message</span></li>
+                <li><code class="subcommand-name">leave-verified</code>: <span class="subcommand-description">Emulate
+                        verified user leaving the server message</span></li>
+                <li><code class="subcommand-name">rejoin</code>: <span class="subcommand-description">Emulate user
+                        rejoining the server message</span></li>
+                <li><code class="subcommand-name">rejoin-verified</code>: <span class="subcommand-description">Emulate
+                        verified user rejoining the server message</span></li>
+                <li><code class="subcommand-name">kick</code>: <span class="subcommand-description">Emulate user being
+                        kicked from the server message</span></li>
+                <li><code class="subcommand-name">kick-verified</code>: <span class="subcommand-description">Emulate
+                        verified user being kicked from the server message</span></li>
+                <li><code class="subcommand-name">ban</code>: <span class="subcommand-description">Emulate user being
+                        banned from the server message</span></li>
+                <li><code class="subcommand-name">ban-verified</code>: <span class="subcommand-description">Emulate
+                        verified user being banned from the server message</span></li>
+                <li><code class="subcommand-name">unban</code>: <span class="subcommand-description">Emulate user being
+                        unbanned from the server message</span></li>
+                <li><code class="subcommand-name">unban-verified</code>: <span class="subcommand-description">Emulate
+                        verified user being unbanned from the server message</span></li>
+                <li><code class="subcommand-name">timeout</code>: <span class="subcommand-description">Emulate user
                         being timed out message</span></li>
                 <li><code class="subcommand-name">timeout-verified</code>: <span class="subcommand-description">Emulate
-                        a verified user being timed out message</span></li>
-                <li><code class="subcommand-name">verified</code>: <span class="subcommand-description">Emulate a user
+                        verified user being timed out message</span></li>
+                <li><code class="subcommand-name">verified</code>: <span class="subcommand-description">Emulate user
                         becoming verified message</span></li>
                 <li><code class="subcommand-name">verified-secondary</code>: <span
-                        class="subcommand-description">Emulate a secondary user becoming verification message</span>
+                        class="subcommand-description">Emulate user becoming verified secondary message</span>
                 </li>
             </ul>
         </div>
 
         <div class="command-block">
-            <h3>/chat</h3>
-            <p><strong>Description:</strong> Send a message as the bot</p>
+            <h3>/echo</h3>
+            <p><strong>Description:</strong> Send message as the bot</p>
             <p><strong>Options:</strong></p>
             <ul>
                 <li><code>message</code> <span class="arg-meta">(required, string)</span>: <span
-                        class="argument-description">The message to send</span></li>
+                        class="argument-description">Message to send</span></li>
                 <li><code>reply</code> <span class="arg-meta">(optional, string)</span>: <span
                         class="argument-description">Message ID or link to reply to</span></li>
             </ul>
@@ -1370,11 +1202,11 @@
 
         <div class="command-block">
             <h3>/avatar</h3>
-            <p><strong>Description:</strong> Fetch a user's profile picture</p>
+            <p><strong>Description:</strong> Fetch user profile picture</p>
             <p><strong>Options:</strong></p>
             <ul>
                 <li><code>user</code> <span class="arg-meta">(optional, user)</span>: <span
-                        class="argument-description">The user to fetch the profile picture for</span></li>
+                        class="argument-description">User to fetch the avatar for</span></li>
             </ul>
         </div>
 
@@ -1390,53 +1222,52 @@
 
         <div class="command-block">
             <h3>/wisdom</h3>
-            <p><strong>Description:</strong> Provides a random piece of wisdom</p>
+            <p><strong>Description:</strong> Random piece of wisdom</p>
             <p><strong>Options:</strong></p>
             <ul>
                 <li><code>number</code> <span class="arg-meta">(optional, integer)</span>: <span
-                        class="argument-description">The wisdom quote to retrieve</span></li>
+                        class="argument-description">Wisdom quote to retrieve</span></li>
             </ul>
         </div>
 
         <div class="command-block">
             <h3>/roll</h3>
-            <p><strong>Description:</strong> Roll a random number</p>
+            <p><strong>Description:</strong> Roll random number</p>
             <p><strong>Options:</strong></p>
             <ul>
                 <li><code>min</code> <span class="arg-meta">(optional, integer)</span>: <span
-                        class="argument-description">The minimum number to roll</span></li>
+                        class="argument-description">Minimum number to roll</span></li>
                 <li><code>max</code> <span class="arg-meta">(optional, integer)</span>: <span
-                        class="argument-description">The maximum number to roll</span></li>
+                        class="argument-description">Maximum number to roll</span></li>
             </ul>
         </div>
 
         <div class="command-block">
             <h3>/status</h3>
-            <p><strong>Description:</strong> Check when a user's status was last updated</p>
+            <p><strong>Description:</strong> Check when user status was last updated</p>
             <p><strong>Options:</strong></p>
             <ul>
                 <li><code>user</code> <span class="arg-meta">(required, user)</span>: <span
-                        class="argument-description">The user to check</span></li>
+                        class="argument-description">User to check</span></li>
             </ul>
         </div>
 
         <div class="command-block">
             <h3>/fun</h3>
-            <p><strong>Description:</strong> Manage fun command settings</p>
+            <p><strong>Description:</strong> Commands without permission requirement</p>
             <p><strong>Subcommands:</strong></p>
             <ul>
                 <li><code class="subcommand-name">wisdom</code>: <span class="subcommand-description">Manage /wisdom
                         command settings</span>
                     <ul>
                         <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Enable or disable the /wisdom command</span></li>
+                                class="argument-description">Enable command?</span></li>
                         <li><code>cooldown</code> <span class="arg-meta">(optional, integer)</span>: <span
-                                class="argument-description">Set the cooldown for the /wisdom command (in
-                                seconds)</span></li>
+                                class="argument-description">Cooldown (in seconds)</span></li>
                         <li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span
-                                class="argument-description">Set the channel for /wisdom command usage</span></li>
+                                class="argument-description">Channel for usage</span></li>
                         <li><code>channel-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Limit the /wisdom command to the specified channel?</span>
+                                class="argument-description">Limit to selected channel?</span>
                         </li>
                     </ul>
                 </li>
@@ -1444,14 +1275,14 @@
                         settings</span>
                     <ul>
                         <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Enable or disable the /roll command</span></li>
+                                class="argument-description">Enable command?</span></li>
                         <li><code>cooldown</code> <span class="arg-meta">(optional, integer)</span>: <span
-                                class="argument-description">Set the cooldown for the /roll command (in seconds)</span>
+                                class="argument-description">Cooldown (in seconds)</span>
                         </li>
                         <li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span
-                                class="argument-description">Set the channel for /roll command usage</span></li>
+                                class="argument-description">Channel for usage</span></li>
                         <li><code>channel-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Limit the /roll command to the specified channel?</span>
+                                class="argument-description">Limit to selected channel?</span>
                         </li>
                     </ul>
                 </li>
@@ -1459,14 +1290,14 @@
                         settings</span>
                     <ul>
                         <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Enable or disable the /cat command</span></li>
+                                class="argument-description">Enable command?</span></li>
                         <li><code>cooldown</code> <span class="arg-meta">(optional, integer)</span>: <span
-                                class="argument-description">Set the cooldown for the /cat command (in seconds)</span>
+                                class="argument-description">Cooldown (in seconds)</span>
                         </li>
                         <li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span
-                                class="argument-description">Set the channel for /cat command usage</span></li>
+                                class="argument-description">Channel for usage</span></li>
                         <li><code>channel-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Limit the /cat command to the specified channel?</span>
+                                class="argument-description">Limit to selected channel?</span>
                         </li>
                     </ul>
                 </li>
@@ -1474,14 +1305,13 @@
                         command settings</span>
                     <ul>
                         <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Enable or disable the /avatar command</span></li>
+                                class="argument-description">Enable command?</span></li>
                         <li><code>cooldown</code> <span class="arg-meta">(optional, integer)</span>: <span
-                                class="argument-description">Set the cooldown for the /avatar command (in
-                                seconds)</span></li>
+                                class="argument-description">Cooldown (in seconds)</span></li>
                         <li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span
-                                class="argument-description">Set the channel for /avatar command usage</span></li>
+                                class="argument-description">Channel for usage</span></li>
                         <li><code>channel-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Limit the /avatar command to the specified channel?</span>
+                                class="argument-description">Limit to selected channel?</span>
                         </li>
                     </ul>
                 </li>
@@ -1489,14 +1319,13 @@
                         command settings</span>
                     <ul>
                         <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Enable or disable the /status command</span></li>
+                                class="argument-description">Enable command?</span></li>
                         <li><code>cooldown</code> <span class="arg-meta">(optional, integer)</span>: <span
-                                class="argument-description">Set the cooldown for the /status command (in
-                                seconds)</span></li>
+                                class="argument-description">Cooldown (in seconds)</span></li>
                         <li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span
-                                class="argument-description">Set the channel for /status command usage</span></li>
+                                class="argument-description">Channel for usage</span></li>
                         <li><code>channel-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Limit the /status command to the specified channel?</span>
+                                class="argument-description">Limit to selected channel?</span>
                         </li>
                     </ul>
                 </li>
