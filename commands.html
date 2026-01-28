@@ -440,249 +440,6 @@
             </ul>
         </div>
 
-        <h2>Leveling Commands</h2>
-        <div class="command-block">
-            <h3>/xp</h3>
-            <p><strong>Description:</strong> Chat XP/level system</p>
-            <p><strong>Subcommands:</strong></p>
-            <ul>
-                <li><code class="subcommand-name">settings</code>: <span class="subcommand-description">Chat XP/level
-                        system settings</span>
-                    <ul>
-                        <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Enable chat XP/level?</span></li>
-                        <li><code>cooldown</code> <span class="arg-meta">(optional, integer)</span>: <span
-                                class="argument-description">Cooldown for XP gain in ms</span></li>
-                        <li><code>min</code> <span class="arg-meta">(optional, integer)</span>: <span
-                                class="argument-description">Minimum XP per message based on length</span></li>
-                        <li><code>max</code> <span class="arg-meta">(optional, integer)</span>: <span
-                                class="argument-description">Maximum XP per message based on length</span></li>
-                    </ul>
-                </li>
-                <li><code class="subcommand-name">advance</code>: <span class="subcommand-description">Message when
-                        users level up</span>
-                    <ul>
-                        <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Enable level up message?</span></li>
-                        <li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span
-                                class="argument-description">Level up message</span>
-                            <div class="replacements">
-                                <code><span class="tag-replacement">{tag}</span></code>,
-                                <code><span class="tag-replacement">{name}</span></code>,
-                                <code><span class="tag-replacement">{user}</span></code>,
-                                <code><span class="tag-replacement">{level}</span></code>,
-                                <code><span class="tag-replacement">{xp}</span></code>,
-                                <code><span class="tag-replacement">{xpneed}</span></code>,
-                                <code><span class="tag-replacement">{xpmiss}</span></code>
-                            </div>
-                        </li>
-                        <li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span
-                                class="argument-description">Channel for level up message</span></li>
-                        <li><code>channel-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Limit message to selected channel?</span>
-                        </li>
-                    </ul>
-                </li>
-                <li><code class="subcommand-name">level</code>: <span class="subcommand-description">Response message
-                        for /level command</span>
-                    <ul>
-                        <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Enable /level command?</span></li>
-                        <li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span
-                                class="argument-description">Response message for /level</span>
-                            <div class="replacements">
-                                <code><span class="tag-replacement">{tag}</span></code>,
-                                <code><span class="tag-replacement">{name}</span></code>,
-                                <code><span class="tag-replacement">{user}</span></code>,
-                                <code><span class="tag-replacement">{level}</span></code>,
-                                <code><span class="tag-replacement">{xp}</span></code>,
-                                <code><span class="tag-replacement">{xpneed}</span></code>,
-                                <code><span class="tag-replacement">{xpmiss}</span></code>
-                            </div>
-                        </li>
-                        <li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span
-                                class="argument-description">Channel for /level usage</span></li>
-                        <li><code>channel-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Limit /level to selected channel?</span>
-                        </li>
-                    </ul>
-                </li>
-                <li><code class="subcommand-name">rank</code>: <span class="subcommand-description">Response message for
-                        /rank command</span>
-                    <ul>
-                        <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Enable /rank command?</span></li>
-                        <li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span
-                                class="argument-description">Response message for /rank</span>
-                            <div class="replacements">
-                                <code><span class="tag-replacement">{tag}</span></code>,
-                                <code><span class="tag-replacement">{user}</span></code>,
-                                <code><span class="tag-replacement">{name}</span></code>,
-                                <code><span class="tag-replacement">{level}</span></code>,
-                                <code><span class="tag-replacement">{xp}</span></code>,
-                                <code><span class="tag-replacement">{xpneed}</span></code>,
-                                <code><span class="tag-replacement">{xpmiss}</span></code>,
-                                <code><span class="tag-replacement">{rank}</span></code>,
-                                <code><span class="tag-replacement">{members}</span></code>
-                            </div>
-                        </li>
-                        <li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span
-                                class="argument-description">Channel for /rank usage</span></li>
-                        <li><code>channel-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Limit /rank to selected channel?</span>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-
-        <div class="command-block">
-            <h3>/reward</h3>
-            <p><strong>Description:</strong> Chat XP/level role rewards</p>
-            <p><strong>Subcommands:</strong></p>
-            <ul>
-                <li><code class="subcommand-name">settings</code>: <span class="subcommand-description">Chat XP/level
-                        role reward settings</span>
-                    <ul>
-                        <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Enable role rewards?</span></li>
-                    </ul>
-                </li>
-                <li><code class="subcommand-name">add</code>: <span class="subcommand-description">Add role
-                        reward</span>
-                    <ul>
-                        <li><code>role</code> <span class="arg-meta">(required, role)</span>: <span
-                                class="argument-description">Role to grant</span></li>
-                        <li><code>level</code> <span class="arg-meta">(required, integer)</span>: <span
-                                class="argument-description">Level to grant role</span></li>
-                    </ul>
-                </li>
-                <li><code class="subcommand-name">remove</code>: <span class="subcommand-description">Remove role
-                        reward</span>
-                    <ul>
-                        <li><code>role</code> <span class="arg-meta">(required, role)</span>: <span
-                                class="argument-description">Role to remove</span></li>
-                    </ul>
-                </li>
-                <li><code class="subcommand-name">edit</code>: <span class="subcommand-description">Edit role
-                        reward</span>
-                    <ul>
-                        <li><code>role</code> <span class="arg-meta">(required, role)</span>: <span
-                                class="argument-description">Role to edit</span></li>
-                        <li><code>level</code> <span class="arg-meta">(required, integer)</span>: <span
-                                class="argument-description">New level requirement</span></li>
-                    </ul>
-                </li>
-                <li><code class="subcommand-name">list</code>: <span class="subcommand-description">List role
-                        rewards</span></li>
-                <li><code class="subcommand-name">promote</code>: <span class="subcommand-description">Message when
-                        users gain a role reward</span>
-                    <ul>
-                        <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Enable reward message?</span></li>
-                        <li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span
-                                class="argument-description">Reward message</span>
-                            <div class="replacements">
-                                <code><span class="tag-replacement">{tag}</span></code>,
-                                <code><span class="tag-replacement">{user}</span></code>,
-                                <code><span class="tag-replacement">{name}</span></code>,
-                                <code><span class="tag-replacement">{level}</span></code>,
-                                <code><span class="tag-replacement">{xp}</span></code>,
-                                <code><span class="tag-replacement">{xpneed}</span></code>,
-                                <code><span class="tag-replacement">{xpmiss}</span></code>,
-                                <code><span class="tag-replacement">{roletag}</span></code>,
-                                <code><span class="tag-replacement">{rolename}</span></code>
-                            </div>
-                        </li>
-                        <li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span
-                                class="argument-description">Channel for reward message</span></li>
-                        <li><code>channel-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Limit message to selected channel?</span></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-
-        <div class="command-block">
-            <h3>/leaderboard</h3>
-            <p><strong>Description:</strong> Show chat XP/level leaderboard</p>
-        </div>
-
-        <div class="command-block">
-            <h3>/rank</h3>
-            <p><strong>Description:</strong> Show chat XP/level and rank on the leaderboard</p>
-            <p><strong>Options:</strong></p>
-            <ul>
-                <li><code>user</code> <span class="arg-meta">(optional, string)</span>: <span
-                        class="argument-description">User to check</span></li>
-            </ul>
-        </div>
-
-        <div class="command-block">
-            <h3>/level</h3>
-            <p><strong>Description:</strong> Show chat XP/level</p>
-            <p><strong>Options:</strong></p>
-            <ul>
-                <li><code>user</code> <span class="arg-meta">(optional, string)</span>: <span
-                        class="argument-description">User to check</span></li>
-            </ul>
-        </div>
-
-        <div class="command-block">
-            <h3>/measure</h3>
-            <p><strong>Description:</strong> Measure how much XP message would give</p>
-            <p><strong>Options:</strong></p>
-            <ul>
-                <li><code>message</code> <span class="arg-meta">(required, string)</span>: <span
-                        class="argument-description">Message to measure</span></li>
-            </ul>
-        </div>
-
-        <div class="command-block">
-            <h3>/set</h3>
-            <p><strong>Description:</strong> Set user XP or level</p>
-            <p><strong>Subcommands:</strong></p>
-            <ul>
-                <li><code class="subcommand-name">xp</code>: <span class="subcommand-description">Set user XP</span>
-                    <ul>
-                        <li><code>target</code> <span class="arg-meta">(required, user)</span>: <span
-                                class="argument-description">User to set XP for</span></li>
-                        <li><code>xp</code> <span class="arg-meta">(required, integer)</span>: <span
-                                class="argument-description">XP to change to</span></li>
-                    </ul>
-                </li>
-                <li><code class="subcommand-name">level</code>: <span class="subcommand-description">Set user
-                        level</span>
-                    <ul>
-                        <li><code>target</code> <span class="arg-meta">(required, user)</span>: <span
-                                class="argument-description">User to set level for</span></li>
-                        <li><code>level</code> <span class="arg-meta">(required, integer)</span>: <span
-                                class="argument-description">Level to change to</span></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-
-        <div class="command-block">
-            <h3>/delete</h3>
-            <p><strong>Description:</strong> Delete user XP/level data</p>
-            <p><strong>Options:</strong></p>
-            <ul>
-                <li><code>user</code> <span class="arg-meta">(required, string)</span>: <span
-                        class="argument-description">User to delete</span></li>
-            </ul>
-        </div>
-
-        <div class="command-block">
-            <h3>/cleanup</h3>
-            <p><strong>Description:</strong> Kick members without role reward</p>
-            <p><strong>Options:</strong></p>
-            <ul>
-                <li><code>ban</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                        class="argument-description">Ban members instead of kicking them?</span></li>
-            </ul>
-        </div>
-
         <h2>Verification Commands</h2>
 
         <div class="command-block">
@@ -758,73 +515,6 @@
                                 class="argument-description">Reason for kick after time limit</span></li>
                     </ul>
                 </li>
-            </ul>
-        </div>
-
-        <h2>Moderation Commands</h2>
-
-        <div class="command-block">
-            <h3>/rolekick</h3>
-            <p><strong>Description:</strong> Roles that get kicked from the server</p>
-            <p><strong>Subcommands:</strong></p>
-            <ul>
-                <li><code class="subcommand-name">settings</code>: <span class="subcommand-description">Forbidden roles
-                        settings</span>
-                    <ul>
-                        <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Enable kicking users with forbidden roles?</span></li>
-                        <li><code>ban</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Ban instead of kick?</span></li>
-                        <li><code>reason</code> <span class="arg-meta">(optional, string)</span>: <span
-                                class="argument-description">Reason provided when kicking</span></li>
-                    </ul>
-                </li>
-                <li><code class="subcommand-name">add</code>: <span class="subcommand-description">Add forbidden
-                        role</span>
-                    <ul>
-                        <li><code>role</code> <span class="arg-meta">(required, role)</span>: <span
-                                class="argument-description">Role to add</span></li>
-                        <li><code>retroactive</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                class="argument-description">Apply to existing members with the role?</span></li>
-                    </ul>
-                </li>
-                <li><code class="subcommand-name">remove</code>: <span class="subcommand-description">Remove forbidden
-                        role</span>
-                    <ul>
-                        <li><code>role</code> <span class="arg-meta">(required, role)</span>: <span
-                                class="argument-description">Role to remove</span></li>
-                    </ul>
-                </li>
-                <li><code class="subcommand-name">list</code>: <span class="subcommand-description">List all forbidden
-                        roles</span></li>
-            </ul>
-        </div>
-
-        <div class="command-block">
-            <h3>/agekick</h3>
-            <p><strong>Description:</strong> Kick users with new accounts</p>
-            <p><strong>Options:</strong></p>
-            <ul>
-                <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                        class="argument-description">Enable kicking new accounts?</span></li>
-                <li><code>days</code> <span class="arg-meta">(optional, integer)</span>: <span
-                        class="argument-description">Minimum account age in days</span></li>
-                <li><code>reason</code> <span class="arg-meta">(optional, string)</span>: <span
-                        class="argument-description">Reason provided when kicking users</span></li>
-                <li><code>ban</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                        class="argument-description">Ban instead of kick?</span></li>
-                <li><code>retroactive</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                        class="argument-description">Apply to users who joined before enabling?</span></li>
-            </ul>
-        </div>
-
-        <div class="command-block">
-            <h3>/purge</h3>
-            <p><strong>Description:</strong> Delete all messages from specific user</p>
-            <p><strong>Options:</strong></p>
-            <ul>
-                <li><code>target</code> <span class="arg-meta">(required, user)</span>: <span
-                        class="argument-description">User whose messages to delete</span></li>
             </ul>
         </div>
 
@@ -1140,6 +830,316 @@
                         class="argument-description">Message to send on bump</span></li>
                 <li><code>reminder</code> <span class="arg-meta">(optional, string)</span>: <span
                         class="argument-description">Reminder message</span></li>
+            </ul>
+        </div>
+
+        <h2>Moderation Commands</h2>
+
+        <div class="command-block">
+            <h3>/rolekick</h3>
+            <p><strong>Description:</strong> Roles that get kicked from the server</p>
+            <p><strong>Subcommands:</strong></p>
+            <ul>
+                <li><code class="subcommand-name">settings</code>: <span class="subcommand-description">Forbidden roles
+                        settings</span>
+                    <ul>
+                        <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                                class="argument-description">Enable kicking users with forbidden roles?</span></li>
+                        <li><code>ban</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                                class="argument-description">Ban instead of kick?</span></li>
+                        <li><code>reason</code> <span class="arg-meta">(optional, string)</span>: <span
+                                class="argument-description">Reason provided when kicking</span></li>
+                    </ul>
+                </li>
+                <li><code class="subcommand-name">add</code>: <span class="subcommand-description">Add forbidden
+                        role</span>
+                    <ul>
+                        <li><code>role</code> <span class="arg-meta">(required, role)</span>: <span
+                                class="argument-description">Role to add</span></li>
+                        <li><code>retroactive</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                                class="argument-description">Apply to existing members with the role?</span></li>
+                    </ul>
+                </li>
+                <li><code class="subcommand-name">remove</code>: <span class="subcommand-description">Remove forbidden
+                        role</span>
+                    <ul>
+                        <li><code>role</code> <span class="arg-meta">(required, role)</span>: <span
+                                class="argument-description">Role to remove</span></li>
+                    </ul>
+                </li>
+                <li><code class="subcommand-name">list</code>: <span class="subcommand-description">List all forbidden
+                        roles</span></li>
+            </ul>
+        </div>
+
+        <div class="command-block">
+            <h3>/agekick</h3>
+            <p><strong>Description:</strong> Kick users with new accounts</p>
+            <p><strong>Options:</strong></p>
+            <ul>
+                <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                        class="argument-description">Enable kicking new accounts?</span></li>
+                <li><code>days</code> <span class="arg-meta">(optional, integer)</span>: <span
+                        class="argument-description">Minimum account age in days</span></li>
+                <li><code>reason</code> <span class="arg-meta">(optional, string)</span>: <span
+                        class="argument-description">Reason provided when kicking users</span></li>
+                <li><code>ban</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                        class="argument-description">Ban instead of kick?</span></li>
+                <li><code>retroactive</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                        class="argument-description">Apply to users who joined before enabling?</span></li>
+            </ul>
+        </div>
+
+        <div class="command-block">
+            <h3>/purge</h3>
+            <p><strong>Description:</strong> Delete all messages from specific user</p>
+            <p><strong>Options:</strong></p>
+            <ul>
+                <li><code>target</code> <span class="arg-meta">(required, user)</span>: <span
+                        class="argument-description">User whose messages to delete</span></li>
+            </ul>
+        </div>
+
+        <h2>Leveling Commands</h2>
+        <div class="command-block">
+            <h3>/xp</h3>
+            <p><strong>Description:</strong> Chat XP/level system</p>
+            <p><strong>Subcommands:</strong></p>
+            <ul>
+                <li><code class="subcommand-name">settings</code>: <span class="subcommand-description">Chat XP/level
+                        system settings</span>
+                    <ul>
+                        <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                                class="argument-description">Enable chat XP/level?</span></li>
+                        <li><code>cooldown</code> <span class="arg-meta">(optional, integer)</span>: <span
+                                class="argument-description">Cooldown for XP gain in ms</span></li>
+                        <li><code>min</code> <span class="arg-meta">(optional, integer)</span>: <span
+                                class="argument-description">Minimum XP per message based on length</span></li>
+                        <li><code>max</code> <span class="arg-meta">(optional, integer)</span>: <span
+                                class="argument-description">Maximum XP per message based on length</span></li>
+                    </ul>
+                </li>
+                <li><code class="subcommand-name">advance</code>: <span class="subcommand-description">Message when
+                        users level up</span>
+                    <ul>
+                        <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                                class="argument-description">Enable level up message?</span></li>
+                        <li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span
+                                class="argument-description">Level up message</span>
+                            <div class="replacements">
+                                <code><span class="tag-replacement">{tag}</span></code>,
+                                <code><span class="tag-replacement">{name}</span></code>,
+                                <code><span class="tag-replacement">{user}</span></code>,
+                                <code><span class="tag-replacement">{level}</span></code>,
+                                <code><span class="tag-replacement">{xp}</span></code>,
+                                <code><span class="tag-replacement">{xpneed}</span></code>,
+                                <code><span class="tag-replacement">{xpmiss}</span></code>
+                            </div>
+                        </li>
+                        <li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span
+                                class="argument-description">Channel for level up message</span></li>
+                        <li><code>channel-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                                class="argument-description">Limit message to selected channel?</span>
+                        </li>
+                    </ul>
+                </li>
+                <li><code class="subcommand-name">level</code>: <span class="subcommand-description">Response message
+                        for /level command</span>
+                    <ul>
+                        <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                                class="argument-description">Enable /level command?</span></li>
+                        <li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span
+                                class="argument-description">Response message for /level</span>
+                            <div class="replacements">
+                                <code><span class="tag-replacement">{tag}</span></code>,
+                                <code><span class="tag-replacement">{name}</span></code>,
+                                <code><span class="tag-replacement">{user}</span></code>,
+                                <code><span class="tag-replacement">{level}</span></code>,
+                                <code><span class="tag-replacement">{xp}</span></code>,
+                                <code><span class="tag-replacement">{xpneed}</span></code>,
+                                <code><span class="tag-replacement">{xpmiss}</span></code>
+                            </div>
+                        </li>
+                        <li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span
+                                class="argument-description">Channel for /level usage</span></li>
+                        <li><code>channel-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                                class="argument-description">Limit /level to selected channel?</span>
+                        </li>
+                    </ul>
+                </li>
+                <li><code class="subcommand-name">rank</code>: <span class="subcommand-description">Response message for
+                        /rank command</span>
+                    <ul>
+                        <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                                class="argument-description">Enable /rank command?</span></li>
+                        <li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span
+                                class="argument-description">Response message for /rank</span>
+                            <div class="replacements">
+                                <code><span class="tag-replacement">{tag}</span></code>,
+                                <code><span class="tag-replacement">{user}</span></code>,
+                                <code><span class="tag-replacement">{name}</span></code>,
+                                <code><span class="tag-replacement">{level}</span></code>,
+                                <code><span class="tag-replacement">{xp}</span></code>,
+                                <code><span class="tag-replacement">{xpneed}</span></code>,
+                                <code><span class="tag-replacement">{xpmiss}</span></code>,
+                                <code><span class="tag-replacement">{rank}</span></code>,
+                                <code><span class="tag-replacement">{members}</span></code>
+                            </div>
+                        </li>
+                        <li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span
+                                class="argument-description">Channel for /rank usage</span></li>
+                        <li><code>channel-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                                class="argument-description">Limit /rank to selected channel?</span>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="command-block">
+            <h3>/reward</h3>
+            <p><strong>Description:</strong> Chat XP/level role rewards</p>
+            <p><strong>Subcommands:</strong></p>
+            <ul>
+                <li><code class="subcommand-name">settings</code>: <span class="subcommand-description">Chat XP/level
+                        role reward settings</span>
+                    <ul>
+                        <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                                class="argument-description">Enable role rewards?</span></li>
+                    </ul>
+                </li>
+                <li><code class="subcommand-name">add</code>: <span class="subcommand-description">Add role
+                        reward</span>
+                    <ul>
+                        <li><code>role</code> <span class="arg-meta">(required, role)</span>: <span
+                                class="argument-description">Role to grant</span></li>
+                        <li><code>level</code> <span class="arg-meta">(required, integer)</span>: <span
+                                class="argument-description">Level to grant role</span></li>
+                    </ul>
+                </li>
+                <li><code class="subcommand-name">remove</code>: <span class="subcommand-description">Remove role
+                        reward</span>
+                    <ul>
+                        <li><code>role</code> <span class="arg-meta">(required, role)</span>: <span
+                                class="argument-description">Role to remove</span></li>
+                    </ul>
+                </li>
+                <li><code class="subcommand-name">edit</code>: <span class="subcommand-description">Edit role
+                        reward</span>
+                    <ul>
+                        <li><code>role</code> <span class="arg-meta">(required, role)</span>: <span
+                                class="argument-description">Role to edit</span></li>
+                        <li><code>level</code> <span class="arg-meta">(required, integer)</span>: <span
+                                class="argument-description">New level requirement</span></li>
+                    </ul>
+                </li>
+                <li><code class="subcommand-name">list</code>: <span class="subcommand-description">List role
+                        rewards</span></li>
+                <li><code class="subcommand-name">promote</code>: <span class="subcommand-description">Message when
+                        users gain a role reward</span>
+                    <ul>
+                        <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                                class="argument-description">Enable reward message?</span></li>
+                        <li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span
+                                class="argument-description">Reward message</span>
+                            <div class="replacements">
+                                <code><span class="tag-replacement">{tag}</span></code>,
+                                <code><span class="tag-replacement">{user}</span></code>,
+                                <code><span class="tag-replacement">{name}</span></code>,
+                                <code><span class="tag-replacement">{level}</span></code>,
+                                <code><span class="tag-replacement">{xp}</span></code>,
+                                <code><span class="tag-replacement">{xpneed}</span></code>,
+                                <code><span class="tag-replacement">{xpmiss}</span></code>,
+                                <code><span class="tag-replacement">{roletag}</span></code>,
+                                <code><span class="tag-replacement">{rolename}</span></code>
+                            </div>
+                        </li>
+                        <li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span
+                                class="argument-description">Channel for reward message</span></li>
+                        <li><code>channel-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                                class="argument-description">Limit message to selected channel?</span></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="command-block">
+            <h3>/leaderboard</h3>
+            <p><strong>Description:</strong> Show chat XP/level leaderboard</p>
+        </div>
+
+        <div class="command-block">
+            <h3>/rank</h3>
+            <p><strong>Description:</strong> Show chat XP/level and rank on the leaderboard</p>
+            <p><strong>Options:</strong></p>
+            <ul>
+                <li><code>user</code> <span class="arg-meta">(optional, string)</span>: <span
+                        class="argument-description">User to check</span></li>
+            </ul>
+        </div>
+
+        <div class="command-block">
+            <h3>/level</h3>
+            <p><strong>Description:</strong> Show chat XP/level</p>
+            <p><strong>Options:</strong></p>
+            <ul>
+                <li><code>user</code> <span class="arg-meta">(optional, string)</span>: <span
+                        class="argument-description">User to check</span></li>
+            </ul>
+        </div>
+
+        <div class="command-block">
+            <h3>/measure</h3>
+            <p><strong>Description:</strong> Measure how much XP message would give</p>
+            <p><strong>Options:</strong></p>
+            <ul>
+                <li><code>message</code> <span class="arg-meta">(required, string)</span>: <span
+                        class="argument-description">Message to measure</span></li>
+            </ul>
+        </div>
+
+        <div class="command-block">
+            <h3>/set</h3>
+            <p><strong>Description:</strong> Set user XP or level</p>
+            <p><strong>Subcommands:</strong></p>
+            <ul>
+                <li><code class="subcommand-name">xp</code>: <span class="subcommand-description">Set user XP</span>
+                    <ul>
+                        <li><code>target</code> <span class="arg-meta">(required, user)</span>: <span
+                                class="argument-description">User to set XP for</span></li>
+                        <li><code>xp</code> <span class="arg-meta">(required, integer)</span>: <span
+                                class="argument-description">XP to change to</span></li>
+                    </ul>
+                </li>
+                <li><code class="subcommand-name">level</code>: <span class="subcommand-description">Set user
+                        level</span>
+                    <ul>
+                        <li><code>target</code> <span class="arg-meta">(required, user)</span>: <span
+                                class="argument-description">User to set level for</span></li>
+                        <li><code>level</code> <span class="arg-meta">(required, integer)</span>: <span
+                                class="argument-description">Level to change to</span></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="command-block">
+            <h3>/delete</h3>
+            <p><strong>Description:</strong> Delete user XP/level data</p>
+            <p><strong>Options:</strong></p>
+            <ul>
+                <li><code>user</code> <span class="arg-meta">(required, string)</span>: <span
+                        class="argument-description">User to delete</span></li>
+            </ul>
+        </div>
+
+        <div class="command-block">
+            <h3>/cleanup</h3>
+            <p><strong>Description:</strong> Kick members without role reward</p>
+            <p><strong>Options:</strong></p>
+            <ul>
+                <li><code>ban</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                        class="argument-description">Ban members instead of kicking them?</span></li>
             </ul>
         </div>
 
