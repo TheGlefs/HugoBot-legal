@@ -1292,6 +1292,18 @@
                                                 </li>
                                         </ul>
                                 </li>
+                                <li><code class="subcommand-name">rename</code>: <span
+                                                class="subcommand-description">Rename a user
+                                                group</span>
+                                        <ul>
+                                                <li><code>group</code> <span class="arg-meta">(required, string)</span>:
+                                                        <span class="argument-description">Current name of the user group</span>
+                                                </li>
+                                                <li><code>name</code> <span class="arg-meta">(required, string)</span>:
+                                                        <span class="argument-description">New name for the user group</span>
+                                                </li>
+                                        </ul>
+                                </li>
                         </ul>
                 </div>
 
@@ -1683,21 +1695,6 @@
                         </ul>
                 </div>
 
-                <div class="command-block">
-                        <h3>/remindme</h3>
-                        <p><strong>Description:</strong> Set a reminder</p>
-                        <p><strong>Options:</strong></p>
-                        <ul>
-                                <li><code>time</code> <span class="arg-meta">(required, string)</span>: <span
-                                                class="argument-description">Duration (e.g. 1d12h, 2h 30m, 1 year 3
-                                                days, 90s)</span></li>
-                                <li><code>message</code> <span class="arg-meta">(required, string)</span>: <span
-                                                class="argument-description">What to remind you about</span></li>
-                                <li><code>dm</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                                class="argument-description">Send reminder as DM? (default:
-                                                false)</span></li>
-                        </ul>
-                </div>
                 <h2>Fun Commands</h2>
 
                 <div class="command-block">
@@ -1750,6 +1747,22 @@
                         <ul>
                                 <li><code>user</code> <span class="arg-meta">(required, user)</span>: <span
                                                 class="argument-description">User to check</span></li>
+                        </ul>
+                </div>
+
+                <div class="command-block">
+                        <h3>/remindme</h3>
+                        <p><strong>Description:</strong> Set a reminder</p>
+                        <p><strong>Options:</strong></p>
+                        <ul>
+                                <li><code>time</code> <span class="arg-meta">(required, string)</span>: <span
+                                                class="argument-description">Duration (e.g. 1d12h, 2h 30m, 1 year 3
+                                                days, 90s)</span></li>
+                                <li><code>message</code> <span class="arg-meta">(required, string)</span>: <span
+                                                class="argument-description">What to remind you about</span></li>
+                                <li><code>dm</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                                                class="argument-description">Send reminder as DM? (default:
+                                                false)</span></li>
                         </ul>
                 </div>
 
@@ -1850,6 +1863,28 @@
                                 </li>
                                 <li><code class="subcommand-name">status</code>: <span
                                                 class="subcommand-description">Manage /status
+                                                command settings</span>
+                                        <ul>
+                                                <li><code>enable</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Enable command?</span></li>
+                                                <li><code>cooldown</code> <span class="arg-meta">(optional,
+                                                                integer)</span>: <span
+                                                                class="argument-description">Cooldown (in
+                                                                seconds)</span></li>
+                                                <li><code>channel</code> <span class="arg-meta">(optional,
+                                                                channel)</span>: <span
+                                                                class="argument-description">Channel for usage</span>
+                                                </li>
+                                                <li><code>channel-enable</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Limit to selected
+                                                                channel?</span>
+                                                </li>
+                                        </ul>
+                                </li>
+                                <li><code class="subcommand-name">remindme</code>: <span
+                                                class="subcommand-description">Manage /remindme
                                                 command settings</span>
                                         <ul>
                                                 <li><code>enable</code> <span class="arg-meta">(optional,
