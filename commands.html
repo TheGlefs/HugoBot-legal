@@ -1751,6 +1751,16 @@
                 </div>
 
                 <div class="command-block">
+                        <h3>/confess</h3>
+                        <p><strong>Description:</strong> Submit an anonymous confession</p>
+                </div>
+
+                <div class="command-block">
+                        <h3>/confessions</h3>
+                        <p><strong>Description:</strong> View and delete your own confessions</p>
+                </div>
+
+                <div class="command-block">
                         <h3>/remindme</h3>
                         <p><strong>Description:</strong> Set a reminder</p>
                         <p><strong>Options:</strong></p>
@@ -1763,6 +1773,22 @@
                                 <li><code>dm</code> <span class="arg-meta">(optional, boolean)</span>: <span
                                                 class="argument-description">Send reminder as DM? (default:
                                                 false)</span></li>
+                        </ul>
+                </div>
+
+                <div class="command-block">
+                        <h3>/reminders</h3>
+                        <p><strong>Description:</strong> View and manage your active reminders</p>
+                </div>
+
+                <div class="command-block">
+                        <h3>/reveal</h3>
+                        <p><strong>Description:</strong> Reveal who sent an anonymous confession</p>
+                        <p><strong>Options:</strong></p>
+                        <ul>
+                                <li><code>message</code> <span class="arg-meta">(required, string)</span>: <span
+                                                class="argument-description">Message ID or link of the
+                                                confession</span></li>
                         </ul>
                 </div>
 
@@ -1903,6 +1929,59 @@
                                                                 class="argument-description">Limit to selected
                                                                 channel?</span>
                                                 </li>
+                                        </ul>
+                                </li>
+                                <li><code class="subcommand-name">confession</code>: <span
+                                                class="subcommand-description">Manage confession
+                                                settings</span>
+                                        <ul>
+                                                <li><code>enable</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Enable /confess
+                                                                command?</span></li>
+                                                <li><code>cooldown</code> <span class="arg-meta">(optional,
+                                                                integer)</span>: <span
+                                                                class="argument-description">Cooldown for /confess (in
+                                                                seconds)</span></li>
+                                                <li><code>channel</code> <span class="arg-meta">(optional,
+                                                                channel)</span>: <span
+                                                                class="argument-description">Channel where confessions
+                                                                are sent</span></li>
+                                                <li><code>embed-title-enable</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Show a title on the
+                                                                confession embed?</span></li>
+                                                <li><code>embed-title</code> <span class="arg-meta">(optional,
+                                                                string)</span>: <span
+                                                                class="argument-description">Title displayed on the
+                                                                confession embed</span></li>
+                                                <li><code>embed-footer-enable</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Show a footer on the
+                                                                confession embed?</span></li>
+                                                <li><code>embed-footer</code> <span class="arg-meta">(optional,
+                                                                string)</span>: <span
+                                                                class="argument-description">Footer text on the
+                                                                confession embed</span></li>
+                                                <li><code>thread</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Create a thread for each
+                                                                confession?</span></li>
+                                                <li><code>thread-title</code> <span class="arg-meta">(optional,
+                                                                string)</span>: <span
+                                                                class="argument-description">Thread title template (e.g.
+                                                                Confession - {date} {time})</span></li>
+                                                <li><code>thread-message-enable</code> <span
+                                                                class="arg-meta">(optional, boolean)</span>: <span
+                                                                class="argument-description">Send a message inside the
+                                                                thread?</span></li>
+                                                <li><code>thread-message</code> <span class="arg-meta">(optional,
+                                                                string)</span>: <span
+                                                                class="argument-description">Message sent inside the
+                                                                thread</span></li>
+                                                <li><code>log</code> <span class="arg-meta">(optional, boolean)</span>:
+                                                        <span class="argument-description">Log confession author to the
+                                                                log channel?</span></li>
                                         </ul>
                                 </li>
                         </ul>
