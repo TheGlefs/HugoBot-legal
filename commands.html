@@ -1312,8 +1312,19 @@
                         <p><strong>Description:</strong> Delete all messages from specific user</p>
                         <p><strong>Options:</strong></p>
                         <ul>
-                                <li><code>target</code> <span class="arg-meta">(required, user)</span>: <span
+                                <li><code>target</code> <span class="arg-meta">(optional, user)</span>: <span
                                                 class="argument-description">User whose messages to delete</span></li>
+                                <li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span
+                                                class="argument-description">Channel to delete messages from</span></li>
+                                <li><code>timeframe</code> <span class="arg-meta">(optional, string)</span>: <span
+                                                class="argument-description">Only delete messages within this period
+                                                (e.g. 2h, 3d, 1w)</span></li>
+                                <li><code>include-replies</code> <span class="arg-meta">(optional, boolean)</span>:
+                                        <span class="argument-description">Also delete direct replies to the
+                                                target?</span></li>
+                                <li><code>include-contiguous</code> <span class="arg-meta">(optional, boolean)</span>:
+                                        <span class="argument-description">Also delete adjacent messages from the same
+                                                replier?</span></li>
                         </ul>
                 </div>
 
