@@ -567,6 +567,105 @@
                 </div>
 
                 <div class="command-block">
+                        <h3>/autoresponse</h3>
+                        <p><strong>Description:</strong> Automatic responses to message triggers</p>
+                        <p><strong>Subcommands:</strong></p>
+                        <ul>
+                                <li><code class="subcommand-name">settings</code>: <span
+                                                class="subcommand-description">Autoresponse settings</span>
+                                        <ul>
+                                                <li><code>enable</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Enable automatic
+                                                                responses?</span></li>
+                                                <li><code>cooldown</code> <span class="arg-meta">(optional,
+                                                                integer)</span>: <span
+                                                                class="argument-description">Cooldown between responses in
+                                                                seconds</span></li>
+                                        </ul>
+                                </li>
+                                <li><code class="subcommand-name">add</code>: <span class="subcommand-description">Add an
+                                                autoresponse</span>
+                                        <ul>
+                                                <li><code>title</code> <span class="arg-meta">(required, string)</span>:
+                                                        <span class="argument-description">Name for this
+                                                                autoresponse</span></li>
+                                                <li><code>trigger</code> <span class="arg-meta">(required, string)</span>:
+                                                        <span class="argument-description">Text that triggers the
+                                                                response</span></li>
+                                                <li><code>response</code> <span class="arg-meta">(optional, string)</span>:
+                                                        <span class="argument-description">The response to send</span></li>
+                                                <li><code>reply</code> <span class="arg-meta">(optional, boolean)</span>:
+                                                        <span class="argument-description">Reply to the trigger message?
+                                                                (default: false)</span></li>
+                                                <li><code>delete</code> <span class="arg-meta">(optional, boolean)</span>:
+                                                        <span class="argument-description">Delete the trigger message?
+                                                                (default: false)</span></li>
+                                                <li><code>channel</code> <span class="arg-meta">(optional, channel)</span>:
+                                                        <span class="argument-description">Only trigger in this
+                                                                channel</span></li>
+                                                <li><code>channel-enable</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Limit to selected channel?
+                                                                (default: false)</span></li>
+                                                <li><code>case-sensitive</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Case-sensitive trigger?
+                                                                (default: false)</span></li>
+                                                <li><code>cooldown</code> <span class="arg-meta">(optional, integer)</span>:
+                                                        <span class="argument-description">Cooldown for this response in
+                                                                seconds (default: global cooldown)</span></li>
+                                        </ul>
+                                </li>
+                                <li><code class="subcommand-name">edit</code>: <span class="subcommand-description">Edit an
+                                                existing autoresponse</span>
+                                        <ul>
+                                                <li><code>title</code> <span class="arg-meta">(required, string)</span>:
+                                                        <span class="argument-description">Name of the autoresponse to
+                                                                edit</span></li>
+                                                <li><code>new-title</code> <span class="arg-meta">(optional,
+                                                                string)</span>: <span class="argument-description">New name
+                                                                for this autoresponse</span></li>
+                                                <li><code>trigger</code> <span class="arg-meta">(optional, string)</span>:
+                                                        <span class="argument-description">New trigger text</span></li>
+                                                <li><code>response</code> <span class="arg-meta">(optional, string)</span>:
+                                                        <span class="argument-description">New response text</span></li>
+                                                <li><code>reply</code> <span class="arg-meta">(optional, boolean)</span>:
+                                                        <span class="argument-description">Reply to the trigger
+                                                                message?</span></li>
+                                                <li><code>delete</code> <span class="arg-meta">(optional, boolean)</span>:
+                                                        <span class="argument-description">Delete the trigger
+                                                                message?</span></li>
+                                                <li><code>channel</code> <span class="arg-meta">(optional, channel)</span>:
+                                                        <span class="argument-description">Only trigger in this
+                                                                channel</span></li>
+                                                <li><code>channel-enable</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Limit to selected
+                                                                channel?</span></li>
+                                                <li><code>case-sensitive</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Case-sensitive trigger?</span>
+                                                </li>
+                                                <li><code>cooldown</code> <span class="arg-meta">(optional, integer)</span>:
+                                                        <span class="argument-description">Cooldown for this response in
+                                                                seconds</span></li>
+                                        </ul>
+                                </li>
+                                <li><code class="subcommand-name">remove</code>: <span
+                                                class="subcommand-description">Remove an autoresponse</span>
+                                        <ul>
+                                                <li><code>title</code> <span class="arg-meta">(required, string)</span>:
+                                                        <span class="argument-description">Name of the autoresponse to
+                                                                remove</span></li>
+                                        </ul>
+                                </li>
+                                <li><code class="subcommand-name">list</code>: <span class="subcommand-description">List all
+                                                autoresponses</span></li>
+                        </ul>
+                </div>
+
+                <div class="command-block">
                         <h3>/message</h3>
                         <p><strong>Description:</strong> User arrival and departure messages</p>
                         <p><strong>Subcommands:</strong></p>
@@ -1768,6 +1867,22 @@
                 </div>
 
                 <div class="command-block">
+                        <h3>/invites</h3>
+                        <p><strong>Description:</strong> Check how many members a user has invited</p>
+                        <p><strong>Options:</strong></p>
+                        <ul>
+                                <li><code>user</code> <span class="arg-meta">(optional, user)</span>: <span
+                                                class="argument-description">User to check invites for (defaults to
+                                                yourself)</span></li>
+                        </ul>
+                </div>
+
+                <div class="command-block">
+                        <h3>/inviteboard</h3>
+                        <p><strong>Description:</strong> Show invite leaderboard</p>
+                </div>
+
+                <div class="command-block">
                         <h3>/confess</h3>
                         <p><strong>Description:</strong> Submit an anonymous confession</p>
                 </div>
@@ -1927,7 +2042,29 @@
                                         </ul>
                                 </li>
                                 <li><code class="subcommand-name">remindme</code>: <span
-                                                class="subcommand-description">Manage /remindme
+                                                class="subcommand-description">Manage /remindme and /reminders
+                                                command settings</span>
+                                        <ul>
+                                                <li><code>enable</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Enable command?</span></li>
+                                                <li><code>cooldown</code> <span class="arg-meta">(optional,
+                                                                integer)</span>: <span
+                                                                class="argument-description">Cooldown (in
+                                                                seconds)</span></li>
+                                                <li><code>channel</code> <span class="arg-meta">(optional,
+                                                                channel)</span>: <span
+                                                                class="argument-description">Channel for usage</span>
+                                                </li>
+                                                <li><code>channel-enable</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Limit to selected
+                                                                channel?</span>
+                                                </li>
+                                        </ul>
+                                </li>
+                                <li><code class="subcommand-name">invites</code>: <span
+                                                class="subcommand-description">Manage /invites and/inviteboard
                                                 command settings</span>
                                         <ul>
                                                 <li><code>enable</code> <span class="arg-meta">(optional,
@@ -1949,7 +2086,7 @@
                                         </ul>
                                 </li>
                                 <li><code class="subcommand-name">confession</code>: <span
-                                                class="subcommand-description">Manage confession
+                                                class="subcommand-description">Manage /confess and /confessions
                                                 settings</span>
                                         <ul>
                                                 <li><code>enable</code> <span class="arg-meta">(optional,
