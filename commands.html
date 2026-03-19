@@ -540,17 +540,62 @@
                                         </ul>
                                 </li>
                                 <li><code class="subcommand-name">add</code>: <span class="subcommand-description">Add
-                                                automatic thread
-                                                channel</span>
+                                                automatic thread channel</span>
                                         <ul>
                                                 <li><code>channel</code> <span class="arg-meta">(required,
                                                                 channel)</span>: <span
                                                                 class="argument-description">Channel to add</span></li>
+                                                <li><code>on-text</code> <span class="arg-meta">(optional,
+                                                                string)</span>: <span
+                                                                class="argument-description">Action for text-only messages
+                                                                — thread, delete, or ignore (default: delete)</span></li>
+                                                <li><code>on-media</code> <span class="arg-meta">(optional,
+                                                                string)</span>: <span
+                                                                class="argument-description">Action for media/link messages
+                                                                — thread, delete, or ignore (default: thread)</span></li>
+                                                <li><code>title</code> <span class="arg-meta">(optional, string)</span>:
+                                                        <span class="argument-description">Thread title override for this
+                                                                channel (default: global)</span></li>
+                                                <li><code>message</code> <span class="arg-meta">(optional,
+                                                                string)</span>: <span
+                                                                class="argument-description">Thread message override for
+                                                                this channel (default: global)</span></li>
+                                                <li><code>message-enable</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Enable thread message for this
+                                                                channel? (default: global)</span></li>
+                                        </ul>
+                                </li>
+                                <li><code class="subcommand-name">edit</code>: <span
+                                                class="subcommand-description">Edit per-channel autothread
+                                                settings</span>
+                                        <ul>
+                                                <li><code>channel</code> <span class="arg-meta">(required,
+                                                                channel)</span>: <span
+                                                                class="argument-description">Channel to edit</span></li>
+                                                <li><code>on-text</code> <span class="arg-meta">(optional,
+                                                                string)</span>: <span
+                                                                class="argument-description">Action for text-only messages
+                                                                — thread, delete, or ignore</span></li>
+                                                <li><code>on-media</code> <span class="arg-meta">(optional,
+                                                                string)</span>: <span
+                                                                class="argument-description">Action for media/link messages
+                                                                — thread, delete, or ignore</span></li>
+                                                <li><code>title</code> <span class="arg-meta">(optional, string)</span>:
+                                                        <span class="argument-description">Thread title override (use
+                                                                "reset" to clear back to global)</span></li>
+                                                <li><code>message</code> <span class="arg-meta">(optional,
+                                                                string)</span>: <span
+                                                                class="argument-description">Thread message override (use
+                                                                "reset" to clear back to global)</span></li>
+                                                <li><code>message-enable</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Enable thread message for this
+                                                                channel?</span></li>
                                         </ul>
                                 </li>
                                 <li><code class="subcommand-name">remove</code>: <span
-                                                class="subcommand-description">Remove automatic
-                                                thread
+                                                class="subcommand-description">Remove automatic thread
                                                 channel</span>
                                         <ul>
                                                 <li><code>channel</code> <span class="arg-meta">(required,
@@ -560,9 +605,14 @@
                                         </ul>
                                 </li>
                                 <li><code class="subcommand-name">list</code>: <span class="subcommand-description">List
-                                                automatic
-                                                thread
-                                                channels</span></li>
+                                                automatic thread channels</span>
+                                        <ul>
+                                                <li><code>channel</code> <span class="arg-meta">(optional,
+                                                                channel)</span>: <span
+                                                                class="argument-description">View settings for a specific
+                                                                channel</span></li>
+                                        </ul>
+                                </li>
                         </ul>
                 </div>
 
@@ -608,6 +658,9 @@
                                                                 boolean)</span>: <span
                                                                 class="argument-description">Limit to selected channel?
                                                                 (default: false)</span></li>
+                                                <li><code>regex</code> <span class="arg-meta">(optional, boolean)</span>:
+                                                        <span class="argument-description">Use trigger as a regex pattern?
+                                                                (default: false)</span></li>
                                                 <li><code>case-sensitive</code> <span class="arg-meta">(optional,
                                                                 boolean)</span>: <span
                                                                 class="argument-description">Case-sensitive trigger?
@@ -643,6 +696,9 @@
                                                                 boolean)</span>: <span
                                                                 class="argument-description">Limit to selected
                                                                 channel?</span></li>
+                                                <li><code>regex</code> <span class="arg-meta">(optional, boolean)</span>:
+                                                        <span class="argument-description">Use trigger as a regex
+                                                                pattern?</span></li>
                                                 <li><code>case-sensitive</code> <span class="arg-meta">(optional,
                                                                 boolean)</span>: <span
                                                                 class="argument-description">Case-sensitive trigger?</span>
@@ -661,7 +717,13 @@
                                         </ul>
                                 </li>
                                 <li><code class="subcommand-name">list</code>: <span class="subcommand-description">List all
-                                                autoresponses</span></li>
+                                                autoresponses</span>
+                                        <ul>
+                                                <li><code>title</code> <span class="arg-meta">(optional, string)</span>:
+                                                        <span class="argument-description">View a specific autoresponse by
+                                                                title</span></li>
+                                        </ul>
+                                </li>
                         </ul>
                 </div>
 
