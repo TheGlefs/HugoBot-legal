@@ -2108,127 +2108,6 @@
                 </div>
 
                 <div class="command-block">
-                        <h3>/edit</h3>
-                        <p><strong>Description:</strong> Edit a bot message</p>
-                        <p><strong>Options:</strong></p>
-                        <ul>
-                                <li><code>message</code> <span class="arg-meta">(required, string)</span>: <span
-                                                class="argument-description">Message ID or link to edit</span></li>
-                                <li><code>content</code> <span class="arg-meta">(optional, string)</span>: <span
-                                                class="argument-description">New text content (use "clear" to
-                                                remove)</span></li>
-                                <li><code>title</code> <span class="arg-meta">(optional, string)</span>: <span
-                                                class="argument-description">New embed title (use "clear" to
-                                                remove)</span></li>
-                                <li><code>description</code> <span class="arg-meta">(optional, string)</span>: <span
-                                                class="argument-description">New embed description (use "clear" to
-                                                remove)</span></li>
-                                <li><code>color</code> <span class="arg-meta">(optional, string)</span>: <span
-                                                class="argument-description">New embed color hex code</span></li>
-                                <li><code>image</code> <span class="arg-meta">(optional, string)</span>: <span
-                                                class="argument-description">New embed image URL (use "clear" to
-                                                remove)</span></li>
-                                <li><code>thumbnail</code> <span class="arg-meta">(optional, string)</span>: <span
-                                                class="argument-description">New embed thumbnail URL (use "clear" to
-                                                remove)</span></li>
-                                <li><code>footer_text</code> <span class="arg-meta">(optional, string)</span>: <span
-                                                class="argument-description">New embed footer text (use "clear" to
-                                                remove)</span></li>
-                                <li><code>footer_icon</code> <span class="arg-meta">(optional, string)</span>: <span
-                                                class="argument-description">New embed footer icon URL</span></li>
-                                <li><code>author_name</code> <span class="arg-meta">(optional, string)</span>: <span
-                                                class="argument-description">New embed author name (use "clear" to
-                                                remove)</span></li>
-                                <li><code>author_icon</code> <span class="arg-meta">(optional, string)</span>: <span
-                                                class="argument-description">New embed author icon URL</span></li>
-                                <li><code>author_url</code> <span class="arg-meta">(optional, string)</span>: <span
-                                                class="argument-description">New embed author hyperlink URL</span></li>
-                                <li><code>url</code> <span class="arg-meta">(optional, string)</span>: <span
-                                                class="argument-description">New embed title hyperlink URL (use "clear"
-                                                to remove)</span></li>
-                                <li><code>timestamp</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                                class="argument-description">Show current timestamp in the footer</span>
-                                </li>
-                                <li><code>field1_name</code> <span class="arg-meta">(optional, string)</span>: <span
-                                                class="argument-description">Field 1 name (use "clear" to remove all
-                                                fields)</span></li>
-                                <li><code>field1_value</code> <span class="arg-meta">(optional, string)</span>: <span
-                                                class="argument-description">Field 1 value</span></li>
-                                <li><code>field1_inline</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                                class="argument-description">Display field 1 inline</span></li>
-                                <li><code>field2_name</code> <span class="arg-meta">(optional, string)</span>: <span
-                                                class="argument-description">Field 2 name</span></li>
-                                <li><code>field2_value</code> <span class="arg-meta">(optional, string)</span>: <span
-                                                class="argument-description">Field 2 value</span></li>
-                                <li><code>field2_inline</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                                class="argument-description">Display field 2 inline</span></li>
-                                <li><code>field3_name</code> <span class="arg-meta">(optional, string)</span>: <span
-                                                class="argument-description">Field 3 name</span></li>
-                                <li><code>field3_value</code> <span class="arg-meta">(optional, string)</span>: <span
-                                                class="argument-description">Field 3 value</span></li>
-                                <li><code>field3_inline</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                                class="argument-description">Display field 3 inline</span></li>
-                        </ul>
-                </div>
-
-                <div class="command-block">
-                        <h3>/embed</h3>
-                        <p><strong>Description:</strong> Send a customizable embed message</p>
-                        <p><strong>Options:</strong></p>
-                        <ul>
-                                <li><code>title</code> <span class="arg-meta">(optional, string)</span>: <span
-                                                class="argument-description">Embed title</span></li>
-                                <li><code>description</code> <span class="arg-meta">(optional, string)</span>: <span
-                                                class="argument-description">Embed description</span></li>
-                                <li><code>color</code> <span class="arg-meta">(optional, string)</span>: <span
-                                                class="argument-description">Hex color code (e.g. #ff0000)</span></li>
-                                <li><code>url</code> <span class="arg-meta">(optional, string)</span>: <span
-                                                class="argument-description">URL the title links to</span></li>
-                                <li><code>author_name</code> <span class="arg-meta">(optional, string)</span>: <span
-                                                class="argument-description">Author name</span></li>
-                                <li><code>author_icon</code> <span class="arg-meta">(optional, string)</span>: <span
-                                                class="argument-description">Author icon URL</span></li>
-                                <li><code>author_url</code> <span class="arg-meta">(optional, string)</span>: <span
-                                                class="argument-description">Author name hyperlink URL</span></li>
-                                <li><code>thumbnail</code> <span class="arg-meta">(optional, string)</span>: <span
-                                                class="argument-description">Thumbnail image URL</span></li>
-                                <li><code>image</code> <span class="arg-meta">(optional, string)</span>: <span
-                                                class="argument-description">Large image URL</span></li>
-                                <li><code>footer_text</code> <span class="arg-meta">(optional, string)</span>: <span
-                                                class="argument-description">Footer text</span></li>
-                                <li><code>footer_icon</code> <span class="arg-meta">(optional, string)</span>: <span
-                                                class="argument-description">Footer icon URL</span></li>
-                                <li><code>timestamp</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                                class="argument-description">Show current timestamp in the footer</span>
-                                </li>
-                                <li><code>content</code> <span class="arg-meta">(optional, string)</span>: <span
-                                                class="argument-description">Plain text content to send alongside the
-                                                embed</span></li>
-                                <li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span
-                                                class="argument-description">Channel to send the embed to (defaults to
-                                                current channel)</span></li>
-                                <li><code>field1_name</code> <span class="arg-meta">(optional, string)</span>: <span
-                                                class="argument-description">Field 1 name</span></li>
-                                <li><code>field1_value</code> <span class="arg-meta">(optional, string)</span>: <span
-                                                class="argument-description">Field 1 value</span></li>
-                                <li><code>field1_inline</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                                class="argument-description">Display field 1 inline</span></li>
-                                <li><code>field2_name</code> <span class="arg-meta">(optional, string)</span>: <span
-                                                class="argument-description">Field 2 name</span></li>
-                                <li><code>field2_value</code> <span class="arg-meta">(optional, string)</span>: <span
-                                                class="argument-description">Field 2 value</span></li>
-                                <li><code>field2_inline</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                                class="argument-description">Display field 2 inline</span></li>
-                                <li><code>field3_name</code> <span class="arg-meta">(optional, string)</span>: <span
-                                                class="argument-description">Field 3 name</span></li>
-                                <li><code>field3_value</code> <span class="arg-meta">(optional, string)</span>: <span
-                                                class="argument-description">Field 3 value</span></li>
-                                <li><code>field3_inline</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                                class="argument-description">Display field 3 inline</span></li>
-                        </ul>
-                </div>
-
-                <div class="command-block">
                         <h3>/template</h3>
                         <p><strong>Description:</strong> Manage message templates</p>
                         <p><strong>Subcommands:</strong></p>
@@ -2266,6 +2145,179 @@
                                                 <li><code>title</code> <span class="arg-meta">(required, string)</span>:
                                                         <span class="argument-description">Name of the saved template to
                                                                 delete</span></li>
+                                        </ul>
+                                </li>
+                                <li><code class="subcommand-name">create</code>: <span
+                                                class="subcommand-description">Create and send a customizable embed
+                                                message</span>
+                                        <ul>
+                                                <li><code>title</code> <span class="arg-meta">(optional, string)</span>:
+                                                        <span class="argument-description">Embed title</span></li>
+                                                <li><code>description</code> <span class="arg-meta">(optional,
+                                                                string)</span>: <span
+                                                                class="argument-description">Embed description</span>
+                                                </li>
+                                                <li><code>color</code> <span class="arg-meta">(optional, string)</span>:
+                                                        <span class="argument-description">Hex color code (e.g.
+                                                                #ff0000)</span></li>
+                                                <li><code>url</code> <span class="arg-meta">(optional, string)</span>:
+                                                        <span class="argument-description">URL the title links
+                                                                to</span></li>
+                                                <li><code>author_name</code> <span class="arg-meta">(optional,
+                                                                string)</span>: <span
+                                                                class="argument-description">Author name</span></li>
+                                                <li><code>author_icon</code> <span class="arg-meta">(optional,
+                                                                string)</span>: <span
+                                                                class="argument-description">Author icon URL</span></li>
+                                                <li><code>author_url</code> <span class="arg-meta">(optional,
+                                                                string)</span>: <span
+                                                                class="argument-description">Author name hyperlink
+                                                                URL</span></li>
+                                                <li><code>thumbnail</code> <span class="arg-meta">(optional,
+                                                                string)</span>: <span
+                                                                class="argument-description">Thumbnail image URL</span>
+                                                </li>
+                                                <li><code>image</code> <span class="arg-meta">(optional, string)</span>:
+                                                        <span class="argument-description">Large image URL</span></li>
+                                                <li><code>footer_text</code> <span class="arg-meta">(optional,
+                                                                string)</span>: <span
+                                                                class="argument-description">Footer text</span></li>
+                                                <li><code>footer_icon</code> <span class="arg-meta">(optional,
+                                                                string)</span>: <span
+                                                                class="argument-description">Footer icon URL</span></li>
+                                                <li><code>timestamp</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Show current timestamp in
+                                                                the footer</span></li>
+                                                <li><code>content</code> <span class="arg-meta">(optional,
+                                                                string)</span>: <span
+                                                                class="argument-description">Plain text content to send
+                                                                alongside the embed</span></li>
+                                                <li><code>channel</code> <span class="arg-meta">(optional,
+                                                                channel)</span>: <span
+                                                                class="argument-description">Channel to send the embed to
+                                                                (defaults to current channel)</span></li>
+                                                <li><code>field1_name</code> <span class="arg-meta">(optional,
+                                                                string)</span>: <span
+                                                                class="argument-description">Field 1 name</span></li>
+                                                <li><code>field1_value</code> <span class="arg-meta">(optional,
+                                                                string)</span>: <span
+                                                                class="argument-description">Field 1 value</span></li>
+                                                <li><code>field1_inline</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Display field 1
+                                                                inline</span></li>
+                                                <li><code>field2_name</code> <span class="arg-meta">(optional,
+                                                                string)</span>: <span
+                                                                class="argument-description">Field 2 name</span></li>
+                                                <li><code>field2_value</code> <span class="arg-meta">(optional,
+                                                                string)</span>: <span
+                                                                class="argument-description">Field 2 value</span></li>
+                                                <li><code>field2_inline</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Display field 2
+                                                                inline</span></li>
+                                                <li><code>field3_name</code> <span class="arg-meta">(optional,
+                                                                string)</span>: <span
+                                                                class="argument-description">Field 3 name</span></li>
+                                                <li><code>field3_value</code> <span class="arg-meta">(optional,
+                                                                string)</span>: <span
+                                                                class="argument-description">Field 3 value</span></li>
+                                                <li><code>field3_inline</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Display field 3
+                                                                inline</span></li>
+                                        </ul>
+                                </li>
+                                <li><code class="subcommand-name">edit</code>: <span
+                                                class="subcommand-description">Edit a bot message</span>
+                                        <ul>
+                                                <li><code>message</code> <span class="arg-meta">(required,
+                                                                string)</span>: <span
+                                                                class="argument-description">Message ID or link to
+                                                                edit</span></li>
+                                                <li><code>content</code> <span class="arg-meta">(optional,
+                                                                string)</span>: <span
+                                                                class="argument-description">New text content (use
+                                                                "clear" to remove)</span></li>
+                                                <li><code>title</code> <span class="arg-meta">(optional,
+                                                                string)</span>: <span
+                                                                class="argument-description">New embed title (use "clear"
+                                                                to remove)</span></li>
+                                                <li><code>description</code> <span class="arg-meta">(optional,
+                                                                string)</span>: <span
+                                                                class="argument-description">New embed description (use
+                                                                "clear" to remove)</span></li>
+                                                <li><code>color</code> <span class="arg-meta">(optional,
+                                                                string)</span>: <span
+                                                                class="argument-description">New embed color hex
+                                                                code</span></li>
+                                                <li><code>image</code> <span class="arg-meta">(optional,
+                                                                string)</span>: <span
+                                                                class="argument-description">New embed image URL (use
+                                                                "clear" to remove)</span></li>
+                                                <li><code>thumbnail</code> <span class="arg-meta">(optional,
+                                                                string)</span>: <span
+                                                                class="argument-description">New embed thumbnail URL (use
+                                                                "clear" to remove)</span></li>
+                                                <li><code>footer_text</code> <span class="arg-meta">(optional,
+                                                                string)</span>: <span
+                                                                class="argument-description">New embed footer text (use
+                                                                "clear" to remove)</span></li>
+                                                <li><code>footer_icon</code> <span class="arg-meta">(optional,
+                                                                string)</span>: <span
+                                                                class="argument-description">New embed footer icon
+                                                                URL</span></li>
+                                                <li><code>author_name</code> <span class="arg-meta">(optional,
+                                                                string)</span>: <span
+                                                                class="argument-description">New embed author name (use
+                                                                "clear" to remove)</span></li>
+                                                <li><code>author_icon</code> <span class="arg-meta">(optional,
+                                                                string)</span>: <span
+                                                                class="argument-description">New embed author icon
+                                                                URL</span></li>
+                                                <li><code>author_url</code> <span class="arg-meta">(optional,
+                                                                string)</span>: <span
+                                                                class="argument-description">New embed author hyperlink
+                                                                URL</span></li>
+                                                <li><code>url</code> <span class="arg-meta">(optional, string)</span>:
+                                                        <span class="argument-description">New embed title hyperlink URL
+                                                                (use "clear" to remove)</span></li>
+                                                <li><code>timestamp</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Show current timestamp in
+                                                                the footer</span></li>
+                                                <li><code>field1_name</code> <span class="arg-meta">(optional,
+                                                                string)</span>: <span
+                                                                class="argument-description">Field 1 name (use "clear" to
+                                                                remove all fields)</span></li>
+                                                <li><code>field1_value</code> <span class="arg-meta">(optional,
+                                                                string)</span>: <span
+                                                                class="argument-description">Field 1 value</span></li>
+                                                <li><code>field1_inline</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Display field 1
+                                                                inline</span></li>
+                                                <li><code>field2_name</code> <span class="arg-meta">(optional,
+                                                                string)</span>: <span
+                                                                class="argument-description">Field 2 name</span></li>
+                                                <li><code>field2_value</code> <span class="arg-meta">(optional,
+                                                                string)</span>: <span
+                                                                class="argument-description">Field 2 value</span></li>
+                                                <li><code>field2_inline</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Display field 2
+                                                                inline</span></li>
+                                                <li><code>field3_name</code> <span class="arg-meta">(optional,
+                                                                string)</span>: <span
+                                                                class="argument-description">Field 3 name</span></li>
+                                                <li><code>field3_value</code> <span class="arg-meta">(optional,
+                                                                string)</span>: <span
+                                                                class="argument-description">Field 3 value</span></li>
+                                                <li><code>field3_inline</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Display field 3
+                                                                inline</span></li>
                                         </ul>
                                 </li>
                         </ul>
