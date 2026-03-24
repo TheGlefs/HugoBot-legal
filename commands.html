@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -2108,6 +2108,60 @@
                 </div>
 
                 <div class="command-block">
+                        <h3>/edit</h3>
+                        <p><strong>Description:</strong> Edit a bot message</p>
+                        <p><strong>Options:</strong></p>
+                        <ul>
+                                <li><code>message</code> <span class="arg-meta">(required, string)</span>: <span
+                                                class="argument-description">Message ID or link to edit</span></li>
+                                <li><code>content</code> <span class="arg-meta">(optional, string)</span>: <span
+                                                class="argument-description">New text content (use "clear" to remove)</span></li>
+                                <li><code>title</code> <span class="arg-meta">(optional, string)</span>: <span
+                                                class="argument-description">New embed title (use "clear" to remove)</span></li>
+                                <li><code>description</code> <span class="arg-meta">(optional, string)</span>: <span
+                                                class="argument-description">New embed description (use "clear" to remove)</span></li>
+                                <li><code>color</code> <span class="arg-meta">(optional, string)</span>: <span
+                                                class="argument-description">New embed color hex code</span></li>
+                                <li><code>image</code> <span class="arg-meta">(optional, string)</span>: <span
+                                                class="argument-description">New embed image URL (use "clear" to remove)</span></li>
+                                <li><code>thumbnail</code> <span class="arg-meta">(optional, string)</span>: <span
+                                                class="argument-description">New embed thumbnail URL (use "clear" to remove)</span></li>
+                                <li><code>footer_text</code> <span class="arg-meta">(optional, string)</span>: <span
+                                                class="argument-description">New embed footer text (use "clear" to remove)</span></li>
+                                <li><code>footer_icon</code> <span class="arg-meta">(optional, string)</span>: <span
+                                                class="argument-description">New embed footer icon URL</span></li>
+                                <li><code>author_name</code> <span class="arg-meta">(optional, string)</span>: <span
+                                                class="argument-description">New embed author name (use "clear" to remove)</span></li>
+                                <li><code>author_icon</code> <span class="arg-meta">(optional, string)</span>: <span
+                                                class="argument-description">New embed author icon URL</span></li>
+                                <li><code>author_url</code> <span class="arg-meta">(optional, string)</span>: <span
+                                                class="argument-description">New embed author hyperlink URL</span></li>
+                                <li><code>url</code> <span class="arg-meta">(optional, string)</span>: <span
+                                                class="argument-description">New embed title hyperlink URL (use "clear" to remove)</span></li>
+                                <li><code>timestamp</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                                                class="argument-description">Show current timestamp in the footer</span></li>
+                                <li><code>field1_name</code> <span class="arg-meta">(optional, string)</span>: <span
+                                                class="argument-description">Field 1 name (use "clear" to remove all fields)</span></li>
+                                <li><code>field1_value</code> <span class="arg-meta">(optional, string)</span>: <span
+                                                class="argument-description">Field 1 value</span></li>
+                                <li><code>field1_inline</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                                                class="argument-description">Display field 1 inline</span></li>
+                                <li><code>field2_name</code> <span class="arg-meta">(optional, string)</span>: <span
+                                                class="argument-description">Field 2 name</span></li>
+                                <li><code>field2_value</code> <span class="arg-meta">(optional, string)</span>: <span
+                                                class="argument-description">Field 2 value</span></li>
+                                <li><code>field2_inline</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                                                class="argument-description">Display field 2 inline</span></li>
+                                <li><code>field3_name</code> <span class="arg-meta">(optional, string)</span>: <span
+                                                class="argument-description">Field 3 name</span></li>
+                                <li><code>field3_value</code> <span class="arg-meta">(optional, string)</span>: <span
+                                                class="argument-description">Field 3 value</span></li>
+                                <li><code>field3_inline</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                                                class="argument-description">Display field 3 inline</span></li>
+                        </ul>
+                </div>
+
+                <div class="command-block">
                         <h3>/template</h3>
                         <p><strong>Description:</strong> Manage message templates</p>
                         <p><strong>Subcommands:</strong></p>
@@ -2230,17 +2284,20 @@
                                         </ul>
                                 </li>
                                 <li><code class="subcommand-name">edit</code>: <span
-                                                class="subcommand-description">Edit a bot message</span>
+                                                class="subcommand-description">Edit a saved template</span>
                                         <ul>
-                                                <li><code>message</code> <span class="arg-meta">(required,
+                                                <li><code>title</code> <span class="arg-meta">(required,
                                                                 string)</span>: <span
-                                                                class="argument-description">Message ID or link to
+                                                                class="argument-description">Name of the saved template to
                                                                 edit</span></li>
+                                                <li><code>new_title</code> <span class="arg-meta">(optional,
+                                                                string)</span>: <span
+                                                                class="argument-description">Rename the template</span></li>
                                                 <li><code>content</code> <span class="arg-meta">(optional,
                                                                 string)</span>: <span
                                                                 class="argument-description">New text content (use
                                                                 "clear" to remove)</span></li>
-                                                <li><code>title</code> <span class="arg-meta">(optional,
+                                                <li><code>embed_title</code> <span class="arg-meta">(optional,
                                                                 string)</span>: <span
                                                                 class="argument-description">New embed title (use "clear"
                                                                 to remove)</span></li>
@@ -2252,13 +2309,28 @@
                                                                 string)</span>: <span
                                                                 class="argument-description">New embed color hex
                                                                 code</span></li>
-                                                <li><code>image</code> <span class="arg-meta">(optional,
+                                                <li><code>url</code> <span class="arg-meta">(optional, string)</span>:
+                                                        <span class="argument-description">New embed title hyperlink URL
+                                                                (use "clear" to remove)</span></li>
+                                                <li><code>author_name</code> <span class="arg-meta">(optional,
                                                                 string)</span>: <span
-                                                                class="argument-description">New embed image URL (use
+                                                                class="argument-description">New embed author name (use
                                                                 "clear" to remove)</span></li>
+                                                <li><code>author_icon</code> <span class="arg-meta">(optional,
+                                                                string)</span>: <span
+                                                                class="argument-description">New embed author icon URL (use
+                                                                "clear" to remove)</span></li>
+                                                <li><code>author_url</code> <span class="arg-meta">(optional,
+                                                                string)</span>: <span
+                                                                class="argument-description">New embed author hyperlink
+                                                                URL (use "clear" to remove)</span></li>
                                                 <li><code>thumbnail</code> <span class="arg-meta">(optional,
                                                                 string)</span>: <span
                                                                 class="argument-description">New embed thumbnail URL (use
+                                                                "clear" to remove)</span></li>
+                                                <li><code>image</code> <span class="arg-meta">(optional,
+                                                                string)</span>: <span
+                                                                class="argument-description">New embed image URL (use
                                                                 "clear" to remove)</span></li>
                                                 <li><code>footer_text</code> <span class="arg-meta">(optional,
                                                                 string)</span>: <span
@@ -2266,23 +2338,8 @@
                                                                 "clear" to remove)</span></li>
                                                 <li><code>footer_icon</code> <span class="arg-meta">(optional,
                                                                 string)</span>: <span
-                                                                class="argument-description">New embed footer icon
-                                                                URL</span></li>
-                                                <li><code>author_name</code> <span class="arg-meta">(optional,
-                                                                string)</span>: <span
-                                                                class="argument-description">New embed author name (use
+                                                                class="argument-description">New embed footer icon URL (use
                                                                 "clear" to remove)</span></li>
-                                                <li><code>author_icon</code> <span class="arg-meta">(optional,
-                                                                string)</span>: <span
-                                                                class="argument-description">New embed author icon
-                                                                URL</span></li>
-                                                <li><code>author_url</code> <span class="arg-meta">(optional,
-                                                                string)</span>: <span
-                                                                class="argument-description">New embed author hyperlink
-                                                                URL</span></li>
-                                                <li><code>url</code> <span class="arg-meta">(optional, string)</span>:
-                                                        <span class="argument-description">New embed title hyperlink URL
-                                                                (use "clear" to remove)</span></li>
                                                 <li><code>timestamp</code> <span class="arg-meta">(optional,
                                                                 boolean)</span>: <span
                                                                 class="argument-description">Show current timestamp in
@@ -2324,6 +2381,77 @@
                 </div>
 
                 <h2>Fun Commands</h2>
+
+                <div class="command-block">
+                        <h3>/block</h3>
+                        <p><strong>Description:</strong> Block or unblock a user from a fun command</p>
+                        <p><strong>Subcommands:</strong></p>
+                        <ul>
+                                <li><code class="subcommand-name">wisdom</code>: <span
+                                                class="subcommand-description">Toggle block a user from /wisdom</span>
+                                        <ul>
+                                                <li><code>user</code> <span class="arg-meta">(required, user)</span>:
+                                                        <span class="argument-description">The user to block or unblock</span></li>
+                                        </ul>
+                                </li>
+                                <li><code class="subcommand-name">roll</code>: <span
+                                                class="subcommand-description">Toggle block a user from /roll</span>
+                                        <ul>
+                                                <li><code>user</code> <span class="arg-meta">(required, user)</span>:
+                                                        <span class="argument-description">The user to block or unblock</span></li>
+                                        </ul>
+                                </li>
+                                <li><code class="subcommand-name">cat</code>: <span
+                                                class="subcommand-description">Toggle block a user from /cat</span>
+                                        <ul>
+                                                <li><code>user</code> <span class="arg-meta">(required, user)</span>:
+                                                        <span class="argument-description">The user to block or unblock</span></li>
+                                        </ul>
+                                </li>
+                                <li><code class="subcommand-name">avatar</code>: <span
+                                                class="subcommand-description">Toggle block a user from /avatar</span>
+                                        <ul>
+                                                <li><code>user</code> <span class="arg-meta">(required, user)</span>:
+                                                        <span class="argument-description">The user to block or unblock</span></li>
+                                        </ul>
+                                </li>
+                                <li><code class="subcommand-name">status</code>: <span
+                                                class="subcommand-description">Toggle block a user from /status</span>
+                                        <ul>
+                                                <li><code>user</code> <span class="arg-meta">(required, user)</span>:
+                                                        <span class="argument-description">The user to block or unblock</span></li>
+                                        </ul>
+                                </li>
+                                <li><code class="subcommand-name">remindme</code>: <span
+                                                class="subcommand-description">Toggle block a user from /remindme</span>
+                                        <ul>
+                                                <li><code>user</code> <span class="arg-meta">(required, user)</span>:
+                                                        <span class="argument-description">The user to block or unblock</span></li>
+                                        </ul>
+                                </li>
+                                <li><code class="subcommand-name">invites</code>: <span
+                                                class="subcommand-description">Toggle block a user from /invites</span>
+                                        <ul>
+                                                <li><code>user</code> <span class="arg-meta">(required, user)</span>:
+                                                        <span class="argument-description">The user to block or unblock</span></li>
+                                        </ul>
+                                </li>
+                                <li><code class="subcommand-name">confess</code>: <span
+                                                class="subcommand-description">Toggle block a user from /confess</span>
+                                        <ul>
+                                                <li><code>user</code> <span class="arg-meta">(required, user)</span>:
+                                                        <span class="argument-description">The user to block or unblock</span></li>
+                                        </ul>
+                                </li>
+                                <li><code class="subcommand-name">suggest</code>: <span
+                                                class="subcommand-description">Toggle block a user from /suggest</span>
+                                        <ul>
+                                                <li><code>user</code> <span class="arg-meta">(required, user)</span>:
+                                                        <span class="argument-description">The user to block or unblock</span></li>
+                                        </ul>
+                                </li>
+                        </ul>
+                </div>
 
                 <div class="command-block">
                         <h3>/avatar</h3>
