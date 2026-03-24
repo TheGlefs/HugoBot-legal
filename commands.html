@@ -162,7 +162,7 @@
                         <h1>Hugo Commands</h1>
                 </div>
 
-                <h2>Config Commands</h2>
+                <h2>Configuration Commands</h2>
 
                 <div class="command-block">
                         <h3>/setup</h3>
@@ -366,6 +366,9 @@
                                 <li><code>hex</code> <span class="arg-meta">(required, string)</span>: <span
                                                 class="argument-description">Hex color code (e.g. FF0000 or
                                                 #FF0000)</span></li>
+                                <li><code>hex2</code> <span class="arg-meta">(optional, string)</span>: <span
+                                                class="argument-description">Second hex color for gradient (e.g. 00FF00
+                                                or #00FF00)</span></li>
                         </ul>
                 </div>
 
@@ -1325,6 +1328,23 @@
                                 <li><code>thread-message-enable</code> <span class="arg-meta">(optional,
                                                 boolean)</span>: <span class="argument-description">Enable the sending
                                                 the message?</span></li>
+                                <li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span
+                                                class="argument-description">Custom text to send with the starboard
+                                                post</span></li>
+                                <li><code>message-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                                                class="argument-description">Send the custom message with each starboard
+                                                post?</span></li>
+                                <li><code>embed</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                                                class="argument-description">Send the starboard post as an
+                                                embed?</span></li>
+                                <li><code>embed-title</code> <span class="arg-meta">(optional, string)</span>: <span
+                                                class="argument-description">Custom embed title</span></li>
+                                <li><code>embed-title-enable</code> <span class="arg-meta">(optional, boolean)</span>:
+                                        <span class="argument-description">Show the embed title?</span></li>
+                                <li><code>embed-footer-enable</code> <span class="arg-meta">(optional, boolean)</span>:
+                                        <span class="argument-description">Show the embed footer?</span></li>
+                                <li><code>embed-footer</code> <span class="arg-meta">(optional, string)</span>: <span
+                                                class="argument-description">Footer text on the embed</span></li>
                         </ul>
                 </div>
 
