@@ -337,38 +337,6 @@
                                 <li><code class="subcommand-name">reset</code>: <span
                                                 class="subcommand-description">Reset color list to
                                                 default colors</span></li>
-                                <li><code class="subcommand-name">custom</code>: <span
-                                                class="subcommand-description">Configure custom
-                                                color role settings</span>
-                                        <ul>
-                                                <li><code>enable</code> <span class="arg-meta">(optional,
-                                                                boolean)</span>: <span
-                                                                class="argument-description">Enable custom color
-                                                                roles?</span></li>
-                                                <li><code>prefix</code> <span class="arg-meta">(optional,
-                                                                string)</span>: <span
-                                                                class="argument-description">Prefix for custom color
-                                                                roles</span></li>
-                                                <li><code>suffix</code> <span class="arg-meta">(optional,
-                                                                string)</span>: <span
-                                                                class="argument-description">Suffix for custom color
-                                                                roles</span></li>
-                                        </ul>
-                                </li>
-                        </ul>
-                </div>
-
-                <div class="command-block">
-                        <h3>/custom</h3>
-                        <p><strong>Description:</strong> Create a custom color role with any hex color</p>
-                        <p><strong>Options:</strong></p>
-                        <ul>
-                                <li><code>hex</code> <span class="arg-meta">(required, string)</span>: <span
-                                                class="argument-description">Hex color code (e.g. FF0000 or
-                                                #FF0000)</span></li>
-                                <li><code>hex2</code> <span class="arg-meta">(optional, string)</span>: <span
-                                                class="argument-description">Second hex color for gradient (e.g. 00FF00
-                                                or #00FF00)</span></li>
                         </ul>
                 </div>
 
@@ -648,6 +616,8 @@
                                                                 response</span></li>
                                                 <li><code>response</code> <span class="arg-meta">(optional, string)</span>:
                                                         <span class="argument-description">The response to send</span></li>
+                                                <li><code>template</code> <span class="arg-meta">(optional, string)</span>:
+                                                        <span class="argument-description">Use a saved template as the response</span></li>
                                                 <li><code>reply</code> <span class="arg-meta">(optional, boolean)</span>:
                                                         <span class="argument-description">Reply to the trigger message?
                                                                 (default: false)</span></li>
@@ -686,6 +656,8 @@
                                                         <span class="argument-description">New trigger text</span></li>
                                                 <li><code>response</code> <span class="arg-meta">(optional, string)</span>:
                                                         <span class="argument-description">New response text</span></li>
+                                                <li><code>template</code> <span class="arg-meta">(optional, string)</span>:
+                                                        <span class="argument-description">Use a saved template as the response (use "clear" to remove)</span></li>
                                                 <li><code>reply</code> <span class="arg-meta">(optional, boolean)</span>:
                                                         <span class="argument-description">Reply to the trigger
                                                                 message?</span></li>
@@ -711,6 +683,22 @@
                                                                 seconds</span></li>
                                         </ul>
                                 </li>
+                                <li><code class="subcommand-name">enable</code>: <span
+                                                class="subcommand-description">Enable an individual autoresponse</span>
+                                        <ul>
+                                                <li><code>title</code> <span class="arg-meta">(required, string)</span>:
+                                                        <span class="argument-description">Name of the autoresponse to
+                                                                enable</span></li>
+                                        </ul>
+                                </li>
+                                <li><code class="subcommand-name">disable</code>: <span
+                                                class="subcommand-description">Disable an individual autoresponse</span>
+                                        <ul>
+                                                <li><code>title</code> <span class="arg-meta">(required, string)</span>:
+                                                        <span class="argument-description">Name of the autoresponse to
+                                                                disable</span></li>
+                                        </ul>
+                                </li>
                                 <li><code class="subcommand-name">remove</code>: <span
                                                 class="subcommand-description">Remove an autoresponse</span>
                                         <ul>
@@ -719,11 +707,140 @@
                                                                 remove</span></li>
                                         </ul>
                                 </li>
+                                <li><code class="subcommand-name">preview</code>: <span
+                                                class="subcommand-description">Preview what an autoresponse will look like when sent</span>
+                                        <ul>
+                                                <li><code>title</code> <span class="arg-meta">(required, string)</span>:
+                                                        <span class="argument-description">Name of the autoresponse to
+                                                                preview</span></li>
+                                        </ul>
+                                </li>
                                 <li><code class="subcommand-name">list</code>: <span class="subcommand-description">List all
                                                 autoresponses</span>
                                         <ul>
                                                 <li><code>title</code> <span class="arg-meta">(optional, string)</span>:
                                                         <span class="argument-description">View a specific autoresponse by
+                                                                title</span></li>
+                                        </ul>
+                                </li>
+                        </ul>
+                </div>
+
+                <div class="command-block">
+                        <h3>/automessage</h3>
+                        <p><strong>Description:</strong> Automatic recurring messages sent to channels at intervals</p>
+                        <p><strong>Subcommands:</strong></p>
+                        <ul>
+                                <li><code class="subcommand-name">settings</code>: <span
+                                                class="subcommand-description">Automessage settings</span>
+                                        <ul>
+                                                <li><code>enable</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Enable automatic
+                                                                messages?</span></li>
+                                        </ul>
+                                </li>
+                                <li><code class="subcommand-name">add</code>: <span class="subcommand-description">Add an
+                                                automessage</span>
+                                        <ul>
+                                                <li><code>title</code> <span class="arg-meta">(required, string)</span>:
+                                                        <span class="argument-description">Name for this
+                                                                automessage</span></li>
+                                                <li><code>channel</code> <span class="arg-meta">(required, channel)</span>:
+                                                        <span class="argument-description">Channel to send the message
+                                                                to</span></li>
+                                                <li><code>interval</code> <span class="arg-meta">(required, string)</span>:
+                                                        <span class="argument-description">How often to send (e.g. 1d,
+                                                                2h30m, 90s)</span></li>
+                                                <li><code>message</code> <span class="arg-meta">(optional, string)</span>:
+                                                        <span class="argument-description">The message to send</span></li>
+                                                <li><code>template</code> <span class="arg-meta">(optional, string)</span>:
+                                                        <span class="argument-description">Use a saved template as the
+                                                                message</span></li>
+                                                <li><code>first</code> <span class="arg-meta">(optional, string)</span>:
+                                                        <span class="argument-description">When to send the first message
+                                                                (e.g. 5m, 1h). Defaults to interval</span></li>
+                                        </ul>
+                                </li>
+                                <li><code class="subcommand-name">edit</code>: <span class="subcommand-description">Edit an
+                                                existing automessage</span>
+                                        <ul>
+                                                <li><code>title</code> <span class="arg-meta">(required, string)</span>:
+                                                        <span class="argument-description">Name of the automessage to
+                                                                edit</span></li>
+                                                <li><code>new-title</code> <span class="arg-meta">(optional,
+                                                                string)</span>: <span class="argument-description">New name
+                                                                for this automessage</span></li>
+                                                <li><code>message</code> <span class="arg-meta">(optional, string)</span>:
+                                                        <span class="argument-description">New message text</span></li>
+                                                <li><code>template</code> <span class="arg-meta">(optional, string)</span>:
+                                                        <span class="argument-description">Use a saved template as the
+                                                                message (use "clear" to remove)</span></li>
+                                                <li><code>channel</code> <span class="arg-meta">(optional, channel)</span>:
+                                                        <span class="argument-description">Channel to send the message
+                                                                to</span></li>
+                                                <li><code>interval</code> <span class="arg-meta">(optional, string)</span>:
+                                                        <span class="argument-description">New interval (e.g. 1d, 2h30m,
+                                                                90s)</span></li>
+                                                <li><code>next</code> <span class="arg-meta">(optional, string)</span>:
+                                                        <span class="argument-description">When to send the next message
+                                                                (e.g. 5m, 1h)</span></li>
+                                        </ul>
+                                </li>
+                                <li><code class="subcommand-name">enable</code>: <span
+                                                class="subcommand-description">Enable an individual
+                                                        automessage</span>
+                                        <ul>
+                                                <li><code>title</code> <span class="arg-meta">(required, string)</span>:
+                                                        <span class="argument-description">Name of the automessage to
+                                                                enable</span></li>
+                                        </ul>
+                                </li>
+                                <li><code class="subcommand-name">disable</code>: <span
+                                                class="subcommand-description">Disable an individual
+                                                        automessage</span>
+                                        <ul>
+                                                <li><code>title</code> <span class="arg-meta">(required, string)</span>:
+                                                        <span class="argument-description">Name of the automessage to
+                                                                disable</span></li>
+                                        </ul>
+                                </li>
+                                <li><code class="subcommand-name">remove</code>: <span
+                                                class="subcommand-description">Remove an automessage</span>
+                                        <ul>
+                                                <li><code>title</code> <span class="arg-meta">(required, string)</span>:
+                                                        <span class="argument-description">Name of the automessage to
+                                                                remove</span></li>
+                                        </ul>
+                                </li>
+                                <li><code class="subcommand-name">spread</code>: <span
+                                                class="subcommand-description">Evenly spread all enabled messages
+                                                        across a time window</span>
+                                        <ul>
+                                                <li><code>interval</code> <span class="arg-meta">(required,
+                                                                string)</span>:
+                                                        <span class="argument-description">Spacing between each message
+                                                                (e.g. 3h). Total cycle = interval ×
+                                                                count</span></li>
+                                                <li><code>next</code> <span class="arg-meta">(optional, string)</span>:
+                                                        <span class="argument-description">When to send the first message
+                                                                (e.g. 2h). Defaults to interval</span></li>
+                                        </ul>
+                                </li>
+                                <li><code class="subcommand-name">preview</code>: <span
+                                                class="subcommand-description">Preview what an automessage will look like
+                                                        when sent</span>
+                                        <ul>
+                                                <li><code>title</code> <span class="arg-meta">(required, string)</span>:
+                                                        <span class="argument-description">Name of the automessage to
+                                                                preview</span></li>
+                                        </ul>
+                                </li>
+                                <li><code class="subcommand-name">list</code>: <span class="subcommand-description">List all
+                                                automessages</span>
+                                        <ul>
+                                                <li><code>title</code> <span class="arg-meta">(optional, string)</span>:
+                                                        <span class="argument-description">View a specific automessage by
                                                                 title</span></li>
                                         </ul>
                                 </li>
@@ -760,6 +877,25 @@
                                                         <span class="argument-description">Message ID or link</span></li>
                                                 <li><code>emoji</code> <span class="arg-meta">(required, string)</span>:
                                                         <span class="argument-description">Emoji to remove</span></li>
+                                        </ul>
+                                </li>
+                                <li><code class="subcommand-name">clear</code>: <span
+                                                class="subcommand-description">Remove all reaction role bindings from a
+                                                message</span>
+                                        <ul>
+                                                <li><code>message</code> <span class="arg-meta">(required, string)</span>:
+                                                        <span class="argument-description">Message ID or link</span></li>
+                                        </ul>
+                                </li>
+                                <li><code class="subcommand-name">mode</code>: <span
+                                                class="subcommand-description">Set the role mode for all bindings on a
+                                                message</span>
+                                        <ul>
+                                                <li><code>message</code> <span class="arg-meta">(required, string)</span>:
+                                                        <span class="argument-description">Message ID or link</span></li>
+                                                <li><code>type</code> <span class="arg-meta">(required, string)</span>:
+                                                        <span class="argument-description">The mode to set &mdash;
+                                                                normal or exclusive</span></li>
                                         </ul>
                                 </li>
                                 <li><code class="subcommand-name">list</code>: <span class="subcommand-description">List
@@ -807,7 +943,7 @@
                                                                 boolean)</span>: <span
                                                                 class="argument-description">Send the custom message with
                                                                 each question?</span></li>
-                                                <li><code>thread</code> <span class="arg-meta">(optional,
+                                                <li><code>thread-enable</code> <span class="arg-meta">(optional,
                                                                 boolean)</span>: <span
                                                                 class="argument-description">Auto-create a thread for each
                                                                 question?</span></li>
@@ -823,7 +959,7 @@
                                                                 boolean)</span>: <span
                                                                 class="argument-description">Send the thread message in
                                                                 each thread?</span></li>
-                                                <li><code>embed</code> <span class="arg-meta">(optional,
+                                                <li><code>embed-enable</code> <span class="arg-meta">(optional,
                                                                 boolean)</span>: <span
                                                                 class="argument-description">Send the question as an
                                                                 embed?</span></li>
@@ -843,6 +979,14 @@
                                                                 string)</span>: <span
                                                                 class="argument-description">Footer text on the
                                                                 embed</span></li>
+                                                <li><code>credit</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Show who pitched the
+                                                                question?</span></li>
+                                                <li><code>show-pending</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Show pending pitch
+                                                                count?</span></li>
                                         </ul>
                                 </li>
                                 <li><code class="subcommand-name">post</code>: <span class="subcommand-description">Post
@@ -910,7 +1054,12 @@
                                                 class="subcommand-description">Preview what the next post will look
                                                 like</span></li>
                                 <li><code class="subcommand-name">history</code>: <span
-                                                class="subcommand-description">Show recently posted questions</span></li>
+                                                class="subcommand-description">Show recently posted questions</span>
+                                        <ul>
+                                                <li><code>page</code> <span class="arg-meta">(optional, integer)</span>:
+                                                        <span class="argument-description">Page number</span></li>
+                                        </ul>
+                                </li>
                                 <li><code class="subcommand-name">clear</code>: <span
                                                 class="subcommand-description">Clear a queue or list</span>
                                         <ul>
@@ -940,8 +1089,8 @@
                 </div>
 
                 <div class="command-block">
-                        <h3>/suggestions</h3>
-                        <p><strong>Description:</strong> View and manage QOTD suggestions</p>
+                        <h3>/pitches</h3>
+                        <p><strong>Description:</strong> View and manage QOTD pitches</p>
                 </div>
 
                 <div class="command-block">
@@ -965,6 +1114,14 @@
                                                                 channel)</span>: <span
                                                                 class="argument-description">Channel to send join
                                                                 messages in</span></li>
+                                                <li><code>ping</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Ping users mentioned in
+                                                                the message?</span></li>
+                                                <li><code>reset</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Reset all messages to
+                                                                their defaults?</span></li>
                                         </ul>
                                 </li>
                                 <li><code class="subcommand-name">leave</code>: <span
@@ -983,6 +1140,14 @@
                                                                 channel)</span>: <span
                                                                 class="argument-description">Channel to send leave
                                                                 messages in</span></li>
+                                                <li><code>ping</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Ping users mentioned in
+                                                                the message?</span></li>
+                                                <li><code>reset</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Reset all messages to
+                                                                their defaults?</span></li>
                                         </ul>
                                 </li>
                                 <li><code class="subcommand-name">leave-verified</code>: <span
@@ -1002,6 +1167,14 @@
                                                                 channel)</span>: <span
                                                                 class="argument-description">Channel to send verified
                                                                 leave messages in</span></li>
+                                                <li><code>ping</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Ping users mentioned in
+                                                                the message?</span></li>
+                                                <li><code>reset</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Reset all messages to
+                                                                their defaults?</span></li>
                                         </ul>
                                 </li>
                                 <li><code class="subcommand-name">rejoin</code>: <span
@@ -1024,6 +1197,14 @@
                                                                 channel)</span>: <span
                                                                 class="argument-description">Channel to send rejoin
                                                                 messages in</span></li>
+                                                <li><code>ping</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Ping users mentioned in
+                                                                the message?</span></li>
+                                                <li><code>reset</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Reset all messages to
+                                                                their defaults?</span></li>
                                         </ul>
                                 </li>
                                 <li><code class="subcommand-name">rejoin-verified</code>: <span
@@ -1048,6 +1229,14 @@
                                                                 channel)</span>: <span
                                                                 class="argument-description">Channel to send verified
                                                                 rejoin messages in</span></li>
+                                                <li><code>ping</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Ping users mentioned in
+                                                                the message?</span></li>
+                                                <li><code>reset</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Reset all messages to
+                                                                their defaults?</span></li>
                                         </ul>
                                 </li>
                                 <li><code class="subcommand-name">ban</code>: <span
@@ -1066,6 +1255,14 @@
                                                                 channel)</span>: <span
                                                                 class="argument-description">Channel to send ban
                                                                 messages in</span></li>
+                                                <li><code>ping</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Ping users mentioned in
+                                                                the message?</span></li>
+                                                <li><code>reset</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Reset all messages to
+                                                                their defaults?</span></li>
                                         </ul>
                                 </li>
                                 <li><code class="subcommand-name">ban-verified</code>: <span
@@ -1085,6 +1282,14 @@
                                                                 channel)</span>: <span
                                                                 class="argument-description">Channel to send verified
                                                                 ban messages in</span></li>
+                                                <li><code>ping</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Ping users mentioned in
+                                                                the message?</span></li>
+                                                <li><code>reset</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Reset all messages to
+                                                                their defaults?</span></li>
                                         </ul>
                                 </li>
                                 <li><code class="subcommand-name">unban</code>: <span
@@ -1103,6 +1308,14 @@
                                                                 channel)</span>: <span
                                                                 class="argument-description">Channel to send unban
                                                                 messages in</span></li>
+                                                <li><code>ping</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Ping users mentioned in
+                                                                the message?</span></li>
+                                                <li><code>reset</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Reset all messages to
+                                                                their defaults?</span></li>
                                         </ul>
                                 </li>
                                 <li><code class="subcommand-name">unban-verified</code>: <span
@@ -1123,6 +1336,14 @@
                                                                 channel)</span>: <span
                                                                 class="argument-description">Channel to send verified
                                                                 unban messages in</span></li>
+                                                <li><code>ping</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Ping users mentioned in
+                                                                the message?</span></li>
+                                                <li><code>reset</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Reset all messages to
+                                                                their defaults?</span></li>
                                         </ul>
                                 </li>
                                 <li><code class="subcommand-name">kick</code>: <span
@@ -1141,6 +1362,14 @@
                                                                 channel)</span>: <span
                                                                 class="argument-description">Channel to send kick
                                                                 messages in</span></li>
+                                                <li><code>ping</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Ping users mentioned in
+                                                                the message?</span></li>
+                                                <li><code>reset</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Reset all messages to
+                                                                their defaults?</span></li>
                                         </ul>
                                 </li>
                                 <li><code class="subcommand-name">kick-verified</code>: <span
@@ -1160,6 +1389,14 @@
                                                                 channel)</span>: <span
                                                                 class="argument-description">Channel to send verified
                                                                 kick messages in</span></li>
+                                                <li><code>ping</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Ping users mentioned in
+                                                                the message?</span></li>
+                                                <li><code>reset</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Reset all messages to
+                                                                their defaults?</span></li>
                                         </ul>
                                 </li>
                                 <li><code class="subcommand-name">timeout</code>: <span
@@ -1186,6 +1423,14 @@
                                                                 channel)</span>: <span
                                                                 class="argument-description">Channel to send messages
                                                                 in</span></li>
+                                                <li><code>ping</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Ping users mentioned in
+                                                                the message?</span></li>
+                                                <li><code>reset</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Reset all messages to
+                                                                their defaults?</span></li>
                                         </ul>
                                 </li>
                                 <li><code class="subcommand-name">timeout-verified</code>: <span
@@ -1216,6 +1461,14 @@
                                                                 channel)</span>: <span
                                                                 class="argument-description">Channel to send verified
                                                                 timeout messages in</span></li>
+                                                <li><code>ping</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Ping users mentioned in
+                                                                the message?</span></li>
+                                                <li><code>reset</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Reset all messages to
+                                                                their defaults?</span></li>
                                         </ul>
                                 </li>
                                 <li><code class="subcommand-name">verified</code>: <span
@@ -1234,6 +1487,14 @@
                                                                 channel)</span>: <span
                                                                 class="argument-description">Channel to send verified
                                                                 messages in</span></li>
+                                                <li><code>ping</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Ping users mentioned in
+                                                                the message?</span></li>
+                                                <li><code>reset</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Reset all messages to
+                                                                their defaults?</span></li>
                                         </ul>
                                 </li>
                                 <li><code class="subcommand-name">verified-secondary</code>: <span
@@ -1254,6 +1515,14 @@
                                                                 channel)</span>: <span
                                                                 class="argument-description">Channel to send secondary
                                                                 verified messages in</span></li>
+                                                <li><code>ping</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Ping users mentioned in
+                                                                the message?</span></li>
+                                                <li><code>reset</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Reset all messages to
+                                                                their defaults?</span></li>
                                         </ul>
                                 </li>
                                 <li><code class="subcommand-name">jail</code>: <span
@@ -1276,6 +1545,14 @@
                                                                 channel)</span>: <span
                                                                 class="argument-description">Channel to send jail
                                                                 messages in</span></li>
+                                                <li><code>ping</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Ping users mentioned in
+                                                                the message?</span></li>
+                                                <li><code>reset</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Reset all messages to
+                                                                their defaults?</span></li>
                                         </ul>
                                 </li>
                                 <li><code class="subcommand-name">jail-verified</code>: <span
@@ -1300,6 +1577,45 @@
                                                                 channel)</span>: <span
                                                                 class="argument-description">Channel to send verified
                                                                 jail messages in</span></li>
+                                                <li><code>ping</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Ping users mentioned in
+                                                                the message?</span></li>
+                                                <li><code>reset</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Reset all messages to
+                                                                their defaults?</span></li>
+                                        </ul>
+                                </li>
+                                <li><code class="subcommand-name">jail-secondary</code>: <span
+                                                class="subcommand-description">Extra
+                                                announcement when users are sent to or released from jail</span>
+                                        <ul>
+                                                <li><code>enable</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Enable extra announcement
+                                                                when users are sent to
+                                                                jail?</span></li>
+                                                <li><code>applied</code> <span class="arg-meta">(optional,
+                                                                string)</span>: <span
+                                                                class="argument-description">Secondary message to send
+                                                                when users are sent to jail</span></li>
+                                                <li><code>removed</code> <span class="arg-meta">(optional,
+                                                                string)</span>: <span
+                                                                class="argument-description">Secondary message to send
+                                                                when users are released from jail</span></li>
+                                                <li><code>channel</code> <span class="arg-meta">(optional,
+                                                                channel)</span>: <span
+                                                                class="argument-description">Channel to send secondary
+                                                                jail messages in</span></li>
+                                                <li><code>ping</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Ping users mentioned in
+                                                                the message?</span></li>
+                                                <li><code>reset</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Reset all messages to
+                                                                their defaults?</span></li>
                                         </ul>
                                 </li>
                         </ul>
@@ -1308,43 +1624,97 @@
                 <div class="command-block">
                         <h3>/starboard</h3>
                         <p><strong>Description:</strong> Feature messages reacted to with stars</p>
-                        <p><strong>Options:</strong></p>
+                        <p><strong>Subcommands:</strong></p>
                         <ul>
-                                <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                                class="argument-description">Enable the starboard?</span></li>
-                                <li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span
-                                                class="argument-description">Channel to use as the starboard</span></li>
-                                <li><code>stars</code> <span class="arg-meta">(optional, integer)</span>: <span
-                                                class="argument-description">How many stars messages need</span></li>
-                                <li><code>mod-stars</code> <span class="arg-meta">(optional, integer)</span>: <span
-                                                class="argument-description">How many stars messages need from
-                                                moderators</span></li>
-                                <li><code>thread-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                                class="argument-description">Enable starboard threads?</span></li>
-                                <li><code>thread-title</code> <span class="arg-meta">(optional, string)</span>: <span
-                                                class="argument-description">Title of the threads</span></li>
-                                <li><code>thread-message</code> <span class="arg-meta">(optional, string)</span>: <span
-                                                class="argument-description">Message to send in new threads</span></li>
-                                <li><code>thread-message-enable</code> <span class="arg-meta">(optional,
-                                                boolean)</span>: <span class="argument-description">Enable the sending
-                                                the message?</span></li>
-                                <li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span
-                                                class="argument-description">Custom text to send with the starboard
-                                                post</span></li>
-                                <li><code>message-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                                class="argument-description">Send the custom message with each starboard
-                                                post?</span></li>
-                                <li><code>embed</code> <span class="arg-meta">(optional, boolean)</span>: <span
-                                                class="argument-description">Send the starboard post as an
-                                                embed?</span></li>
-                                <li><code>embed-title</code> <span class="arg-meta">(optional, string)</span>: <span
-                                                class="argument-description">Custom embed title</span></li>
-                                <li><code>embed-title-enable</code> <span class="arg-meta">(optional, boolean)</span>:
-                                        <span class="argument-description">Show the embed title?</span></li>
-                                <li><code>embed-footer-enable</code> <span class="arg-meta">(optional, boolean)</span>:
-                                        <span class="argument-description">Show the embed footer?</span></li>
-                                <li><code>embed-footer</code> <span class="arg-meta">(optional, string)</span>: <span
-                                                class="argument-description">Footer text on the embed</span></li>
+                                <li><code class="subcommand-name">settings</code>: <span
+                                                class="subcommand-description">Configure starboard settings</span>
+                                        <ul>
+                                                <li><code>enable</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Enable the
+                                                                starboard?</span></li>
+                                                <li><code>channel</code> <span class="arg-meta">(optional,
+                                                                channel)</span>: <span
+                                                                class="argument-description">Channel to use as the
+                                                                starboard</span></li>
+                                                <li><code>stars</code> <span class="arg-meta">(optional,
+                                                                integer)</span>: <span
+                                                                class="argument-description">How many stars messages
+                                                                need</span></li>
+                                                <li><code>mod-stars</code> <span class="arg-meta">(optional,
+                                                                integer)</span>: <span
+                                                                class="argument-description">How many stars messages need
+                                                                from moderators</span></li>
+                                                <li><code>thread-enable</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Enable starboard
+                                                                threads?</span></li>
+                                                <li><code>thread-title</code> <span class="arg-meta">(optional,
+                                                                string)</span>: <span
+                                                                class="argument-description">Title of the
+                                                                threads</span></li>
+                                                <li><code>thread-message</code> <span class="arg-meta">(optional,
+                                                                string)</span>: <span
+                                                                class="argument-description">Message to send in new
+                                                                threads</span></li>
+                                                <li><code>thread-message-enable</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Enable the sending the
+                                                                message?</span></li>
+                                                <li><code>message</code> <span class="arg-meta">(optional,
+                                                                string)</span>: <span
+                                                                class="argument-description">Custom text to send with
+                                                                the starboard post</span></li>
+                                                <li><code>message-enable</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Send the custom message
+                                                                with each starboard post?</span></li>
+                                                <li><code>embed-enable</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Send the starboard post as
+                                                                an embed?</span></li>
+                                                <li><code>embed-title</code> <span class="arg-meta">(optional,
+                                                                string)</span>: <span
+                                                                class="argument-description">Custom embed
+                                                                title</span></li>
+                                                <li><code>embed-title-enable</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Show the embed
+                                                                title?</span></li>
+                                                <li><code>embed-footer-enable</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Show the embed
+                                                                footer?</span></li>
+                                                <li><code>embed-footer</code> <span class="arg-meta">(optional,
+                                                                string)</span>: <span
+                                                                class="argument-description">Footer text on the
+                                                                embed</span></li>
+                                                <li><code>credit</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Show the original author on
+                                                                starboard posts?</span></li>
+                                        </ul>
+                                </li>
+                                <li><code class="subcommand-name">ignore</code>: <span
+                                                class="subcommand-description">Add a channel or category to the
+                                                starboard ignore list</span>
+                                        <ul>
+                                                <li><code>channel</code> <span class="arg-meta">(required,
+                                                                channel)</span>: <span
+                                                                class="argument-description">Channel or category to
+                                                                ignore</span></li>
+                                        </ul>
+                                </li>
+                                <li><code class="subcommand-name">allow</code>: <span
+                                                class="subcommand-description">Remove a channel or category from the
+                                                starboard ignore list</span>
+                                        <ul>
+                                                <li><code>channel</code> <span class="arg-meta">(required,
+                                                                channel)</span>: <span
+                                                                class="argument-description">Channel or category to
+                                                                allow</span></li>
+                                        </ul>
+                                </li>
                         </ul>
                 </div>
 
@@ -1703,7 +2073,148 @@
                 </div>
 
                 <div class="command-block">
-                        <h3>/purge</h3>
+                        <h3>/warn</h3>
+                        <p><strong>Description:</strong> Issue a warning to a user</p>
+                        <p><strong>Options:</strong></p>
+                        <ul>
+                                <li><code>user</code> <span class="arg-meta">(required, user)</span>: <span
+                                                class="argument-description">User to warn</span></li>
+                                <li><code>reason</code> <span class="arg-meta">(required, string)</span>: <span
+                                                class="argument-description">Reason for the warning</span></li>
+                                <li><code>inform-user</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                                                class="argument-description">DM the user about the warning? (default:
+                                                false)</span></li>
+                                <li><code>inform-channel</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                                                class="argument-description">Post warning in the current channel? (default:
+                                                false)</span></li>
+                                <li><code>include-reason</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                                                class="argument-description">Include reason in user DM and channel message?
+                                                (default: false)</span></li>
+                                <li><code>expires</code> <span class="arg-meta">(optional, string)</span>: <span
+                                                class="argument-description">Duration until warning expires (e.g. 30d,
+                                                1y)</span></li>
+                        </ul>
+                </div>
+
+                <div class="command-block">
+                        <h3>/warnconfig</h3>
+                        <p><strong>Description:</strong> Warning system settings</p>
+                        <p><strong>Subcommands:</strong></p>
+                        <ul>
+                                <li><code class="subcommand-name">settings</code>: <span
+                                                class="subcommand-description">Configure the warning
+                                                system</span>
+                                        <ul>
+                                                <li><code>enable</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Enable the warning
+                                                                system?</span></li>
+                                                <li><code>mod-channel</code> <span class="arg-meta">(optional,
+                                                                channel)</span>: <span
+                                                                class="argument-description">Channel to post warning
+                                                                logs</span></li>
+                                                <li><code>mod-channel-enable</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Enable posting to the mod
+                                                                channel?</span></li>
+                                                <li><code>default-expiry</code> <span class="arg-meta">(optional,
+                                                                string)</span>: <span
+                                                                class="argument-description">Default expiry for warnings
+                                                                (e.g. 30d, 90d, 0 for never)</span></li>
+                                        </ul>
+                                </li>
+                                <li><code class="subcommand-name">add-threshold</code>: <span
+                                                class="subcommand-description">Add an auto-action
+                                                threshold</span>
+                                        <ul>
+                                                <li><code>count</code> <span class="arg-meta">(required,
+                                                                integer)</span>: <span
+                                                                class="argument-description">Number of active warnings to
+                                                                trigger action</span></li>
+                                                <li><code>action</code> <span class="arg-meta">(required, string)</span>:
+                                                        <span class="argument-description">Action to take (Timeout, Kick,
+                                                                Ban)</span></li>
+                                                <li><code>duration</code> <span class="arg-meta">(optional,
+                                                                string)</span>: <span
+                                                                class="argument-description">Timeout duration (required for
+                                                                timeout, e.g. 1h, 1d)</span></li>
+                                        </ul>
+                                </li>
+                                <li><code class="subcommand-name">remove-threshold</code>: <span
+                                                class="subcommand-description">Remove an auto-action
+                                                threshold</span>
+                                        <ul>
+                                                <li><code>count</code> <span class="arg-meta">(required,
+                                                                integer)</span>: <span
+                                                                class="argument-description">Warning count of the threshold
+                                                                to remove</span></li>
+                                        </ul>
+                                </li>
+                                <li><code class="subcommand-name">list-thresholds</code>: <span
+                                                class="subcommand-description">View all configured
+                                                thresholds</span></li>
+                                <li><code class="subcommand-name">edit</code>: <span
+                                                class="subcommand-description">Edit a warning reason or
+                                                expiry</span>
+                                        <ul>
+                                                <li><code>user</code> <span class="arg-meta">(required, user)</span>:
+                                                        <span class="argument-description">User to edit warning
+                                                                for</span></li>
+                                                <li><code>id</code> <span class="arg-meta">(required, string)</span>:
+                                                        <span class="argument-description">Warning ID to edit</span>
+                                                </li>
+                                                <li><code>reason</code> <span class="arg-meta">(optional, string)</span>:
+                                                        <span class="argument-description">New reason for the
+                                                                warning</span></li>
+                                                <li><code>expires</code> <span class="arg-meta">(optional, string)</span>:
+                                                        <span class="argument-description">New expiry (e.g. 30d, 1y, 0
+                                                                for never)</span></li>
+                                        </ul>
+                                </li>
+                                <li><code class="subcommand-name">remove</code>: <span
+                                                class="subcommand-description">Remove a specific warning from a
+                                                user</span>
+                                        <ul>
+                                                <li><code>user</code> <span class="arg-meta">(required, user)</span>:
+                                                        <span class="argument-description">User to remove warning
+                                                                from</span></li>
+                                                <li><code>id</code> <span class="arg-meta">(required, string)</span>:
+                                                        <span class="argument-description">Warning ID to remove</span>
+                                                </li>
+                                        </ul>
+                                </li>
+                                <li><code class="subcommand-name">clear</code>: <span
+                                                class="subcommand-description">Clear all warnings for a
+                                                user</span>
+                                        <ul>
+                                                <li><code>user</code> <span class="arg-meta">(required, user)</span>:
+                                                        <span class="argument-description">User to clear warnings
+                                                                for</span></li>
+                                                <li><code>include-expired</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Also delete expired/removed
+                                                                warnings? (default: false)</span></li>
+                                        </ul>
+                                </li>
+                        </ul>
+                </div>
+
+                <div class="command-block">
+                        <h3>/warnings</h3>
+                        <p><strong>Description:</strong> View warnings for a user</p>
+                        <p><strong>Options:</strong></p>
+                        <ul>
+                                <li><code>user</code> <span class="arg-meta">(optional, user)</span>: <span
+                                                class="argument-description">User to view warnings for (omit to see
+                                                        all)</span></li>
+                                <li><code>include-expired</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                                                class="argument-description">Include expired/removed warnings? (default:
+                                                false)</span></li>
+                        </ul>
+                </div>
+
+                <div class="command-block">
+                        <h3>/delete</h3>
                         <p><strong>Description:</strong> Delete all messages from specific user</p>
                         <p><strong>Options:</strong></p>
                         <ul>
@@ -1720,6 +2231,18 @@
                                 <li><code>include-contiguous</code> <span class="arg-meta">(optional, boolean)</span>:
                                         <span class="argument-description">Also delete adjacent messages from the same
                                                 replier?</span></li>
+                        </ul>
+                </div>
+
+                <div class="command-block">
+                        <h3>/steal</h3>
+                        <p><strong>Description:</strong> Steal an emoji and add it to this server</p>
+                        <p><strong>Options:</strong></p>
+                        <ul>
+                                <li><code>emoji</code> <span class="arg-meta">(required, string)</span>: <span
+                                                class="argument-description">Custom emoji or Discord CDN link</span></li>
+                                <li><code>name</code> <span class="arg-meta">(required, string)</span>: <span
+                                                class="argument-description">Name for the emoji in this server</span></li>
                         </ul>
                 </div>
 
@@ -1985,7 +2508,7 @@
                                 <li><code class="subcommand-name">xp</code>: <span class="subcommand-description">Set
                                                 user XP</span>
                                         <ul>
-                                                <li><code>target</code> <span class="arg-meta">(required, user)</span>:
+                                                <li><code>user</code> <span class="arg-meta">(required, string)</span>:
                                                         <span class="argument-description">User to set XP for</span>
                                                 </li>
                                                 <li><code>xp</code> <span class="arg-meta">(required, integer)</span>:
@@ -1997,7 +2520,7 @@
                                                 user
                                                 level</span>
                                         <ul>
-                                                <li><code>target</code> <span class="arg-meta">(required, user)</span>:
+                                                <li><code>user</code> <span class="arg-meta">(required, string)</span>:
                                                         <span class="argument-description">User to set level for</span>
                                                 </li>
                                                 <li><code>level</code> <span class="arg-meta">(required,
@@ -2006,21 +2529,20 @@
                                                 </li>
                                         </ul>
                                 </li>
+                                <li><code class="subcommand-name">delete</code>: <span
+                                                class="subcommand-description">Delete a user's XP and level data</span>
+                                        <ul>
+                                                <li><code>user</code> <span class="arg-meta">(required, string)</span>:
+                                                        <span class="argument-description">User to delete data
+                                                                for</span>
+                                                </li>
+                                        </ul>
+                                </li>
                         </ul>
                 </div>
 
                 <div class="command-block">
-                        <h3>/delete</h3>
-                        <p><strong>Description:</strong> Delete user XP/level data</p>
-                        <p><strong>Options:</strong></p>
-                        <ul>
-                                <li><code>user</code> <span class="arg-meta">(required, string)</span>: <span
-                                                class="argument-description">User to delete</span></li>
-                        </ul>
-                </div>
-
-                <div class="command-block">
-                        <h3>/cleanup</h3>
+                        <h3>/purge</h3>
                         <p><strong>Description:</strong> Kick members without role reward</p>
                         <p><strong>Options:</strong></p>
                         <ul>
@@ -2091,6 +2613,9 @@
                                                 message</span></li>
                                 <li><code class="subcommand-name">jail-verified</code>: <span
                                                 class="subcommand-description">Emulate verified user being jailed
+                                                message</span></li>
+                                <li><code class="subcommand-name">jail-secondary</code>: <span
+                                                class="subcommand-description">Emulate secondary jail
                                                 message</span></li>
                         </ul>
                 </div>
@@ -2408,8 +2933,8 @@
                                                         <span class="argument-description">The user to block or unblock</span></li>
                                         </ul>
                                 </li>
-                                <li><code class="subcommand-name">avatar</code>: <span
-                                                class="subcommand-description">Toggle block a user from /avatar</span>
+                                <li><code class="subcommand-name">fetch</code>: <span
+                                                class="subcommand-description">Toggle block a user from /fetch</span>
                                         <ul>
                                                 <li><code>user</code> <span class="arg-meta">(required, user)</span>:
                                                         <span class="argument-description">The user to block or unblock</span></li>
@@ -2443,8 +2968,29 @@
                                                         <span class="argument-description">The user to block or unblock</span></li>
                                         </ul>
                                 </li>
+                                <li><code class="subcommand-name">pitch</code>: <span
+                                                class="subcommand-description">Toggle block a user from /pitch</span>
+                                        <ul>
+                                                <li><code>user</code> <span class="arg-meta">(required, user)</span>:
+                                                        <span class="argument-description">The user to block or unblock</span></li>
+                                        </ul>
+                                </li>
+                                <li><code class="subcommand-name">flair</code>: <span
+                                                class="subcommand-description">Toggle block a user from /flair</span>
+                                        <ul>
+                                                <li><code>user</code> <span class="arg-meta">(required, user)</span>:
+                                                        <span class="argument-description">The user to block or unblock</span></li>
+                                        </ul>
+                                </li>
                                 <li><code class="subcommand-name">suggest</code>: <span
                                                 class="subcommand-description">Toggle block a user from /suggest</span>
+                                        <ul>
+                                                <li><code>user</code> <span class="arg-meta">(required, user)</span>:
+                                                        <span class="argument-description">The user to block or unblock</span></li>
+                                        </ul>
+                                </li>
+                                <li><code class="subcommand-name">quotes</code>: <span
+                                                class="subcommand-description">Toggle block a user from /quotes</span>
                                         <ul>
                                                 <li><code>user</code> <span class="arg-meta">(required, user)</span>:
                                                         <span class="argument-description">The user to block or unblock</span></li>
@@ -2454,12 +3000,31 @@
                 </div>
 
                 <div class="command-block">
-                        <h3>/avatar</h3>
-                        <p><strong>Description:</strong> Fetch user profile picture</p>
+                        <h3>/flair</h3>
+                        <p><strong>Description:</strong> Create a custom role with a color and/or icon</p>
                         <p><strong>Options:</strong></p>
                         <ul>
-                                <li><code>user</code> <span class="arg-meta">(optional, user)</span>: <span
-                                                class="argument-description">User to fetch the avatar for</span></li>
+                                <li><code>hex</code> <span class="arg-meta">(optional, string)</span>: <span
+                                                class="argument-description">Hex color code (e.g. FF0000 or
+                                                #FF0000)</span></li>
+                                <li><code>hex2</code> <span class="arg-meta">(optional, string)</span>: <span
+                                                class="argument-description">Second hex color for gradient (e.g. 00FF00
+                                                or #00FF00)</span></li>
+                                <li><code>title</code> <span class="arg-meta">(optional, string)</span>: <span
+                                                class="argument-description">Name for the role</span></li>
+                                <li><code>link</code> <span class="arg-meta">(optional, string)</span>: <span
+                                                class="argument-description">Image URL for the role icon (PNG, JPEG, or
+                                                WebP)</span></li>
+                        </ul>
+                </div>
+
+                <div class="command-block">
+                        <h3>/fetch</h3>
+                        <p><strong>Description:</strong> Show a user profile picture, emoji, or role icon at full size</p>
+                        <p><strong>Options:</strong></p>
+                        <ul>
+                                <li><code>input</code> <span class="arg-meta">(optional, string)</span>: <span
+                                                class="argument-description">User, emoji, or role &mdash; mention, ID, or CDN link</span></li>
                         </ul>
                 </div>
 
@@ -2534,12 +3099,29 @@
 
                 <div class="command-block">
                         <h3>/suggest</h3>
-                        <p><strong>Description:</strong> Suggest a Question of the Day</p>
+                        <p><strong>Description:</strong> Submit a suggestion</p>
                         <p><strong>Options:</strong></p>
                         <ul>
                                 <li><code>input</code> <span class="arg-meta">(optional, string)</span>: <span
                                                 class="argument-description">Pre-fill your suggestion text</span></li>
+                                <li><code>anonymous</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                                                class="argument-description">Submit anonymously?</span></li>
                         </ul>
+                </div>
+
+                <div class="command-block">
+                        <h3>/pitch</h3>
+                        <p><strong>Description:</strong> Pitch a Question of the Day</p>
+                        <p><strong>Options:</strong></p>
+                        <ul>
+                                <li><code>input</code> <span class="arg-meta">(optional, string)</span>: <span
+                                                class="argument-description">Pre-fill your pitch text</span></li>
+                        </ul>
+                </div>
+
+                <div class="command-block">
+                        <h3>/quotes</h3>
+                        <p><strong>Description:</strong> View and delete starboard entries for your own messages</p>
                 </div>
 
                 <div class="command-block">
@@ -2549,6 +3131,17 @@
                         <ul>
                                 <li><code>search</code> <span class="arg-meta">(optional, string)</span>: <span
                                                 class="argument-description">Filter confessions by matching
+                                                phrase</span></li>
+                        </ul>
+                </div>
+
+                <div class="command-block">
+                        <h3>/suggestions</h3>
+                        <p><strong>Description:</strong> View and delete your own suggestions</p>
+                        <p><strong>Options:</strong></p>
+                        <ul>
+                                <li><code>search</code> <span class="arg-meta">(optional, string)</span>: <span
+                                                class="argument-description">Filter suggestions by matching
                                                 phrase</span></li>
                         </ul>
                 </div>
@@ -2576,12 +3169,12 @@
 
                 <div class="command-block">
                         <h3>/reveal</h3>
-                        <p><strong>Description:</strong> Reveal who sent an anonymous confession</p>
+                        <p><strong>Description:</strong> Reveal who sent an anonymous confession or suggestion</p>
                         <p><strong>Options:</strong></p>
                         <ul>
                                 <li><code>message</code> <span class="arg-meta">(required, string)</span>: <span
-                                                class="argument-description">Message ID or link of the
-                                                confession</span></li>
+                                                class="argument-description">Message ID or link of the confession or
+                                                suggestion</span></li>
                         </ul>
                 </div>
 
@@ -2610,6 +3203,14 @@
                                                                 class="argument-description">Limit to selected
                                                                 channel?</span>
                                                 </li>
+                                                <li><code>min-level</code> <span class="arg-meta">(optional,
+                                                                integer)</span>: <span
+                                                                class="argument-description">Minimum XP level required
+                                                                (0 = no requirement)</span></li>
+                                                <li><code>booster-only</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Restrict to server boosters
+                                                                only?</span></li>
                                         </ul>
                                 </li>
                                 <li><code class="subcommand-name">roll</code>: <span
@@ -2633,6 +3234,14 @@
                                                                 class="argument-description">Limit to selected
                                                                 channel?</span>
                                                 </li>
+                                                <li><code>min-level</code> <span class="arg-meta">(optional,
+                                                                integer)</span>: <span
+                                                                class="argument-description">Minimum XP level required
+                                                                (0 = no requirement)</span></li>
+                                                <li><code>booster-only</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Restrict to server boosters
+                                                                only?</span></li>
                                         </ul>
                                 </li>
                                 <li><code class="subcommand-name">cat</code>: <span
@@ -2656,10 +3265,18 @@
                                                                 class="argument-description">Limit to selected
                                                                 channel?</span>
                                                 </li>
+                                                <li><code>min-level</code> <span class="arg-meta">(optional,
+                                                                integer)</span>: <span
+                                                                class="argument-description">Minimum XP level required
+                                                                (0 = no requirement)</span></li>
+                                                <li><code>booster-only</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Restrict to server boosters
+                                                                only?</span></li>
                                         </ul>
                                 </li>
-                                <li><code class="subcommand-name">avatar</code>: <span
-                                                class="subcommand-description">Manage /avatar
+                                <li><code class="subcommand-name">fetch</code>: <span
+                                                class="subcommand-description">Manage /fetch
                                                 command settings</span>
                                         <ul>
                                                 <li><code>enable</code> <span class="arg-meta">(optional,
@@ -2678,6 +3295,14 @@
                                                                 class="argument-description">Limit to selected
                                                                 channel?</span>
                                                 </li>
+                                                <li><code>min-level</code> <span class="arg-meta">(optional,
+                                                                integer)</span>: <span
+                                                                class="argument-description">Minimum XP level required
+                                                                (0 = no requirement)</span></li>
+                                                <li><code>booster-only</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Restrict to server boosters
+                                                                only?</span></li>
                                         </ul>
                                 </li>
                                 <li><code class="subcommand-name">status</code>: <span
@@ -2700,6 +3325,14 @@
                                                                 class="argument-description">Limit to selected
                                                                 channel?</span>
                                                 </li>
+                                                <li><code>min-level</code> <span class="arg-meta">(optional,
+                                                                integer)</span>: <span
+                                                                class="argument-description">Minimum XP level required
+                                                                (0 = no requirement)</span></li>
+                                                <li><code>booster-only</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Restrict to server boosters
+                                                                only?</span></li>
                                         </ul>
                                 </li>
                                 <li><code class="subcommand-name">remindme</code>: <span
@@ -2722,6 +3355,14 @@
                                                                 class="argument-description">Limit to selected
                                                                 channel?</span>
                                                 </li>
+                                                <li><code>min-level</code> <span class="arg-meta">(optional,
+                                                                integer)</span>: <span
+                                                                class="argument-description">Minimum XP level required
+                                                                (0 = no requirement)</span></li>
+                                                <li><code>booster-only</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Restrict to server boosters
+                                                                only?</span></li>
                                         </ul>
                                 </li>
                                 <li><code class="subcommand-name">invites</code>: <span
@@ -2744,10 +3385,18 @@
                                                                 class="argument-description">Limit to selected
                                                                 channel?</span>
                                                 </li>
+                                                <li><code>min-level</code> <span class="arg-meta">(optional,
+                                                                integer)</span>: <span
+                                                                class="argument-description">Minimum XP level required
+                                                                (0 = no requirement)</span></li>
+                                                <li><code>booster-only</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Restrict to server boosters
+                                                                only?</span></li>
                                         </ul>
                                 </li>
-                                <li><code class="subcommand-name">suggest</code>: <span
-                                                class="subcommand-description">Manage /suggest command
+                                <li><code class="subcommand-name">pitch</code>: <span
+                                                class="subcommand-description">Manage /pitch command
                                                 settings</span>
                                         <ul>
                                                 <li><code>enable</code> <span class="arg-meta">(optional,
@@ -2757,15 +3406,75 @@
                                                                 integer)</span>: <span
                                                                 class="argument-description">Cooldown (in
                                                                 seconds)</span></li>
-                                                <li><code>channel</code> <span class="arg-meta">(optional,
-                                                                channel)</span>: <span
-                                                                class="argument-description">Channel for usage</span>
-                                                </li>
-                                                <li><code>channel-enable</code> <span class="arg-meta">(optional,
+                                                <li><code>inform</code> <span class="arg-meta">(optional,
                                                                 boolean)</span>: <span
-                                                                class="argument-description">Limit to selected
-                                                                channel?</span>
+                                                                class="argument-description">DM users when their
+                                                                pitch is approved?</span>
                                                 </li>
+                                                <li><code>min-level</code> <span class="arg-meta">(optional,
+                                                                integer)</span>: <span
+                                                                class="argument-description">Minimum XP level required
+                                                                (0 = no requirement)</span></li>
+                                                <li><code>booster-only</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Restrict to server boosters
+                                                                only?</span></li>
+                                        </ul>
+                                </li>
+                                <li><code class="subcommand-name">flair</code>: <span
+                                                class="subcommand-description">Manage /flair command
+                                                settings</span>
+                                        <ul>
+                                                <li><code>enable</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Enable /flair
+                                                                command?</span></li>
+                                                <li><code>cooldown</code> <span class="arg-meta">(optional,
+                                                                integer)</span>: <span
+                                                                class="argument-description">Cooldown for /flair (in
+                                                                seconds)</span></li>
+                                                <li><code>target</code> <span class="arg-meta">(optional,
+                                                                role)</span>: <span
+                                                                class="argument-description">Role above which flair roles
+                                                                will be placed</span>
+                                                </li>
+                                                <li><code>remember</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Reapply flair roles
+                                                                when members rejoin?</span></li>
+                                                <li><code>custom-title</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Allow users to set a
+                                                                custom role name?</span></li>
+                                                <li><code>min-level</code> <span class="arg-meta">(optional,
+                                                                integer)</span>: <span
+                                                                class="argument-description">Minimum XP level required
+                                                                (0 = no requirement)</span></li>
+                                                <li><code>booster-only</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Restrict to server boosters
+                                                                only?</span></li>
+                                        </ul>
+                                </li>
+                                <li><code class="subcommand-name">quotes</code>: <span
+                                                class="subcommand-description">Manage /quotes command
+                                                settings</span>
+                                        <ul>
+                                                <li><code>enable</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Enable command?</span></li>
+                                                <li><code>cooldown</code> <span class="arg-meta">(optional,
+                                                                integer)</span>: <span
+                                                                class="argument-description">Cooldown (in
+                                                                seconds)</span></li>
+                                                <li><code>min-level</code> <span class="arg-meta">(optional,
+                                                                integer)</span>: <span
+                                                                class="argument-description">Minimum XP level required
+                                                                (0 = no requirement)</span></li>
+                                                <li><code>booster-only</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Restrict to server boosters
+                                                                only?</span></li>
                                         </ul>
                                 </li>
                                 <li><code class="subcommand-name">confession</code>: <span
@@ -2784,7 +3493,7 @@
                                                                 channel)</span>: <span
                                                                 class="argument-description">Channel where confessions
                                                                 are sent</span></li>
-                                                <li><code>embed</code> <span class="arg-meta">(optional,
+                                                <li><code>embed-enable</code> <span class="arg-meta">(optional,
                                                                 boolean)</span>: <span
                                                                 class="argument-description">Send confessions as an
                                                                 embed?</span></li>
@@ -2812,7 +3521,7 @@
                                                                 string)</span>: <span
                                                                 class="argument-description">Message displayed above the
                                                                 confession</span></li>
-                                                <li><code>thread</code> <span class="arg-meta">(optional,
+                                                <li><code>thread-enable</code> <span class="arg-meta">(optional,
                                                                 boolean)</span>: <span
                                                                 class="argument-description">Create a thread for each
                                                                 confession?</span></li>
@@ -2835,6 +3544,96 @@
                                                                 integer)</span>: <span
                                                                 class="argument-description">Max confessions per user (0
                                                                 = unlimited)</span></li>
+                                                <li><code>min-level</code> <span class="arg-meta">(optional,
+                                                                integer)</span>: <span
+                                                                class="argument-description">Minimum XP level required
+                                                                (0 = no requirement)</span></li>
+                                                <li><code>booster-only</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Restrict to server boosters
+                                                                only?</span></li>
+                                        </ul>
+                                </li>
+                                <li><code class="subcommand-name">suggestion</code>: <span
+                                                class="subcommand-description">Manage /suggest and /suggestions
+                                                settings</span>
+                                        <ul>
+                                                <li><code>enable</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Enable /suggest
+                                                                command?</span></li>
+                                                <li><code>cooldown</code> <span class="arg-meta">(optional,
+                                                                integer)</span>: <span
+                                                                class="argument-description">Cooldown for /suggest (in
+                                                                seconds)</span></li>
+                                                <li><code>channel</code> <span class="arg-meta">(optional,
+                                                                channel)</span>: <span
+                                                                class="argument-description">Channel where suggestions
+                                                                are sent</span></li>
+                                                <li><code>embed-enable</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Send suggestions as an
+                                                                embed?</span></li>
+                                                <li><code>embed-title-enable</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Show a title on the
+                                                                suggestion embed?</span></li>
+                                                <li><code>embed-title</code> <span class="arg-meta">(optional,
+                                                                string)</span>: <span
+                                                                class="argument-description">Title displayed on the
+                                                                suggestion embed</span></li>
+                                                <li><code>embed-footer-enable</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Show a footer on the
+                                                                suggestion embed?</span></li>
+                                                <li><code>embed-footer</code> <span class="arg-meta">(optional,
+                                                                string)</span>: <span
+                                                                class="argument-description">Footer text on the
+                                                                suggestion embed</span></li>
+                                                <li><code>credit</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Show who submitted the
+                                                                suggestion?</span></li>
+                                                <li><code>message-enable</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Show a message above the
+                                                                suggestion?</span></li>
+                                                <li><code>message</code> <span class="arg-meta">(optional,
+                                                                string)</span>: <span
+                                                                class="argument-description">Message displayed above the
+                                                                suggestion</span></li>
+                                                <li><code>thread-enable</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Create a thread for each
+                                                                suggestion?</span></li>
+                                                <li><code>thread-title</code> <span class="arg-meta">(optional,
+                                                                string)</span>: <span
+                                                                class="argument-description">Thread title template (e.g.
+                                                                Suggestion - {date} {time})</span></li>
+                                                <li><code>thread-message-enable</code> <span
+                                                                class="arg-meta">(optional, boolean)</span>: <span
+                                                                class="argument-description">Send a message inside the
+                                                                thread?</span></li>
+                                                <li><code>thread-message</code> <span class="arg-meta">(optional,
+                                                                string)</span>: <span
+                                                                class="argument-description">Message sent inside the
+                                                                thread</span></li>
+                                                <li><code>max-per-user</code> <span class="arg-meta">(optional,
+                                                                integer)</span>: <span
+                                                                class="argument-description">Max suggestions per user (0
+                                                                = unlimited)</span></li>
+                                                <li><code>min-level</code> <span class="arg-meta">(optional,
+                                                                integer)</span>: <span
+                                                                class="argument-description">Minimum XP level required
+                                                                (0 = no requirement)</span></li>
+                                                <li><code>booster-only</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Restrict to server boosters
+                                                                only?</span></li>
+                                                <li><code>log</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Log suggestion author to
+                                                                the log channel?</span></li>
                                         </ul>
                                 </li>
                         </ul>
