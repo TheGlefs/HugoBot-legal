@@ -2272,6 +2272,11 @@
                                                         <span class="argument-description">Maximum XP per message based
                                                                 on length</span>
                                                 </li>
+                                                <li><code>booster-multiplier</code> <span class="arg-meta">(optional,
+                                                                number)</span>: <span
+                                                                class="argument-description">XP multiplier for server
+                                                                boosters (1 = no bonus)</span>
+                                                </li>
                                         </ul>
                                 </li>
                                 <li><code class="subcommand-name">advance</code>: <span
@@ -2374,6 +2379,29 @@
                                                 </li>
                                         </ul>
                                 </li>
+                                <li><code class="subcommand-name">ignore</code>: <span
+                                                class="subcommand-description">Add a channel to the XP ignore
+                                                list</span>
+                                        <ul>
+                                                <li><code>channel</code> <span class="arg-meta">(required,
+                                                                channel)</span>: <span
+                                                                class="argument-description">Channel to ignore (no XP
+                                                                gained here)</span></li>
+                                        </ul>
+                                </li>
+                                <li><code class="subcommand-name">allow</code>: <span
+                                                class="subcommand-description">Remove a channel from the XP ignore
+                                                list</span>
+                                        <ul>
+                                                <li><code>channel</code> <span class="arg-meta">(required,
+                                                                channel)</span>: <span
+                                                                class="argument-description">Channel to allow XP in
+                                                                again</span></li>
+                                        </ul>
+                                </li>
+                                <li><code class="subcommand-name">list</code>: <span
+                                                class="subcommand-description">Show all channels on the XP ignore
+                                                list</span></li>
                         </ul>
                 </div>
 
@@ -2940,13 +2968,6 @@
                                                         <span class="argument-description">The user to block or unblock</span></li>
                                         </ul>
                                 </li>
-                                <li><code class="subcommand-name">status</code>: <span
-                                                class="subcommand-description">Toggle block a user from /status</span>
-                                        <ul>
-                                                <li><code>user</code> <span class="arg-meta">(required, user)</span>:
-                                                        <span class="argument-description">The user to block or unblock</span></li>
-                                        </ul>
-                                </li>
                                 <li><code class="subcommand-name">remindme</code>: <span
                                                 class="subcommand-description">Toggle block a user from /remindme</span>
                                         <ul>
@@ -2994,6 +3015,13 @@
                                         <ul>
                                                 <li><code>user</code> <span class="arg-meta">(required, user)</span>:
                                                         <span class="argument-description">The user to block or unblock</span></li>
+                                        </ul>
+                                </li>
+                                <li><code class="subcommand-name">list</code>: <span
+                                                class="subcommand-description">List blocked users for a fun command</span>
+                                        <ul>
+                                                <li><code>command</code> <span class="arg-meta">(required, string)</span>:
+                                                        <span class="argument-description">The command to list blocked users for</span></li>
                                         </ul>
                                 </li>
                         </ul>
@@ -3062,16 +3090,6 @@
                 </div>
 
                 <div class="command-block">
-                        <h3>/status</h3>
-                        <p><strong>Description:</strong> Check when user status was last updated</p>
-                        <p><strong>Options:</strong></p>
-                        <ul>
-                                <li><code>user</code> <span class="arg-meta">(required, user)</span>: <span
-                                                class="argument-description">User to check</span></li>
-                        </ul>
-                </div>
-
-                <div class="command-block">
                         <h3>/invites</h3>
                         <p><strong>Description:</strong> Check how many members a user has invited</p>
                         <p><strong>Options:</strong></p>
@@ -3126,7 +3144,7 @@
 
                 <div class="command-block">
                         <h3>/confessions</h3>
-                        <p><strong>Description:</strong> View and delete your own confessions</p>
+                        <p><strong>Description:</strong> View, edit, and delete your own confessions</p>
                         <p><strong>Options:</strong></p>
                         <ul>
                                 <li><code>search</code> <span class="arg-meta">(optional, string)</span>: <span
@@ -3277,36 +3295,6 @@
                                 </li>
                                 <li><code class="subcommand-name">fetch</code>: <span
                                                 class="subcommand-description">Manage /fetch
-                                                command settings</span>
-                                        <ul>
-                                                <li><code>enable</code> <span class="arg-meta">(optional,
-                                                                boolean)</span>: <span
-                                                                class="argument-description">Enable command?</span></li>
-                                                <li><code>cooldown</code> <span class="arg-meta">(optional,
-                                                                integer)</span>: <span
-                                                                class="argument-description">Cooldown (in
-                                                                seconds)</span></li>
-                                                <li><code>channel</code> <span class="arg-meta">(optional,
-                                                                channel)</span>: <span
-                                                                class="argument-description">Channel for usage</span>
-                                                </li>
-                                                <li><code>channel-enable</code> <span class="arg-meta">(optional,
-                                                                boolean)</span>: <span
-                                                                class="argument-description">Limit to selected
-                                                                channel?</span>
-                                                </li>
-                                                <li><code>min-level</code> <span class="arg-meta">(optional,
-                                                                integer)</span>: <span
-                                                                class="argument-description">Minimum XP level required
-                                                                (0 = no requirement)</span></li>
-                                                <li><code>booster-only</code> <span class="arg-meta">(optional,
-                                                                boolean)</span>: <span
-                                                                class="argument-description">Restrict to server boosters
-                                                                only?</span></li>
-                                        </ul>
-                                </li>
-                                <li><code class="subcommand-name">status</code>: <span
-                                                class="subcommand-description">Manage /status
                                                 command settings</span>
                                         <ul>
                                                 <li><code>enable</code> <span class="arg-meta">(optional,
@@ -3594,6 +3582,10 @@
                                                                 boolean)</span>: <span
                                                                 class="argument-description">Show who submitted the
                                                                 suggestion?</span></li>
+                                                <li><code>reactions</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Add voting reactions
+                                                                (👍/👎) to suggestions?</span></li>
                                                 <li><code>message-enable</code> <span class="arg-meta">(optional,
                                                                 boolean)</span>: <span
                                                                 class="argument-description">Show a message above the
