@@ -1,1 +1,82 @@
-<!DOCTYPE html><html lang="en"><head>  <meta charset="UTF-8">  <title>Hugo Privacy Policy</title>  <style>    body { font-family: Arial, sans-serif; max-width: 800px; margin: 2rem auto; line-height: 1.6; }    h1, h2 { color: #333; }  </style></head><body>  <h1>Privacy Policy for Hugo</h1>  <p><strong>Last updated:</strong> 18/10/2025</p>  <h2>1. Data Collected</h2>  <p>Hugo may collect and temporarily store the following:</p>  <ul>    <li>Discord user IDs, server IDs, role IDs and channel IDs (for configuration and functionality).</li>    <li>Server settings you configure (e.g., message settings, rolekick settings).</li>    <li>Message content only when explicitly required for features (e.g., starboard, logging).</li>  </ul>  <p>Hugo does <strong>not</strong> collect sensitive personal information.</p>  <h2>2. How Data is Used</h2>  <ul>    <li>To provide and improve Hugo's functionality.</li>    <li>To store server preferences and configurations.</li>  </ul>  <h2>3. Data Sharing</h2>  <ul>    <li>Data is <strong>never sold</strong> or shared with third parties.</li>    <li>Data may be shared with Discord if required for moderation or legal compliance.</li>  </ul>  <h2>4. Data Retention & Deletion</h2>  <ul>    <li>Data is stored only as long as necessary for Hugo’s features.</li>    <li>You may request deletion of your server’s data by contacting Hugo's owner.</li>    <li>Removing Hugo from your server will automatically stop further data collection.</li>  </ul>  <h2>5. Security</h2>  <p>Reasonable measures are taken to protect stored data, but no system is 100% secure.</p>  <h2>6. Contact</h2>  <p>For privacy concerns, contact: <strong>glefs</strong> on Discord</p></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hugo Privacy Policy</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 800px; margin: 2rem auto; line-height: 1.6; }
+    h1, h2 { color: #333; }
+  </style>
+</head>
+<body>
+  <h1>Privacy Policy for Hugo</h1>
+  <p><strong>Last updated:</strong> 05/04/2026</p>
+
+  <h2>1. Data We Collect</h2>
+  <p>Hugo collects and stores the following data in a local database to provide its features:</p>
+
+  <h3>Per-User Data (stored per server)</h3>
+  <ul>
+    <li>Discord user ID, username, and display name.</li>
+    <li>Username and display name history (up to 20 previous names per server).</li>
+    <li>XP, level, and invite count for leveling and leaderboard features.</li>
+    <li>Verification status, CAPTCHA attempt counts, and jail status.</li>
+    <li>A cached list of your roles (for offline member display and role restore).</li>
+    <li>Last message activity timestamp (for activity tracking, not message content).</li>
+  </ul>
+
+  <h3>Server Data</h3>
+  <ul>
+    <li>Server IDs, channel IDs, and role IDs needed for configuration.</li>
+    <li>Server settings you configure, including text content such as custom announcement messages, autoresponse triggers and responses, automessage text, and saved message templates.</li>
+    <li>Scheduled tasks such as reminders, scheduled kicks, automessages, and warnings. These may include text you provide (e.g., reminder messages, kick/ban reasons).</li>
+    <li>QOTD pitch questions submitted by users (stored with the question text, author ID, and timestamp).</li>
+    <li>Flair role details: custom role names, colors, and icon URLs you provide.</li>
+    <li>Per-command blocked user ID lists.</li>
+    <li>Confessions and suggestions metadata: the author's user ID, timestamp, and the Discord message ID (up to 1,000 each per server). The text itself is only posted to Discord, not stored by Hugo. Server moderators may be able to reveal the author of a confession.</li>
+    <li>Starboard entry metadata: the original message ID, starboard message ID, and author's user ID. The message content is re-posted to the starboard channel on Discord, not stored by Hugo.</li>
+    <li>Moderation warnings (including reason text, moderator ID, and expiry date).</li>
+  </ul>
+
+  <h3>Dashboard Data</h3>
+  <ul>
+    <li>If you use the web dashboard, Hugo stores a session containing your Discord OAuth2 tokens (access and refresh tokens) to authenticate you. These are stored locally in session files.</li>
+  </ul>
+
+  <h2>2. Data We Do NOT Collect</h2>
+  <ul>
+    <li><strong>Regular message content</strong> &mdash; Hugo reads messages to process commands and calculate XP, but does not store the content of regular chat messages. Text you explicitly submit through Hugo's features (reminders, autoresponses, announcements, QOTD pitches, automessages, saved templates, flair names, and moderation reasons) is stored as described above. If logging is enabled, Hugo posts embeds to your server's log channels for a wide range of server events (message edits/deletes, thread and channel changes, role changes, member joins/leaves, and more). Logged message embeds may include message content and re-uploaded attachments. This data is sent to Discord and is not stored by Hugo.</li>
+    <li><strong>Direct messages</strong> &mdash; Hugo does not log or store DM content.</li>
+    <li><strong>Voice or audio data</strong> &mdash; Hugo does not listen to or record voice channels.</li>
+    <li><strong>Email addresses or IP addresses.</strong></li>
+  </ul>
+
+  <h2>3. How Data is Used</h2>
+  <ul>
+    <li>To provide Hugo's features: leveling, invite tracking, moderation, confessions, suggestions, starboard, logging, and server configuration.</li>
+    <li>To authenticate dashboard users via Discord OAuth2.</li>
+  </ul>
+
+  <h2>4. Data Sharing</h2>
+  <ul>
+    <li>Your data is <strong>never sold</strong> to third parties.</li>
+    <li>Hugo communicates with the Discord API to function. Bot metadata (such as command list and server count) may be shared with Top.gg for bot listing purposes. No user data is sent to third-party analytics, tracking, or advertising services.</li>
+    <li>Data may be disclosed if required by law.</li>
+  </ul>
+
+  <h2>5. Data Retention &amp; Deletion</h2>
+  <ul>
+    <li>All user data is scoped to the server it was collected in.</li>
+    <li>When Hugo is removed from a server, cached data for that server is cleared.</li>
+    <li>Confessions and suggestions are automatically pruned when a server exceeds 1,000 entries.</li>
+    <li>Scheduled tasks are deleted once executed or manually cancelled.</li>
+    <li>You may request deletion of your server's data by contacting Hugo's owner.</li>
+  </ul>
+
+  <h2>6. Security</h2>
+  <p>Data is stored in a local SQLite database with no external database services. Reasonable measures are taken to protect stored data, but no system is 100% secure.</p>
+
+  <h2>7. Contact</h2>
+  <p>For privacy concerns, contact: <strong>glefs</strong> on Discord</p>
+</body>
+</html>
