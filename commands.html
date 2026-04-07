@@ -170,6 +170,18 @@
                 </div>
 
                 <div class="command-block">
+                        <h3>/settings</h3>
+                        <p><strong>Description:</strong> Bot behavior settings</p>
+                        <p><strong>Options:</strong></p>
+                        <ul>
+                                <li><code>resolve-by-name</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                                                class="argument-description">Find channels/roles by name when IDs are invalid?</span></li>
+                                <li><code>delete-threads</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                                                class="argument-description">Delete threads when their starting message is deleted?</span></li>
+                        </ul>
+                </div>
+
+                <div class="command-block">
                         <h3>/logs</h3>
                         <p><strong>Description:</strong> Server and bot event logging</p>
                         <p><strong>Subcommands:</strong></p>
@@ -1245,10 +1257,14 @@
                                                                 boolean)</span>: <span
                                                                 class="argument-description">Enable announcing</span>
                                                 </li>
-                                                <li><code>message</code> <span class="arg-meta">(optional,
+                                                <li><code>permanent</code> <span class="arg-meta">(optional,
                                                                 string)</span>: <span
                                                                 class="argument-description">Message to send when users
-                                                                are banned</span></li>
+                                                                are permanently banned</span></li>
+                                                <li><code>temporary</code> <span class="arg-meta">(optional,
+                                                                string)</span>: <span
+                                                                class="argument-description">Message to send when users
+                                                                are temporarily banned</span></li>
                                                 <li><code>channel</code> <span class="arg-meta">(optional,
                                                                 channel)</span>: <span
                                                                 class="argument-description">Channel to send ban
@@ -1272,10 +1288,14 @@
                                                                 class="argument-description">Enable extra announcement
                                                                 when verified users are
                                                                 banned?</span></li>
-                                                <li><code>message</code> <span class="arg-meta">(optional,
+                                                <li><code>permanent</code> <span class="arg-meta">(optional,
                                                                 string)</span>: <span
                                                                 class="argument-description">Message to send when
-                                                                verified users are banned</span></li>
+                                                                verified users are permanently banned</span></li>
+                                                <li><code>temporary</code> <span class="arg-meta">(optional,
+                                                                string)</span>: <span
+                                                                class="argument-description">Message to send when
+                                                                verified users are temporarily banned</span></li>
                                                 <li><code>channel</code> <span class="arg-meta">(optional,
                                                                 channel)</span>: <span
                                                                 class="argument-description">Channel to send verified
@@ -1405,15 +1425,15 @@
                                                                 boolean)</span>: <span
                                                                 class="argument-description">Enable announcing</span>
                                                 </li>
-                                                <li><code>applied</code> <span class="arg-meta">(optional,
+                                                <li><code>apply</code> <span class="arg-meta">(optional,
                                                                 string)</span>: <span
                                                                 class="argument-description">Message to send when
                                                                 timeouts are applied</span></li>
-                                                <li><code>removed</code> <span class="arg-meta">(optional,
+                                                <li><code>remove</code> <span class="arg-meta">(optional,
                                                                 string)</span>: <span
                                                                 class="argument-description">Message to send when
                                                                 timeouts are removed</span></li>
-                                                <li><code>expired</code> <span class="arg-meta">(optional,
+                                                <li><code>expire</code> <span class="arg-meta">(optional,
                                                                 string)</span>: <span
                                                                 class="argument-description">Message to send when
                                                                 timeouts expire</span></li>
@@ -1440,17 +1460,17 @@
                                                                 class="argument-description">Enable extra announcement
                                                                 when verified users are timed
                                                                 out?</span></li>
-                                                <li><code>applied</code> <span class="arg-meta">(optional,
+                                                <li><code>apply</code> <span class="arg-meta">(optional,
                                                                 string)</span>: <span
                                                                 class="argument-description">Message to send when
                                                                 verified users timeouts are
                                                                 applied</span></li>
-                                                <li><code>removed</code> <span class="arg-meta">(optional,
+                                                <li><code>remove</code> <span class="arg-meta">(optional,
                                                                 string)</span>: <span
                                                                 class="argument-description">Message to send when
                                                                 verified users timeouts are
                                                                 removed</span></li>
-                                                <li><code>expired</code> <span class="arg-meta">(optional,
+                                                <li><code>expire</code> <span class="arg-meta">(optional,
                                                                 string)</span>: <span
                                                                 class="argument-description">Message to send when
                                                                 verified users timeouts expire</span>
@@ -1531,11 +1551,11 @@
                                                                 boolean)</span>: <span
                                                                 class="argument-description">Enable announcing when
                                                                 users are sent to jail?</span></li>
-                                                <li><code>applied</code> <span class="arg-meta">(optional,
+                                                <li><code>apply</code> <span class="arg-meta">(optional,
                                                                 string)</span>: <span
                                                                 class="argument-description">Message to send when users
                                                                 are sent to jail</span></li>
-                                                <li><code>removed</code> <span class="arg-meta">(optional,
+                                                <li><code>remove</code> <span class="arg-meta">(optional,
                                                                 string)</span>: <span
                                                                 class="argument-description">Message to send when users
                                                                 are released from jail</span></li>
@@ -1563,11 +1583,11 @@
                                                                 class="argument-description">Enable extra announcement
                                                                 when verified users are sent to
                                                                 jail?</span></li>
-                                                <li><code>applied</code> <span class="arg-meta">(optional,
+                                                <li><code>apply</code> <span class="arg-meta">(optional,
                                                                 string)</span>: <span
                                                                 class="argument-description">Message to send when
                                                                 verified users are sent to jail</span></li>
-                                                <li><code>removed</code> <span class="arg-meta">(optional,
+                                                <li><code>remove</code> <span class="arg-meta">(optional,
                                                                 string)</span>: <span
                                                                 class="argument-description">Message to send when
                                                                 verified users are released from jail</span></li>
@@ -1594,11 +1614,11 @@
                                                                 class="argument-description">Enable extra announcement
                                                                 when users are sent to
                                                                 jail?</span></li>
-                                                <li><code>applied</code> <span class="arg-meta">(optional,
+                                                <li><code>apply</code> <span class="arg-meta">(optional,
                                                                 string)</span>: <span
                                                                 class="argument-description">Secondary message to send
                                                                 when users are sent to jail</span></li>
-                                                <li><code>removed</code> <span class="arg-meta">(optional,
+                                                <li><code>remove</code> <span class="arg-meta">(optional,
                                                                 string)</span>: <span
                                                                 class="argument-description">Secondary message to send
                                                                 when users are released from jail</span></li>
@@ -2067,6 +2087,60 @@
                                                 </li>
                                         </ul>
                                 </li>
+                        </ul>
+                </div>
+
+                <div class="command-block">
+                        <h3>/ban</h3>
+                        <p><strong>Description:</strong> Ban a user from the server</p>
+                        <p><strong>Options:</strong></p>
+                        <ul>
+                                <li><code>user</code> <span class="arg-meta">(required, user)</span>: <span
+                                                class="argument-description">User to ban</span></li>
+                                <li><code>reason</code> <span class="arg-meta">(optional, string)</span>: <span
+                                                class="argument-description">Reason for the ban</span></li>
+                                <li><code>time</code> <span class="arg-meta">(optional, string)</span>: <span
+                                                class="argument-description">Ban duration (e.g. 7d, 1h 30m). Leave empty
+                                                for permanent</span></li>
+                                <li><code>inform-user</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                                                class="argument-description">DM the user about the ban? (default:
+                                                false)</span></li>
+                                <li><code>include-reason</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                                                class="argument-description">Include reason in user DM? (default:
+                                                false)</span></li>
+                        </ul>
+                </div>
+
+                <div class="command-block">
+                        <h3>/kick</h3>
+                        <p><strong>Description:</strong> Kick a user from the server</p>
+                        <p><strong>Options:</strong></p>
+                        <ul>
+                                <li><code>user</code> <span class="arg-meta">(required, user)</span>: <span
+                                                class="argument-description">User to kick</span></li>
+                                <li><code>reason</code> <span class="arg-meta">(optional, string)</span>: <span
+                                                class="argument-description">Reason for the kick</span></li>
+                                <li><code>inform-user</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                                                class="argument-description">DM the user about the kick? (default:
+                                                false)</span></li>
+                                <li><code>include-reason</code> <span class="arg-meta">(optional, boolean)</span>: <span
+                                                class="argument-description">Include reason in user DM? (default:
+                                                false)</span></li>
+                        </ul>
+                </div>
+
+                <div class="command-block">
+                        <h3>/timeout</h3>
+                        <p><strong>Description:</strong> Time out a user (or remove their timeout if already timed out)</p>
+                        <p><strong>Options:</strong></p>
+                        <ul>
+                                <li><code>user</code> <span class="arg-meta">(required, user)</span>: <span
+                                                class="argument-description">User to time out</span></li>
+                                <li><code>duration</code> <span class="arg-meta">(required, string)</span>: <span
+                                                class="argument-description">Timeout duration (e.g. 10m, 1h 30m, 7d). Max
+                                                28 days</span></li>
+                                <li><code>reason</code> <span class="arg-meta">(optional, string)</span>: <span
+                                                class="argument-description">Reason for the timeout</span></li>
                         </ul>
                 </div>
 
