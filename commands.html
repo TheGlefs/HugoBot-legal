@@ -178,6 +178,12 @@
                                                 class="argument-description">Find channels/roles by name when IDs are invalid?</span></li>
                                 <li><code>delete-threads</code> <span class="arg-meta">(optional, boolean)</span>: <span
                                                 class="argument-description">Delete threads when their starting message is deleted?</span></li>
+                                <li><code>timezone</code> <span class="arg-meta">(optional, string)</span>: <span
+                                                class="argument-description">IANA timezone for timestamps (e.g. America/New_York)</span></li>
+                                <li><code>locale</code> <span class="arg-meta">(optional, string)</span>: <span
+                                                class="argument-description">BCP 47 locale for date/number formatting (e.g. en-US)</span></li>
+                                <li><code>thread-archive-duration</code> <span class="arg-meta">(optional, integer)</span>: <span
+                                                class="argument-description">Default auto-archive duration for threads the bot creates (1 hour, 1 day, 3 days, or 1 week)</span></li>
                         </ul>
                 </div>
 
@@ -314,6 +320,14 @@
                                                 <li><code>name</code> <span class="arg-meta">(optional, string)</span>:
                                                         <span class="argument-description">Name of the color</span>
                                                 </li>
+                                        </ul>
+                                </li>
+                                <li><code class="subcommand-name">remember</code>: <span
+                                                class="subcommand-description">Restore chosen color roles when members rejoin</span>
+                                        <ul>
+                                                <li><code>enable</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Remember color roles on rejoin?</span></li>
                                         </ul>
                                 </li>
                                 <li><code class="subcommand-name">create</code>: <span
