@@ -446,6 +446,14 @@
                                                                 string)</span>: <span
                                                                 class="argument-description">Description of the
                                                                 captcha</span></li>
+                                                <li><code>fake-buttons</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Add fake buttons that kick
+                                                                users who press them</span></li>
+                                                <li><code>correct-word</code> <span class="arg-meta">(optional,
+                                                                string)</span>: <span
+                                                                class="argument-description">Choose the correct word for
+                                                                fake buttons</span></li>
                                         </ul>
                                 </li>
                                 <li><code class="subcommand-name">settings</code>: <span
@@ -481,6 +489,22 @@
                                                                 string)</span>: <span
                                                                 class="argument-description">Reason for kick after time
                                                                 limit</span></li>
+                                                <li><code>fake-enable</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Enable fake button attempt
+                                                                tracking?</span></li>
+                                                <li><code>fake-max</code> <span class="arg-meta">(optional,
+                                                                integer)</span>: <span
+                                                                class="argument-description">Max fake button presses
+                                                                before kick/ban</span></li>
+                                                <li><code>fake-ban</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Ban users who exceed fake
+                                                                button limit instead of kicking?</span></li>
+                                                <li><code>fake-reason</code> <span class="arg-meta">(optional,
+                                                                string)</span>: <span
+                                                                class="argument-description">Reason for kick/ban after
+                                                                max fake button presses</span></li>
                                         </ul>
                                 </li>
                         </ul>
@@ -872,70 +896,129 @@
                 </div>
 
                 <div class="command-block">
-                        <h3>/reactionrole</h3>
-                        <p><strong>Description:</strong> Manage reaction roles</p>
+                        <h3>/reactionemoji</h3>
+                        <p><strong>Description:</strong> Manage reaction emojis (role assignment via emoji reactions)</p>
                         <p><strong>Subcommands:</strong></p>
                         <ul>
-                                <li><code class="subcommand-name">add</code>: <span class="subcommand-description">Add a
-                                                reaction role to a message</span>
+                                <li><code class="subcommand-name">add</code>: <span class="subcommand-description">Add a reaction emoji to a message</span>
                                         <ul>
-                                                <li><code>message</code> <span class="arg-meta">(required, string)</span>:
-                                                        <span class="argument-description">Message ID or link to attach
-                                                                the reaction role to</span></li>
-                                                <li><code>emoji</code> <span class="arg-meta">(required, string)</span>:
-                                                        <span class="argument-description">Emoji to react with</span>
-                                                </li>
-                                                <li><code>role</code> <span class="arg-meta">(required, role)</span>:
-                                                        <span class="argument-description">Role to grant when
-                                                                reacted</span></li>
-                                                <li><code>mode</code> <span class="arg-meta">(optional, string)</span>:
-                                                        <span class="argument-description">Role mode for this message —
-                                                                normal or exclusive (default: normal)</span></li>
+                                                <li><code>message</code> <span class="arg-meta">(required, string)</span>: <span class="argument-description">Message ID or link to attach the reaction emoji to</span></li>
+                                                <li><code>emoji</code> <span class="arg-meta">(required, string)</span>: <span class="argument-description">Emoji to react with</span></li>
+                                                <li><code>role</code> <span class="arg-meta">(required, role)</span>: <span class="argument-description">Role to grant when reacted</span></li>
+                                                <li><code>mode</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Role mode for this message &mdash; normal or exclusive (default: normal)</span></li>
                                         </ul>
                                 </li>
-                                <li><code class="subcommand-name">remove</code>: <span
-                                                class="subcommand-description">Remove a reaction role from a
-                                                message</span>
+                                <li><code class="subcommand-name">remove</code>: <span class="subcommand-description">Remove a reaction emoji from a message</span>
                                         <ul>
-                                                <li><code>message</code> <span class="arg-meta">(required, string)</span>:
-                                                        <span class="argument-description">Message ID or link</span></li>
-                                                <li><code>emoji</code> <span class="arg-meta">(required, string)</span>:
-                                                        <span class="argument-description">Emoji to remove</span></li>
+                                                <li><code>message</code> <span class="arg-meta">(required, string)</span>: <span class="argument-description">Message ID or link</span></li>
+                                                <li><code>emoji</code> <span class="arg-meta">(required, string)</span>: <span class="argument-description">Emoji to remove</span></li>
                                         </ul>
                                 </li>
-                                <li><code class="subcommand-name">clear</code>: <span
-                                                class="subcommand-description">Remove all reaction role bindings from a
-                                                message</span>
+                                <li><code class="subcommand-name">clear</code>: <span class="subcommand-description">Remove all reaction emoji bindings from a message</span>
                                         <ul>
-                                                <li><code>message</code> <span class="arg-meta">(required, string)</span>:
-                                                        <span class="argument-description">Message ID or link</span></li>
+                                                <li><code>message</code> <span class="arg-meta">(required, string)</span>: <span class="argument-description">Message ID or link</span></li>
                                         </ul>
                                 </li>
-                                <li><code class="subcommand-name">mode</code>: <span
-                                                class="subcommand-description">Set the role mode for all bindings on a
-                                                message</span>
+                                <li><code class="subcommand-name">mode</code>: <span class="subcommand-description">Set the role mode for all bindings on a message</span>
                                         <ul>
-                                                <li><code>message</code> <span class="arg-meta">(required, string)</span>:
-                                                        <span class="argument-description">Message ID or link</span></li>
-                                                <li><code>type</code> <span class="arg-meta">(required, string)</span>:
-                                                        <span class="argument-description">The mode to set &mdash;
-                                                                normal or exclusive</span></li>
+                                                <li><code>message</code> <span class="arg-meta">(required, string)</span>: <span class="argument-description">Message ID or link</span></li>
+                                                <li><code>type</code> <span class="arg-meta">(required, string)</span>: <span class="argument-description">The mode to set &mdash; normal or exclusive</span></li>
                                         </ul>
                                 </li>
-                                <li><code class="subcommand-name">list</code>: <span class="subcommand-description">List
-                                                all active reaction role bindings</span></li>
-                                <li><code class="subcommand-name">settings</code>: <span
-                                                class="subcommand-description">Enable or disable reaction roles</span>
+                                <li><code class="subcommand-name">list</code>: <span class="subcommand-description">List all active reaction emoji bindings</span></li>
+                                <li><code class="subcommand-name">settings</code>: <span class="subcommand-description">Enable or disable reaction emojis</span>
                                         <ul>
-                                                <li><code>enable</code> <span class="arg-meta">(optional,
-                                                                boolean)</span>: <span
-                                                                class="argument-description">Enable or disable the
-                                                                reaction role feature</span></li>
+                                                <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable or disable the reaction emoji feature</span></li>
                                         </ul>
                                 </li>
-                                <li><code class="subcommand-name">repair</code>: <span
-                                                class="subcommand-description">Re-add bot reactions to all bound messages
-                                                (fixes missing reactions)</span></li>
+                                <li><code class="subcommand-name">repair</code>: <span class="subcommand-description">Re-add bot reactions to all bound messages (fixes missing reactions)</span></li>
+                        </ul>
+                </div>
+
+                <div class="command-block">
+                        <h3>/reactionbutton</h3>
+                        <p><strong>Description:</strong> Manage reaction buttons (role assignment via buttons)</p>
+                        <p><strong>Subcommands:</strong></p>
+                        <ul>
+                                <li><code class="subcommand-name">add</code>: <span class="subcommand-description">Add a reaction button to a message</span>
+                                        <ul>
+                                                <li><code>message</code> <span class="arg-meta">(required, string)</span>: <span class="argument-description">Message ID or link to attach the button to</span></li>
+                                                <li><code>role</code> <span class="arg-meta">(required, role)</span>: <span class="argument-description">Role to grant when the button is clicked</span></li>
+                                                <li><code>label</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Button label text (max 80 characters)</span></li>
+                                                <li><code>emoji</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Emoji to display on the button</span></li>
+                                                <li><code>mode</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Role mode for this message &mdash; normal or exclusive (default: normal)</span></li>
+                                        </ul>
+                                </li>
+                                <li><code class="subcommand-name">remove</code>: <span class="subcommand-description">Remove a reaction button from a message</span>
+                                        <ul>
+                                                <li><code>message</code> <span class="arg-meta">(required, string)</span>: <span class="argument-description">Message ID or link</span></li>
+                                                <li><code>role</code> <span class="arg-meta">(required, role)</span>: <span class="argument-description">Role to remove the button for</span></li>
+                                        </ul>
+                                </li>
+                                <li><code class="subcommand-name">clear</code>: <span class="subcommand-description">Remove all reaction button bindings from a message</span>
+                                        <ul>
+                                                <li><code>message</code> <span class="arg-meta">(required, string)</span>: <span class="argument-description">Message ID or link</span></li>
+                                        </ul>
+                                </li>
+                                <li><code class="subcommand-name">mode</code>: <span class="subcommand-description">Set the role mode for all bindings on a message</span>
+                                        <ul>
+                                                <li><code>message</code> <span class="arg-meta">(required, string)</span>: <span class="argument-description">Message ID or link</span></li>
+                                                <li><code>type</code> <span class="arg-meta">(required, string)</span>: <span class="argument-description">The mode to set &mdash; normal or exclusive</span></li>
+                                        </ul>
+                                </li>
+                                <li><code class="subcommand-name">list</code>: <span class="subcommand-description">List all active reaction button bindings</span></li>
+                                <li><code class="subcommand-name">settings</code>: <span class="subcommand-description">Enable or disable reaction buttons</span>
+                                        <ul>
+                                                <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable or disable the reaction button feature</span></li>
+                                        </ul>
+                                </li>
+                        </ul>
+                </div>
+
+                <div class="command-block">
+                        <h3>/reactionlist</h3>
+                        <p><strong>Description:</strong> Manage reaction lists (role assignment via select menu)</p>
+                        <p><strong>Subcommands:</strong></p>
+                        <ul>
+                                <li><code class="subcommand-name">add</code>: <span class="subcommand-description">Add a role option to a select menu on a message</span>
+                                        <ul>
+                                                <li><code>message</code> <span class="arg-meta">(required, string)</span>: <span class="argument-description">Message ID or link to attach the select menu to</span></li>
+                                                <li><code>role</code> <span class="arg-meta">(required, role)</span>: <span class="argument-description">Role to grant when the option is selected</span></li>
+                                                <li><code>label</code> <span class="arg-meta">(required, string)</span>: <span class="argument-description">Option label text (max 100 characters)</span></li>
+                                                <li><code>description</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Option description text (max 100 characters)</span></li>
+                                                <li><code>emoji</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Emoji to display on the option</span></li>
+                                                <li><code>mode</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Role mode for this message &mdash; normal or exclusive (default: normal)</span></li>
+                                        </ul>
+                                </li>
+                                <li><code class="subcommand-name">remove</code>: <span class="subcommand-description">Remove a role option from a select menu on a message</span>
+                                        <ul>
+                                                <li><code>message</code> <span class="arg-meta">(required, string)</span>: <span class="argument-description">Message ID or link</span></li>
+                                                <li><code>role</code> <span class="arg-meta">(required, role)</span>: <span class="argument-description">Role to remove the option for</span></li>
+                                        </ul>
+                                </li>
+                                <li><code class="subcommand-name">clear</code>: <span class="subcommand-description">Remove all select menu bindings from a message</span>
+                                        <ul>
+                                                <li><code>message</code> <span class="arg-meta">(required, string)</span>: <span class="argument-description">Message ID or link</span></li>
+                                        </ul>
+                                </li>
+                                <li><code class="subcommand-name">mode</code>: <span class="subcommand-description">Set the role mode for all bindings on a message</span>
+                                        <ul>
+                                                <li><code>message</code> <span class="arg-meta">(required, string)</span>: <span class="argument-description">Message ID or link</span></li>
+                                                <li><code>type</code> <span class="arg-meta">(required, string)</span>: <span class="argument-description">The mode to set &mdash; normal or exclusive</span></li>
+                                        </ul>
+                                </li>
+                                <li><code class="subcommand-name">placeholder</code>: <span class="subcommand-description">Set the placeholder text for a select menu on a message</span>
+                                        <ul>
+                                                <li><code>message</code> <span class="arg-meta">(required, string)</span>: <span class="argument-description">Message ID or link</span></li>
+                                                <li><code>text</code> <span class="arg-meta">(required, string)</span>: <span class="argument-description">Placeholder text (max 150 characters)</span></li>
+                                        </ul>
+                                </li>
+                                <li><code class="subcommand-name">list</code>: <span class="subcommand-description">List all active reaction list bindings</span></li>
+                                <li><code class="subcommand-name">settings</code>: <span class="subcommand-description">Enable or disable reaction lists</span>
+                                        <ul>
+                                                <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable or disable the reaction list feature</span></li>
+                                        </ul>
+                                </li>
                         </ul>
                 </div>
 
@@ -1867,6 +1950,54 @@
                 </div>
 
                 <div class="command-block">
+                        <h3>/honeypot</h3>
+                        <p><strong>Description:</strong> Set trap channels that kick/ban anyone who posts in them</p>
+                        <p><strong>Subcommands:</strong></p>
+                        <ul>
+                                <li><code class="subcommand-name">settings</code>: <span
+                                                class="subcommand-description">Honeypot settings</span>
+                                        <ul>
+                                                <li><code>enable</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Enable the honeypot
+                                                                trap?</span></li>
+                                                <li><code>ban</code> <span class="arg-meta">(optional, boolean)</span>:
+                                                        <span class="argument-description">Ban instead of kick? (default:
+                                                                kick)</span></li>
+                                                <li><code>reason</code> <span class="arg-meta">(optional,
+                                                                string)</span>: <span
+                                                                class="argument-description">Reason provided when
+                                                                kicking/banning</span></li>
+                                        </ul>
+                                </li>
+                                <li><code class="subcommand-name">add</code>: <span class="subcommand-description">Add a
+                                                honeypot trap channel</span>
+                                        <ul>
+                                                <li><code>channel</code> <span class="arg-meta">(required,
+                                                                channel)</span>: <span
+                                                                class="argument-description">Channel to add as a
+                                                                trap</span></li>
+                                                <li><code>message</code> <span class="arg-meta">(optional,
+                                                                string)</span>: <span
+                                                                class="argument-description">Message to send in the
+                                                                channel as bait</span></li>
+                                        </ul>
+                                </li>
+                                <li><code class="subcommand-name">remove</code>: <span
+                                                class="subcommand-description">Remove a honeypot trap channel</span>
+                                        <ul>
+                                                <li><code>channel</code> <span class="arg-meta">(required,
+                                                                channel)</span>: <span
+                                                                class="argument-description">Channel to remove</span>
+                                                </li>
+                                        </ul>
+                                </li>
+                                <li><code class="subcommand-name">list</code>: <span class="subcommand-description">List
+                                                all honeypot trap channels</span></li>
+                        </ul>
+                </div>
+
+                <div class="command-block">
                         <h3>/agekick</h3>
                         <p><strong>Description:</strong> Kick users with new accounts</p>
                         <p><strong>Options:</strong></p>
@@ -2311,6 +2442,8 @@
                                 <li><code>timeframe</code> <span class="arg-meta">(optional, string)</span>: <span
                                                 class="argument-description">Only delete messages within this period
                                                 (e.g. 2h, 3d, 1w)</span></li>
+                                <li><code>amount</code> <span class="arg-meta">(optional, integer)</span>: <span
+                                                class="argument-description">Maximum number of messages to delete</span></li>
                                 <li><code>include-replies</code> <span class="arg-meta">(optional, boolean)</span>:
                                         <span class="argument-description">Also delete direct replies to the
                                                 target?</span></li>
@@ -2657,9 +2790,28 @@
 
                 <div class="command-block">
                         <h3>/purge</h3>
-                        <p><strong>Description:</strong> Kick members without role reward</p>
+                        <p><strong>Description:</strong> Kick members without reward role or by inactivity</p>
                         <p><strong>Options:</strong></p>
                         <ul>
+                                <li><code>role</code> <span class="arg-meta">(optional, role)</span>: <span
+                                                class="argument-description">Kick/ban members below this reward role (or
+                                                without any)</span></li>
+                                <li><code>inactive</code> <span class="arg-meta">(optional, string)</span>: <span
+                                                class="argument-description">Kick/ban members inactive for this duration
+                                                (e.g. 2w, 30d)</span></li>
+                                <li><code>xp</code> <span class="arg-meta">(optional, integer)</span>: <span
+                                                class="argument-description">Kick/ban members below this XP amount</span>
+                                </li>
+                                <li><code>grace</code> <span class="arg-meta">(optional, string)</span>: <span
+                                                class="argument-description">Skip members who joined within this period
+                                                (default: 1d)</span></li>
+                                <li><code>immune</code> <span class="arg-meta">(optional, role)</span>: <span
+                                                class="argument-description">Skip members with this role</span></li>
+                                <li><code>immune-rank</code> <span class="arg-meta">(optional, role)</span>: <span
+                                                class="argument-description">Skip members at or above this reward
+                                                role</span></li>
+                                <li><code>reason</code> <span class="arg-meta">(optional, string)</span>: <span
+                                                class="argument-description">Reason for the kick/ban</span></li>
                                 <li><code>ban</code> <span class="arg-meta">(optional, boolean)</span>: <span
                                                 class="argument-description">Ban members instead of kicking them?</span>
                                 </li>
