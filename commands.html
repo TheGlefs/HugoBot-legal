@@ -3082,6 +3082,13 @@
                                                         <span class="argument-description">The user to block or unblock</span></li>
                                         </ul>
                                 </li>
+                                <li><code class="subcommand-name">reminders</code>: <span
+                                                class="subcommand-description">Toggle block a user from /reminders</span>
+                                        <ul>
+                                                <li><code>user</code> <span class="arg-meta">(required, user)</span>:
+                                                        <span class="argument-description">The user to block or unblock</span></li>
+                                        </ul>
+                                </li>
                                 <li><code class="subcommand-name">invites</code>: <span
                                                 class="subcommand-description">Toggle block a user from /invites</span>
                                         <ul>
@@ -3089,8 +3096,22 @@
                                                         <span class="argument-description">The user to block or unblock</span></li>
                                         </ul>
                                 </li>
+                                <li><code class="subcommand-name">inviteboard</code>: <span
+                                                class="subcommand-description">Toggle block a user from /inviteboard</span>
+                                        <ul>
+                                                <li><code>user</code> <span class="arg-meta">(required, user)</span>:
+                                                        <span class="argument-description">The user to block or unblock</span></li>
+                                        </ul>
+                                </li>
                                 <li><code class="subcommand-name">confess</code>: <span
                                                 class="subcommand-description">Toggle block a user from /confess</span>
+                                        <ul>
+                                                <li><code>user</code> <span class="arg-meta">(required, user)</span>:
+                                                        <span class="argument-description">The user to block or unblock</span></li>
+                                        </ul>
+                                </li>
+                                <li><code class="subcommand-name">confessions</code>: <span
+                                                class="subcommand-description">Toggle block a user from /confessions</span>
                                         <ul>
                                                 <li><code>user</code> <span class="arg-meta">(required, user)</span>:
                                                         <span class="argument-description">The user to block or unblock</span></li>
@@ -3117,8 +3138,22 @@
                                                         <span class="argument-description">The user to block or unblock</span></li>
                                         </ul>
                                 </li>
-                                <li><code class="subcommand-name">quotes</code>: <span
-                                                class="subcommand-description">Toggle block a user from /quotes</span>
+                                <li><code class="subcommand-name">suggestions</code>: <span
+                                                class="subcommand-description">Toggle block a user from /suggestions</span>
+                                        <ul>
+                                                <li><code>user</code> <span class="arg-meta">(required, user)</span>:
+                                                        <span class="argument-description">The user to block or unblock</span></li>
+                                        </ul>
+                                </li>
+                                <li><code class="subcommand-name">starred</code>: <span
+                                                class="subcommand-description">Toggle block a user from /starred</span>
+                                        <ul>
+                                                <li><code>user</code> <span class="arg-meta">(required, user)</span>:
+                                                        <span class="argument-description">The user to block or unblock</span></li>
+                                        </ul>
+                                </li>
+                                <li><code class="subcommand-name">repboard</code>: <span
+                                                class="subcommand-description">Toggle block a user from giving +reputation and using /repboard</span>
                                         <ul>
                                                 <li><code>user</code> <span class="arg-meta">(required, user)</span>:
                                                         <span class="argument-description">The user to block or unblock</span></li>
@@ -3213,6 +3248,53 @@
                 </div>
 
                 <div class="command-block">
+                        <h3>/reputation</h3>
+                        <p><strong>Description:</strong> Manage reputation keywords and feature settings</p>
+                        <p><strong>Subcommands:</strong></p>
+                        <ul>
+                                <li><code class="subcommand-name">add</code>: <span
+                                                class="subcommand-description">Add a keyword that triggers +1 reputation when used in a reply</span>
+                                        <ul>
+                                                <li><code>keyword</code> <span class="arg-meta">(required, string)</span>:
+                                                        <span class="argument-description">The keyword to add (case-insensitive)</span></li>
+                                                <li><code>exact</code> <span class="arg-meta">(optional, boolean)</span>:
+                                                        <span class="argument-description">Require the entire reply to equal the keyword? (default: false &mdash; included anywhere)</span></li>
+                                        </ul>
+                                </li>
+                                <li><code class="subcommand-name">remove</code>: <span
+                                                class="subcommand-description">Remove a reputation keyword</span>
+                                        <ul>
+                                                <li><code>keyword</code> <span class="arg-meta">(required, string)</span>:
+                                                        <span class="argument-description">The keyword to remove</span></li>
+                                        </ul>
+                                </li>
+                                <li><code class="subcommand-name">list</code>: <span
+                                                class="subcommand-description">List all configured reputation keywords</span>
+                                </li>
+                                <li><code class="subcommand-name">settings</code>: <span
+                                                class="subcommand-description">Manage global reputation feature settings</span>
+                                        <ul>
+                                                <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>:
+                                                        <span class="argument-description">Enable the reputation feature?</span></li>
+                                                <li><code>cooldown</code> <span class="arg-meta">(optional, integer)</span>:
+                                                        <span class="argument-description">How often a user can give +reputation (in seconds)</span></li>
+                                                <li><code>message</code> <span class="arg-meta">(optional, string)</span>:
+                                                        <span class="argument-description">Giver feedback. Replacements: {tag}, {name}, {user}.</span></li>
+                                                <li><code>require-reply</code> <span class="arg-meta">(optional, boolean)</span>:
+                                                        <span class="argument-description">Require keywords to be sent as a reply? If false, show a recipient picker instead.</span></li>
+                                                <li><code>feedback-delete</code> <span class="arg-meta">(optional, integer)</span>:
+                                                        <span class="argument-description">Auto-delete the feedback after this many seconds (0 = never delete)</span></li>
+                                        </ul>
+                                </li>
+                        </ul>
+                </div>
+
+                <div class="command-block">
+                        <h3>/repboard</h3>
+                        <p><strong>Description:</strong> Show reputation leaderboard</p>
+                </div>
+
+                <div class="command-block">
                         <h3>/confess</h3>
                         <p><strong>Description:</strong> Submit an anonymous confession</p>
                         <p><strong>Options:</strong></p>
@@ -3245,7 +3327,7 @@
                 </div>
 
                 <div class="command-block">
-                        <h3>/quotes</h3>
+                        <h3>/starred</h3>
                         <p><strong>Description:</strong> View and delete starboard entries for your own messages</p>
                 </div>
 
@@ -3336,6 +3418,10 @@
                                                                 boolean)</span>: <span
                                                                 class="argument-description">Restrict to server boosters
                                                                 only?</span></li>
+                                                <li><code>ephemeral</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Send /wisdom responses
+                                                                ephemerally (only the caller sees them)?</span></li>
                                         </ul>
                                 </li>
                                 <li><code class="subcommand-name">roll</code>: <span
@@ -3367,6 +3453,10 @@
                                                                 boolean)</span>: <span
                                                                 class="argument-description">Restrict to server boosters
                                                                 only?</span></li>
+                                                <li><code>ephemeral</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Send /roll responses
+                                                                ephemerally (only the caller sees them)?</span></li>
                                         </ul>
                                 </li>
                                 <li><code class="subcommand-name">cat</code>: <span
@@ -3398,6 +3488,10 @@
                                                                 boolean)</span>: <span
                                                                 class="argument-description">Restrict to server boosters
                                                                 only?</span></li>
+                                                <li><code>ephemeral</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Send /cat responses
+                                                                ephemerally (only the caller sees them)?</span></li>
                                         </ul>
                                 </li>
                                 <li><code class="subcommand-name">fetch</code>: <span
@@ -3428,6 +3522,10 @@
                                                                 boolean)</span>: <span
                                                                 class="argument-description">Restrict to server boosters
                                                                 only?</span></li>
+                                                <li><code>ephemeral</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Send /fetch responses
+                                                                ephemerally (only the caller sees them)?</span></li>
                                         </ul>
                                 </li>
                                 <li><code class="subcommand-name">remindme</code>: <span
@@ -3458,11 +3556,33 @@
                                                                 boolean)</span>: <span
                                                                 class="argument-description">Restrict to server boosters
                                                                 only?</span></li>
+                                                <li><code>ephemeral</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Send /remindme confirmations
+                                                                ephemerally (only the caller sees them)?</span></li>
+                                        </ul>
+                                </li>
+                                <li><code class="subcommand-name">reminders</code>: <span
+                                                class="subcommand-description">Manage /reminders command settings</span>
+                                        <ul>
+                                                <li><code>enable</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Enable command?</span></li>
+                                                <li><code>cooldown</code> <span class="arg-meta">(optional,
+                                                                integer)</span>: <span
+                                                                class="argument-description">Cooldown (in seconds)</span></li>
+                                                <li><code>min-level</code> <span class="arg-meta">(optional,
+                                                                integer)</span>: <span
+                                                                class="argument-description">Minimum XP level required
+                                                                (0 = no requirement)</span></li>
+                                                <li><code>booster-only</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Restrict to server boosters
+                                                                only?</span></li>
                                         </ul>
                                 </li>
                                 <li><code class="subcommand-name">invites</code>: <span
-                                                class="subcommand-description">Manage /invites and/inviteboard
-                                                command settings</span>
+                                                class="subcommand-description">Manage /invites command settings</span>
                                         <ul>
                                                 <li><code>enable</code> <span class="arg-meta">(optional,
                                                                 boolean)</span>: <span
@@ -3488,6 +3608,76 @@
                                                                 boolean)</span>: <span
                                                                 class="argument-description">Restrict to server boosters
                                                                 only?</span></li>
+                                                <li><code>ephemeral</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Send /invites responses
+                                                                ephemerally (only the caller sees them)?</span></li>
+                                        </ul>
+                                </li>
+                                <li><code class="subcommand-name">inviteboard</code>: <span
+                                                class="subcommand-description">Manage /inviteboard command settings</span>
+                                        <ul>
+                                                <li><code>enable</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Enable command?</span></li>
+                                                <li><code>cooldown</code> <span class="arg-meta">(optional,
+                                                                integer)</span>: <span
+                                                                class="argument-description">Cooldown (in
+                                                                seconds)</span></li>
+                                                <li><code>channel</code> <span class="arg-meta">(optional,
+                                                                channel)</span>: <span
+                                                                class="argument-description">Channel for usage</span>
+                                                </li>
+                                                <li><code>channel-enable</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Limit to selected
+                                                                channel?</span>
+                                                </li>
+                                                <li><code>min-level</code> <span class="arg-meta">(optional,
+                                                                integer)</span>: <span
+                                                                class="argument-description">Minimum XP level required
+                                                                (0 = no requirement)</span></li>
+                                                <li><code>booster-only</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Restrict to server boosters
+                                                                only?</span></li>
+                                                <li><code>ephemeral</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Send /inviteboard responses
+                                                                ephemerally (only the caller sees them)?</span></li>
+                                        </ul>
+                                </li>
+                                <li><code class="subcommand-name">repboard</code>: <span
+                                                class="subcommand-description">Manage /repboard command settings</span>
+                                        <ul>
+                                                <li><code>enable</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Enable command?</span></li>
+                                                <li><code>cooldown</code> <span class="arg-meta">(optional,
+                                                                integer)</span>: <span
+                                                                class="argument-description">Cooldown (in
+                                                                seconds)</span></li>
+                                                <li><code>channel</code> <span class="arg-meta">(optional,
+                                                                channel)</span>: <span
+                                                                class="argument-description">Channel for usage</span>
+                                                </li>
+                                                <li><code>channel-enable</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Limit to selected
+                                                                channel?</span>
+                                                </li>
+                                                <li><code>min-level</code> <span class="arg-meta">(optional,
+                                                                integer)</span>: <span
+                                                                class="argument-description">Minimum XP level required
+                                                                (0 = no requirement)</span></li>
+                                                <li><code>booster-only</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Restrict to server boosters
+                                                                only?</span></li>
+                                                <li><code>ephemeral</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Send /repboard responses
+                                                                ephemerally (only the caller sees them)?</span></li>
                                         </ul>
                                 </li>
                                 <li><code class="subcommand-name">pitch</code>: <span
@@ -3551,8 +3741,8 @@
                                                                 only?</span></li>
                                         </ul>
                                 </li>
-                                <li><code class="subcommand-name">quotes</code>: <span
-                                                class="subcommand-description">Manage /quotes command
+                                <li><code class="subcommand-name">starred</code>: <span
+                                                class="subcommand-description">Manage /starred command
                                                 settings</span>
                                         <ul>
                                                 <li><code>enable</code> <span class="arg-meta">(optional,
@@ -3572,9 +3762,8 @@
                                                                 only?</span></li>
                                         </ul>
                                 </li>
-                                <li><code class="subcommand-name">confession</code>: <span
-                                                class="subcommand-description">Manage /confess and /confessions
-                                                settings</span>
+                                <li><code class="subcommand-name">confess</code>: <span
+                                                class="subcommand-description">Manage /confess command settings</span>
                                         <ul>
                                                 <li><code>enable</code> <span class="arg-meta">(optional,
                                                                 boolean)</span>: <span
@@ -3649,9 +3838,27 @@
                                                                 only?</span></li>
                                         </ul>
                                 </li>
-                                <li><code class="subcommand-name">suggestion</code>: <span
-                                                class="subcommand-description">Manage /suggest and /suggestions
-                                                settings</span>
+                                <li><code class="subcommand-name">confessions</code>: <span
+                                                class="subcommand-description">Manage /confessions command settings</span>
+                                        <ul>
+                                                <li><code>enable</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Enable command?</span></li>
+                                                <li><code>cooldown</code> <span class="arg-meta">(optional,
+                                                                integer)</span>: <span
+                                                                class="argument-description">Cooldown (in seconds)</span></li>
+                                                <li><code>min-level</code> <span class="arg-meta">(optional,
+                                                                integer)</span>: <span
+                                                                class="argument-description">Minimum XP level required
+                                                                (0 = no requirement)</span></li>
+                                                <li><code>booster-only</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Restrict to server boosters
+                                                                only?</span></li>
+                                        </ul>
+                                </li>
+                                <li><code class="subcommand-name">suggest</code>: <span
+                                                class="subcommand-description">Manage /suggest command settings</span>
                                         <ul>
                                                 <li><code>enable</code> <span class="arg-meta">(optional,
                                                                 boolean)</span>: <span
@@ -3733,6 +3940,25 @@
                                                                 boolean)</span>: <span
                                                                 class="argument-description">Log suggestion author to
                                                                 the log channel?</span></li>
+                                        </ul>
+                                </li>
+                                <li><code class="subcommand-name">suggestions</code>: <span
+                                                class="subcommand-description">Manage /suggestions command settings</span>
+                                        <ul>
+                                                <li><code>enable</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Enable command?</span></li>
+                                                <li><code>cooldown</code> <span class="arg-meta">(optional,
+                                                                integer)</span>: <span
+                                                                class="argument-description">Cooldown (in seconds)</span></li>
+                                                <li><code>min-level</code> <span class="arg-meta">(optional,
+                                                                integer)</span>: <span
+                                                                class="argument-description">Minimum XP level required
+                                                                (0 = no requirement)</span></li>
+                                                <li><code>booster-only</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Restrict to server boosters
+                                                                only?</span></li>
                                         </ul>
                                 </li>
                         </ul>
