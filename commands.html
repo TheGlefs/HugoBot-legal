@@ -460,6 +460,10 @@
                                                                 string)</span>: <span
                                                                 class="argument-description">Choose the correct word for
                                                                 fake buttons</span></li>
+                                                <li><code>correct-position</code> <span class="arg-meta">(optional,
+                                                                string)</span>: <span
+                                                                class="argument-description">Choose the correct position
+                                                                for fake buttons</span></li>
                                         </ul>
                                 </li>
                                 <li><code class="subcommand-name">settings</code>: <span
@@ -1245,6 +1249,31 @@
                                                                 boolean)</span>: <span
                                                                 class="argument-description">Show pending pitch
                                                                 count?</span></li>
+                                        </ul>
+                                </li>
+                                <li><code class="subcommand-name">pitch</code>: <span
+                                                class="subcommand-description">Manage /pitch command settings</span>
+                                        <ul>
+                                                <li><code>enable</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Enable command?</span></li>
+                                                <li><code>cooldown</code> <span class="arg-meta">(optional,
+                                                                integer)</span>: <span
+                                                                class="argument-description">Cooldown (in seconds)</span></li>
+                                                <li><code>inform</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">DM users when their pitch is approved?</span></li>
+                                                <li><code>min-level-chat</code> <span class="arg-meta">(optional,
+                                                                integer)</span>: <span
+                                                                class="argument-description">Minimum chat XP level required to use /pitch
+                                                                (0 = no requirement)</span></li>
+                                                <li><code>min-level-voice</code> <span class="arg-meta">(optional,
+                                                                integer)</span>: <span
+                                                                class="argument-description">Minimum voice XP level required to use /pitch
+                                                                (0 = no requirement)</span></li>
+                                                <li><code>booster-only</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Restrict to server boosters only?</span></li>
                                         </ul>
                                 </li>
                                 <li><code class="subcommand-name">post</code>: <span class="subcommand-description">Post
@@ -3559,7 +3588,6 @@
                                                                                 boolean)</span>: <span
                                                                                 class="argument-description">Enable combined XP mode?</span></li>
                                                         </ul>
-                                                        <p class="argument-description">When enabled, <code>/level</code>, <code>/rank</code>, and <code>/leaderboard</code> default to showing combined (chat + voice) XP. Chat reward roles are re-evaluated against the combined level. Individual pools remain accessible via <code>type:chat</code> / <code>type:voice</code>.<br><strong>⚠️ Toggling this setting recalculates reward roles for all cached members and requires confirmation.</strong></p>
                                                 </li>
                                         </ul>
                                 </li>
@@ -3749,7 +3777,7 @@
                         <p><strong>Options:</strong></p>
                         <ul>
                                 <li><code>type</code> <span class="arg-meta">(optional, string)</span>: <span
-                                                class="argument-description">Which XP pool to show &mdash; <code>chat</code>, <code>voice</code>, or <code>combined</code> (default: <code>combined</code> when combined mode is enabled, otherwise <code>chat</code>)</span></li>
+                                                class="argument-description">Which XP pool to show &mdash; chat, voice, or combined (default: chat)</span></li>
                         </ul>
                 </div>
 
@@ -3761,7 +3789,7 @@
                                 <li><code>user</code> <span class="arg-meta">(optional, string)</span>: <span
                                                 class="argument-description">User to check</span></li>
                                 <li><code>type</code> <span class="arg-meta">(optional, string)</span>: <span
-                                                class="argument-description">Which XP pool to show &mdash; <code>chat</code>, <code>voice</code>, or <code>combined</code> (default: <code>combined</code> when combined mode is enabled, otherwise <code>chat</code>)</span></li>
+                                                class="argument-description">Which XP pool to show &mdash; chat, voice, or combined (default: chat)</span></li>
                         </ul>
                 </div>
 
@@ -3773,7 +3801,7 @@
                                 <li><code>user</code> <span class="arg-meta">(optional, string)</span>: <span
                                                 class="argument-description">User to check</span></li>
                                 <li><code>type</code> <span class="arg-meta">(optional, string)</span>: <span
-                                                class="argument-description">Which XP pool to show &mdash; <code>chat</code>, <code>voice</code>, or <code>combined</code> (default: <code>combined</code> when combined mode is enabled, otherwise <code>chat</code>)</span></li>
+                                                class="argument-description">Which XP pool to show &mdash; chat, voice, or combined (default: chat)</span></li>
                         </ul>
                 </div>
 
@@ -3896,7 +3924,7 @@
                                                 class="argument-description">Ban members instead of kicking them?</span>
                                 </li>
                                 <li><code>pool</code> <span class="arg-meta">(optional, string)</span>: <span
-                                                class="argument-description">Which XP pool to use for the role/xp filters &mdash; <code>chat</code> or <code>voice</code> (default: chat)</span></li>
+                                                class="argument-description">Which XP pool to use for the role/xp filters &mdash; chat or voice (default: chat)</span></li>
                         </ul>
                 </div>
 
@@ -4887,50 +4915,6 @@
                                                                 class="argument-description">Send /repboard responses ephemerally (only the caller sees them)?</span></li>
                                         </ul>
                                 </li>
-                                <li><code class="subcommand-name">suggestions</code>: <span
-                                                class="subcommand-description">Manage /suggestions command settings</span>
-                                        <ul>
-                                                <li><code>enable</code> <span class="arg-meta">(optional,
-                                                                boolean)</span>: <span
-                                                                class="argument-description">Enable command?</span></li>
-                                                <li><code>cooldown</code> <span class="arg-meta">(optional,
-                                                                integer)</span>: <span
-                                                                class="argument-description">Cooldown (in seconds)</span></li>
-                                                <li><code>min-level-chat</code> <span class="arg-meta">(optional,
-                                                                integer)</span>: <span
-                                                                class="argument-description">Minimum chat XP level required to use /suggestions
-                                                                (0 = no requirement)</span></li>
-                                                <li><code>min-level-voice</code> <span class="arg-meta">(optional,
-                                                                integer)</span>: <span
-                                                                class="argument-description">Minimum voice XP level required to use /suggestions
-                                                                (0 = no requirement)</span></li>
-                                                <li><code>booster-only</code> <span class="arg-meta">(optional,
-                                                                boolean)</span>: <span
-                                                                class="argument-description">Restrict to server boosters only?</span></li>
-                                        </ul>
-                                </li>
-                                <li><code class="subcommand-name">confessions</code>: <span
-                                                class="subcommand-description">Manage /confessions command settings</span>
-                                        <ul>
-                                                <li><code>enable</code> <span class="arg-meta">(optional,
-                                                                boolean)</span>: <span
-                                                                class="argument-description">Enable command?</span></li>
-                                                <li><code>cooldown</code> <span class="arg-meta">(optional,
-                                                                integer)</span>: <span
-                                                                class="argument-description">Cooldown (in seconds)</span></li>
-                                                <li><code>min-level-chat</code> <span class="arg-meta">(optional,
-                                                                integer)</span>: <span
-                                                                class="argument-description">Minimum chat XP level required to use /confessions
-                                                                (0 = no requirement)</span></li>
-                                                <li><code>min-level-voice</code> <span class="arg-meta">(optional,
-                                                                integer)</span>: <span
-                                                                class="argument-description">Minimum voice XP level required to use /confessions
-                                                                (0 = no requirement)</span></li>
-                                                <li><code>booster-only</code> <span class="arg-meta">(optional,
-                                                                boolean)</span>: <span
-                                                                class="argument-description">Restrict to server boosters only?</span></li>
-                                        </ul>
-                                </li>
                                 <li><code class="subcommand-name">voicename</code>: <span
                                                 class="subcommand-description">Manage /voicename command settings</span>
                                         <ul>
@@ -4947,31 +4931,6 @@
                                                 <li><code>min-level-voice</code> <span class="arg-meta">(optional,
                                                                 integer)</span>: <span
                                                                 class="argument-description">Minimum voice XP level required to use /voicename
-                                                                (0 = no requirement)</span></li>
-                                                <li><code>booster-only</code> <span class="arg-meta">(optional,
-                                                                boolean)</span>: <span
-                                                                class="argument-description">Restrict to server boosters only?</span></li>
-                                        </ul>
-                                </li>
-                                <li><code class="subcommand-name">pitch</code>: <span
-                                                class="subcommand-description">Manage /pitch command settings</span>
-                                        <ul>
-                                                <li><code>enable</code> <span class="arg-meta">(optional,
-                                                                boolean)</span>: <span
-                                                                class="argument-description">Enable command?</span></li>
-                                                <li><code>cooldown</code> <span class="arg-meta">(optional,
-                                                                integer)</span>: <span
-                                                                class="argument-description">Cooldown (in seconds)</span></li>
-                                                <li><code>inform</code> <span class="arg-meta">(optional,
-                                                                boolean)</span>: <span
-                                                                class="argument-description">DM users when their pitch is approved?</span></li>
-                                                <li><code>min-level-chat</code> <span class="arg-meta">(optional,
-                                                                integer)</span>: <span
-                                                                class="argument-description">Minimum chat XP level required to use /pitch
-                                                                (0 = no requirement)</span></li>
-                                                <li><code>min-level-voice</code> <span class="arg-meta">(optional,
-                                                                integer)</span>: <span
-                                                                class="argument-description">Minimum voice XP level required to use /pitch
                                                                 (0 = no requirement)</span></li>
                                                 <li><code>booster-only</code> <span class="arg-meta">(optional,
                                                                 boolean)</span>: <span
@@ -5000,7 +4959,16 @@
                                                                 class="argument-description">Restrict to server boosters only?</span></li>
                                         </ul>
                                 </li>
-                                <li><code class="subcommand-name">confess</code>: <span
+                        </ul>
+                </div>
+        </div>
+        <div class="command-card" id="confession">
+                <div class="command-content">
+                        <h3>/confession</h3>
+                        <p><strong>Description:</strong> Manage anonymous confession settings</p>
+                        <p><strong>Subcommands:</strong></p>
+                        <ul>
+                                <li><code class="subcommand-name">settings</code>: <span
                                                 class="subcommand-description">Manage /confess command settings</span>
                                         <ul>
                                                 <li><code>enable</code> <span class="arg-meta">(optional,
@@ -5072,7 +5040,38 @@
                                                                 class="argument-description">Log confession author to the log channel?</span></li>
                                         </ul>
                                 </li>
-                                <li><code class="subcommand-name">suggest</code>: <span
+                                <li><code class="subcommand-name">confessions</code>: <span
+                                                class="subcommand-description">Manage /confessions command settings</span>
+                                        <ul>
+                                                <li><code>enable</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Enable command?</span></li>
+                                                <li><code>cooldown</code> <span class="arg-meta">(optional,
+                                                                integer)</span>: <span
+                                                                class="argument-description">Cooldown (in seconds)</span></li>
+                                                <li><code>min-level-chat</code> <span class="arg-meta">(optional,
+                                                                integer)</span>: <span
+                                                                class="argument-description">Minimum chat XP level required to use /confessions
+                                                                (0 = no requirement)</span></li>
+                                                <li><code>min-level-voice</code> <span class="arg-meta">(optional,
+                                                                integer)</span>: <span
+                                                                class="argument-description">Minimum voice XP level required to use /confessions
+                                                                (0 = no requirement)</span></li>
+                                                <li><code>booster-only</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Restrict to server boosters only?</span></li>
+                                        </ul>
+                                </li>
+                        </ul>
+                </div>
+        </div>
+        <div class="command-card" id="suggestion">
+                <div class="command-content">
+                        <h3>/suggestion</h3>
+                        <p><strong>Description:</strong> Manage suggestion settings</p>
+                        <p><strong>Subcommands:</strong></p>
+                        <ul>
+                                <li><code class="subcommand-name">settings</code>: <span
                                                 class="subcommand-description">Manage /suggest command settings</span>
                                         <ul>
                                                 <li><code>enable</code> <span class="arg-meta">(optional,
@@ -5147,45 +5146,26 @@
                                                                 class="argument-description">Restrict to server boosters only?</span></li>
                                         </ul>
                                 </li>
-                        </ul>
-                </div>
-
-                <div class="command-block">
-                        <h3>/reputation</h3>
-                        <p><strong>Description:</strong> Manage reputation keywords and feature settings</p>
-                        <p><strong>Subcommands:</strong></p>
-                        <ul>
-                                <li><code class="subcommand-name">add</code>: <span class="subcommand-description">Add a keyword that triggers +1 reputation when used in a reply</span>
+                                <li><code class="subcommand-name">suggestions</code>: <span
+                                                class="subcommand-description">Manage /suggestions command settings</span>
                                         <ul>
-                                                <li><code>keyword</code> <span class="arg-meta">(required, string)</span>: <span class="argument-description">The keyword to add (case-insensitive)</span></li>
-                                                <li><code>exact</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Require the entire reply to equal the keyword? (default: false — included anywhere)</span></li>
-                                        </ul>
-                                </li>
-                                <li><code class="subcommand-name">remove</code>: <span class="subcommand-description">Remove a reputation keyword</span>
-                                        <ul>
-                                                <li><code>keyword</code> <span class="arg-meta">(required, string)</span>: <span class="argument-description">The keyword to remove</span></li>
-                                        </ul>
-                                </li>
-                                <li><code class="subcommand-name">edit</code>: <span class="subcommand-description">Edit the exact-match setting of an existing reputation keyword</span>
-                                        <ul>
-                                                <li><code>keyword</code> <span class="arg-meta">(required, string)</span>: <span class="argument-description">The keyword to edit</span></li>
-                                                <li><code>exact</code> <span class="arg-meta">(required, boolean)</span>: <span class="argument-description">Require the entire reply to equal the keyword?</span></li>
-                                        </ul>
-                                </li>
-                                <li><code class="subcommand-name">list</code>: <span class="subcommand-description">List all configured reputation keywords</span></li>
-                                <li><code class="subcommand-name">settings</code>: <span class="subcommand-description">Manage global reputation feature settings</span>
-                                        <ul>
-                                                <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable the reputation feature?</span></li>
-                                                <li><code>cooldown</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">How often a user can give +reputation (in seconds)</span></li>
-                                                <li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Giver feedback</span>
-                                                    <div class="replacements">
-                                                                <code><span class="tag-replacement">{tag}</span></code>,
-                                                                <code><span class="tag-replacement">{name}</span></code>,
-                                                                <code><span class="tag-replacement">{user}</span></code>
-                                                        </div>
-                                                </li>
-                                                <li><code>require-reply</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Require keywords to be sent as a reply? If false, show a recipient picker instead</span></li>
-                                                <li><code>feedback-delete</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Auto-delete the feedback after this many seconds (0 = never delete)</span></li>
+                                                <li><code>enable</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Enable command?</span></li>
+                                                <li><code>cooldown</code> <span class="arg-meta">(optional,
+                                                                integer)</span>: <span
+                                                                class="argument-description">Cooldown (in seconds)</span></li>
+                                                <li><code>min-level-chat</code> <span class="arg-meta">(optional,
+                                                                integer)</span>: <span
+                                                                class="argument-description">Minimum chat XP level required to use /suggestions
+                                                                (0 = no requirement)</span></li>
+                                                <li><code>min-level-voice</code> <span class="arg-meta">(optional,
+                                                                integer)</span>: <span
+                                                                class="argument-description">Minimum voice XP level required to use /suggestions
+                                                                (0 = no requirement)</span></li>
+                                                <li><code>booster-only</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Restrict to server boosters only?</span></li>
                                         </ul>
                                 </li>
                         </ul>
