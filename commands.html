@@ -174,6 +174,12 @@
                         <p><strong>Description:</strong> Bot behavior settings</p>
                         <p><strong>Options:</strong></p>
                         <ul>
+                                <li><code>name</code> <span class="arg-meta">(optional, string)</span>: <span
+                                                class="argument-description">Set the bot's display name in this server</span></li>
+                                <li><code>avatar</code> <span class="arg-meta">(optional, attachment)</span>: <span
+                                                class="argument-description">Set the bot's avatar image</span></li>
+                                <li><code>banner</code> <span class="arg-meta">(optional, attachment)</span>: <span
+                                                class="argument-description">Set the bot's banner image</span></li>
                                 <li><code>resolve-by-name</code> <span class="arg-meta">(optional, boolean)</span>: <span
                                                 class="argument-description">Find channels/roles by name when IDs are invalid?</span></li>
                                 <li><code>delete-threads</code> <span class="arg-meta">(optional, boolean)</span>: <span
@@ -547,6 +553,12 @@
                                                                 threads?</span></li>
                                                 <li><code>title</code> <span class="arg-meta">(optional, string)</span>:
                                                         <span class="argument-description">Title of the threads</span>
+                                                    <div class="replacements">
+                                                                <code><span class="tag-replacement">{name}</span></code>,
+                                                                <code><span class="tag-replacement">{user}</span></code>,
+                                                                <code><span class="tag-replacement">{date}</span></code>,
+                                                                <code><span class="tag-replacement">{time}</span></code>
+                                                        </div>
                                                 </li>
                                                 <li><code>message</code> <span class="arg-meta">(optional,
                                                                 string)</span>: <span
@@ -574,7 +586,14 @@
                                                                 — thread, delete, or ignore (default: thread)</span></li>
                                                 <li><code>title</code> <span class="arg-meta">(optional, string)</span>:
                                                         <span class="argument-description">Thread title override for this
-                                                                channel (default: global)</span></li>
+                                                                channel (default: global)</span>
+                                                    <div class="replacements">
+                                                                <code><span class="tag-replacement">{name}</span></code>,
+                                                                <code><span class="tag-replacement">{user}</span></code>,
+                                                                <code><span class="tag-replacement">{date}</span></code>,
+                                                                <code><span class="tag-replacement">{time}</span></code>
+                                                        </div>
+                                                </li>
                                                 <li><code>message</code> <span class="arg-meta">(optional,
                                                                 string)</span>: <span
                                                                 class="argument-description">Thread message override for
@@ -602,7 +621,14 @@
                                                                 — thread, delete, or ignore</span></li>
                                                 <li><code>title</code> <span class="arg-meta">(optional, string)</span>:
                                                         <span class="argument-description">Thread title override (use
-                                                                "reset" to clear back to global)</span></li>
+                                                                "reset" to clear back to global)</span>
+                                                    <div class="replacements">
+                                                                <code><span class="tag-replacement">{name}</span></code>,
+                                                                <code><span class="tag-replacement">{user}</span></code>,
+                                                                <code><span class="tag-replacement">{date}</span></code>,
+                                                                <code><span class="tag-replacement">{time}</span></code>
+                                                        </div>
+                                                </li>
                                                 <li><code>message</code> <span class="arg-meta">(optional,
                                                                 string)</span>: <span
                                                                 class="argument-description">Thread message override (use
@@ -686,6 +712,10 @@
                                                                 boolean)</span>: <span
                                                                 class="argument-description">Case-sensitive trigger?
                                                                 (default: false)</span></li>
+                                                <li><code>exact</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Require trigger to match the
+                                                                entire message? (default: false)</span></li>
                                                 <li><code>cooldown</code> <span class="arg-meta">(optional, integer)</span>:
                                                         <span class="argument-description">Cooldown for this response in
                                                                 seconds (default: global cooldown)</span></li>
@@ -726,6 +756,10 @@
                                                                 boolean)</span>: <span
                                                                 class="argument-description">Case-sensitive trigger?</span>
                                                 </li>
+                                                <li><code>exact</code> <span class="arg-meta">(optional,
+                                                                boolean)</span>: <span
+                                                                class="argument-description">Require trigger to match the
+                                                                entire message?</span></li>
                                                 <li><code>cooldown</code> <span class="arg-meta">(optional, integer)</span>:
                                                         <span class="argument-description">Cooldown for this response in
                                                                 seconds</span></li>
@@ -1013,6 +1047,11 @@
                         <p><strong>Description:</strong> Manage reaction emojis (role assignment via emoji reactions)</p>
                         <p><strong>Subcommands:</strong></p>
                         <ul>
+                                <li><code class="subcommand-name">settings</code>: <span class="subcommand-description">Enable or disable reaction emojis</span>
+                                        <ul>
+                                                <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable or disable the reaction emoji feature</span></li>
+                                        </ul>
+                                </li>
                                 <li><code class="subcommand-name">add</code>: <span class="subcommand-description">Add a reaction emoji to a message</span>
                                         <ul>
                                                 <li><code>message</code> <span class="arg-meta">(required, string)</span>: <span class="argument-description">Message ID or link to attach the reaction emoji to</span></li>
@@ -1039,11 +1078,6 @@
                                         </ul>
                                 </li>
                                 <li><code class="subcommand-name">list</code>: <span class="subcommand-description">List all active reaction emoji bindings</span></li>
-                                <li><code class="subcommand-name">settings</code>: <span class="subcommand-description">Enable or disable reaction emojis</span>
-                                        <ul>
-                                                <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable or disable the reaction emoji feature</span></li>
-                                        </ul>
-                                </li>
                                 <li><code class="subcommand-name">repair</code>: <span class="subcommand-description">Re-add bot reactions to all bound messages (fixes missing reactions)</span></li>
                         </ul>
                 </div>
@@ -1053,6 +1087,11 @@
                         <p><strong>Description:</strong> Manage reaction buttons (role assignment via buttons)</p>
                         <p><strong>Subcommands:</strong></p>
                         <ul>
+                                <li><code class="subcommand-name">settings</code>: <span class="subcommand-description">Enable or disable reaction buttons</span>
+                                        <ul>
+                                                <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable or disable the reaction button feature</span></li>
+                                        </ul>
+                                </li>
                                 <li><code class="subcommand-name">add</code>: <span class="subcommand-description">Add a reaction button to a message</span>
                                         <ul>
                                                 <li><code>message</code> <span class="arg-meta">(required, string)</span>: <span class="argument-description">Message ID or link to attach the button to</span></li>
@@ -1080,11 +1119,6 @@
                                         </ul>
                                 </li>
                                 <li><code class="subcommand-name">list</code>: <span class="subcommand-description">List all active reaction button bindings</span></li>
-                                <li><code class="subcommand-name">settings</code>: <span class="subcommand-description">Enable or disable reaction buttons</span>
-                                        <ul>
-                                                <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable or disable the reaction button feature</span></li>
-                                        </ul>
-                                </li>
                         </ul>
                 </div>
 
@@ -1093,6 +1127,11 @@
                         <p><strong>Description:</strong> Manage reaction lists (role assignment via select menu)</p>
                         <p><strong>Subcommands:</strong></p>
                         <ul>
+                                <li><code class="subcommand-name">settings</code>: <span class="subcommand-description">Enable or disable reaction lists</span>
+                                        <ul>
+                                                <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable or disable the reaction list feature</span></li>
+                                        </ul>
+                                </li>
                                 <li><code class="subcommand-name">add</code>: <span class="subcommand-description">Add a role option to a select menu on a message</span>
                                         <ul>
                                                 <li><code>message</code> <span class="arg-meta">(required, string)</span>: <span class="argument-description">Message ID or link to attach the select menu to</span></li>
@@ -1127,11 +1166,6 @@
                                         </ul>
                                 </li>
                                 <li><code class="subcommand-name">list</code>: <span class="subcommand-description">List all active reaction list bindings</span></li>
-                                <li><code class="subcommand-name">settings</code>: <span class="subcommand-description">Enable or disable reaction lists</span>
-                                        <ul>
-                                                <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable or disable the reaction list feature</span></li>
-                                        </ul>
-                                </li>
                         </ul>
                 </div>
 
@@ -1169,8 +1203,12 @@
                                                                 question?</span></li>
                                                 <li><code>thread-title</code> <span class="arg-meta">(optional,
                                                                 string)</span>: <span
-                                                                class="argument-description">Thread title template ({date},
-                                                                {time} placeholders)</span></li>
+                                                                class="argument-description">Thread title template</span>
+                                                        <div class="replacements">
+                                                                <code><span class="tag-replacement">{date}</span></code>,
+                                                                <code><span class="tag-replacement">{time}</span></code>
+                                                        </div>
+                                                </li>
                                                 <li><code>thread-message</code> <span class="arg-meta">(optional,
                                                                 string)</span>: <span
                                                                 class="argument-description">Message to send in the
@@ -1329,7 +1367,17 @@
                                                 <li><code>message</code> <span class="arg-meta">(optional,
                                                                 string)</span>: <span
                                                                 class="argument-description">Message to send when users
-                                                                join</span></li>
+                                                                join</span>
+                                                        <div class="replacements">
+                                                                <code><span class="tag-replacement">{tag}</span></code>,
+                                                                <code><span class="tag-replacement">{name}</span></code>,
+                                                                <code><span class="tag-replacement">{user}</span></code>,
+                                                                <code><span class="tag-replacement">{invitertag}</span></code>,
+                                                                <code><span class="tag-replacement">{invitername}</span></code>,
+                                                                <code><span class="tag-replacement">{inviteruser}</span></code>,
+                                                                <code><span class="tag-replacement">{age}</span></code>
+                                                        </div>
+                                                </li>
                                                 <li><code>channel</code> <span class="arg-meta">(optional,
                                                                 channel)</span>: <span
                                                                 class="argument-description">Channel to send join
@@ -1355,7 +1403,13 @@
                                                 <li><code>message</code> <span class="arg-meta">(optional,
                                                                 string)</span>: <span
                                                                 class="argument-description">Message to send when users
-                                                                leave</span></li>
+                                                                leave</span>
+                                                        <div class="replacements">
+                                                                <code><span class="tag-replacement">{tag}</span></code>,
+                                                                <code><span class="tag-replacement">{name}</span></code>,
+                                                                <code><span class="tag-replacement">{user}</span></code>
+                                                        </div>
+                                                </li>
                                                 <li><code>channel</code> <span class="arg-meta">(optional,
                                                                 channel)</span>: <span
                                                                 class="argument-description">Channel to send leave
@@ -1382,7 +1436,13 @@
                                                 <li><code>message</code> <span class="arg-meta">(optional,
                                                                 string)</span>: <span
                                                                 class="argument-description">Message to send when
-                                                                verified users leave</span></li>
+                                                                verified users leave</span>
+                                                        <div class="replacements">
+                                                                <code><span class="tag-replacement">{tag}</span></code>,
+                                                                <code><span class="tag-replacement">{name}</span></code>,
+                                                                <code><span class="tag-replacement">{user}</span></code>
+                                                        </div>
+                                                </li>
                                                 <li><code>channel</code> <span class="arg-meta">(optional,
                                                                 channel)</span>: <span
                                                                 class="argument-description">Channel to send verified
@@ -1408,11 +1468,33 @@
                                                 <li><code>same-user</code> <span class="arg-meta">(optional,
                                                                 string)</span>: <span
                                                                 class="argument-description">Message to send when users
-                                                                rejoin</span></li>
+                                                                rejoin</span>
+                                                        <div class="replacements">
+                                                                <code><span class="tag-replacement">{tag}</span></code>,
+                                                                <code><span class="tag-replacement">{name}</span></code>,
+                                                                <code><span class="tag-replacement">{user}</span></code>,
+                                                                <code><span class="tag-replacement">{invitertag}</span></code>,
+                                                                <code><span class="tag-replacement">{invitername}</span></code>,
+                                                                <code><span class="tag-replacement">{inviteruser}</span></code>,
+                                                                <code><span class="tag-replacement">{age}</span></code>
+                                                        </div>
+                                                </li>
                                                 <li><code>name-change</code> <span class="arg-meta">(optional,
                                                                 string)</span>: <span
                                                                 class="argument-description">Message for users who
-                                                                changed their username</span></li>
+                                                                changed their username</span>
+                                                        <div class="replacements">
+                                                                <code><span class="tag-replacement">{tag}</span></code>,
+                                                                <code><span class="tag-replacement">{name}</span></code>,
+                                                                <code><span class="tag-replacement">{user}</span></code>,
+                                                                <code><span class="tag-replacement">{oldname}</span></code>,
+                                                                <code><span class="tag-replacement">{olduser}</span></code>,
+                                                                <code><span class="tag-replacement">{invitertag}</span></code>,
+                                                                <code><span class="tag-replacement">{invitername}</span></code>,
+                                                                <code><span class="tag-replacement">{inviteruser}</span></code>,
+                                                                <code><span class="tag-replacement">{age}</span></code>
+                                                        </div>
+                                                </li>
                                                 <li><code>channel</code> <span class="arg-meta">(optional,
                                                                 channel)</span>: <span
                                                                 class="argument-description">Channel to send rejoin
@@ -1439,12 +1521,34 @@
                                                 <li><code>same-user</code> <span class="arg-meta">(optional,
                                                                 string)</span>: <span
                                                                 class="argument-description">Message to send when
-                                                                verified users rejoin</span></li>
+                                                                verified users rejoin</span>
+                                                        <div class="replacements">
+                                                                <code><span class="tag-replacement">{tag}</span></code>,
+                                                                <code><span class="tag-replacement">{name}</span></code>,
+                                                                <code><span class="tag-replacement">{user}</span></code>,
+                                                                <code><span class="tag-replacement">{invitertag}</span></code>,
+                                                                <code><span class="tag-replacement">{invitername}</span></code>,
+                                                                <code><span class="tag-replacement">{inviteruser}</span></code>,
+                                                                <code><span class="tag-replacement">{age}</span></code>
+                                                        </div>
+                                                </li>
                                                 <li><code>name-change</code> <span class="arg-meta">(optional,
                                                                 string)</span>: <span
                                                                 class="argument-description">Message for verified users
                                                                 who changed their
-                                                                username</span></li>
+                                                                username</span>
+                                                        <div class="replacements">
+                                                                <code><span class="tag-replacement">{tag}</span></code>,
+                                                                <code><span class="tag-replacement">{name}</span></code>,
+                                                                <code><span class="tag-replacement">{user}</span></code>,
+                                                                <code><span class="tag-replacement">{oldname}</span></code>,
+                                                                <code><span class="tag-replacement">{olduser}</span></code>,
+                                                                <code><span class="tag-replacement">{invitertag}</span></code>,
+                                                                <code><span class="tag-replacement">{invitername}</span></code>,
+                                                                <code><span class="tag-replacement">{inviteruser}</span></code>,
+                                                                <code><span class="tag-replacement">{age}</span></code>
+                                                        </div>
+                                                </li>
                                                 <li><code>channel</code> <span class="arg-meta">(optional,
                                                                 channel)</span>: <span
                                                                 class="argument-description">Channel to send verified
@@ -1470,11 +1574,32 @@
                                                 <li><code>permanent</code> <span class="arg-meta">(optional,
                                                                 string)</span>: <span
                                                                 class="argument-description">Message to send when users
-                                                                are permanently banned</span></li>
+                                                                are permanently banned</span>
+                                                        <div class="replacements">
+                                                                <code><span class="tag-replacement">{tag}</span></code>,
+                                                                <code><span class="tag-replacement">{name}</span></code>,
+                                                                <code><span class="tag-replacement">{user}</span></code>,
+                                                                <code><span class="tag-replacement">{modtag}</span></code>,
+                                                                <code><span class="tag-replacement">{modname}</span></code>,
+                                                                <code><span class="tag-replacement">{moduser}</span></code>,
+                                                                <code><span class="tag-replacement">{reason}</span></code>
+                                                        </div>
+                                                </li>
                                                 <li><code>temporary</code> <span class="arg-meta">(optional,
                                                                 string)</span>: <span
                                                                 class="argument-description">Message to send when users
-                                                                are temporarily banned</span></li>
+                                                                are temporarily banned</span>
+                                                        <div class="replacements">
+                                                                <code><span class="tag-replacement">{tag}</span></code>,
+                                                                <code><span class="tag-replacement">{name}</span></code>,
+                                                                <code><span class="tag-replacement">{user}</span></code>,
+                                                                <code><span class="tag-replacement">{modtag}</span></code>,
+                                                                <code><span class="tag-replacement">{modname}</span></code>,
+                                                                <code><span class="tag-replacement">{moduser}</span></code>,
+                                                                <code><span class="tag-replacement">{reason}</span></code>,
+                                                                <code><span class="tag-replacement">{duration}</span></code>
+                                                        </div>
+                                                </li>
                                                 <li><code>channel</code> <span class="arg-meta">(optional,
                                                                 channel)</span>: <span
                                                                 class="argument-description">Channel to send ban
@@ -1501,11 +1626,32 @@
                                                 <li><code>permanent</code> <span class="arg-meta">(optional,
                                                                 string)</span>: <span
                                                                 class="argument-description">Message to send when
-                                                                verified users are permanently banned</span></li>
+                                                                verified users are permanently banned</span>
+                                                        <div class="replacements">
+                                                                <code><span class="tag-replacement">{tag}</span></code>,
+                                                                <code><span class="tag-replacement">{name}</span></code>,
+                                                                <code><span class="tag-replacement">{user}</span></code>,
+                                                                <code><span class="tag-replacement">{modtag}</span></code>,
+                                                                <code><span class="tag-replacement">{modname}</span></code>,
+                                                                <code><span class="tag-replacement">{moduser}</span></code>,
+                                                                <code><span class="tag-replacement">{reason}</span></code>
+                                                        </div>
+                                                </li>
                                                 <li><code>temporary</code> <span class="arg-meta">(optional,
                                                                 string)</span>: <span
                                                                 class="argument-description">Message to send when
-                                                                verified users are temporarily banned</span></li>
+                                                                verified users are temporarily banned</span>
+                                                        <div class="replacements">
+                                                                <code><span class="tag-replacement">{tag}</span></code>,
+                                                                <code><span class="tag-replacement">{name}</span></code>,
+                                                                <code><span class="tag-replacement">{user}</span></code>,
+                                                                <code><span class="tag-replacement">{modtag}</span></code>,
+                                                                <code><span class="tag-replacement">{modname}</span></code>,
+                                                                <code><span class="tag-replacement">{moduser}</span></code>,
+                                                                <code><span class="tag-replacement">{reason}</span></code>,
+                                                                <code><span class="tag-replacement">{duration}</span></code>
+                                                        </div>
+                                                </li>
                                                 <li><code>channel</code> <span class="arg-meta">(optional,
                                                                 channel)</span>: <span
                                                                 class="argument-description">Channel to send verified
@@ -1531,7 +1677,16 @@
                                                 <li><code>message</code> <span class="arg-meta">(optional,
                                                                 string)</span>: <span
                                                                 class="argument-description">Message to send when users
-                                                                are unbanned</span></li>
+                                                                are unbanned</span>
+                                                        <div class="replacements">
+                                                                <code><span class="tag-replacement">{tag}</span></code>,
+                                                                <code><span class="tag-replacement">{name}</span></code>,
+                                                                <code><span class="tag-replacement">{user}</span></code>,
+                                                                <code><span class="tag-replacement">{modtag}</span></code>,
+                                                                <code><span class="tag-replacement">{modname}</span></code>,
+                                                                <code><span class="tag-replacement">{moduser}</span></code>
+                                                        </div>
+                                                </li>
                                                 <li><code>channel</code> <span class="arg-meta">(optional,
                                                                 channel)</span>: <span
                                                                 class="argument-description">Channel to send unban
@@ -1559,6 +1714,14 @@
                                                                 string)</span>: <span
                                                                 class="argument-description">Message to send when
                                                                 verified users are unbanned</span>
+                                                        <div class="replacements">
+                                                                <code><span class="tag-replacement">{tag}</span></code>,
+                                                                <code><span class="tag-replacement">{name}</span></code>,
+                                                                <code><span class="tag-replacement">{user}</span></code>,
+                                                                <code><span class="tag-replacement">{modtag}</span></code>,
+                                                                <code><span class="tag-replacement">{modname}</span></code>,
+                                                                <code><span class="tag-replacement">{moduser}</span></code>
+                                                        </div>
                                                 </li>
                                                 <li><code>channel</code> <span class="arg-meta">(optional,
                                                                 channel)</span>: <span
@@ -1585,7 +1748,17 @@
                                                 <li><code>message</code> <span class="arg-meta">(optional,
                                                                 string)</span>: <span
                                                                 class="argument-description">Message to send when users
-                                                                are kicked</span></li>
+                                                                are kicked</span>
+                                                        <div class="replacements">
+                                                                <code><span class="tag-replacement">{tag}</span></code>,
+                                                                <code><span class="tag-replacement">{name}</span></code>,
+                                                                <code><span class="tag-replacement">{user}</span></code>,
+                                                                <code><span class="tag-replacement">{modtag}</span></code>,
+                                                                <code><span class="tag-replacement">{modname}</span></code>,
+                                                                <code><span class="tag-replacement">{moduser}</span></code>,
+                                                                <code><span class="tag-replacement">{reason}</span></code>
+                                                        </div>
+                                                </li>
                                                 <li><code>channel</code> <span class="arg-meta">(optional,
                                                                 channel)</span>: <span
                                                                 class="argument-description">Channel to send kick
@@ -1612,7 +1785,17 @@
                                                 <li><code>message</code> <span class="arg-meta">(optional,
                                                                 string)</span>: <span
                                                                 class="argument-description">Message to send when
-                                                                verified users are kicked</span></li>
+                                                                verified users are kicked</span>
+                                                        <div class="replacements">
+                                                                <code><span class="tag-replacement">{tag}</span></code>,
+                                                                <code><span class="tag-replacement">{name}</span></code>,
+                                                                <code><span class="tag-replacement">{user}</span></code>,
+                                                                <code><span class="tag-replacement">{modtag}</span></code>,
+                                                                <code><span class="tag-replacement">{modname}</span></code>,
+                                                                <code><span class="tag-replacement">{moduser}</span></code>,
+                                                                <code><span class="tag-replacement">{reason}</span></code>
+                                                        </div>
+                                                </li>
                                                 <li><code>channel</code> <span class="arg-meta">(optional,
                                                                 channel)</span>: <span
                                                                 class="argument-description">Channel to send verified
@@ -1638,15 +1821,42 @@
                                                 <li><code>apply</code> <span class="arg-meta">(optional,
                                                                 string)</span>: <span
                                                                 class="argument-description">Message to send when
-                                                                timeouts are applied</span></li>
+                                                                timeouts are applied</span>
+                                                        <div class="replacements">
+                                                                <code><span class="tag-replacement">{tag}</span></code>,
+                                                                <code><span class="tag-replacement">{name}</span></code>,
+                                                                <code><span class="tag-replacement">{user}</span></code>,
+                                                                <code><span class="tag-replacement">{modtag}</span></code>,
+                                                                <code><span class="tag-replacement">{modname}</span></code>,
+                                                                <code><span class="tag-replacement">{moduser}</span></code>,
+                                                                <code><span class="tag-replacement">{reason}</span></code>,
+                                                                <code><span class="tag-replacement">{expiresat}</span></code>,
+                                                                <code><span class="tag-replacement">{expiresin}</span></code>
+                                                        </div>
+                                                </li>
                                                 <li><code>remove</code> <span class="arg-meta">(optional,
                                                                 string)</span>: <span
                                                                 class="argument-description">Message to send when
-                                                                timeouts are removed</span></li>
+                                                                timeouts are removed</span>
+                                                        <div class="replacements">
+                                                                <code><span class="tag-replacement">{tag}</span></code>,
+                                                                <code><span class="tag-replacement">{name}</span></code>,
+                                                                <code><span class="tag-replacement">{user}</span></code>,
+                                                                <code><span class="tag-replacement">{modtag}</span></code>,
+                                                                <code><span class="tag-replacement">{modname}</span></code>,
+                                                                <code><span class="tag-replacement">{moduser}</span></code>
+                                                        </div>
+                                                </li>
                                                 <li><code>expire</code> <span class="arg-meta">(optional,
                                                                 string)</span>: <span
                                                                 class="argument-description">Message to send when
-                                                                timeouts expire</span></li>
+                                                                timeouts expire</span>
+                                                        <div class="replacements">
+                                                                <code><span class="tag-replacement">{tag}</span></code>,
+                                                                <code><span class="tag-replacement">{name}</span></code>,
+                                                                <code><span class="tag-replacement">{user}</span></code>
+                                                        </div>
+                                                </li>
                                                 <li><code>channel</code> <span class="arg-meta">(optional,
                                                                 channel)</span>: <span
                                                                 class="argument-description">Channel to send messages
@@ -1674,16 +1884,42 @@
                                                                 string)</span>: <span
                                                                 class="argument-description">Message to send when
                                                                 verified users timeouts are
-                                                                applied</span></li>
+                                                                applied</span>
+                                                        <div class="replacements">
+                                                                <code><span class="tag-replacement">{tag}</span></code>,
+                                                                <code><span class="tag-replacement">{name}</span></code>,
+                                                                <code><span class="tag-replacement">{user}</span></code>,
+                                                                <code><span class="tag-replacement">{modtag}</span></code>,
+                                                                <code><span class="tag-replacement">{modname}</span></code>,
+                                                                <code><span class="tag-replacement">{moduser}</span></code>,
+                                                                <code><span class="tag-replacement">{reason}</span></code>,
+                                                                <code><span class="tag-replacement">{expiresat}</span></code>,
+                                                                <code><span class="tag-replacement">{expiresin}</span></code>
+                                                        </div>
+                                                </li>
                                                 <li><code>remove</code> <span class="arg-meta">(optional,
                                                                 string)</span>: <span
                                                                 class="argument-description">Message to send when
                                                                 verified users timeouts are
-                                                                removed</span></li>
+                                                                removed</span>
+                                                        <div class="replacements">
+                                                                <code><span class="tag-replacement">{tag}</span></code>,
+                                                                <code><span class="tag-replacement">{name}</span></code>,
+                                                                <code><span class="tag-replacement">{user}</span></code>,
+                                                                <code><span class="tag-replacement">{modtag}</span></code>,
+                                                                <code><span class="tag-replacement">{modname}</span></code>,
+                                                                <code><span class="tag-replacement">{moduser}</span></code>
+                                                        </div>
+                                                </li>
                                                 <li><code>expire</code> <span class="arg-meta">(optional,
                                                                 string)</span>: <span
                                                                 class="argument-description">Message to send when
                                                                 verified users timeouts expire</span>
+                                                        <div class="replacements">
+                                                                <code><span class="tag-replacement">{tag}</span></code>,
+                                                                <code><span class="tag-replacement">{name}</span></code>,
+                                                                <code><span class="tag-replacement">{user}</span></code>
+                                                        </div>
                                                 </li>
                                                 <li><code>channel</code> <span class="arg-meta">(optional,
                                                                 channel)</span>: <span
@@ -1710,17 +1946,37 @@
                                                 <li><code>message</code> <span class="arg-meta">(optional,
                                                                 string)</span>: <span
                                                                 class="argument-description">Message to send when users
-                                                                become verified</span></li>
+                                                                become verified</span>
+                                                        <div class="replacements">
+                                                                <code><span class="tag-replacement">{tag}</span></code>,
+                                                                <code><span class="tag-replacement">{name}</span></code>,
+                                                                <code><span class="tag-replacement">{user}</span></code>
+                                                        </div>
+                                                </li>
                                                 <li><code>rejoin-same-user</code> <span class="arg-meta">(optional,
                                                                 string)</span>: <span
                                                                 class="argument-description">Message when a returning
                                                                 member verifies with the same name (keep-verified-on-rejoin:
-                                                                off)</span></li>
+                                                                off)</span>
+                                                        <div class="replacements">
+                                                                <code><span class="tag-replacement">{tag}</span></code>,
+                                                                <code><span class="tag-replacement">{name}</span></code>,
+                                                                <code><span class="tag-replacement">{user}</span></code>
+                                                        </div>
+                                                </li>
                                                 <li><code>rejoin-name-change</code> <span class="arg-meta">(optional,
                                                                 string)</span>: <span
                                                                 class="argument-description">Message when a returning
                                                                 member verifies with a different name
-                                                                (keep-verified-on-rejoin: off)</span></li>
+                                                                (keep-verified-on-rejoin: off)</span>
+                                                        <div class="replacements">
+                                                                <code><span class="tag-replacement">{tag}</span></code>,
+                                                                <code><span class="tag-replacement">{name}</span></code>,
+                                                                <code><span class="tag-replacement">{user}</span></code>,
+                                                                <code><span class="tag-replacement">{oldname}</span></code>,
+                                                                <code><span class="tag-replacement">{olduser}</span></code>
+                                                        </div>
+                                                </li>
                                                 <li><code>channel</code> <span class="arg-meta">(optional,
                                                                 channel)</span>: <span
                                                                 class="argument-description">Channel to send verified
@@ -1748,17 +2004,36 @@
                                                                 string)</span>: <span
                                                                 class="argument-description">Secondary message to send
                                                                 when users become verified</span>
+                                                        <div class="replacements">
+                                                                <code><span class="tag-replacement">{tag}</span></code>,
+                                                                <code><span class="tag-replacement">{name}</span></code>,
+                                                                <code><span class="tag-replacement">{user}</span></code>
+                                                        </div>
                                                 </li>
                                                 <li><code>rejoin-same-user</code> <span class="arg-meta">(optional,
                                                                 string)</span>: <span
                                                                 class="argument-description">Secondary message when a
                                                                 returning member verifies with the same name
-                                                                (keep-verified-on-rejoin: off)</span></li>
+                                                                (keep-verified-on-rejoin: off)</span>
+                                                        <div class="replacements">
+                                                                <code><span class="tag-replacement">{tag}</span></code>,
+                                                                <code><span class="tag-replacement">{name}</span></code>,
+                                                                <code><span class="tag-replacement">{user}</span></code>
+                                                        </div>
+                                                </li>
                                                 <li><code>rejoin-name-change</code> <span class="arg-meta">(optional,
                                                                 string)</span>: <span
                                                                 class="argument-description">Secondary message when a
                                                                 returning member verifies with a different name
-                                                                (keep-verified-on-rejoin: off)</span></li>
+                                                                (keep-verified-on-rejoin: off)</span>
+                                                        <div class="replacements">
+                                                                <code><span class="tag-replacement">{tag}</span></code>,
+                                                                <code><span class="tag-replacement">{name}</span></code>,
+                                                                <code><span class="tag-replacement">{user}</span></code>,
+                                                                <code><span class="tag-replacement">{oldname}</span></code>,
+                                                                <code><span class="tag-replacement">{olduser}</span></code>
+                                                        </div>
+                                                </li>
                                                 <li><code>channel</code> <span class="arg-meta">(optional,
                                                                 channel)</span>: <span
                                                                 class="argument-description">Channel to send secondary
@@ -1784,11 +2059,23 @@
                                                 <li><code>apply</code> <span class="arg-meta">(optional,
                                                                 string)</span>: <span
                                                                 class="argument-description">Message to send when users
-                                                                are sent to jail</span></li>
+                                                                are sent to jail</span>
+                                                        <div class="replacements">
+                                                                <code><span class="tag-replacement">{tag}</span></code>,
+                                                                <code><span class="tag-replacement">{name}</span></code>,
+                                                                <code><span class="tag-replacement">{user}</span></code>
+                                                        </div>
+                                                </li>
                                                 <li><code>remove</code> <span class="arg-meta">(optional,
                                                                 string)</span>: <span
                                                                 class="argument-description">Message to send when users
-                                                                are released from jail</span></li>
+                                                                are released from jail</span>
+                                                        <div class="replacements">
+                                                                <code><span class="tag-replacement">{tag}</span></code>,
+                                                                <code><span class="tag-replacement">{name}</span></code>,
+                                                                <code><span class="tag-replacement">{user}</span></code>
+                                                        </div>
+                                                </li>
                                                 <li><code>channel</code> <span class="arg-meta">(optional,
                                                                 channel)</span>: <span
                                                                 class="argument-description">Channel to send jail
@@ -1816,11 +2103,23 @@
                                                 <li><code>apply</code> <span class="arg-meta">(optional,
                                                                 string)</span>: <span
                                                                 class="argument-description">Message to send when
-                                                                verified users are sent to jail</span></li>
+                                                                verified users are sent to jail</span>
+                                                        <div class="replacements">
+                                                                <code><span class="tag-replacement">{tag}</span></code>,
+                                                                <code><span class="tag-replacement">{name}</span></code>,
+                                                                <code><span class="tag-replacement">{user}</span></code>
+                                                        </div>
+                                                </li>
                                                 <li><code>remove</code> <span class="arg-meta">(optional,
                                                                 string)</span>: <span
                                                                 class="argument-description">Message to send when
-                                                                verified users are released from jail</span></li>
+                                                                verified users are released from jail</span>
+                                                        <div class="replacements">
+                                                                <code><span class="tag-replacement">{tag}</span></code>,
+                                                                <code><span class="tag-replacement">{name}</span></code>,
+                                                                <code><span class="tag-replacement">{user}</span></code>
+                                                        </div>
+                                                </li>
                                                 <li><code>channel</code> <span class="arg-meta">(optional,
                                                                 channel)</span>: <span
                                                                 class="argument-description">Channel to send verified
@@ -1847,11 +2146,23 @@
                                                 <li><code>apply</code> <span class="arg-meta">(optional,
                                                                 string)</span>: <span
                                                                 class="argument-description">Secondary message to send
-                                                                when users are sent to jail</span></li>
+                                                                when users are sent to jail</span>
+                                                        <div class="replacements">
+                                                                <code><span class="tag-replacement">{tag}</span></code>,
+                                                                <code><span class="tag-replacement">{name}</span></code>,
+                                                                <code><span class="tag-replacement">{user}</span></code>
+                                                        </div>
+                                                </li>
                                                 <li><code>remove</code> <span class="arg-meta">(optional,
                                                                 string)</span>: <span
                                                                 class="argument-description">Secondary message to send
-                                                                when users are released from jail</span></li>
+                                                                when users are released from jail</span>
+                                                        <div class="replacements">
+                                                                <code><span class="tag-replacement">{tag}</span></code>,
+                                                                <code><span class="tag-replacement">{name}</span></code>,
+                                                                <code><span class="tag-replacement">{user}</span></code>
+                                                        </div>
+                                                </li>
                                                 <li><code>channel</code> <span class="arg-meta">(optional,
                                                                 channel)</span>: <span
                                                                 class="argument-description">Channel to send secondary
@@ -1900,7 +2211,14 @@
                                                 <li><code>thread-title</code> <span class="arg-meta">(optional,
                                                                 string)</span>: <span
                                                                 class="argument-description">Title of the
-                                                                threads</span></li>
+                                                                threads</span>
+                                                        <div class="replacements">
+                                                                <code><span class="tag-replacement">{name}</span></code>,
+                                                                <code><span class="tag-replacement">{user}</span></code>,
+                                                                <code><span class="tag-replacement">{date}</span></code>,
+                                                                <code><span class="tag-replacement">{time}</span></code>
+                                                        </div>
+                                                </li>
                                                 <li><code>thread-message</code> <span class="arg-meta">(optional,
                                                                 string)</span>: <span
                                                                 class="argument-description">Message to send in new
@@ -1985,10 +2303,6 @@
                                                                 exactly the keyword?</span></li>
                                         </ul>
                                 </li>
-                                <li><code class="subcommand-name">list</code>: <span
-                                                class="subcommand-description">List all active starboard keywords and
-                                                ignored channels</span>
-                                </li>
                                 <li><code class="subcommand-name">ignore</code>: <span
                                                 class="subcommand-description">Add a channel or category to the
                                                 starboard ignore list</span>
@@ -2008,6 +2322,10 @@
                                                                 class="argument-description">Channel or category to
                                                                 allow</span></li>
                                         </ul>
+                                </li>
+                                <li><code class="subcommand-name">list</code>: <span
+                                                class="subcommand-description">List all active starboard keywords and
+                                                ignored channels</span>
                                 </li>
                         </ul>
                 </div>
@@ -2082,7 +2400,14 @@
                                                         <span class="argument-description">Role that triggers the DM</span>
                                                 </li>
                                                 <li><code>message</code> <span class="arg-meta">(required, string)</span>:
-                                                        <span class="argument-description">Message to send (max 2000 chars). Placeholders: <code>{tag}</code>, <code>{name}</code>, <code>{user}</code>, <code>{roletag}</code>, <code>{rolename}</code>. Separate variants with <code> ~ </code> for random.</span>
+                                                        <span class="argument-description">Message to send</span>
+                                                    <div class="replacements">
+                                                                <code><span class="tag-replacement">{tag}</span></code>,
+                                                                <code><span class="tag-replacement">{name}</span></code>,
+                                                                <code><span class="tag-replacement">{user}</span></code>,
+                                                                <code><span class="tag-replacement">{roletag}</span></code>,
+                                                                <code><span class="tag-replacement">{rolename}</span></code>
+                                                        </div>
                                                 </li>
                                         </ul>
                                 </li>
@@ -2092,7 +2417,14 @@
                                                         <span class="argument-description">Trigger role to edit</span>
                                                 </li>
                                                 <li><code>message</code> <span class="arg-meta">(required, string)</span>:
-                                                        <span class="argument-description">New message to send (max 2000 chars). Separate variants with <code> ~ </code> for random.</span>
+                                                        <span class="argument-description">New message to send</span>
+                                                    <div class="replacements">
+                                                                <code><span class="tag-replacement">{tag}</span></code>,
+                                                                <code><span class="tag-replacement">{name}</span></code>,
+                                                                <code><span class="tag-replacement">{user}</span></code>,
+                                                                <code><span class="tag-replacement">{roletag}</span></code>,
+                                                                <code><span class="tag-replacement">{rolename}</span></code>
+                                                        </div>
                                                 </li>
                                         </ul>
                                 </li>
@@ -2120,7 +2452,15 @@
                                                                 boolean)</span>: <span
                                                                 class="argument-description">Enable voice generators?</span></li>
                                                 <li><code>name</code> <span class="arg-meta">(optional, string)</span>:
-                                                        <span class="argument-description">Default name template for spawned channels (placeholders: {name}, {user}, {date}, {time}, {count})</span></li>
+                                                        <span class="argument-description">Default name template for spawned channels</span>
+                                                    <div class="replacements">
+                                                                <code><span class="tag-replacement">{name}</span></code>,
+                                                                <code><span class="tag-replacement">{user}</span></code>,
+                                                                <code><span class="tag-replacement">{date}</span></code>,
+                                                                <code><span class="tag-replacement">{time}</span></code>,
+                                                                <code><span class="tag-replacement">{count}</span></code>
+                                                        </div>
+                                                </li>
                                         </ul>
                                 </li>
                                 <li><code class="subcommand-name">add</code>: <span class="subcommand-description">Add a generator voice channel</span>
@@ -2194,7 +2534,14 @@
                                         <ul>
                                                 <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable Twitch notifications?</span></li>
                                                 <li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Channel to post notifications in</span></li>
-                                                <li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Notification message template. Placeholders: {name}, {title}, {url}, {game}</span></li>
+                                                <li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Notification message template</span>
+                                                    <div class="replacements">
+                                                                <code><span class="tag-replacement">{name}</span></code>,
+                                                                <code><span class="tag-replacement">{title}</span></code>,
+                                                                <code><span class="tag-replacement">{url}</span></code>,
+                                                                <code><span class="tag-replacement">{game}</span></code>
+                                                        </div>
+                                                </li>
                                         </ul>
                                 </li>
                                 <li><code class="subcommand-name">add</code>: <span class="subcommand-description">Watch a Twitch streamer for live notifications</span>
@@ -2220,7 +2567,14 @@
                                         <ul>
                                                 <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable YouTube notifications?</span></li>
                                                 <li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Channel to post notifications in</span></li>
-                                                <li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Notification message template. Placeholders: {name}, {title}, {url}, {published}</span></li>
+                                                <li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Notification message template</span>
+                                                    <div class="replacements">
+                                                                <code><span class="tag-replacement">{name}</span></code>,
+                                                                <code><span class="tag-replacement">{title}</span></code>,
+                                                                <code><span class="tag-replacement">{url}</span></code>,
+                                                                <code><span class="tag-replacement">{published}</span></code>
+                                                        </div>
+                                                </li>
                                         </ul>
                                 </li>
                                 <li><code class="subcommand-name">add</code>: <span class="subcommand-description">Watch a YouTube channel for new uploads</span>
@@ -2369,7 +2723,7 @@
                                 <li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span
                                                 class="argument-description">Channel to post alerts in</span></li>
                                 <li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span
-                                                class="argument-description">Alert message. Placeholders: {tag}, {name}, {user}, {invitertag}, {invitername}, {inviteruser}, {age}</span></li>
+                                                class="argument-description">Alert message</span></li>
                                 <li><code>wait-verified</code> <span class="arg-meta">(optional, boolean)</span>: <span
                                                 class="argument-description">Wait until the user becomes verified before posting?</span></li>
                         </ul>
@@ -2672,7 +3026,7 @@
                 </div>
 
                 <div class="command-block">
-                        <h3>/warnconfig</h3>
+                        <h3>/warning</h3>
                         <p><strong>Description:</strong> Warning system settings</p>
                         <p><strong>Subcommands:</strong></p>
                         <ul>
@@ -2808,6 +3162,10 @@
                                 <li><code>include-contiguous</code> <span class="arg-meta">(optional, boolean)</span>:
                                         <span class="argument-description">Also delete adjacent messages from the same
                                                 replier?</span></li>
+                                <li><code>from</code> <span class="arg-meta">(optional, string)</span>: <span
+                                                class="argument-description">Message ID/URL: delete this message and everything older (exclusive with until)</span></li>
+                                <li><code>until</code> <span class="arg-meta">(optional, string)</span>: <span
+                                                class="argument-description">Message ID/URL: delete from newest up to and including this message (exclusive with from)</span></li>
                         </ul>
                 </div>
 
@@ -4057,7 +4415,13 @@
                                                 <li><code>cooldown</code> <span class="arg-meta">(optional, integer)</span>:
                                                         <span class="argument-description">How often a user can give +reputation (in seconds)</span></li>
                                                 <li><code>message</code> <span class="arg-meta">(optional, string)</span>:
-                                                        <span class="argument-description">Giver feedback. Replacements: {tag}, {name}, {user}.</span></li>
+                                                        <span class="argument-description">Giver feedback</span>
+                                                    <div class="replacements">
+                                                                <code><span class="tag-replacement">{tag}</span></code>,
+                                                                <code><span class="tag-replacement">{name}</span></code>,
+                                                                <code><span class="tag-replacement">{user}</span></code>
+                                                        </div>
+                                                </li>
                                                 <li><code>require-reply</code> <span class="arg-meta">(optional, boolean)</span>:
                                                         <span class="argument-description">Require keywords to be sent as a reply? If false, show a recipient picker instead.</span></li>
                                                 <li><code>feedback-delete</code> <span class="arg-meta">(optional, integer)</span>:
@@ -4671,7 +5035,12 @@
                                                                 class="argument-description">Create a thread for each confession?</span></li>
                                                 <li><code>thread-title</code> <span class="arg-meta">(optional,
                                                                 string)</span>: <span
-                                                                class="argument-description">Thread title template (e.g. Confession - {date} {time})</span></li>
+                                                                class="argument-description">Thread title template</span>
+                                                    <div class="replacements">
+                                                                <code><span class="tag-replacement">{date}</span></code>,
+                                                                <code><span class="tag-replacement">{time}</span></code>
+                                                        </div>
+                                                </li>
                                                 <li><code>thread-message-enable</code> <span class="arg-meta">(optional,
                                                                 boolean)</span>: <span
                                                                 class="argument-description">Send a message inside the thread?</span></li>
@@ -4741,7 +5110,12 @@
                                                                 class="argument-description">Create a thread for each suggestion?</span></li>
                                                 <li><code>thread-title</code> <span class="arg-meta">(optional,
                                                                 string)</span>: <span
-                                                                class="argument-description">Thread title template (e.g. Suggestion - {date} {time})</span></li>
+                                                                class="argument-description">Thread title template</span>
+                                                    <div class="replacements">
+                                                                <code><span class="tag-replacement">{date}</span></code>,
+                                                                <code><span class="tag-replacement">{time}</span></code>
+                                                        </div>
+                                                </li>
                                                 <li><code>thread-message-enable</code> <span class="arg-meta">(optional,
                                                                 boolean)</span>: <span
                                                                 class="argument-description">Send a message inside the thread?</span></li>
@@ -4803,7 +5177,13 @@
                                         <ul>
                                                 <li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable the reputation feature?</span></li>
                                                 <li><code>cooldown</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">How often a user can give +reputation (in seconds)</span></li>
-                                                <li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Giver feedback message. Placeholders: {tag}, {name}, {user}</span></li>
+                                                <li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Giver feedback</span>
+                                                    <div class="replacements">
+                                                                <code><span class="tag-replacement">{tag}</span></code>,
+                                                                <code><span class="tag-replacement">{name}</span></code>,
+                                                                <code><span class="tag-replacement">{user}</span></code>
+                                                        </div>
+                                                </li>
                                                 <li><code>require-reply</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Require keywords to be sent as a reply? If false, show a recipient picker instead</span></li>
                                                 <li><code>feedback-delete</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Auto-delete the feedback after this many seconds (0 = never delete)</span></li>
                                         </ul>
