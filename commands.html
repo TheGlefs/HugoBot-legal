@@ -189,7 +189,7 @@
 
 		<div class="command-block">
 			<h3>/logs</h3>
-			<p><strong>Description:</strong> Configure error, chat, and general log channels</p>
+			<p><strong>Description:</strong> Configure error, chat and general log channels</p>
 			<p><strong>Subcommands:</strong></p>
 			<ul>
 				<li><code class="subcommand-name">error</code>: <span class="subcommand-description">Error log channel</span>
@@ -314,7 +314,7 @@
 
 		<div class="command-block">
 			<h3>/role</h3>
-			<p><strong>Description:</strong> Configure verified, unverified, mod, and jail roles</p>
+			<p><strong>Description:</strong> Configure verified, unverified, mod and jail roles</p>
 			<p><strong>Subcommands:</strong></p>
 			<ul>
 				<li><code class="subcommand-name">verified</code>: <span class="subcommand-description">Verified role</span>
@@ -364,7 +364,7 @@
 
 		<div class="command-block">
 			<h3>/captcha</h3>
-			<p><strong>Description:</strong> Captcha with attempt limits, timeouts, and fake buttons</p>
+			<p><strong>Description:</strong> Captcha with attempt limits, timeouts and fake buttons</p>
 			<p><strong>Subcommands:</strong></p>
 			<ul>
 				<li><code class="subcommand-name">post</code>: <span class="subcommand-description">Post captcha verification embed</span>
@@ -481,7 +481,7 @@
 
 		<div class="command-block">
 			<h3>/autoresponse</h3>
-			<p><strong>Description:</strong> Auto-replies to triggers with regex, cooldowns, and filters</p>
+			<p><strong>Description:</strong> Auto-replies to triggers with regex, cooldowns and filters</p>
 			<p><strong>Subcommands:</strong></p>
 			<ul>
 				<li><code class="subcommand-name">settings</code>: <span class="subcommand-description">Autoresponse settings</span>
@@ -678,7 +678,7 @@
 
 		<div class="command-block">
 			<h3>/announce</h3>
-			<p><strong>Description:</strong> Announce join, leave, ban, kick, timeout, and jail events</p>
+			<p><strong>Description:</strong> Announce join, leave, ban, kick, timeout and jail events</p>
 			<p><strong>Subcommands:</strong></p>
 			<ul>
 				<li><code class="subcommand-name">join</code>: <span class="subcommand-description">Announce when users join</span>
@@ -1012,7 +1012,7 @@
 
 		<div class="command-block">
 			<h3>/qotd</h3>
-			<p><strong>Description:</strong> Question of the Day with queue, embed, and thread settings</p>
+			<p><strong>Description:</strong> Question of the Day with queue, embed and thread settings</p>
 			<p><strong>Subcommands:</strong></p>
 			<ul>
 				<li><code class="subcommand-name">settings</code>: <span class="subcommand-description">Configure QOTD settings</span>
@@ -1274,6 +1274,8 @@
 						<li><code>embed-footer-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Show the embed footer?</span></li>
 						<li><code>credit</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Show original author on posts?</span></li>
 						<li><code>emoji</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Star emoji (default: ⭐)</span></li>
+						<li><code>min-chat-level</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min chat level (0 = none)</span></li>
+						<li><code>min-voice-level</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min voice level (0 = none)</span></li>
 					</ul>
 				</li>
 				<li><code class="subcommand-name">add</code>: <span class="subcommand-description">Add a keyword that sends a reply to the starboard</span>
@@ -1683,7 +1685,7 @@
 
 		<div class="command-block">
 			<h3>/warn</h3>
-			<p><strong>Description:</strong> Warn a user with optional DM, expiry, and notification</p>
+			<p><strong>Description:</strong> Warn a user with optional DM, expiry and notification</p>
 			<p><strong>Options:</strong></p>
 			<ul>
 				<li><code>user</code> <span class="arg-meta">(required, user)</span>: <span class="argument-description">User to warn</span></li>
@@ -2044,7 +2046,7 @@
 
 		<div class="command-block">
 			<h3>/rank</h3>
-			<p><strong>Description:</strong> Show your XP, level, and leaderboard rank</p>
+			<p><strong>Description:</strong> Show your XP, level and leaderboard rank</p>
 			<p><strong>Options:</strong></p>
 			<ul>
 				<li><code>user</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">User to check</span></li>
@@ -2731,7 +2733,7 @@
 
 		<div class="command-block">
 			<h3>/fetch</h3>
-			<p><strong>Description:</strong> View a user avatar, emoji, or role icon at full size</p>
+			<p><strong>Description:</strong> View a user avatar, emoji or role icon at full size</p>
 			<p><strong>Options:</strong></p>
 			<ul>
 				<li><code>input</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">User, emoji, or role — mention, ID, or CDN link</span></li>
