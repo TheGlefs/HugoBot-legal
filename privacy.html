@@ -10,7 +10,7 @@
 </head>
 <body>
   <h1>Privacy Policy for Hugo</h1>
-  <p><strong>Last updated:</strong> 05/04/2026</p>
+  <p><strong>Last updated:</strong> 06/11/2026</p>
 
   <h2>1. Data We Collect</h2>
   <p>Hugo collects and stores the following data in a local database to provide its features:</p>
@@ -19,18 +19,21 @@
   <ul>
     <li>Discord user ID, username, and display name.</li>
     <li>Username and display name history (up to 20 previous names per user per server).</li>
-    <li>XP, level, and invite count for leveling and leaderboard features.</li>
+    <li>Chat XP/chat level, voice XP/voice level, reputation count, invite count, and who invited you (inviter's user ID) for leaderboards, awards, and logging features.</li>
+    <li>Per-period award counters such as messages sent, chat XP, voice XP, and reputation earned during the current awards period.</li>
+    <li>Birthday settings if you use /birthday: whether birthday announcements are enabled for you, your birth month/day, optional birth year, and the last date your birthday was announced.</li>
+    <li>Your level alert preference (whether Hugo should show your level-up/reward alerts).</li>
     <li>CAPTCHA attempt counts, verification status, and jail status.</li>
     <li>A cached list of your roles (updated on role changes, used in leave/kick/ban log embeds).</li>
-    <li>Last message activity timestamp (for activity tracking, not message content).</li>
+    <li>Last message activity timestamp and server join timestamp.</li>
   </ul>
 
   <h3>Server Data</h3>
   <ul>
     <li>Server IDs, channel IDs, and role IDs needed for configuration.</li>
-    <li>All server settings you configure through Hugo's commands or dashboard. Where a feature allows custom text (such as announcement messages, autoresponse triggers and responses, automessages, level-up messages, embed titles and footers, thread titles, bump reminders, captcha messages, kick/ban reasons, color role name formats, and saved message templates), that text is stored as part of the configuration.</li>
-    <li>Scheduled tasks such as reminders, scheduled kicks, automessages, and warnings. These may include text you provide (e.g., reminder messages, kick/ban reasons).</li>
-    <li>QOTD pitch questions submitted by users (stored with the question text, author ID, and timestamp).</li>
+    <li>All server settings you configure through Hugo's commands or dashboard. Where a feature allows custom text (such as announcement messages, autoresponse triggers and responses, automessages, sticky messages, role DMs, level-up messages, birthday messages, awards text, reputation feedback, embed titles and footers, thread titles, Twitch/YouTube alerts, bump reminders, captcha messages, kick/ban reasons, voice generator name templates, color role name formats, and saved message templates), that text is stored as part of the configuration.</li>
+    <li>Scheduled tasks such as reminders, scheduled kicks/bans/unbans, timeout-expiry notices, automessages, warnings, QOTD posts, birthday announcements, and awards. These may include text you provide (e.g., reminder messages, kick/ban reasons).</li>
+    <li>QOTD data, including pending pitch questions (with question text, author ID, username, and timestamp), approved queue entries, skip lists, and recent posted-question history (up to 20 recent questions with timestamps).</li>
     <li>Flair role details: custom role names, colors, and icon URLs you provide.</li>
     <li>Per-command blocked user ID lists.</li>
     <li>Confessions and suggestions metadata: the author's user ID, timestamp, and the Discord message ID (up to 1,000 each per server). The text itself is only posted to Discord, not stored by Hugo. Server moderators may be able to reveal the author of a confession.</li>
@@ -38,8 +41,12 @@
     <li>Moderation warnings (including reason text, moderator ID, and expiry date).</li>
     <li>A cache of server invite codes (invite code, inviter user ID, use count, max uses, and expiry) for invite tracking.</li>
     <li>A cache of pinned message IDs and author IDs per channel for pin/unpin logging.</li>
-    <li>Reaction role bindings (emoji-to-role mappings per message).</li>
+    <li>Reaction role bindings for emoji, button, and dropdown role menus (message IDs, channel IDs, and role mappings).</li>
     <li>Group definitions (group names, member user IDs, channel IDs, and permissions).</li>
+    <li>Voice generator settings and active spawned-channel metadata (generator channel IDs, spawned channel IDs, naming templates, and owner user IDs).</li>
+    <li>Role DM rules (role IDs and the DM text to send when that role is granted).</li>
+    <li>Twitch and YouTube subscription settings, including watched streamer/channel IDs or names and the last notified stream/video ID to avoid duplicate alerts.</li>
+    <li>Pending age-alert entries when "wait until verified" is enabled (user ID, inviter ID, and join timestamp).</li>
     <li>Patron subscription status and trial dates per server owner.</li>
   </ul>
 
@@ -50,7 +57,7 @@
 
   <h2>2. Data We Do NOT Collect</h2>
   <ul>
-    <li><strong>Regular message content</strong> &mdash; Hugo reads messages to process commands and calculate XP, but does not store the content of regular chat messages. Text you explicitly submit through Hugo's features (reminders, autoresponses, announcements, QOTD pitches, automessages, saved templates, flair names, and moderation reasons) is stored as described above. If logging is enabled, Hugo posts embeds to your server's log channels for a wide range of server events (message edits/deletes, thread and channel changes, role changes, member joins/leaves, and more). Logged message embeds may include message content and re-uploaded attachments. This data is sent to Discord and is not stored by Hugo.</li>
+    <li><strong>Regular message content</strong> &mdash; Hugo reads messages to process commands and features such as chat XP, autoresponses, sticky messages, autothreads, reputation, starboard keywords, and honeypot moderation, but does not store the content of regular chat messages. Text you explicitly submit through Hugo's features (reminders, autoresponses, announcements, QOTD pitches, automessages, saved templates, flair names, Twitch/YouTube subscriptions, and moderation reasons) is stored as described above. If logging is enabled, Hugo posts embeds to your server's log channels for a wide range of server events (message edits/deletes, thread and channel changes, role changes, member joins/leaves, and more). Logged message embeds may include message content and re-uploaded attachments. This data is sent to Discord and is not stored by Hugo.</li>
     <li><strong>Direct messages</strong> &mdash; Hugo does not log or store DM content.</li>
     <li><strong>Voice or audio data</strong> &mdash; Hugo does not listen to or record voice channels.</li>
     <li><strong>Email addresses or IP addresses.</strong></li>
@@ -58,23 +65,29 @@
 
   <h2>3. How Data is Used</h2>
   <ul>
-    <li>XP and level data is used to calculate levels, enforce minimum level requirements on commands, and display leaderboards and rank information.</li>
-    <li>Invite data is used to track which invite a new member used and to display invite counts and leaderboards.</li>
+    <li>Chat XP, voice XP, level, and reputation data is used to calculate levels, enforce minimum level requirements on commands, display leaderboards/rank information, and determine awards.</li>
+    <li>Invite data is used to track which invite a new member used, to display invite counts and leaderboards, and to show who invited a user in leave, kick, and ban log embeds.</li>
     <li>Username and display name history is used to show previous names in log embeds when a user changes their name.</li>
     <li>CAPTCHA and verification data is used to manage the verification process, track failed attempts, and enforce timeouts.</li>
     <li>The role cache is used to display a user's roles in leave, kick, and ban log embeds after the user is no longer in the server.</li>
     <li>Activity timestamps are used to track active and inactive members.</li>
+    <li>Birthday data is used to post birthday announcements, optionally include age, and prevent duplicate birthday posts on the same date.</li>
+    <li>Per-period award counters are used to determine winners for scheduled awards and are reset when an award period ends.</li>
     <li>Warning data is used to track moderation history and enforce automated punishments at configured thresholds.</li>
-    <li>Scheduled tasks are used to execute timed actions such as reminders, CAPTCHA timeout kicks, automessages, and scheduled QOTD posts.</li>
+    <li>Scheduled tasks are used to execute timed actions such as reminders, CAPTCHA timeout kicks, automessages, scheduled QOTD posts, birthday announcements, awards, timeout-expiry notices, and temporary unbans.</li>
     <li>The pinned message cache is used to detect pin and unpin events for logging.</li>
     <li>Confession and suggestion metadata is used to link anonymous posts back to authors for moderation purposes.</li>
-    <li>Server settings text (announcements, autoresponses, automessages, level-up messages, etc.) is used to send configured messages when their corresponding events occur.</li>
-    <li>QOTD pitch questions are used to populate the question of the day queue for server administrators to review and post.</li>
+    <li>Server settings text (announcements, autoresponses, automessages, role DMs, level-up messages, birthday messages, Twitch/YouTube alerts, etc.) is used to send configured messages when their corresponding events occur.</li>
+    <li>QOTD pitch questions, approved queues, skip lists, and history are used to review, schedule, avoid repeats, and post Question of the Day content.</li>
     <li>Flair details are used to create, restore, and manage personal color roles for users.</li>
     <li>Per-command blocked user IDs are used to prevent specific users from accessing specific commands.</li>
     <li>Starboard metadata is used to track which messages have been starred and prevent duplicate starboard entries.</li>
-    <li>Reaction role bindings are used to assign or remove roles when users react to configured messages.</li>
+    <li>Reaction role bindings are used to assign or remove roles when users interact with configured reaction, button, or dropdown role messages.</li>
     <li>Group definitions are used to manage channel access permissions for sets of users.</li>
+    <li>Voice generator metadata is used to create, track, rename, and clean up temporary voice channels.</li>
+    <li>Role DM rules are used to send configured direct messages when a user gains a matching role.</li>
+    <li>Twitch and YouTube subscription data is used to poll for new live streams/uploads and avoid duplicate notifications.</li>
+    <li>Pending age-alert entries are used to delay "new account" alerts until a user becomes verified when that option is enabled.</li>
     <li>Patron data is used to determine access to premium features.</li>
     <li>Dashboard OAuth tokens are used to authenticate users on the web dashboard.</li>
   </ul>
@@ -82,7 +95,7 @@
   <h2>4. Data Sharing</h2>
   <ul>
     <li>Your data is <strong>never sold</strong> to third parties.</li>
-    <li>Hugo communicates with the Discord API to function. Bot metadata (such as command list and server count) may be shared with Top.gg for bot listing purposes. No user data is sent to third-party analytics, tracking, or advertising services.</li>
+    <li>Hugo communicates with the Discord API to function. If Twitch or YouTube notifications are enabled, Hugo also queries Twitch and YouTube using the configured streamer/channel identifiers to check live or upload status. Bot metadata (such as command list and server count) may be shared with Top.gg for bot listing purposes. No user data is sent to third-party analytics, tracking, or advertising services.</li>
     <li>Data may be disclosed if required by law.</li>
   </ul>
 
