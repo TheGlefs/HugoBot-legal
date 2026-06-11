@@ -180,7 +180,11 @@
 				<li><code>banner</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Bot banner image URL (PNG/JPEG/GIF/WebP) or "reset"</span></li>
 				<li><code>resolve-by-name</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Find channels/roles by name when IDs are invalid?</span></li>
 				<li><code>delete-threads</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Delete threads when their starting message is deleted?</span></li>
-				<li><code>keep-verified</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Keep verified status when a verified user rejoins?</span></li>
+				<li><code>keep-verified-on-rejoin</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Keep verified status when a verified user rejoins?</span></li>
+				<li><code>mention-roles</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable role mentions in logs?</span></li>
+				<li><code>show-log-event</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Show "log event: xxx" in embed footers?</span></li>
+				<li><code>user-tag-format</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Name format in logs or "reset"</span>
+					<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code></div></li>
 				<li><code>timezone</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">IANA timezone for timestamps (e.g. America/New_York)</span></li>
 				<li><code>locale</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">BCP 47 locale for date/number formatting (e.g. en-US)</span></li>
 				<li><code>thread-archive-duration</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Default auto-archive duration for threads the bot creates</span></li>
@@ -218,11 +222,6 @@
 				<li><code class="subcommand-name">disable</code>: <span class="subcommand-description">Disable a log event type</span>
 					<ul>
 						<li><code>type</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Event type to disable</span></li>
-					</ul>
-				</li>
-				<li><code class="subcommand-name">mention</code>: <span class="subcommand-description">Toggle role mentions in all logs</span>
-					<ul>
-						<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable role mentions in logs?</span></li>
 					</ul>
 				</li>
 			</ul>
@@ -289,8 +288,8 @@
 						<li><code>allow-title</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Custom role name?</span></li>
 						<li><code>allow-icon</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Custom role icon?</span></li>
 						<li><code>allow-gradient</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Gradient color?</span></li>
-						<li><code>min-level-chat</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min chat level (0 = none)</span></li>
-						<li><code>min-level-voice</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min voice level (0 = none)</span></li>
+						<li><code>min-level-chat</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min chat level</span></li>
+						<li><code>min-level-voice</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min voice level</span></li>
 						<li><code>booster-only</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Booster only?</span></li>
 					</ul>
 				</li>
@@ -372,9 +371,9 @@
 						<li><code>channel</code> <span class="arg-meta">(required, channel)</span>: <span class="argument-description">Captcha channel</span></li>
 						<li><code>title</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Title of the captcha</span></li>
 						<li><code>description</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Description of the captcha</span></li>
-						<li><code>fake-buttons</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Add fake buttons (kicks users who press them)?</span></li>
+						<li><code>fake-buttons</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Add fake buttons?</span></li>
 						<li><code>correct-word</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Correct word for fake buttons</span></li>
-						<li><code>correct-position</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Position (1-9) for correct button in 3×3 grid</span></li>
+						<li><code>correct-position</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Correct button in 3×3 grid</span></li>
 					</ul>
 				</li>
 				<li><code class="subcommand-name">settings</code>: <span class="subcommand-description">Max attempts and time limit</span>
@@ -1002,8 +1001,8 @@
 			<p><strong>Options:</strong></p>
 			<ul>
 				<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable bump reminder?</span></li>
-				<li><code>bumped</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Message to send on bump</span></li>
-				<li><code>reminder</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Reminder message</span></li>
+				<li><code>bump</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Message to send on bump</span></li>
+				<li><code>remind</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Reminder message</span></li>
 			</ul>
 		</div>
 
@@ -1041,8 +1040,8 @@
 						<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable /pitch?</span></li>
 						<li><code>cooldown</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Cooldown (seconds)</span></li>
 						<li><code>inform</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">DM on approval?</span></li>
-						<li><code>min-level-chat</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min chat level (0 = none)</span></li>
-						<li><code>min-level-voice</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min voice level (0 = none)</span></li>
+						<li><code>min-level-chat</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min chat level</span></li>
+						<li><code>min-level-voice</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min voice level</span></li>
 						<li><code>booster-only</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Booster only?</span></li>
 					</ul>
 				</li>
@@ -1274,8 +1273,8 @@
 						<li><code>embed-footer-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Show the embed footer?</span></li>
 						<li><code>credit</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Show original author on posts?</span></li>
 						<li><code>emoji</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Star emoji (default: ⭐)</span></li>
-						<li><code>min-chat-level</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min chat level (0 = none)</span></li>
-						<li><code>min-voice-level</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min voice level (0 = none)</span></li>
+						<li><code>min-chat-level</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min chat level</span></li>
+						<li><code>min-voice-level</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min voice level</span></li>
 					</ul>
 				</li>
 				<li><code class="subcommand-name">add</code>: <span class="subcommand-description">Add a keyword that sends a reply to the starboard</span>
@@ -1310,8 +1309,8 @@
 					<ul>
 						<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable /quotes?</span></li>
 						<li><code>cooldown</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Cooldown (seconds)</span></li>
-						<li><code>min-level-chat</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min chat level (0 = none)</span></li>
-						<li><code>min-level-voice</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min voice level (0 = none)</span></li>
+						<li><code>min-level-chat</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min chat level</span></li>
+						<li><code>min-level-voice</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min voice level</span></li>
 						<li><code>booster-only</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Booster only?</span></li>
 					</ul>
 				</li>
@@ -1424,8 +1423,8 @@
 					<ul>
 						<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable /voicename?</span></li>
 						<li><code>cooldown</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Cooldown (seconds)</span></li>
-						<li><code>min-level-chat</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min chat level (0 = none)</span></li>
-						<li><code>min-level-voice</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min voice level (0 = none)</span></li>
+						<li><code>min-level-chat</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min chat level</span></li>
+						<li><code>min-level-voice</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min voice level</span></li>
 						<li><code>booster-only</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Booster only?</span></li>
 					</ul>
 				</li>
@@ -1585,6 +1584,11 @@
 						<li><code>user</code> <span class="arg-meta">(required, user)</span>: <span class="argument-description">User to block or unblock</span></li>
 					</ul>
 				</li>
+				<li><code class="subcommand-name">birthday</code>: <span class="subcommand-description">Toggle block a user from /birthday</span>
+					<ul>
+						<li><code>user</code> <span class="arg-meta">(required, user)</span>: <span class="argument-description">User to block or unblock</span></li>
+					</ul>
+				</li>
 				<li><code class="subcommand-name">invites</code>: <span class="subcommand-description">Toggle block a user from /invites</span>
 					<ul>
 						<li><code>user</code> <span class="arg-meta">(required, user)</span>: <span class="argument-description">User to block or unblock</span></li>
@@ -1628,6 +1632,11 @@
 				<li><code class="subcommand-name">quotes</code>: <span class="subcommand-description">Toggle block a user from /quotes</span>
 					<ul>
 						<li><code>user</code> <span class="arg-meta">(required, user)</span>: <span class="argument-description">The user to block or unblock</span></li>
+					</ul>
+				</li>
+				<li><code class="subcommand-name">rep</code>: <span class="subcommand-description">Toggle block a user from /rep</span>
+					<ul>
+						<li><code>user</code> <span class="arg-meta">(required, user)</span>: <span class="argument-description">User to block or unblock</span></li>
 					</ul>
 				</li>
 				<li><code class="subcommand-name">repboard</code>: <span class="subcommand-description">Toggle block a user from /repboard</span>
@@ -1789,6 +1798,11 @@
 								<li><code>ignore-afk</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Skip AFK channel?</span></li>
 							</ul>
 						</li>
+						<li><code class="subcommand-name">combine</code>: <span class="subcommand-description">Combine XP settings</span>
+							<ul>
+								<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable combine XP mode?</span></li>
+							</ul>
+						</li>
 					</ul>
 				</li>
 				<li><code class="subcommand-name">advance</code>: <span class="subcommand-description">Level-up messages</span>
@@ -1923,15 +1937,6 @@
 						<li><code class="subcommand-name">voice</code>: <span class="subcommand-description">Voice XP ignore list</span></li>
 					</ul>
 				</li>
-				<li><code class="subcommand-name">combine</code>: <span class="subcommand-description">Combined XP mode (chat + voice shown as one total)</span>
-					<ul>
-						<li><code class="subcommand-name">settings</code>: <span class="subcommand-description">XP system settings</span>
-							<ul>
-								<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable combined XP mode?</span></li>
-							</ul>
-						</li>
-					</ul>
-				</li>
 			</ul>
 		</div>
 
@@ -2040,7 +2045,7 @@
 			<p><strong>Description:</strong> Show the server XP/level leaderboard</p>
 			<p><strong>Options:</strong></p>
 			<ul>
-				<li><code>type</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">XP pool (default: combined or chat)</span></li>
+				<li><code>type</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">XP pool (default: combine or chat)</span></li>
 			</ul>
 		</div>
 
@@ -2050,7 +2055,7 @@
 			<p><strong>Options:</strong></p>
 			<ul>
 				<li><code>user</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">User to check</span></li>
-				<li><code>type</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">XP pool (default: combined or chat)</span></li>
+				<li><code>type</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">XP pool (default: combine or chat)</span></li>
 			</ul>
 		</div>
 
@@ -2060,7 +2065,16 @@
 			<p><strong>Options:</strong></p>
 			<ul>
 				<li><code>user</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">User to check</span></li>
-				<li><code>type</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">XP pool (default: combined or chat)</span></li>
+				<li><code>type</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">XP pool (default: combine or chat)</span></li>
+			</ul>
+		</div>
+
+		<div class="command-block">
+			<h3>/levelalerts</h3>
+			<p><strong>Description:</strong> Toggle your level-up and reward messages</p>
+			<p><strong>Options:</strong></p>
+			<ul>
+				<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Show your level-up and reward messages?</span></li>
 			</ul>
 		</div>
 
@@ -2460,8 +2474,8 @@
 						<li><code>cooldown</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Cooldown (seconds)</span></li>
 						<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Channel for /invites</span></li>
 						<li><code>channel-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Limit to channel?</span></li>
-						<li><code>min-level-chat</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min chat level (0 = none)</span></li>
-						<li><code>min-level-voice</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min voice level (0 = none)</span></li>
+						<li><code>min-level-chat</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min chat level</span></li>
+						<li><code>min-level-voice</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min voice level</span></li>
 						<li><code>booster-only</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Booster only?</span></li>
 						<li><code>ephemeral</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ephemeral responses?</span></li>
 					</ul>
@@ -2472,8 +2486,57 @@
 						<li><code>cooldown</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Cooldown (seconds)</span></li>
 						<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Channel for /inviteboard</span></li>
 						<li><code>channel-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Limit to channel?</span></li>
-						<li><code>min-level-chat</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min chat level (0 = none)</span></li>
-						<li><code>min-level-voice</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min voice level (0 = none)</span></li>
+						<li><code>min-level-chat</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min chat level</span></li>
+						<li><code>min-level-voice</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min voice level</span></li>
+						<li><code>booster-only</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Booster only?</span></li>
+						<li><code>ephemeral</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ephemeral responses?</span></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+
+		<h2>Birthdays Commands</h2>
+
+		<div class="command-block">
+			<h3>/birthday</h3>
+			<p><strong>Description:</strong> Set your birthday</p>
+			<p><strong>Options:</strong></p>
+			<ul>
+				<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable birthday announcements for yourself?</span></li>
+				<li><code>day</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Birthday day</span></li>
+				<li><code>month</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Birthday month</span></li>
+				<li><code>year</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Birth year or reset</span></li>
+			</ul>
+		</div>
+
+		<div class="command-block">
+			<h3>/birthdays</h3>
+			<p><strong>Description:</strong> Configure birthday announcements and /birthday</p>
+			<p><strong>Subcommands:</strong></p>
+			<ul>
+				<li><code class="subcommand-name">settings</code>: <span class="subcommand-description">Birthday announcement settings</span>
+					<ul>
+						<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable birthday announcements?</span></li>
+						<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Birthday announcement channel</span></li>
+						<li><code>message-with-age</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Birthday message when age is known</span></li>
+						<li><code>message-without-age</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Birthday message when age is hidden</span></li>
+						<li><code>thread-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable birthday threads?</span></li>
+						<li><code>thread-title</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Title of the threads</span></li>
+						<li><code>thread-message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Message to send in new threads</span></li>
+						<li><code>thread-message-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Send the thread message?</span></li>
+						<li><code>embed-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Send the birthday post as an embed?</span></li>
+						<li><code>embed-title</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Embed title</span></li>
+						<li><code>embed-title-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Show the embed title?</span></li>
+						<li><code>embed-footer</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Footer text on the embed</span></li>
+						<li><code>embed-footer-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Show the embed footer?</span></li>
+					</ul>
+				</li>
+				<li><code class="subcommand-name">birthday</code>: <span class="subcommand-description">/birthday command settings</span>
+					<ul>
+						<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable /birthday?</span></li>
+						<li><code>cooldown</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Cooldown (seconds)?</span></li>
+						<li><code>min-level-chat</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min chat level</span></li>
+						<li><code>min-level-voice</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min voice level</span></li>
 						<li><code>booster-only</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Booster only?</span></li>
 						<li><code>ephemeral</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ephemeral responses?</span></li>
 					</ul>
@@ -2483,6 +2546,15 @@
 
 
 		<h2>Reputation Commands</h2>
+
+		<div class="command-block">
+			<h3>/rep</h3>
+			<p><strong>Description:</strong> Check how much rep a user has</p>
+			<p><strong>Options:</strong></p>
+			<ul>
+				<li><code>user</code> <span class="arg-meta">(optional, user)</span>: <span class="argument-description">User to check</span></li>
+			</ul>
+		</div>
 
 		<div class="command-block">
 			<h3>/reputation</h3>
@@ -2507,6 +2579,18 @@
 					</ul>
 				</li>
 				<li><code class="subcommand-name">list</code>: <span class="subcommand-description">List rep keywords</span></li>
+				<li><code class="subcommand-name">rep</code>: <span class="subcommand-description">/rep settings</span>
+					<ul>
+						<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable /rep?</span></li>
+						<li><code>cooldown</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Cooldown (seconds)</span></li>
+						<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Channel for /rep</span></li>
+						<li><code>channel-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Limit to channel?</span></li>
+						<li><code>min-level-chat</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min chat level</span></li>
+						<li><code>min-level-voice</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min voice level</span></li>
+						<li><code>booster-only</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Booster only?</span></li>
+						<li><code>ephemeral</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ephemeral responses?</span></li>
+					</ul>
+				</li>
 				<li><code class="subcommand-name">settings</code>: <span class="subcommand-description">Global rep settings</span>
 					<ul>
 						<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable reputation?</span></li>
@@ -2523,8 +2607,8 @@
 						<li><code>cooldown</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Cooldown (seconds)</span></li>
 						<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Channel for /repboard</span></li>
 						<li><code>channel-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Limit to channel?</span></li>
-						<li><code>min-level-chat</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min chat level (0 = none)</span></li>
-						<li><code>min-level-voice</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min voice level (0 = none)</span></li>
+						<li><code>min-level-chat</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min chat level</span></li>
+						<li><code>min-level-voice</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min voice level</span></li>
 						<li><code>booster-only</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Booster only?</span></li>
 						<li><code>ephemeral</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ephemeral responses?</span></li>
 					</ul>
@@ -2573,8 +2657,8 @@
 						<li><code>message-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Message above?</span></li>
 						<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Message text</span></li>
 						<li><code>max-per-user</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Max per user (0 = unlimited)</span></li>
-						<li><code>min-level-chat</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min chat level (0 = none)</span></li>
-						<li><code>min-level-voice</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min voice level (0 = none)</span></li>
+						<li><code>min-level-chat</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min chat level</span></li>
+						<li><code>min-level-voice</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min voice level</span></li>
 						<li><code>booster-only</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Booster only?</span></li>
 						<li><code>log</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Log author?</span></li>
 					</ul>
@@ -2583,8 +2667,8 @@
 					<ul>
 						<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable /confessions?</span></li>
 						<li><code>cooldown</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Cooldown (seconds)</span></li>
-						<li><code>min-level-chat</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min chat level (0 = none)</span></li>
-						<li><code>min-level-voice</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min voice level (0 = none)</span></li>
+						<li><code>min-level-chat</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min chat level</span></li>
+						<li><code>min-level-voice</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min voice level</span></li>
 						<li><code>booster-only</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Booster only?</span></li>
 					</ul>
 				</li>
@@ -2635,8 +2719,8 @@
 						<li><code>message-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Message above?</span></li>
 						<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Message text</span></li>
 						<li><code>max-per-user</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Max per user (0 = unlimited)</span></li>
-						<li><code>min-level-chat</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min chat level (0 = none)</span></li>
-						<li><code>min-level-voice</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min voice level (0 = none)</span></li>
+						<li><code>min-level-chat</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min chat level</span></li>
+						<li><code>min-level-voice</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min voice level</span></li>
 						<li><code>log</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Log author?</span></li>
 						<li><code>booster-only</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Booster only?</span></li>
 					</ul>
@@ -2645,8 +2729,8 @@
 					<ul>
 						<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable /suggestions?</span></li>
 						<li><code>cooldown</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Cooldown (seconds)</span></li>
-						<li><code>min-level-chat</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min chat level (0 = none)</span></li>
-						<li><code>min-level-voice</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min voice level (0 = none)</span></li>
+						<li><code>min-level-chat</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min chat level</span></li>
+						<li><code>min-level-voice</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min voice level</span></li>
 						<li><code>booster-only</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Booster only?</span></li>
 					</ul>
 				</li>
@@ -2701,8 +2785,8 @@
 						<li><code>cooldown</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Cooldown (seconds)?</span></li>
 						<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Channel for /remind</span></li>
 						<li><code>channel-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Limit to channel?</span></li>
-						<li><code>min-level-chat</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min chat level (0 = none)</span></li>
-						<li><code>min-level-voice</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min voice level (0 = none)</span></li>
+						<li><code>min-level-chat</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min chat level</span></li>
+						<li><code>min-level-voice</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min voice level</span></li>
 						<li><code>booster-only</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Booster only?</span></li>
 						<li><code>ephemeral</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ephemeral responses?</span></li>
 					</ul>
@@ -2711,8 +2795,8 @@
 					<ul>
 						<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable /reminders?</span></li>
 						<li><code>cooldown</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Cooldown (seconds)?</span></li>
-						<li><code>min-level-chat</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min chat level (0 = none)</span></li>
-						<li><code>min-level-voice</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min voice level (0 = none)</span></li>
+						<li><code>min-level-chat</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min chat level</span></li>
+						<li><code>min-level-voice</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min voice level</span></li>
 						<li><code>booster-only</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Booster only?</span></li>
 					</ul>
 				</li>
@@ -2770,8 +2854,8 @@
 						<li><code>cooldown</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Cooldown (seconds)?</span></li>
 						<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Channel for /wisdom</span></li>
 						<li><code>channel-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Limit to channel?</span></li>
-						<li><code>min-level-chat</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min chat level (0 = none)</span></li>
-						<li><code>min-level-voice</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min voice level (0 = none)</span></li>
+						<li><code>min-level-chat</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min chat level</span></li>
+						<li><code>min-level-voice</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min voice level</span></li>
 						<li><code>booster-only</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Booster only?</span></li>
 						<li><code>ephemeral</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ephemeral responses?</span></li>
 					</ul>
@@ -2782,8 +2866,8 @@
 						<li><code>cooldown</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Cooldown (seconds)?</span></li>
 						<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Channel for /roll</span></li>
 						<li><code>channel-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Limit to channel?</span></li>
-						<li><code>min-level-chat</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min chat level (0 = none)</span></li>
-						<li><code>min-level-voice</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min voice level (0 = none)</span></li>
+						<li><code>min-level-chat</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min chat level</span></li>
+						<li><code>min-level-voice</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min voice level</span></li>
 						<li><code>booster-only</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Booster only?</span></li>
 						<li><code>ephemeral</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ephemeral responses?</span></li>
 					</ul>
@@ -2794,8 +2878,8 @@
 						<li><code>cooldown</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Cooldown (seconds)?</span></li>
 						<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Channel for /cat</span></li>
 						<li><code>channel-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Limit to channel?</span></li>
-						<li><code>min-level-chat</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min chat level (0 = none)</span></li>
-						<li><code>min-level-voice</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min voice level (0 = none)</span></li>
+						<li><code>min-level-chat</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min chat level</span></li>
+						<li><code>min-level-voice</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min voice level</span></li>
 						<li><code>booster-only</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Booster only?</span></li>
 						<li><code>ephemeral</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ephemeral responses?</span></li>
 					</ul>
@@ -2806,8 +2890,8 @@
 						<li><code>cooldown</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Cooldown (seconds)?</span></li>
 						<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Channel for /fetch</span></li>
 						<li><code>channel-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Limit to channel?</span></li>
-						<li><code>min-level-chat</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min chat level (0 = none)</span></li>
-						<li><code>min-level-voice</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min voice level (0 = none)</span></li>
+						<li><code>min-level-chat</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min chat level</span></li>
+						<li><code>min-level-voice</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min voice level</span></li>
 						<li><code>booster-only</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Booster only?</span></li>
 						<li><code>ephemeral</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ephemeral responses?</span></li>
 					</ul>
