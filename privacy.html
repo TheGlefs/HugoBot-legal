@@ -10,7 +10,7 @@
 </head>
 <body>
   <h1>Privacy Policy for Hugo</h1>
-  <p><strong>Last updated:</strong> 06/11/2026</p>
+  <p><strong>Last updated:</strong> 06/16/2026</p>
 
   <h2>1. Data We Collect</h2>
   <p>Hugo collects and stores the following data in a local database to provide its features:</p>
@@ -24,6 +24,7 @@
     <li>Birthday settings if you use /birthday: whether birthday announcements are enabled for you, your birth month/day, optional birth year, and the last date your birthday was announced.</li>
     <li>Your level alert preference (whether Hugo should show your level-up/reward alerts).</li>
     <li>CAPTCHA attempt counts, verification status, and jail status.</li>
+    <li>AutoMod infraction history, including timestamps, triggered rules/actions, limited trigger details (such as a matched bad word or detected link), and which automated actions were executed.</li>
     <li>A cached list of your roles (updated on role changes, used in leave/kick/ban log embeds).</li>
     <li>Last message activity timestamp and server join timestamp.</li>
   </ul>
@@ -31,9 +32,11 @@
   <h3>Server Data</h3>
   <ul>
     <li>Server IDs, channel IDs, and role IDs needed for configuration.</li>
-    <li>All server settings you configure through Hugo's commands or dashboard. Where a feature allows custom text (such as announcement messages, autoresponse triggers and responses, automessages, sticky messages, role DMs, level-up messages, birthday messages, awards text, reputation feedback, embed titles and footers, thread titles, Twitch/YouTube alerts, bump reminders, captcha messages, kick/ban reasons, voice generator name templates, color role name formats, and saved message templates), that text is stored as part of the configuration.</li>
+    <li>All server settings you configure through Hugo's commands or dashboard. Where a feature allows custom text (such as announcement messages, autoresponse triggers and responses, automessages, sticky messages, role DMs, level-up messages, birthday messages, awards text, reputation feedback, AutoMod warning/action reasons, embed titles and footers, thread titles, Twitch/YouTube alerts, bump reminders, captcha messages, kick/ban reasons, voice generator name templates, color role name formats, and saved message templates), that text is stored as part of the configuration.</li>
+    <li>AutoMod settings, including enabled rules, bad-word lists, thresholds, warning templates, and automated action settings.</li>
     <li>Scheduled tasks such as reminders, scheduled kicks/bans/unbans, timeout-expiry notices, automessages, warnings, QOTD posts, birthday announcements, and awards. These may include text you provide (e.g., reminder messages, kick/ban reasons).</li>
     <li>QOTD data, including pending pitch questions (with question text, author ID, username, and timestamp), approved queue entries, skip lists, and recent posted-question history (up to 20 recent questions with timestamps).</li>
+    <li>Saved message/embed templates, including template names, text content, embed data, and who saved them and when.</li>
     <li>Flair role details: custom role names, colors, and icon URLs you provide.</li>
     <li>Per-command blocked user ID lists.</li>
     <li>Confessions and suggestions metadata: the author's user ID, timestamp, and the Discord message ID (up to 1,000 each per server). The text itself is only posted to Discord, not stored by Hugo. Server moderators may be able to reveal the author of a confession.</li>
@@ -47,7 +50,7 @@
     <li>Role DM rules (role IDs and the DM text to send when that role is granted).</li>
     <li>Twitch and YouTube subscription settings, including watched streamer/channel IDs or names and the last notified stream/video ID to avoid duplicate alerts.</li>
     <li>Pending age-alert entries when "wait until verified" is enabled (user ID, inviter ID, and join timestamp).</li>
-    <li>Patron subscription status and trial dates per server owner.</li>
+    <li>Patron subscription status and trial dates per server owner, plus per-server trial-use tracking to prevent repeated free-trial abuse.</li>
   </ul>
 
   <h3>Dashboard Data</h3>
@@ -57,7 +60,7 @@
 
   <h2>2. Data We Do NOT Collect</h2>
   <ul>
-    <li><strong>Regular message content</strong> &mdash; Hugo reads messages to process commands and features such as chat XP, autoresponses, sticky messages, autothreads, reputation, starboard keywords, and honeypot moderation, but does not store the content of regular chat messages. Text you explicitly submit through Hugo's features (reminders, autoresponses, announcements, QOTD pitches, automessages, saved templates, flair names, Twitch/YouTube subscriptions, and moderation reasons) is stored as described above. If logging is enabled, Hugo posts embeds to your server's log channels for a wide range of server events (message edits/deletes, thread and channel changes, role changes, member joins/leaves, and more). Logged message embeds may include message content and re-uploaded attachments. This data is sent to Discord and is not stored by Hugo.</li>
+    <li><strong>Regular message content</strong> &mdash; Hugo reads messages to process commands and features such as chat XP, autoresponses, sticky messages, autothreads, reputation, starboard keywords, AutoMod, and honeypot moderation, but does not store full regular chat messages. Some moderation features may store limited derived details needed to enforce rules, such as AutoMod trigger details (for example a matched bad word or detected link) and per-user AutoMod infraction history. Text you explicitly submit through Hugo's features (reminders, autoresponses, announcements, QOTD pitches, automessages, saved templates, flair names, Twitch/YouTube subscriptions, and moderation reasons) is stored as described above. If logging is enabled, Hugo posts embeds to your server's log channels for a wide range of server events (message edits/deletes, thread and channel changes, role changes, member joins/leaves, and more). Logged message embeds may include message content and re-uploaded attachments, and AutoMod log embeds may include short message previews and trigger details. This data is sent to Discord and is not stored by Hugo.</li>
     <li><strong>Direct messages</strong> &mdash; Hugo does not log or store DM content.</li>
     <li><strong>Voice or audio data</strong> &mdash; Hugo does not listen to or record voice channels.</li>
     <li><strong>Email addresses or IP addresses.</strong></li>
@@ -74,6 +77,7 @@
     <li>Birthday data is used to post birthday announcements, optionally include age, and prevent duplicate birthday posts on the same date.</li>
     <li>Per-period award counters are used to determine winners for scheduled awards and are reset when an award period ends.</li>
     <li>Warning data is used to track moderation history and enforce automated punishments at configured thresholds.</li>
+    <li>AutoMod settings and infraction history are used to detect rule violations, remove messages, send warnings, and apply configured escalation actions such as timeouts, kicks, or bans.</li>
     <li>Scheduled tasks are used to execute timed actions such as reminders, CAPTCHA timeout kicks, automessages, scheduled QOTD posts, birthday announcements, awards, timeout-expiry notices, and temporary unbans.</li>
     <li>The pinned message cache is used to detect pin and unpin events for logging.</li>
     <li>Confession and suggestion metadata is used to link anonymous posts back to authors for moderation purposes.</li>
@@ -104,6 +108,7 @@
     <li>All user data is scoped to the server it was collected in.</li>
     <li>When Hugo is removed from a server, cached data for that server is cleared.</li>
     <li>Confessions and suggestions are automatically pruned when a server exceeds 1,000 entries.</li>
+    <li>AutoMod infraction history is automatically trimmed to recent entries only (currently up to 30 days and up to 250 entries per user per server).</li>
     <li>Scheduled tasks are deleted once executed or manually cancelled.</li>
     <li>You may request deletion of your server's data by contacting Hugo's owner.</li>
   </ul>

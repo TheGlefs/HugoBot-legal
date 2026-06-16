@@ -185,6 +185,8 @@
 				<li><code>show-log-event</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Show "log event: xxx" in embed footers?</span></li>
 				<li><code>user-tag-format</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Name format in logs or "reset"</span>
 					<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code></div></li>
+				<li><code>executor-tag-format</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Name format for executors in logs or "reset"</span>
+					<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code></div></li>
 				<li><code>timezone</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">IANA timezone for timestamps (e.g. America/New_York)</span></li>
 				<li><code>locale</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">BCP 47 locale for date/number formatting (e.g. en-US)</span></li>
 				<li><code>thread-archive-duration</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Default auto-archive duration for threads the bot creates</span></li>
@@ -1494,6 +1496,52 @@
 					</ul>
 				</li>
 				<li><code class="subcommand-name">list</code>: <span class="subcommand-description">List all honeypot trap channels</span></li>
+			</ul>
+		</div>
+
+		<div class="command-block">
+			<h3>/automod</h3>
+			<p><strong>Description:</strong> Configure AutoMod rules, warnings and automated actions</p>
+			<p><strong>Subcommands:</strong></p>
+			<ul>
+				<li><code class="subcommand-name">settings</code>: <span class="subcommand-description">Configure AutoMod settings</span>
+					<ul>
+						<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable AutoMod?</span></li>
+						<li><code>warn-dm-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Send a warning by DM?</span></li>
+						<li><code>warn-dm-message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Message sent by DM for deleteWarn rules</span>
+	<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{channel}</span></code>, <code><span class="tag-replacement">{rule}</span></code>, <code><span class="tag-replacement">{trigger}</span></code></div></li>
+						<li><code>warn-channel-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Send a warning in the same channel?</span></li>
+						<li><code>warn-channel-message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Message sent in the same channel for deleteWarn rules</span>
+	<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{channel}</span></code>, <code><span class="tag-replacement">{rule}</span></code>, <code><span class="tag-replacement">{trigger}</span></code></div></li>
+					</ul>
+				</li>
+				<li><code class="subcommand-name">rule</code>: <span class="subcommand-description">Configure an AutoMod ruleset</span>
+					<ul>
+						<li><code>name</code> <span class="arg-meta">(required, string)</span>: <span class="argument-description">Ruleset to configure</span></li>
+						<li><code>action</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Action to take when triggered</span></li>
+						<li><code>words</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Comma or newline separated words for bad words</span></li>
+						<li><code>count</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Count threshold for this ruleset</span></li>
+						<li><code>window</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Detection window for repeated text or anti-spam (e.g. 30s, 5m)</span></li>
+						<li><code>ratio</code> <span class="arg-meta">(optional, number)</span>: <span class="argument-description">Uppercase ratio for excessive caps (0.1 to 1)</span></li>
+						<li><code>min-letters</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Minimum letters before excessive caps can trigger</span></li>
+					</ul>
+				</li>
+				<li><code class="subcommand-name">add-action</code>: <span class="subcommand-description">Add an automated AutoMod action</span>
+					<ul>
+						<li><code>action</code> <span class="arg-meta">(required, string)</span>: <span class="argument-description">Action to take automatically</span></li>
+						<li><code>count</code> <span class="arg-meta">(required, integer)</span>: <span class="argument-description">Infractions required before acting</span></li>
+						<li><code>window</code> <span class="arg-meta">(required, string)</span>: <span class="argument-description">Time window for counting infractions (e.g. 6h, 30m)</span></li>
+						<li><code>duration</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Timeout duration (required for timeout, e.g. 1h, 1d)</span></li>
+						<li><code>reason</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Reason used when timing out, kicking or banning</span>
+	<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{channel}</span></code>, <code><span class="tag-replacement">{rule}</span></code>, <code><span class="tag-replacement">{trigger}</span></code>, <code><span class="tag-replacement">{action}</span></code>, <code><span class="tag-replacement">{count}</span></code>, <code><span class="tag-replacement">{window}</span></code>, <code><span class="tag-replacement">{duration}</span></code></div></li>
+					</ul>
+				</li>
+				<li><code class="subcommand-name">remove-action</code>: <span class="subcommand-description">Remove an automated AutoMod action</span>
+					<ul>
+						<li><code>index</code> <span class="arg-meta">(required, integer)</span>: <span class="argument-description">Automated action number to remove</span></li>
+					</ul>
+				</li>
+				<li><code class="subcommand-name">list-actions</code>: <span class="subcommand-description">List automated AutoMod actions</span></li>
 			</ul>
 		</div>
 
