@@ -10,7 +10,7 @@
 </head>
 <body>
   <h1>Privacy Policy for Hugo</h1>
-  <p><strong>Last updated:</strong> 06/16/2026</p>
+  <p><strong>Last updated:</strong> 06/17/2026</p>
 
   <h2>1. Data We Collect</h2>
   <p>Hugo collects and stores the following data in a local database to provide its features:</p>
@@ -24,6 +24,7 @@
     <li>Birthday settings if you use /birthday: whether birthday announcements are enabled for you, your birth month/day, optional birth year, and the last date your birthday was announced.</li>
     <li>Your level alert preference (whether Hugo should show your level-up/reward alerts).</li>
     <li>CAPTCHA attempt counts, verification status, and jail status.</li>
+    <li>AutoKick progress data: the number of counted messages toward the configured threshold, the currently required threshold while tracking is active, and the current AutoKick expiry timestamp/deadline for that server.</li>
     <li>AutoMod infraction history, including timestamps, triggered rules/actions, limited trigger details (such as a matched bad word or detected link), and which automated actions were executed.</li>
     <li>A cached list of your roles (updated on role changes, used in leave/kick/ban log embeds).</li>
     <li>Last message activity timestamp and server join timestamp.</li>
@@ -72,6 +73,7 @@
     <li>Invite data is used to track which invite a new member used, to display invite counts and leaderboards, and to show who invited a user in leave, kick, and ban log embeds.</li>
     <li>Username and display name history is used to show previous names in log embeds when a user changes their name.</li>
     <li>CAPTCHA and verification data is used to manage the verification process, track failed attempts, and enforce timeouts.</li>
+    <li>AutoKick progress data is used to determine whether a recently joined member has met the configured message threshold in time, to resume or reschedule active checks after restarts or setting changes, and to preserve already counted progress when the feature is disabled and later re-enabled.</li>
     <li>The role cache is used to display a user's roles in leave, kick, and ban log embeds after the user is no longer in the server.</li>
     <li>Activity timestamps are used to track active and inactive members.</li>
     <li>Birthday data is used to post birthday announcements, optionally include age, and prevent duplicate birthday posts on the same date.</li>
@@ -109,6 +111,7 @@
     <li>When Hugo is removed from a server, cached data for that server is cleared.</li>
     <li>Confessions and suggestions are automatically pruned when a server exceeds 1,000 entries.</li>
     <li>AutoMod infraction history is automatically trimmed to recent entries only (currently up to 30 days and up to 250 entries per user per server).</li>
+    <li>AutoKick progress data is kept per server while Hugo remains in that server and may be preserved when the feature is disabled so previously counted progress can resume if the feature is later re-enabled.</li>
     <li>Scheduled tasks are deleted once executed or manually cancelled.</li>
     <li>You may request deletion of your server's data by contacting Hugo's owner.</li>
   </ul>
