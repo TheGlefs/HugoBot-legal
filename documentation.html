@@ -155,6 +155,34 @@
 			gap: 1rem;
 		}
 
+		.screenshot-grid {
+			display: grid;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			gap: 1rem;
+			margin: 1rem 0;
+		}
+
+		.screenshot {
+			margin: 1rem 0;
+		}
+
+		.screenshot-grid .screenshot {
+			margin: 0;
+		}
+
+		.screenshot img {
+			display: block;
+			width: 100%;
+			border: 1px solid var(--border);
+			border-radius: 8px;
+		}
+
+		.screenshot figcaption {
+			color: var(--muted);
+			font-size: 0.9rem;
+			margin-top: 0.45rem;
+		}
+
 		.workflow {
 			border-left: 4px solid var(--blue);
 			padding-left: 1rem;
@@ -224,6 +252,7 @@
 			}
 
 			.grid,
+			.screenshot-grid,
 			.reference-list {
 				grid-template-columns: 1fr;
 			}
@@ -242,6 +271,7 @@
 
 		<div class="nav-links">
 			<a href="#quick-start">Quick Start</a>
+			<a href="#template-setup">Template Setup</a>
 			<a href="#setup-checklist">Setup Checklist</a>
 			<a href="#permissions">Permissions</a>
 			<a href="#verification-roles">Verification Roles</a>
@@ -285,10 +315,42 @@
 		<div class="section">
 			<ol>
 				<li>Invite Hugo with the Discord permissions needed for the features you plan to use.</li>
+				<li>If you are using the preset server layout, create the server from the <a href="https://discord.new/3HM5bbxAH5Ad">template</a>, give Hugo the <code>@Bot</code> role, enable Community, move the <code>@Hugo</code> role above other roles, then run <code>/setupcopy</code>.</li>
 				<li>Run <code>/setup</code> to start the guided setup flow. Use <code>/setup step</code> if you need to resume from a specific setup step.</li>
 				<li>Run <code>/dashboard</code> to open the web dashboard for browser-based configuration, or use slash commands directly in Discord.</li>
 				<li>Run <code>/help</code> any time you need the command reference, dashboard link, or support server link.</li>
 			</ol>
+		</div>
+
+		<h2 id="template-setup">Template Setup</h2>
+		<div class="section">
+			<p>The fastest setup path is to create the server from the <a href="https://discord.new/3HM5bbxAH5Ad">Hugo server template</a>, invite Hugo, give Hugo the <code>@Bot</code> role, enable Community, move the <code>@Hugo</code> role above other roles, then run <code>/setupcopy</code>. The command expects the template's channel and role names to still match, so do the copy before renaming or deleting template channels and roles.</p>
+			<ol>
+				<li>Open the <a href="https://discord.new/3HM5bbxAH5Ad">template</a> and create the server from it.</li>
+				<li>Invite Hugo and give Hugo the server's <code>@Bot</code> role.</li>
+				<li>Open <strong>Server Settings</strong>, go to <strong>Roles</strong>, and drag Hugo's highest role above the verified, unverified, jail, color, flair, reaction, autorole, onboarding, and reward roles Hugo needs to assign or remove.</li>
+			</ol>
+			<figure class="screenshot">
+				<img src="hierachy.png" alt="Discord role list showing Hugo's role placement">
+				<figcaption>Hugo's highest role has to sit above the roles Hugo edits. If <code>/setupcopy</code> says roles must be below Hugo's highest role, this is the place to fix it.</figcaption>
+			</figure>
+			<p>Discord onboarding can only be configured on Community servers. If <code>/setupcopy</code> says Community is required, enable Community in Discord first, then run the command again.</p>
+			<ol>
+				<li>Open <strong>Server Settings</strong>, choose <strong>Enable Community</strong>, and go through Discord's setup flow.</li>
+				<li>Choose the rules/guidelines channel and the community updates channel when Discord asks for them.</li>
+				<li>On the final step, keep safe defaults for <code>@everyone</code>, agree to the Community Server requirements, and finish setup.</li>
+			</ol>
+			<div class="screenshot-grid">
+				<figure class="screenshot">
+					<img src="community.png" alt="Discord Community setup basics screen">
+					<figcaption>Pick the channels Discord asks for during Community setup.</figcaption>
+				</figure>
+				<figure class="screenshot">
+					<img src="community2.png" alt="Discord Community setup final safe settings screen">
+					<figcaption>Finish Community setup so Hugo can apply Discord onboarding.</figcaption>
+				</figure>
+			</div>
+			<p>After the template, role hierarchy, and Community setup are ready, run <code>/setupcopy</code>. Hugo will copy the preset Discord onboarding prompts, command settings, logs, announcements, colors, schedules, starter posts, and supporting assets into that server.</p>
 		</div>
 
 		<h2 id="setup-checklist">Setup Checklist</h2>
@@ -317,7 +379,7 @@
 		<h2 id="verification-roles">Verification Roles</h2>
 		<div class="section">
 			<p>Use <code>/role</code> to tell Hugo which roles are used for verification, unverified members, moderators, and jail. When the unverified role is configured, Hugo grants it automatically when a user joins, so you do not need to add that role through <code>/autorole</code>.</p>
-			<p>Use <code>/autorole</code> for normal join roles that everyone should receive, such as notification roles, or other default server roles. Use <code>/autorole settings</code> to turn normal autoroles on or off. The default color role can be set up using <code>/color</code>.</p>
+			<p>Use <code>/autorole</code> for normal join roles that everyone should receive, such as notification roles, or other default server roles. Use <code>/autorole settings</code> to turn normal autoroles on or off. The default color role can be set up using <code>/color default</code>.</p>
 			<p>The verified role can be granted when a member completes <code>/captcha</code>, when a moderator uses <code>/verify</code>, or if you create a reaction role setup that gives the verified role. Hugo's reaction role tools are <code>/reactionemoji</code>, <code>/reactionbutton</code>, and <code>/reactionlist</code>, depending on whether you want emoji reactions, buttons, or dropdown lists.</p>
 			<p>Use <code>/reactionemoji settings</code>, <code>/reactionbutton settings</code>, and <code>/reactionlist settings</code> to turn each whole feature on or off before posting or managing those setups.</p>
 		</div>
