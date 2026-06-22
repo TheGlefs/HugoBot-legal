@@ -211,6 +211,11 @@
 			align-items: start;
 		}
 
+		.verification-role-grid {
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+			align-items: start;
+		}
+
 		.screenshot figcaption {
 			color: var(--muted);
 			font-size: 0.9rem;
@@ -348,7 +353,7 @@
 		<h2 id="quick-start">Quick Start</h2>
 		<div class="section">
 			<ol>
-				<li><a href="https://discord.com/oauth2/authorize?client_id=1372571549613166713">Invite Hugo</a> with the Discord permissions needed for the features you plan to use.</li>
+				<li><a href="https://discord.com/oauth2/authorize?client_id=1372571549613166713">Invite</a> Hugo with the Discord permissions needed for the features you plan to use.</li>
 				<li>Run <code>/setup</code> to start the guided setup flow. Use <code>/setup step</code> if you need to resume from a specific setup step.</li>
 				<li>Run <code>/dashboard</code> to open the web dashboard for browser-based configuration, or use slash commands directly in Discord.</li>
 				<li>Run <code>/help</code> any time you need the command reference, dashboard link, or support server link.</li>
@@ -367,11 +372,22 @@
 			</ul>
 		</div>
 
+		<h2 id="permissions">Permissions and Role Hierarchy</h2>
+		<div class="section">
+			<ul>
+				<li><strong>Posting embeds:</strong> Hugo needs <code>View Channel</code>, <code>Send Messages</code>, <code>Embed Links</code>, and sometimes <code>Attach Files</code> in the target channel.</li>
+				<li><strong>Managing roles:</strong> Hugo needs <code>Manage Roles</code>, and its highest role must be above every role it assigns, removes, creates, or repositions.</li>
+				<li><strong>Moderation:</strong> Kick, ban, timeout, delete, and purge features need the matching Discord permissions and valid hierarchy over the target member.</li>
+				<li><strong>Channels and threads:</strong> Duplicate needs <code>Manage Channels</code>. Group permission syncing needs <code>Manage Roles</code>/<code>Manage Permissions</code> on the affected channels. Voice generator needs <code>Manage Channels</code>, plus <code>View Channel</code>, <code>Connect</code>, and <code>Move Members</code> where it creates and moves users. Autothread needs <code>Send Messages</code>, <code>Create Public Threads</code>, <code>Send Messages in Threads</code>, and <code>Manage Messages</code> if messages are deleted. Sticky messages need <code>View Channel</code>, <code>Send Messages</code>, and <code>Manage Messages</code>.</li>
+				<li><strong>Invite tracking:</strong> Hugo needs <code>Manage Server</code> permission to read the server invite list. Discord only exposes invite information through that permission. Hugo only uses it to read the server's invite list.</li>
+			</ul>
+		</div>
+
 		<h2 id="template-setup">Template Setup</h2>
 		<div class="section">
 			<ol>
 				<li>Create a server from the Hugo server <a href="https://discord.new/3HM5bbxAH5Ad">template</a>.</li>
-				<li>See something you don't like? Complete the setup before making changes. The setup process will copy onboarding prompts, command settings, logs, announcements, colors, schedules and supporting assets into your server. If you make changes before finishing the setup, it will refuse to work.</li>
+				<li>See something you don't like? Complete the setup before making changes. The setup process will copy onboarding prompts, command settings, logs, announcements, colors, schedules and supporting assets into your server. If you make changes before finishing the setup, the command will refuse to work.</li>
 				<p>The template intentionally has two <code>#rules</code> channels and two <code>#color</code> channels because one pair is for unverified users and one pair is for verified users. The other channels are vaguely named <code>#gate</code> (captcha channel) and <code>#void</code> (honeypot channel) to confuse bots. The filler channels in the template are not random junk either. Discord onboarding has channel-count and default-channel requirements, so those filler channels are there because onboarding will not work correctly without them.</p>
 				<div class="screenshot-grid template-detail-grid">
 					<figure class="screenshot">
@@ -388,7 +404,7 @@
 				<div class="screenshot-grid role-setup-grid">
 					<figure class="screenshot">
 						<img src="pictures/botrole.png" alt="Discord role picker showing the Bot role assigned to Hugo">
-						<figcaption>Give Hugo the <code>@Bot</code> role after inviting it.</figcaption>
+						<figcaption>Give Hugo the <code>@Bot</code> role after inviting it. This role has the necessary channel permissions.</figcaption>
 					</figure>
 					<figure class="screenshot">
 						<img src="pictures/hierachy.png" alt="Discord role list showing Hugo near the top of the role hierarchy">
@@ -441,23 +457,41 @@
 			</ol>
 		</div>
 
-		<h2 id="permissions">Permissions and Role Hierarchy</h2>
-		<div class="section">
-			<ul>
-				<li><strong>Posting embeds:</strong> Hugo needs <code>View Channel</code>, <code>Send Messages</code>, <code>Embed Links</code>, and sometimes <code>Attach Files</code> in the target channel.</li>
-				<li><strong>Managing roles:</strong> Hugo needs <code>Manage Roles</code>, and its highest role must be above every role it assigns, removes, creates, or repositions.</li>
-				<li><strong>Moderation:</strong> Kick, ban, timeout, delete, and purge features need the matching Discord permissions and valid hierarchy over the target member.</li>
-				<li><strong>Channels and threads:</strong> Duplicate needs <code>Manage Channels</code>. Group permission syncing needs <code>Manage Roles</code>/<code>Manage Permissions</code> on the affected channels. Voice generator needs <code>Manage Channels</code>, plus <code>View Channel</code>, <code>Connect</code>, and <code>Move Members</code> where it creates and moves users. Autothread needs <code>Send Messages</code>, <code>Create Public Threads</code>, <code>Send Messages in Threads</code>, and <code>Manage Messages</code> if messages are deleted. Sticky messages need <code>View Channel</code>, <code>Send Messages</code>, and <code>Manage Messages</code>.</li>
-				<li><strong>Invite tracking:</strong> Hugo needs <code>Manage Server</code> permission to read the server invite list. Sadly, that is just how Discord exposes invite data. Looking at the invites list is the only thing Hugo does with that permission, even if you are wary of granting it.</li>
-			</ul>
-		</div>
-
 		<h2 id="verification-roles">Verification Roles</h2>
 		<div class="section">
-			<p>Use <code>/role</code> to tell Hugo which roles are used for verification, unverified members, moderators, and jail. When the unverified role is configured, Hugo grants it automatically when a user joins, so you do not need to add that role through <code>/autorole</code>. The default color role can be set up using <code>/color default</code>.</p>
-			<p>Use <code>/autorole</code> for normal join roles that everyone should receive, such as notification roles, or other default server roles. Use <code>/autorole settings</code> to turn the whole feature on or off.</p>
-			<p>The verified role can be granted when a member completes <code>/captcha</code>, when a moderator uses <code>/verify</code>, or if you create a reaction role setup that gives the verified role. Hugo's reaction role tools are <code>/reactionemoji</code>, <code>/reactionbutton</code>, and <code>/reactionlist</code>, depending on whether you want emoji reactions, buttons, or dropdown lists.</p>
-			<p>Use <code>/reactionemoji settings</code>, <code>/reactionbutton settings</code>, and <code>/reactionlist settings</code> to turn each whole feature on or off before posting or managing those setups.</p>
+			<p>Use <code>/role</code> to define the main server roles Hugo should treat as <code>@Verified</code>, <code>@Unverified</code>, <code>@Moderator</code>, and <code>@Jail</code> roles.</p>
+			<p>Use <code>/autorole</code> for ordinary join roles that everyone should receive, such as notification roles or other default server roles. Use <code>/autorole settings</code> to turn the feature on before using <code>/autorole add</code>.</p>
+			<p>The <code>@Unverified</code> role is granted automatically when someone joins, so you do not need to add it through <code>/autorole</code>. Similarly, you can set the default color role with <code>/color default</code> instead of using <code>/autorole</code>. No roles from other Hugo features should be added through <code>/autorole</code>.</p>
+			<p>The <code>@Verified</code> role can be granted through solving the captcha, by a moderator using <code>/verify</code>, or through a reaction role setup. Use <code>/reactionemoji</code>, <code>/reactionbutton</code>, or <code>/reactionlist</code> depending on whether you want emoji reactions, buttons, or dropdown lists.</p>
+			<p>Use <code>/reactionemoji settings</code>, <code>/reactionbutton settings</code>, and <code>/reactionlist settings</code> to turn each reaction role system on before posting or managing those setups.</p>
+			<div class="screenshot-grid verification-role-grid">
+				<figure class="screenshot">
+					<img src="pictures/role.png" alt="Hugo role configuration showing verified, unverified, moderator, and jail roles">
+					<figcaption>Use <code>/role</code> to set the main verification and moderation roles Hugo should manage.</figcaption>
+				</figure>
+				<figure class="screenshot">
+					<img src="pictures/roleverified.png" alt="Hugo role configuration showing the verified role">
+					<figcaption>The verified role can be granted through captcha, <code>/verify</code>, or a reaction role setup.</figcaption>
+				</figure>
+				<figure class="screenshot">
+					<img src="pictures/autorole.png" alt="Hugo autorole configuration showing normal join roles">
+					<figcaption>Use <code>/autorole</code> for normal join roles, not for unverified or other Hugo-managed feature roles.</figcaption>
+				</figure>
+			</div>
+			<div class="screenshot-grid verification-role-grid">
+				<figure class="screenshot">
+					<img src="pictures/reactionemoji.png" alt="Hugo reaction emoji role setup">
+					<figcaption>Use <code>/reactionemoji</code> for reaction roles based on emoji reactions.</figcaption>
+				</figure>
+				<figure class="screenshot">
+					<img src="pictures/reactionbutton.png" alt="Hugo reaction button role setup">
+					<figcaption>Use <code>/reactionbutton</code> when you want members to click buttons instead.</figcaption>
+				</figure>
+				<figure class="screenshot">
+					<img src="pictures/reactionlist.png" alt="Hugo reaction list role setup">
+					<figcaption>Use <code>/reactionlist</code> for dropdown-based role selection.</figcaption>
+				</figure>
+			</div>
 		</div>
 
 		<h2 id="captcha">Captcha</h2>
