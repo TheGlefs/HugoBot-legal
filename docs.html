@@ -536,6 +536,21 @@
 			<p>Use <code>/announce</code> to configure member-event messages such as joins, rejoins, leaves, bans, kicks, timeouts, jail events, and verification. Hugo has regular event announcements and verified-only announcements for some events, such as <code>leave</code> and <code>leave-verified</code>.</p>
 			<p>Those are separate announcement types. If both <code>leave</code> and <code>leave-verified</code> are enabled, a verified member leaving can send both messages: one to the dedicated arrival/departure bot channel, and one to the public channel where people will actually notice.</p>
 			<p>The point is to keep quick unverified join/leave churn out of the main server chat while still welcoming people who actually verify and making real member departures visible.</p>
+			<p>Use <code>/emulate</code> to test announcement outputs without waiting for the real event to happen.</p>
+			<figure class="screenshot">
+				<img src="pictures/emulate.png" alt="Hugo emulate command for testing announcements">
+				<figcaption>Use <code>/emulate</code> to test your announcement setup before relying on real joins, leaves, or other member events.</figcaption>
+			</figure>
+			<div class="screenshot-grid">
+				<figure class="screenshot">
+					<img src="pictures/leave.png" alt="Hugo leave announcement setup">
+					<figcaption>The regular <code>leave</code> announcement can send the quieter departure message to the bot channel.</figcaption>
+				</figure>
+				<figure class="screenshot">
+					<img src="pictures/leaveverified.png" alt="Hugo verified leave announcement setup">
+					<figcaption>The <code>leave-verified</code> announcement can send the visible public departure message for verified members.</figcaption>
+				</figure>
+			</div>
 		</div>
 
 		<h2 id="auto-messages">Auto Messages</h2>
