@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Hugo Documentation</title>
+	<style>
+		:root {
+			--bg: #f8fafc;
+			--panel: #ffffff;
+			--text: #334155;
+			--muted: #64748b;
+			--heading: #1e293b;
+			--border: #e2e8f0;
+			--blue: #2570df;
+			--blue-dark: #1d4ed8;
+			--gold: #dba622;
+			--green: #15803d;
+			--red: #b91c1c;
+			--code-bg: #eef2ff;
+			--code-text: #3730a3;
+		}
+
+		* {
+			box-sizing: border-box;
+		}
+
+		body {
+			background-color: var(--bg);
+			font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+			color: var(--text);
+			margin: 0;
+			padding: 0;
+			line-height: 1.6;
+		}
+
+		.container {
+			max-width: 960px;
+			margin: 0 auto;
+			padding: 0 1.25rem 3rem;
+		}
+
+		.title-container {
+			display: flex;
+			align-items: center;
+			gap: 0.75rem;
+			justify-content: center;
+			margin-top: 2rem;
+			margin-bottom: 1rem;
+			text-align: center;
+		}
+
+		.logo {
+			width: 60px;
+			height: auto;
+			background-color: transparent;
+			border: none;
+		}
+
+		h1 {
+			color: var(--gold);
+			font-weight: 700;
+			font-size: 2.5rem;
+			margin: 0;
+		}
+
+		.hugo-text {
+			color: var(--gold);
+			font-weight: 700;
+		}
+
+		h2 {
+			color: var(--heading);
+			border-bottom: 2px solid var(--border);
+			padding-bottom: 0.5rem;
+			margin-top: 2.5rem;
+			margin-bottom: 1rem;
+			font-size: 1.55rem;
+		}
+
+		h3 {
+			color: var(--blue);
+			font-size: 1.15rem;
+			margin: 0 0 0.35rem;
+		}
+
+		p {
+			margin: 0 0 1rem;
+		}
+
+		a {
+			color: var(--blue-dark);
+			font-weight: 600;
+			text-decoration: none;
+		}
+
+		a:hover {
+			text-decoration: underline;
+		}
+
+		code {
+			background-color: var(--code-bg);
+			color: var(--code-text);
+			border-radius: 4px;
+			padding: 0.15em 0.45em;
+			font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+			font-size: 90%;
+		}
+
+		pre {
+			background-color: var(--code-bg);
+			color: var(--code-text);
+			border-radius: 8px;
+			padding: 1rem;
+			overflow-x: auto;
+			font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+			font-size: 0.95rem;
+			line-height: 1.5;
+		}
+
+		.lead {
+			max-width: 760px;
+			margin: 0 auto 1.5rem;
+			text-align: center;
+			color: #475569;
+			font-size: 1.05rem;
+		}
+
+		.nav-links {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 0.5rem;
+			justify-content: center;
+			margin: 1rem 0 2rem;
+		}
+
+		.nav-links a {
+			background-color: #ffffff;
+			border: 1px solid var(--border);
+			border-radius: 8px;
+			color: var(--heading);
+			padding: 0.45rem 0.75rem;
+			font-size: 0.95rem;
+			box-shadow: 0 2px 4px rgba(15, 23, 42, 0.04);
+		}
+
+		.section {
+			background-color: var(--panel);
+			border: 1px solid var(--border);
+			border-radius: 8px;
+			padding: 1.25rem 1.5rem;
+			margin-bottom: 1rem;
+			box-shadow: 0 4px 6px rgba(15, 23, 42, 0.04);
+		}
+
+		.grid {
+			display: grid;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			gap: 1rem;
+		}
+
+		.screenshot-grid {
+			display: grid;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			gap: 1rem;
+			margin: 1rem 0;
+		}
+
+		.screenshot {
+			margin: 1rem 0;
+		}
+
+		.screenshot-grid .screenshot {
+			margin: 0;
+		}
+
+		.screenshot img {
+			display: block;
+			width: 100%;
+			border: 1px solid var(--border);
+			border-radius: 8px;
+		}
+
+		.screenshot.narrow {
+			max-width: 460px;
+		}
+
+		.screenshot.narrow img {
+			margin: 0 auto;
+		}
+
+		.screenshot-stack {
+			display: grid;
+			gap: 1rem;
+			align-content: start;
+		}
+
+		.community-grid {
+			grid-template-columns: minmax(0, 0.57fr) minmax(0, 1fr);
+			align-items: start;
+		}
+
+		.role-setup-grid {
+			grid-template-columns: minmax(0, 0.46fr) minmax(0, 1fr);
+			align-items: start;
+		}
+
+		.template-detail-grid {
+			grid-template-columns: minmax(0, 1fr) minmax(0, 0.66fr);
+			align-items: start;
+		}
+
+		.screenshot figcaption {
+			color: var(--muted);
+			font-size: 0.9rem;
+			margin-top: 0.45rem;
+		}
+
+		.workflow {
+			border-left: 4px solid var(--blue);
+			padding-left: 1rem;
+		}
+
+		.workflow.good {
+			border-left-color: var(--green);
+		}
+
+		.workflow.warn {
+			border-left-color: var(--gold);
+		}
+
+		.workflow.problem {
+			border-left-color: var(--red);
+		}
+
+		ol,
+		ul {
+			margin: 0.25rem 0 0;
+			padding-left: 1.3rem;
+		}
+
+		li {
+			margin-bottom: 0.45rem;
+		}
+
+		.reference-list {
+			display: grid;
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+			gap: 0.75rem;
+			margin-top: 1rem;
+		}
+
+		.reference-list a {
+			background-color: #ffffff;
+			border: 1px solid var(--border);
+			border-radius: 8px;
+			padding: 0.75rem;
+			color: var(--heading);
+			box-shadow: 0 2px 4px rgba(15, 23, 42, 0.04);
+		}
+
+		.reference-list span {
+			display: block;
+			color: var(--muted);
+			font-weight: 400;
+			font-size: 0.9rem;
+			margin-top: 0.2rem;
+		}
+
+		@media (max-width: 720px) {
+			.container {
+				padding: 0 1rem 2rem;
+			}
+
+			.title-container {
+				align-items: center;
+			}
+
+			h1 {
+				font-size: 2rem;
+			}
+
+			.section {
+				padding: 1rem;
+			}
+
+			.grid,
+			.screenshot-grid,
+			.reference-list {
+				grid-template-columns: 1fr;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<div class="title-container">
+			<img src="hugo.png" alt="Hugo Logo" class="logo">
+			<h1>Hugo Documentation</h1>
+		</div>
+
+		<p class="lead">Hugo is a Discord bot for server management, verification, moderation, automation, leveling, role tools, announcements, reminders, logging, and community features. Use this page as the practical setup guide, then use the command reference for exact options.</p>
+
+		<div class="nav-links">
+			<a href="#quick-start">Quick Start</a>
+			<a href="#template-setup">Template Setup</a>
+			<a href="#setup-checklist">Setup Checklist</a>
+			<a href="#permissions">Permissions</a>
+			<a href="#verification-roles">Verification Roles</a>
+			<a href="#captcha">Captcha</a>
+			<a href="#settings">Settings</a>
+			<a href="#announcements">Announcements</a>
+			<a href="#auto-messages">Auto Messages</a>
+			<a href="#auto-responses">Auto Responses</a>
+			<a href="#role-dms">Role DMs</a>
+			<a href="#bump-reminder">Bump Reminder</a>
+			<a href="#auto-thread">Auto Thread</a>
+			<a href="#sticky-messages">Sticky Messages</a>
+			<a href="#voice-generator">Voice Generator</a>
+			<a href="#duplicate-channels">Duplicate Channels</a>
+			<a href="#leveling">Leveling</a>
+			<a href="#fun-commands">Fun Commands</a>
+			<a href="#account-age">Account Age</a>
+			<a href="#role-kick">Role Kick</a>
+			<a href="#auto-kick">Auto Kick</a>
+			<a href="#automod">AutoMod</a>
+			<a href="#warnings">Warnings</a>
+			<a href="#honeypot">Honeypot</a>
+			<a href="#reputation">Reputation</a>
+			<a href="#awards">Awards</a>
+			<a href="#color-roles">Color Roles</a>
+			<a href="#groups">Groups</a>
+			<a href="#confessions">Confessions</a>
+			<a href="#suggestions">Suggestions</a>
+			<a href="#qotd">QOTD</a>
+			<a href="#starboard">Starboard</a>
+			<a href="#reminders">Reminders</a>
+			<a href="#birthdays">Birthdays</a>
+			<a href="#stream-alerts">Stream Alerts</a>
+			<a href="#message-tools">Message Tools</a>
+			<a href="#configuration">Configuration</a>
+			<a href="#troubleshooting">Troubleshooting</a>
+			<a href="commands.html">Commands</a>
+		</div>
+
+		<h2 id="quick-start">Quick Start</h2>
+		<div class="section">
+			<ol>
+				<li><a href="https://discord.com/oauth2/authorize?client_id=1372571549613166713">Invite Hugo</a> with the Discord permissions needed for the features you plan to use.</li>
+				<li>Run <code>/setup</code> to start the guided setup flow. Use <code>/setup step</code> if you need to resume from a specific setup step.</li>
+				<li>Run <code>/dashboard</code> to open the web dashboard for browser-based configuration, or use slash commands directly in Discord.</li>
+				<li>Run <code>/help</code> any time you need the command reference, dashboard link, or support server link.</li>
+			</ol>
+		</div>
+
+		<h2 id="setup-checklist">Setup Checklist</h2>
+		<div class="section">
+			<p>Before running the guided setup, have these ready:</p>
+			<ul>
+				<li><strong>3 log channels:</strong> Error logs, chat logs for edits/deletes, and general bot activity.</li>
+				<li><strong>2 verification roles:</strong> A verified role granted after captcha, and an unverified role given on join and removed after captcha.</li>
+				<li><strong>3 bot channels:</strong> One for the captcha verification embed, one for color role selection embeds, and one for join, rejoin, leave, ban, kick, and timeout messages.</li>
+				<li><strong>#general channel:</strong> A public channel where join, rejoin, leave, ban, kick, and timeout messages for verified users are posted. This keeps quick unverified join/leave churn out of the main server chat while still welcoming people who actually verify and making real member departures visible.</li>
+				<li><strong>Role hierarchy:</strong> Hugo's highest role must be above the verified, unverified, jail, color, flair, reaction, autorole, and moderation target roles it needs to manage.</li>
+			</ul>
+		</div>
+
+		<h2 id="template-setup">Template Setup</h2>
+		<div class="section">
+			<ol>
+				<li>Create a server from the Hugo server <a href="https://discord.new/3HM5bbxAH5Ad">template</a>.</li>
+				<li>See something you don't like? Complete the setup before making changes. The setup process will copy onboarding prompts, command settings, logs, announcements, colors, schedules and supporting assets into your server. If you make changes before finishing the setup, it will refuse to work.</li>
+				<p>The template intentionally has two <code>#rules</code> channels and two <code>#color</code> channels because one pair is for unverified users and one pair is for verified users. The other channels are vaguely named <code>#gate</code> (captcha channel) and <code>#void</code> (honeypot channel) to confuse bots. The filler channels in the template are not random junk either. Discord onboarding has channel-count and default-channel requirements, so those filler channels are there because onboarding will not work correctly without them.</p>
+				<div class="screenshot-grid template-detail-grid">
+					<figure class="screenshot">
+						<img src="pictures/unverified.png" alt="Server channel list as seen by an unverified user">
+						<figcaption>This is what the template looks like for an unverified user before they pass verification.</figcaption>
+					</figure>
+					<figure class="screenshot">
+						<img src="pictures/filler.png" alt="Discord onboarding channel requirements showing filler channels in the template">
+						<figcaption>The filler channels are needed to satisfy Discord onboarding requirements.</figcaption>
+					</figure>
+				</div>
+				<li><a href="https://discord.com/oauth2/authorize?client_id=1372571549613166713">Invite</a> Hugo to the server and give Hugo the <code>@Bot</code> role. You may need to open the <code>#gate</code> channel to see Hugo.</li>
+				<li>Open <strong>Server Settings</strong>, go to <strong>Roles</strong>, and drag the <code>@Hugo</code> role near the top of the role hierarchy so it sits above the roles Hugo needs to assign or remove.</li>
+				<div class="screenshot-grid role-setup-grid">
+					<figure class="screenshot">
+						<img src="pictures/botrole.png" alt="Discord role picker showing the Bot role assigned to Hugo">
+						<figcaption>Give Hugo the <code>@Bot</code> role after inviting it.</figcaption>
+					</figure>
+					<figure class="screenshot">
+						<img src="pictures/hierachy.png" alt="Discord role list showing Hugo near the top of the role hierarchy">
+						<figcaption>Put Hugo high enough in the role hierarchy to manage every role it needs to touch.</figcaption>
+					</figure>
+				</div>
+				<li>Open <strong>Server Settings</strong> and click <strong>Enable Community</strong>. Discord onboarding only works on Community servers.</li>
+				<li>When Discord asks for the rules/guidelines channel, select the second-from-the-top <code>#rules</code> channel, which is the one meant for unverified users.</li>
+				<li>Finish the remaining Community prompts and keep the safe defaults for <code>@everyone</code>.</li>
+				<div class="screenshot-grid community-grid">
+					<figure class="screenshot">
+						<img src="pictures/community.png" alt="Discord server settings showing the Enable Community option">
+						<figcaption>Community must be enabled before Discord onboarding can be configured.</figcaption>
+					</figure>
+					<div class="screenshot-stack">
+						<figure class="screenshot">
+							<img src="pictures/community2.png" alt="Discord Community setup asking for the rules and updates channels">
+							<figcaption>Choose the second-from-the-top <code>#rules</code> channel when Discord asks for the rules channel.</figcaption>
+						</figure>
+						<figure class="screenshot">
+							<img src="pictures/community3.png" alt="Discord Community setup final safe settings screen">
+							<figcaption>Finish Community setup so Hugo can apply Discord onboarding.</figcaption>
+						</figure>
+					</div>
+				</div>				
+				<p>The onboarding itself will look like this for a joining user:</p>
+				<div class="screenshot-grid">
+					<figure class="screenshot">
+						<img src="pictures/onboarding.png" alt="Discord onboarding age question">
+						<figcaption>The first onboarding question asks for age roles.</figcaption>
+					</figure>
+					<figure class="screenshot">
+						<img src="pictures/onboarding2.png" alt="Discord onboarding gender question">
+						<figcaption>The second onboarding question asks for gender roles and turns on viewing all the channels.</figcaption>
+					</figure>
+					<figure class="screenshot">
+						<img src="pictures/onboarding3.png" alt="Discord onboarding region question">
+						<figcaption>The third onboarding question asks for region roles.</figcaption>
+					</figure>
+					<figure class="screenshot">
+						<img src="pictures/onboarding4.png" alt="Discord onboarding ping role question">
+						<figcaption>The last onboarding question lets users choose notification roles.</figcaption>
+					</figure>
+				</div>
+				<li>After the template, role hierarchy, and Community setup are ready, run <code>/setupcopy</code>.</li>
+				<figure class="screenshot">
+					<img src="pictures/setupcopy.png" alt="Hugo setup copy confirmation screen">
+					<figcaption>You should see this. Press Continue and wait.</figcaption>
+				</figure>
+			</ol>
+		</div>
+
+		<h2 id="permissions">Permissions and Role Hierarchy</h2>
+		<div class="section">
+			<ul>
+				<li><strong>Posting embeds:</strong> Hugo needs <code>View Channel</code>, <code>Send Messages</code>, <code>Embed Links</code>, and sometimes <code>Attach Files</code> in the target channel.</li>
+				<li><strong>Managing roles:</strong> Hugo needs <code>Manage Roles</code>, and its highest role must be above every role it assigns, removes, creates, or repositions.</li>
+				<li><strong>Moderation:</strong> Kick, ban, timeout, delete, and purge features need the matching Discord permissions and valid hierarchy over the target member.</li>
+				<li><strong>Channels and threads:</strong> Duplicate needs <code>Manage Channels</code>. Group permission syncing needs <code>Manage Roles</code>/<code>Manage Permissions</code> on the affected channels. Voice generator needs <code>Manage Channels</code>, plus <code>View Channel</code>, <code>Connect</code>, and <code>Move Members</code> where it creates and moves users. Autothread needs <code>Send Messages</code>, <code>Create Public Threads</code>, <code>Send Messages in Threads</code>, and <code>Manage Messages</code> if messages are deleted. Sticky messages need <code>View Channel</code>, <code>Send Messages</code>, and <code>Manage Messages</code>.</li>
+				<li><strong>Invite tracking:</strong> Hugo needs <code>Manage Server</code> permission to read the server invite list. Sadly, that is just how Discord exposes invite data. Looking at the invites list is the only thing Hugo does with that permission, even if you are wary of granting it.</li>
+			</ul>
+		</div>
+
+		<h2 id="verification-roles">Verification Roles</h2>
+		<div class="section">
+			<p>Use <code>/role</code> to tell Hugo which roles are used for verification, unverified members, moderators, and jail. When the unverified role is configured, Hugo grants it automatically when a user joins, so you do not need to add that role through <code>/autorole</code>. The default color role can be set up using <code>/color default</code>.</p>
+			<p>Use <code>/autorole</code> for normal join roles that everyone should receive, such as notification roles, or other default server roles. Use <code>/autorole settings</code> to turn the whole feature on or off.</p>
+			<p>The verified role can be granted when a member completes <code>/captcha</code>, when a moderator uses <code>/verify</code>, or if you create a reaction role setup that gives the verified role. Hugo's reaction role tools are <code>/reactionemoji</code>, <code>/reactionbutton</code>, and <code>/reactionlist</code>, depending on whether you want emoji reactions, buttons, or dropdown lists.</p>
+			<p>Use <code>/reactionemoji settings</code>, <code>/reactionbutton settings</code>, and <code>/reactionlist settings</code> to turn each whole feature on or off before posting or managing those setups.</p>
+		</div>
+
+		<h2 id="captcha">Captcha</h2>
+		<div class="section">
+			<p>Use <code>/captcha post</code> to post the verification message that grants the verified role when solved. The regular version is straightforward: the user reads the captcha image and types the code.</p>
+			<p>You can also post the more cryptic fake-button version. That version avoids saying it is a captcha and instead presents a set of buttons where one choice is correct. It is much more effective at keeping bots out, but the tradeoff is that some real joining members may find it too confusing.</p>
+			<p>Use <code>/captcha settings</code> to configure punishments. Hugo can kick or ban users for not solving the captcha within a time limit, for entering the wrong code too many times, or for pressing fake buttons too many times.</p>
+		</div>
+
+		<h2 id="settings">Settings</h2>
+		<div class="section">
+			<p>Use <code>/settings</code> for server-wide Hugo behavior such as timezone, log name formatting, thread archive duration, and whether Hugo should resolve channels and roles by name when a saved Discord ID no longer works.</p>
+			<p>The <code>resolve-by-name</code> option is useful when you need to replace a channel without reconfiguring every command that points to it. For example, you can duplicate <code>#general</code>, delete the old <code>#general</code> to wipe its chat history, rename the replacement back to <code>#general</code>, and Hugo can still find it for features like <code>/announce</code> that were configured to post there.</p>
+		</div>
+
+		<h2 id="announcements">Announcements</h2>
+		<div class="section">
+			<p>Use <code>/announce</code> to configure member-event messages such as joins, rejoins, leaves, bans, kicks, timeouts, jail events, and verification. Hugo has regular event announcements and verified-only announcements for some events, such as <code>leave</code> and <code>leave-verified</code>.</p>
+			<p>Those are separate announcement types. If both <code>leave</code> and <code>leave-verified</code> are enabled, a verified member leaving can send both messages: one to the dedicated arrival/departure bot channel, and one to the public channel where people will actually notice.</p>
+			<p>The point is to keep quick unverified join/leave churn out of the main server chat while still welcoming people who actually verify and making real member departures visible.</p>
+		</div>
+
+		<h2 id="auto-messages">Auto Messages</h2>
+		<div class="section">
+			<p>Use <code>/automessage</code> for recurring messages that Hugo should send on a schedule, such as rules reminders, event reminders, rotating prompts, or channel housekeeping posts.</p>
+			<p>Use <code>/automessage add</code> to choose a title, channel, interval, message or saved template, and optional delay before the first send. Use <code>/automessage edit</code>, <code>/automessage enable</code>, <code>/automessage disable</code>, <code>/automessage remove</code>, <code>/automessage preview</code>, and <code>/automessage list</code> to manage individual entries.</p>
+			<p>Use <code>/automessage settings</code> to turn the whole feature on or off. If you have several enabled automessages, <code>/automessage spread</code> can space them evenly across a window so they do not all fire at nearly the same time.</p>
+		</div>
+
+		<h2 id="auto-responses">Auto Responses</h2>
+		<div class="section">
+			<p>Use <code>/autoresponse</code> when Hugo should respond automatically to messages that match a trigger. This is useful for common questions, rule reminders, keyword replies, or deleting repeated nuisance phrases after answering them.</p>
+			<p>Use <code>/autoresponse add</code> to create a named response with trigger text, a response message or saved template, and optional behavior such as replying to the message, deleting the trigger message, limiting it to one channel, using regex, requiring an exact match, or making the trigger case-sensitive.</p>
+			<p>Use <code>/autoresponse settings</code> to turn the whole feature on or off and set the global cooldown. Use <code>/autoresponse edit</code>, <code>/autoresponse enable</code>, <code>/autoresponse disable</code>, <code>/autoresponse remove</code>, <code>/autoresponse preview</code>, and <code>/autoresponse list</code> to manage individual responses.</p>
+		</div>
+
+		<h2 id="role-dms">Role DMs</h2>
+		<div class="section">
+			<p>Use <code>/roledm</code> when Hugo should DM a member after they gain a specific role. This is useful for onboarding instructions, role-specific rules, access notes, or explaining what a newly selected role actually unlocks.</p>
+			<p>Use <code>/roledm settings</code> to turn role DMs on or off. Use <code>/roledm add</code>, <code>/roledm edit</code>, <code>/roledm remove</code>, and <code>/roledm list</code> to manage which roles trigger which DM messages.</p>
+		</div>
+
+		<h2 id="bump-reminder">Bump Reminder</h2>
+		<div class="section">
+			<p>Use <code>/bump</code> for Disboard bump reminders. When Disboard posts its successful bump confirmation, Hugo can send your configured bump message immediately and schedule a reminder two hours later in the same channel.</p>
+			<p>Use the <code>enable</code> option on <code>/bump</code> to turn the feature on or off, <code>bump</code> to set the message sent after a successful bump, and <code>remind</code> to set the reminder message that tells members it is time to bump again.</p>
+		</div>
+
+		<h2 id="auto-thread">Auto Thread</h2>
+		<div class="section">
+			<p>Use <code>/autothread</code> when a channel is meant to be browsed as a feed, such as <code>#memes</code>, <code>#selfies</code>, art, clips, screenshots, or other post-first channels. Hugo can create a thread under each new post so replies stay attached to that post instead of filling the channel itself.</p>
+			<p>The point is that people can still react and say things like "lol thats so funny" in the thread, while the main channel stays easy to scroll. You can move from one meme, selfie, or post to the next without every conversation reply slowing down the feed.</p>
+			<p>Use <code>/autothread settings</code> to turn automatic threads on or off globally and set the default thread title or thread message. Per-channel entries can still override those defaults.</p>
+		</div>
+
+		<h2 id="sticky-messages">Sticky Messages</h2>
+		<div class="section">
+			<p>Use <code>/sticky</code> when a channel should always keep an important prompt, rule, or format visible at the bottom. Hugo reposts the sticky message after people talk, so new members see what they are supposed to do without scrolling back through the channel history.</p>
+			<p>Use <code>/sticky settings</code> to turn sticky messages on or off globally and set the repost cooldown. Individual stickies can still be enabled, disabled, edited, previewed, listed, or removed separately.</p>
+			<p>For example, an <code>#introductions</code> channel can use a sticky introduction template so everyone follows the same format:</p>
+			<pre>Name:
+Age:
+Gender:
+Location:
+About Me:</pre>
+		</div>
+
+		<h2 id="voice-generator">Voice Generator</h2>
+		<div class="section">
+			<p>Use <code>/voicegen</code> to turn a voice channel into a generator. When a member joins that generator channel, Hugo creates a temporary personal voice channel for them, moves them into it, and deletes the spawned channel again once it is empty.</p>
+			<p>Use <code>/voicegen settings</code> to turn voice generators on or off globally and set the default name for generated channels. Individual generator channels can also be enabled, disabled, listed, or removed.</p>
+			<p>Discord calls the parent "folder" a category. Spawned channels are created under the same parent category as the generator channel, so they inherit that category's permissions. Hugo also copies the generator channel's user limit and bitrate, then places the new channel right after the generator.</p>
+			<p>Use <code>/voicename</code> to let the owner of a spawned channel rename it. Only the user who generated that channel can rename it, and Discord may rate-limit repeated voice channel renames.</p>
+		</div>
+
+		<h2 id="duplicate-channels">Duplicate Channels</h2>
+		<div class="section">
+			<p>Use <code>/duplicate</code> to create a new channel using another channel's permission setup, or to copy one channel's permissions onto an existing target channel. It works with channel types such as text, voice, announcement, stage, forum, and category channels.</p>
+			<p>This is useful when you are setting up a server and need several channels or categories to have the same access rules. Instead of manually rebuilding every permission overwrite, you can configure one channel correctly and copy that setup wherever it is needed.</p>
+		</div>
+
+		<h2 id="account-age">Account Age</h2>
+		<div class="section">
+			<p>Use <code>/agekick</code> when you want Hugo to automatically kick or ban accounts that are too new. This is useful for blocking fresh alt accounts, raid accounts, and obvious throwaways before they can settle into the server.</p>
+			<p>If you do not want automatic punishment, use <code>/agealert</code> instead. It posts an alert when a fresh account joins, so moderators can review the member manually and decide whether the account is actually a problem.</p>
+		</div>
+
+		<h2 id="role-kick">Role Kick</h2>
+		<div class="section">
+			<p>Use <code>/rolekick</code> to automatically kick or ban members who receive specific forbidden roles. Add the roles with <code>/rolekick add</code>, use <code>/rolekick settings</code> to turn it on or off and choose kick or ban mode, and optionally apply it retroactively to members who already have that role.</p>
+			<p>A common use is age roles. If your server has an <code>age minor</code> role from reaction roles or Discord server onboarding, users can effectively snitch on themselves by selecting it. Hugo can then remove them automatically instead of making moderators manually watch for that role.</p>
+		</div>
+
+		<h2 id="auto-kick">Auto Kick</h2>
+		<div class="section">
+			<p>Use <code>/autokick</code> when you want new joins to prove they are active by sending a minimum number of messages within a set time. If they do not hit the required message count before the timer expires, Hugo can kick or ban them with your configured reason.</p>
+			<p>Messages sent before <code>/autokick</code> was enabled are not counted. Backfilling old activity would require Hugo to read every message in every channel, so the feature only tracks messages from the point it is enabled. That is just a limitation you will have to live with.</p>
+		</div>
+
+		<h2 id="automod">AutoMod</h2>
+		<div class="section">
+			<p>Use <code>/automod</code> to remove problem messages before moderators have to handle them manually. Hugo can check for bad words, repeated text, server invites, external links, excessive caps, emojis, spoilers, mentions, zalgo text, and message spam.</p>
+			<p>Use <code>/automod settings</code> to enable AutoMod and configure warning messages sent by DM or in the same channel. Use <code>/automod rule</code> to choose which rules are enabled and whether each one should delete the message, delete and warn the member, or stay disabled.</p>
+			<p>Use <code>/automod add-action</code> to add escalation actions when a member racks up enough AutoMod infractions in a time window. Escalations can timeout, kick, or ban, and <code>/automod remove-action</code> and <code>/automod list-actions</code> manage that escalation list.</p>
+			<p>Server moderators and the server owner are ignored by AutoMod. Message deletion needs <code>Manage Messages</code> in the affected channel, and escalation actions need the matching <code>Moderate Members</code>, <code>Kick Members</code>, or <code>Ban Members</code> permission plus normal Discord role hierarchy.</p>
+		</div>
+
+		<h2 id="warnings">Warnings</h2>
+		<div class="section">
+			<p>Use <code>/warn</code> to issue a warning to a member with a reason, optional DM or channel notification, and optional expiry. Moderators can use <code>/warnings</code> to view warning history for one user, one moderator, or the whole server.</p>
+			<p>Use <code>/warning settings</code> to turn the warning system on or off, set the moderator notification channel, and choose the default expiry for new warnings. Use <code>/warning add-threshold</code>, <code>/warning remove-threshold</code>, and <code>/warning list-thresholds</code> to automate timeout, kick, or ban actions after enough active warnings.</p>
+			<p>Use <code>/warning edit</code>, <code>/warning remove</code>, and <code>/warning clear</code> when you need to correct, deactivate, or clear warning records without deleting the whole warning system.</p>
+		</div>
+
+		<h2 id="honeypot">Honeypot</h2>
+		<div class="section">
+			<p>Use <code>/honeypot</code> for trap channels that real members should not be using. If a non-bot user sends a message in one of those channels, Hugo deletes the message and kicks or bans them, depending on your settings.</p>
+			<p>Use <code>/honeypot settings</code> to enable the feature, choose kick or ban mode, and set the moderation reason. Use <code>/honeypot add</code> to add trap channels and optionally post a bait message, then use <code>/honeypot remove</code> and <code>/honeypot list</code> to manage the channel list.</p>
+			<p>This is useful for catching bots or raiders that blindly post in every visible channel. Hugo needs <code>Kick Members</code> to use honeypot, <code>Ban Members</code> if ban mode is enabled, and a role high enough to act on the member who triggers the trap.</p>
+		</div>
+
+		<h2 id="leveling">Leveling</h2>
+		<div class="section">
+			<p>Use <code>/xp</code> to configure Hugo's chat and voice XP systems. Use <code>/xp settings chat</code>, <code>/xp settings voice</code>, and <code>/xp settings combine</code> to enable or disable each XP pool or combined XP mode, then tune cooldowns, XP ranges, ignored channels, level-up messages, and level/rank/leaderboard responses.</p>
+			<p>Use <code>/reward</code> to attach roles to specific levels. Use <code>/reward settings chat</code> and <code>/reward settings voice</code> to enable or disable chat and voice rewards, decide whether old rank roles should be removed, and then add the actual role rewards for each level.</p>
+		</div>
+
+		<h2 id="reputation">Reputation</h2>
+		<div class="section">
+			<p>Use <code>/reputation settings</code> to turn Hugo's reputation system on or off, set the reputation cooldown, configure feedback messages, and decide whether reputation must be given by replying to someone. Use <code>/reputation add</code>, <code>/reputation remove</code>, <code>/reputation edit</code>, and <code>/reputation list</code> to manage the keywords that grant +rep.</p>
+			<p>Members can use <code>/rep</code> to check someone's reputation total and <code>/repboard</code> to view the server reputation leaderboard. Use <code>/reputation rep</code> and <code>/reputation repboard</code> to tune those command surfaces separately.</p>
+		</div>
+
+		<h2 id="awards">Awards</h2>
+		<div class="section">
+			<p>Use <code>/awards settings</code> to turn periodic awards on or off, choose the announcement channel, and set the weekly or monthly posting schedule. Hugo can rank members by messages sent, chat XP, voice XP, or reputation, then post the winners on a schedule or immediately with <code>/awards post</code>.</p>
+			<p>Each award category can show a configurable number of winners and optionally grant a winner role. You can preview the current period with <code>/awards preview</code>, list configured awards with <code>/awards list</code>, and exclude roles from winning with <code>/awards exclude</code>.</p>
+		</div>
+
+		<h2 id="color-roles">Color Roles</h2>
+		<div class="section">
+			<p>The <code>/color</code> feature lets members choose their own name color from a color-role menu. Hugo comes with 50 preconfigured colors, so you can create a full color list without manually adding every color yourself.</p>
+			<p>Use <code>/color create</code> to create the roles around a role anchor, then <code>/color post</code> to post the selection embeds. Use <code>/color default</code> to give users a fallback color before they choose one, and <code>/color remember</code> to restore color roles when members rejoin. You can still add, edit, remove, or reorder colors later if your server wants a custom palette.</p>
+			<p>The <code>/flair</code> feature is the more personal version: users can create a personal role with their own hex RGB color, and if enabled, a custom role icon too. Use <code>/color flair</code> to tune who can use it, whether custom names or icons are allowed, and whether flair roles should be recreated on rejoin.</p>
+		</div>
+
+		<h2 id="groups">Groups</h2>
+		<div class="section">
+			<p>The <code>/group</code> feature is for private channel access without creating a visible role for every private space. Instead of giving someone a role that other members can notice and ask about, Hugo stores a named group and applies the needed channel permissions directly for the users in that group.</p>
+			<p>This is useful when you want hidden channels for a small set of people, but you do not want a public-looking role that makes everyone wonder what it is for or why they do not have it too. It also avoids the tedious Discord admin work of opening every channel and manually adding or removing user permission overwrites one person at a time.</p>
+		</div>
+
+		<h2 id="confessions">Confessions</h2>
+		<div class="section">
+			<p>Users can submit anonymous confessions to a configured channel with <code>/confess</code>, and members can view, edit, and delete their own confessions with <code>/confessions</code>.</p>
+			<p>Use <code>/confession confess</code> and <code>/confession confessions</code> to control the confession channel, embed style, threads, author logging, cooldowns, max submissions per user, and level or booster requirements. Moderators can use <code>/reveal</code> when they need to identify the author of an anonymous confession or suggestion for moderation reasons.</p>
+		</div>
+
+		<h2 id="suggestions">Suggestions</h2>
+		<div class="section">
+			<p>Users can submit suggestions to a dedicated suggestion channel with <code>/suggest</code>, and members can view and delete their own suggestions with <code>/suggestions</code>.</p>
+			<p>Use <code>/suggestion suggest</code> and <code>/suggestion suggestions</code> to control the suggestion channel, voting reactions, discussion threads, message or embed style, optional author credit, anonymous submissions, cooldowns, per-user limits, and level or booster requirements. Moderators can use <code>/reveal</code> to identify an anonymous suggestion author when they need to handle abuse.</p>
+		</div>
+
+		<h2 id="qotd">QOTD</h2>
+		<div class="section">
+			<p>Use <code>/qotd settings</code> to turn automatic Question of the Day posts on or off, choose the questions channel, set the interval, and configure message, embed, thread, credit, and pending-pitch display options.</p>
+			<p>Members can use <code>/pitch</code> to submit question ideas. Use <code>/qotd pitch</code> to tune that command surface separately. Moderators can use <code>/pitches</code> to review and manage those pitches, and <code>/qotd</code> subcommands such as <code>add</code>, <code>bulk-add</code>, <code>queue</code>, <code>post</code>, <code>skip</code>, <code>move</code>, <code>remove</code>, <code>preview</code>, and <code>next</code> to control what gets posted and when.</p>
+		</div>
+
+		<h2 id="starboard">Starboard</h2>
+		<div class="section">
+			<p>Use <code>/starboard settings</code> to turn the starboard on or off and highlight messages that receive enough star reactions. You can set the starboard channel, required stars, moderator-star threshold, ignored channels or categories, custom post text, embed formatting, thread creation, and whether the original author is credited.</p>
+			<p>Members can use <code>/quotes</code> to view and delete starboard entries for their own messages. Use <code>/starboard quotes</code> to tune that command surface separately, including whether it is enabled, its cooldown, and any level or booster requirements.</p>
+		</div>
+
+		<h2 id="reminders">Reminders</h2>
+		<div class="section">
+			<p>Users can create reminders with flexible time formats like <code>2h 30m</code>, <code>3mo</code>, or <code>1 year 3 days</code> using <code>/remind</code>, and members can view, edit, cancel, and search their own active reminders with <code>/reminders</code>.</p>
+			<p>Use <code>/reminder remind</code> and <code>/reminder reminders</code> to control whether those command surfaces are enabled, cooldowns, the allowed reminder channel, whether <code>/remind</code> replies are ephemeral, and level or booster requirements.</p>
+		</div>
+
+		<h2 id="birthdays">Birthdays</h2>
+		<div class="section">
+			<p>Users can set their birthday with <code>/birthday</code>. They can choose the day and month, optionally add a birth year if they want Hugo to show their age, and enable or disable birthday announcements for themselves.</p>
+			<p>Use <code>/birthdays settings</code> to turn birthday announcements on or off and control the announcement channel, birthday messages with or without age, optional birthday threads, thread messages, and embed title or footer text. Birthday announcements follow the server timezone configured in <code>/settings</code>.</p>
+			<p>Use <code>/birthdays birthday</code> to control the <code>/birthday</code> command surface itself, including whether it is enabled, its cooldown, whether responses are ephemeral, and any level or booster requirements.</p>
+		</div>
+
+		<h2 id="stream-alerts">Stream Alerts</h2>
+		<div class="section">
+			<p>Use <code>/twitch</code> to watch Twitch streamers and post when they go live. Use <code>/twitch settings</code> to turn Twitch notifications on or off and set the notification channel and message, then add streamers by username or Twitch URL with <code>/twitch add</code>.</p>
+			<p>Use <code>/youtube</code> to watch YouTube channels and post when they upload a new video. Use <code>/youtube settings</code> to turn YouTube notifications on or off and set the notification channel and message, then add channels by channel ID, channel URL, or handle with <code>/youtube add</code>.</p>
+			<p>When you add a Twitch streamer who is already live or a YouTube channel that already has uploads, Hugo seeds the current stream/video so it does not immediately spam old notifications. It will notify on the next new live stream or upload.</p>
+		</div>
+
+		<h2 id="fun-commands">Fun Commands</h2>
+		<div class="section">
+			<p>Use <code>/fun</code> to configure the smaller user-facing commands: <code>/wisdom</code>, <code>/roll</code>, <code>/cat</code>, and <code>/fetch</code>. Each one can be enabled or disabled, given a cooldown, and tuned separately.</p>
+			<p>You can make a fun command <code>ephemeral</code>, meaning only the person who ran the command sees the response. You can also make it booster-only, require a minimum chat or voice level, and for public replies, limit it to a specific channel so the command does not spread across the server.</p>
+			<p>Use <code>/block</code> when a specific user should not be able to use one of those commands anymore without disabling it for everyone else.</p>
+		</div>
+
+		<h2 id="message-tools">Message Tools</h2>
+		<div class="section">
+			<p>Use <code>/template</code> to save reusable messages and embeds. Templates are useful when multiple features should send the same polished message, or when you want to build an embed once and reuse it in automessages, autoresponses, sticky messages, or other message-based features.</p>
+			<p>Use <code>/echo</code> to send a message as Hugo. This is useful for announcements, rules, formatted embeds, or any message that should come from the bot instead of a moderator's personal account.</p>
+			<p>Use <code>/edit</code> to edit a message Hugo already sent, including messages created through <code>/echo</code> or other bot-authored posts. That lets you fix wording or update information without deleting and reposting the message.</p>
+		</div>
+
+		<h2 id="messages">Messages, Templates, and Replacements</h2>
+		<div class="section">
+			<p>Many Hugo features let you customize message text, embed fields, titles, footers, and channels. The dashboard shows replacements next to the fields that support them. Common replacements include <code>{tag}</code>, <code>{name}</code>, <code>{user}</code>, <code>{date}</code>, and <code>{time}</code>, with feature-specific replacements such as invite, level, role, reason, duration, or rank values where relevant.</p>
+			<p>Some message fields also support random variants, so Hugo can pick from multiple possible lines instead of sending the exact same text every time. Separate variants with <code>~</code>, for example in <code>/announce join message</code>: <code>Welcome {tag}! ~ Glad you're here, {name}! ~ Hey {user}, welcome in!</code></p>
+		</div>
+
+		<h2 id="configuration">Configuration Basics</h2>
+		<div class="grid">
+			<div class="section workflow">
+				<h3>Use the dashboard for larger setup work</h3>
+				<p>The <a href="https://dashboard.hugobot.net">dashboard</a> is best for settings with many fields, message previews, role/channel pickers, and repeated configuration. Log in with Discord, choose a server where you have <code>Manage Server</code>, then open the section you want to edit.</p>
+			</div>
+
+			<div class="section workflow">
+				<h3>Use slash commands for quick changes</h3>
+				<p>Slash commands are best for one-off actions, moderation, testing, and small setting changes. The full option list is on the <a href="commands.html">commands page</a>.</p>
+			</div>
+
+			<div class="section workflow good">
+				<h3>Start with logs</h3>
+				<p>Configure <code>/logs</code> early. Error logs tell you when Hugo cannot post, assign roles, moderate users, or complete a task. Chat logs and general logs should be visible only to trusted moderators.</p>
+			</div>
+
+			<div class="section workflow warn">
+				<h3>Test before relying on automation</h3>
+				<p>Use <code>/emulate</code> for announcement events, preview buttons in the dashboard where available, and small test channels before enabling broad moderation, autoresponse, role, or message automation.</p>
+			</div>
+		</div>
+
+		<h2 id="troubleshooting">Troubleshooting</h2>
+		<div class="grid">
+			<div class="section workflow problem">
+				<h3>Hugo cannot assign or remove a role</h3>
+				<p>Check <code>Manage Roles</code>, then move Hugo's highest role above the target role. This is the most common cause even when the command looks correct.</p>
+			</div>
+
+			<div class="section workflow problem">
+				<h3>Hugo cannot post an embed</h3>
+				<p>Check channel permissions for <code>View Channel</code>, <code>Send Messages</code>, <code>Embed Links</code>, and <code>Attach Files</code>. Also check whether the feature is sending to the channel you expect.</p>
+			</div>
+
+			<div class="section workflow problem">
+				<h3>The dashboard does not show your server</h3>
+				<p>Make sure Hugo is in the server, you are logged in with the right Discord account, and your account has <code>Manage Server</code> or administrator access there.</p>
+			</div>
+
+			<div class="section workflow problem">
+				<h3>An automation is not firing</h3>
+				<p>Check that the feature is enabled, channel and role filters match the test case, cooldowns are not blocking it, and Hugo has permissions in both the source and output channels.</p>
+			</div>
+		</div>
+
+		<h2 id="reference">Reference</h2>
+		<div class="section">
+			<p>Use these pages when you need exact command options, visuals, policies, or external support.</p>
+			<div class="reference-list">
+				<a href="commands.html">Commands<span>Every slash command and option</span></a>
+				<a href="features.html">Features<span>Visual examples of major features</span></a>
+				<a href="https://dashboard.hugobot.net">Dashboard<span>Configure Hugo in the browser</span></a>
+				<a href="privacy.html">Privacy Policy<span>What Hugo stores and why</span></a>
+				<a href="terms.html">Terms of Service<span>Usage rules and availability</span></a>
+				<a href="https://discord.gg/WNZVCcjh6a">Support Server<span>Help, updates, and issue reports</span></a>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
