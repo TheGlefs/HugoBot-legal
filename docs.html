@@ -499,12 +499,36 @@
 			<p>Use <code>/captcha post</code> to post the verification message that grants the verified role when solved. The regular version is straightforward: the user reads the captcha image and types the code.</p>
 			<p>You can also post the more cryptic fake-button version. That version avoids saying it is a captcha and instead presents a set of buttons where one choice is correct. It is much more effective at keeping bots out, but the tradeoff is that some real joining members may find it too confusing.</p>
 			<p>Use <code>/captcha settings</code> to configure punishments. Hugo can kick or ban users for not solving the captcha within a time limit, for entering the wrong code too many times, or for pressing fake buttons too many times.</p>
+			<div class="screenshot-grid">
+				<figure class="screenshot">
+					<img src="pictures/captcha.png" alt="Hugo regular captcha setup">
+					<figcaption>The regular captcha shows an image and asks the user to type the code.</figcaption>
+				</figure>
+				<figure class="screenshot">
+					<img src="pictures/captcha2.png" alt="Hugo fake-button captcha setup">
+					<figcaption>The fake-button version hides the fact that it is a captcha and is usually better at stopping bots.</figcaption>
+				</figure>
+			</div>
+			<div class="screenshot-grid">
+				<figure class="screenshot">
+					<img src="pictures/captchapost.png" alt="Hugo captcha post command setup">
+					<figcaption>Use <code>/captcha post</code> to choose which captcha version you want to send.</figcaption>
+				</figure>
+				<figure class="screenshot">
+					<img src="pictures/captchasettings.png" alt="Hugo captcha settings configuration">
+					<figcaption>Use <code>/captcha settings</code> to control punishments, timers, and failure limits.</figcaption>
+				</figure>
+			</div>
 		</div>
 
 		<h2 id="settings">Settings</h2>
 		<div class="section">
 			<p>Use <code>/settings</code> for server-wide Hugo behavior such as timezone, log name formatting, thread archive duration, and whether Hugo should resolve channels and roles by name when a saved Discord ID no longer works.</p>
 			<p>The <code>resolve-by-name</code> option is useful when you need to replace a channel without reconfiguring every command that points to it. For example, you can duplicate <code>#general</code>, delete the old <code>#general</code> to wipe its chat history, rename the replacement back to <code>#general</code>, and Hugo can still find it for features like <code>/announce</code> that were configured to post there.</p>
+			<figure class="screenshot">
+				<img src="pictures/settings.png" alt="Hugo settings command showing server-wide configuration options">
+				<figcaption>Use <code>/settings</code> to control server-wide Hugo behavior such as timezone, name formatting, and resolve-by-name behavior.</figcaption>
+			</figure>
 		</div>
 
 		<h2 id="announcements">Announcements</h2>
