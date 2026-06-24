@@ -700,12 +700,32 @@ About Me:</pre>
 		<div class="section">
 			<p>Use <code>/duplicate</code> to create a new channel using another channel's permission setup, or to copy one channel's permissions onto an existing target channel. It works with channel types such as text, voice, announcement, stage, forum, and category channels.</p>
 			<p>The main use is copying category permissions, which Discord does not let you do by default. Instead of manually rebuilding every permission overwrite, you can configure one channel or category correctly and copy that setup wherever it is needed.</p>
+			<div class="screenshot-grid">
+				<figure class="screenshot">
+					<img src="docs/duplicate.png" alt="Hugo duplicate command overview">
+					<figcaption>Use <code>/duplicate</code> to copy channel or category permission setups instead of rebuilding them manually. Enter either a target channel to overwrite or name and type for a new one.</figcaption>
+				</figure>
+				<figure class="screenshot">
+					<img src="docs/duplicatetype.png" alt="Hugo duplicate command type selection">
+					<figcaption>The command can work across different Discord channel and category types.</figcaption>
+				</figure>
+			</div>
 		</div>
 
 		<h2 id="account-age">Account Age</h2>
 		<div class="section">
 			<p>Use <code>/agekick</code> when you want Hugo to automatically kick or ban accounts that are too new. This is useful for blocking fresh alt accounts, raid accounts, and obvious throwaways before they can settle into the server.</p>
 			<p>If you do not want automatic punishment, use <code>/agealert</code> instead. It posts an alert when a fresh account joins, so moderators can review the member manually and decide whether the account is actually a problem.</p>
+			<div class="screenshot-grid">
+				<figure class="screenshot">
+					<img src="docs/agekick.png" alt="Hugo agekick command overview">
+					<figcaption>Use <code>/agekick</code> when you want fresh accounts to be kicked or banned automatically.</figcaption>
+				</figure>
+				<figure class="screenshot">
+					<img src="docs/agealert.png" alt="Hugo agealert command overview">
+					<figcaption>Use <code>/agealert</code> when you only want moderators to be notified about fresh accounts joining.</figcaption>
+				</figure>
+			</div>
 		</div>
 
 		<h2 id="role-kick">Role Kick</h2>
