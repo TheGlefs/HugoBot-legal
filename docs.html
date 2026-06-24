@@ -537,10 +537,15 @@
 			<p>Use <code>/announce</code> to configure member-event messages such as joins, rejoins, leaves, bans, kicks, timeouts, jail events, and verification. Hugo has regular event announcements and verified-only announcements for some events, such as <code>leave</code> and <code>leave-verified</code>.</p>
 			<p>Those are separate announcement types. If both <code>leave</code> and <code>leave-verified</code> are enabled, a verified member leaving can send both messages: one to the dedicated arrival/departure bot channel, and one to the public channel where people will actually notice.</p>
 			<p>The point is to keep quick unverified join/leave churn out of the main server chat while still welcoming people who actually verify and making real member departures visible.</p>
+			<p>Announcement messages support replacements such as <code>{tag}</code>, <code>{name}</code>, <code>{user}</code>, <code>{inviter}</code>, <code>{reason}</code>, and <code>{duration}</code> when those values exist for the event. Run <code>/announce leave</code> or any other announcement command with no options to see the available replacements each one supports.</p>
 			<p>Use <code>/emulate</code> to test announcement outputs without waiting for the real event to happen.</p>
 			<figure class="screenshot">
 				<img src="docs/emulate.png" alt="Hugo emulate command for testing announcements">
 				<figcaption>Use <code>/emulate</code> to test your announcement setup before relying on real joins, leaves, or other member events.</figcaption>
+			</figure>
+			<figure class="screenshot">
+				<img src="docs/announce.png" alt="Hugo announce command message configuration">
+				<figcaption>Separate random variants with <code>~</code>, for example: <code>Welcome {tag}! ~ Glad you're here, {name}! ~ Hey {user}, welcome in!</code></figcaption>
 			</figure>
 			<div class="screenshot-grid">
 				<figure class="screenshot">
@@ -558,6 +563,7 @@
 		<div class="section">
 			<p>Use <code>/automessage</code> for recurring messages that Hugo should send on a schedule, such as rules reminders, event reminders, rotating prompts, or channel housekeeping posts.</p>
 			<p>Use <code>/automessage add</code> to create a new automessage by choosing a title, channel, interval, message or saved <code>/template</code>, and optional delay before the first send.</p>
+			<p>You can make the message text pick from random variants by separating them with <code>~</code>, for example: <code>Read the rules. ~ Check the rules if you're new here. ~ Make sure you have read the rules.</code></p>
 			<p>Use <code>/automessage settings</code> to turn the feature on before using <code>/automessage add</code>. This allows you to disable all automessages at once later.</p>
 			<p>If you have several enabled automessages, <code>/automessage spread</code> can space them evenly across a window so they do not all fire at nearly the same time.</p>
 			<div class="screenshot-grid">
@@ -576,6 +582,7 @@
 		<div class="section">
 			<p>Use <code>/autoresponse</code> when Hugo should respond automatically to messages that match a trigger. This is useful for common questions, rule reminders, keyword replies, or deleting repeated nuisance phrases after answering them.</p>
 			<p>Use <code>/autoresponse add</code> to create a named response with trigger text, a response message or saved template, and optional behavior such as replying to the message, deleting the trigger message, limiting it to one channel, using regex, requiring an exact match, or making the trigger case-sensitive.</p>
+			<p>You can also make the response text use random variants by separating them with <code>~</code>, for example: <code>Please check <#rules>. ~ The answer is in <#rules>. ~ Have a look at <#rules> first.</code></p>
 			<p>Use <code>/autoresponse settings</code> to turn the whole feature on before using <code>/autoresponse add</code>. This allows you to disable all autoresponses at once later.</p>
 			<div class="screenshot-grid">
 				<figure class="screenshot">
@@ -592,32 +599,73 @@
 		<h2 id="role-dms">Role DMs</h2>
 		<div class="section">
 			<p>Use <code>/roledm</code> when Hugo should DM a member after they gain a specific role. This is useful for onboarding instructions, role-specific rules, access notes, or explaining what a newly selected role actually unlocks.</p>
-			<p>Use <code>/roledm settings</code> to turn role DMs on or off. Use <code>/roledm add</code>, <code>/roledm edit</code>, <code>/roledm remove</code>, and <code>/roledm list</code> to manage which roles trigger which DM messages.</p>
+			<p>Use <code>/roledm settings</code> to turn role DMs on before using <code>/roledm add</code>. This allows you to disable all role DMs at once later without using <code>/roledm remove</code>.</p>
+			<div class="screenshot-grid">
+				<figure class="screenshot">
+					<img src="docs/roledm.png" alt="Hugo role DM command overview">
+					<figcaption>Use <code>/roledm</code> to manage DM messages that fire when members gain specific roles.</figcaption>
+				</figure>
+				<figure class="screenshot">
+					<img src="docs/roledmadd.png" alt="Hugo role DM add command setup">
+					<figcaption>Use <code>/roledm add</code> to connect a role to the DM message members should receive.</figcaption>
+				</figure>
+			</div>
 		</div>
 
 		<h2 id="bump-reminder">Bump Reminder</h2>
 		<div class="section">
 			<p>Use <code>/bump</code> for Disboard bump reminders. When Disboard posts its successful bump confirmation, Hugo can send your configured bump message immediately and schedule a reminder two hours later in the same channel.</p>
 			<p>Use the <code>enable</code> option on <code>/bump</code> to turn the feature on or off, <code>bump</code> to set the message sent after a successful bump, and <code>remind</code> to set the reminder message that tells members it is time to bump again.</p>
+			<p>You can make the bump and reminder messages use random variants by separating them with <code>~</code>, for example: <code>It's time to /bump the server again! ~ Bump time. ~ Please /bump the server when you can.</code></p>
+			<div class="screenshot-grid">
+				<figure class="screenshot">
+					<img src="docs/bump.png" alt="Hugo bump reminder command overview">
+					<figcaption>Hugo can post the immediate bump response and schedule the follow-up reminder in the same channel.</figcaption>
+				</figure>
+				<figure class="screenshot">
+					<img src="docs/bump2.png" alt="Hugo bump reminder follow-up configuration">
+					<figcaption>Use <code>/bump</code> to control the bump message, reminder message, and whether the feature is enabled.</figcaption>
+				</figure>
+			</div>
 		</div>
 
 		<h2 id="auto-thread">Auto Thread</h2>
 		<div class="section">
 			<p>Use <code>/autothread</code> when a channel is meant to be browsed as a feed, such as <code>#memes</code>, <code>#selfies</code>, art, clips, screenshots, or other post-first channels. Hugo can create a thread under each new post so replies stay attached to that post instead of filling the channel itself.</p>
 			<p>The point is that people can still react and say things like "lol thats so funny" in the thread, while the main channel stays easy to scroll. You can move from one meme, selfie, or post to the next without every conversation reply slowing down the feed.</p>
-			<p>Use <code>/autothread settings</code> to turn automatic threads on or off globally and set the default thread title or thread message. Per-channel entries can still override those defaults.</p>
+			<p>Use <code>/autothread settings</code> to enable automatic threads and set the default thread title or thread message. This allows you to disable all automatic threads later without using <code>/autothread remove</code>. Per-channel entries can still override the defaults.</p>
+			<div class="screenshot-grid">
+				<figure class="screenshot">
+					<img src="docs/autothreadsettings.png" alt="Hugo autothread settings configuration">
+					<figcaption>Use <code>/autothread settings</code> to control the global defaults for automatic threads.</figcaption>
+				</figure>
+				<figure class="screenshot">
+					<img src="docs/autothreadadd.png" alt="Hugo autothread add command setup">
+					<figcaption>Use <code>/autothread add</code> to configure the per-channel thread behavior you want.</figcaption>
+				</figure>
+			</div>
 		</div>
 
 		<h2 id="sticky-messages">Sticky Messages</h2>
 		<div class="section">
 			<p>Use <code>/sticky</code> when a channel should always keep an important prompt, rule, or format visible at the bottom. Hugo reposts the sticky message after people talk, so new members see what they are supposed to do without scrolling back through the channel history.</p>
-			<p>Use <code>/sticky settings</code> to turn sticky messages on or off globally and set the repost cooldown. Individual stickies can still be enabled, disabled, edited, previewed, listed, or removed separately.</p>
+			<p>Use <code>/sticky settings</code> to enable sticky messages before using <code>/sticky add</code>. This allows you to disable all sticky messages later without using <code>/sticky remove</code> or <code>/sticky disable</code> on all of them.</p>
 			<p>For example, an <code>#introductions</code> channel can use a sticky introduction template so everyone follows the same format:</p>
 			<pre>Name:
 Age:
 Gender:
 Location:
 About Me:</pre>
+			<div class="screenshot-grid">
+				<figure class="screenshot">
+					<img src="docs/sticky.png" alt="Hugo sticky command overview">
+					<figcaption>Use <code>/sticky</code> to manage sticky messages that stay visible in active channels.</figcaption>
+				</figure>
+				<figure class="screenshot">
+					<img src="docs/stickyadd.png" alt="Hugo sticky add command setup">
+					<figcaption>Use <code>/sticky add</code> to choose the channel and message that should be reposted.</figcaption>
+				</figure>
+			</div>
 		</div>
 
 		<h2 id="voice-generator">Voice Generator</h2>
