@@ -607,7 +607,7 @@
 				</figure>
 				<figure class="screenshot">
 					<img src="docs/roledmadd.png" alt="Hugo role DM add command setup">
-					<figcaption>Use <code>/roledm add</code> to connect a role to the DM message members should receive.</figcaption>
+					<figcaption>Use <code>/roledm add</code> to connect a role to the DM message members should receive. Set <code>retroactive</code> to true if you want the DM to be sent to members who already have the role.</figcaption>
 				</figure>
 			</div>
 		</div>
@@ -671,15 +671,35 @@ About Me:</pre>
 		<h2 id="voice-generator">Voice Generator</h2>
 		<div class="section">
 			<p>Use <code>/voicegen</code> to turn a voice channel into a generator. When a member joins that generator channel, Hugo creates a temporary personal voice channel for them, moves them into it, and deletes the spawned channel again once it is empty.</p>
-			<p>Use <code>/voicegen settings</code> to turn voice generators on or off globally and set the default name for generated channels. Individual generator channels can also be enabled, disabled, listed, or removed.</p>
+			<p>Use <code>/voicegen settings</code> to enable voice generators before using <code>/voicegen add</code>. This allows you to disable all voice generators later without using <code>/voicegen remove</code> or <code>/voicegen disable</code> on all of them.</p>
 			<p>Discord calls the parent "folder" a category. Spawned channels are created under the same parent category as the generator channel, so they inherit that category's permissions. Hugo also copies the generator channel's user limit and bitrate, then places the new channel right after the generator.</p>
 			<p>Use <code>/voicename</code> to let the owner of a spawned channel rename it. Only the user who generated that channel can rename it, and Discord may rate-limit repeated voice channel renames.</p>
+			<div class="screenshot-grid">
+				<figure class="screenshot">
+					<img src="docs/voicegen.gif" alt="Hugo voice generator creating a temporary voice channel">
+					<figcaption>When someone joins the generator channel, Hugo creates a temporary voice channel for them and removes it again once it is empty.</figcaption>
+				</figure>
+				<figure class="screenshot">
+					<img src="docs/voicename.png" alt="Hugo voicename command overview">
+					<figcaption>Use <code>/voicename</code> to let the owner of a spawned channel rename it.</figcaption>
+				</figure>
+			</div>
+			<div class="screenshot-grid">
+				<figure class="screenshot">
+					<img src="docs/voicegen.png" alt="Hugo voice generator command overview">
+					<figcaption>Use <code>/voicegen</code> to manage generator channels and their defaults.</figcaption>
+				</figure>
+				<figure class="screenshot">
+					<img src="docs/voicegenvoicename.png" alt="Hugo voice generator and voicename configuration">
+					<figcaption><code>/voicegen</code> and <code>/voicename</code> work together when you want users to have private temporary channels they can rename themselves.</figcaption>
+				</figure>
+			</div>
 		</div>
 
 		<h2 id="duplicate-channels">Duplicate Channels</h2>
 		<div class="section">
 			<p>Use <code>/duplicate</code> to create a new channel using another channel's permission setup, or to copy one channel's permissions onto an existing target channel. It works with channel types such as text, voice, announcement, stage, forum, and category channels.</p>
-			<p>This is useful when you are setting up a server and need several channels or categories to have the same access rules. Instead of manually rebuilding every permission overwrite, you can configure one channel correctly and copy that setup wherever it is needed.</p>
+			<p>The main use is copying category permissions, which Discord does not let you do by default. Instead of manually rebuilding every permission overwrite, you can configure one channel or category correctly and copy that setup wherever it is needed.</p>
 		</div>
 
 		<h2 id="account-age">Account Age</h2>
