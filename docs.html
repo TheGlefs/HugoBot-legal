@@ -165,10 +165,14 @@
 			grid-template-columns: repeat(2, minmax(0, 1fr));
 			gap: 1rem;
 			margin: 1rem 0;
+			align-items: start;
 		}
 
 		.screenshot {
 			margin: 1rem 0;
+			display: flex;
+			flex-direction: column;
+			align-self: start;
 		}
 
 		.screenshot-grid .screenshot {
@@ -213,6 +217,21 @@
 
 		.verification-role-grid {
 			grid-template-columns: repeat(3, minmax(0, 1fr));
+			align-items: start;
+		}
+
+		.color-overview-grid {
+			grid-template-columns: minmax(0, 1fr) minmax(0, 0.48fr);
+			align-items: start;
+		}
+
+		.color-manage-grid {
+			grid-template-columns: minmax(0, 0.5fr) minmax(0, 1fr);
+			align-items: start;
+		}
+
+		.color-flair-grid {
+			grid-template-columns: minmax(0, 0.4fr) minmax(0, 1fr);
 			align-items: start;
 		}
 
@@ -383,6 +402,51 @@
 			</ul>
 		</div>
 
+		<h2 id="configuration">Configuration Basics</h2>
+		<div class="grid">
+			<div class="section workflow">
+				<h3>Use the dashboard for larger setup work</h3>
+				<p>The <a href="https://dashboard.hugobot.net">dashboard</a> is best for settings with many fields, message previews, role/channel pickers, and repeated configuration. Log in with Discord, choose a server where you have <code>Manage Server</code>, then open the section you want to edit.</p>
+			</div>
+
+			<div class="section workflow">
+				<h3>Use slash commands for quick changes</h3>
+				<p>Slash commands are best for one-off actions, moderation, testing, and small setting changes. The full option list is on the <a href="commands.html">commands page</a>.</p>
+			</div>
+
+			<div class="section workflow good">
+				<h3>Start with logs</h3>
+				<p>Configure <code>/logs</code> early. Error logs tell you when Hugo cannot post, assign roles, moderate users, or complete a task. Chat logs and general logs should be visible only to trusted moderators.</p>
+			</div>
+
+			<div class="section workflow warn">
+				<h3>Test before relying on automation</h3>
+				<p>Use <code>/emulate</code> for announcement events, preview buttons in the dashboard where available, and small test channels before enabling broad moderation, autoresponse, role, or message automation.</p>
+			</div>
+		</div>
+
+		<h2 id="troubleshooting">Troubleshooting</h2>
+		<div class="grid">
+			<div class="section workflow problem">
+				<h3>Hugo cannot assign or remove a role</h3>
+				<p>Check <code>Manage Roles</code>, then move Hugo's highest role above the target role. This is the most common cause even when the command looks correct.</p>
+			</div>
+
+			<div class="section workflow problem">
+				<h3>Hugo cannot post an embed</h3>
+				<p>Check channel permissions for <code>View Channel</code>, <code>Send Messages</code>, <code>Embed Links</code>, and <code>Attach Files</code>. Also check whether the feature is sending to the channel you expect.</p>
+			</div>
+
+			<div class="section workflow problem">
+				<h3>The dashboard does not show your server</h3>
+				<p>Make sure Hugo is in the server, you are logged in with the right Discord account, and your account has <code>Manage Server</code> or administrator access there.</p>
+			</div>
+
+			<div class="section workflow problem">
+				<h3>An automation is not firing</h3>
+				<p>Check that the feature is enabled, channel and role filters match the test case, cooldowns are not blocking it, and Hugo has permissions in both the source and output channels.</p>
+			</div>
+		</div>
 
 		<h2 id="template-setup">Template Setup</h2>
 		<div class="section">
@@ -899,12 +963,52 @@ About Me:</pre>
 		<div class="section">
 			<p>Use <code>/reputation settings</code> to turn Hugo's reputation system on or off, set the reputation cooldown, configure feedback messages, and decide whether reputation must be given by replying to someone. Use <code>/reputation add</code>, <code>/reputation remove</code>, <code>/reputation edit</code>, and <code>/reputation list</code> to manage the keywords that grant +rep.</p>
 			<p>Members can use <code>/rep</code> to check someone's reputation total and <code>/repboard</code> to view the server reputation leaderboard. Use <code>/reputation rep</code> and <code>/reputation repboard</code> to tune those command surfaces separately.</p>
+			<div class="screenshot-grid">
+				<figure class="screenshot">
+					<img src="docs/reputation.png" alt="Hugo reputation command overview">
+					<figcaption>Use <code>/reputation</code> to manage the overall reputation system and its command surfaces.</figcaption>
+				</figure>
+				<figure class="screenshot">
+					<img src="docs/reputationsettings.png" alt="Hugo reputation settings configuration">
+					<figcaption>Use <code>/reputation settings</code> to control cooldowns, feedback messages, and how reputation can be given.</figcaption>
+				</figure>
+			</div>
+			<div class="screenshot-grid">
+				<figure class="screenshot">
+					<img src="docs/reputationrep.png" alt="Hugo reputation rep command example">
+					<figcaption>Use <code>/reputation rep</code> to control how members check reputation totals.</figcaption>
+				</figure>
+				<figure class="screenshot">
+					<img src="docs/reputationadd.png" alt="Hugo reputation add command configuration">
+					<figcaption>Use <code>/reputation add</code> to manage which keywords or triggers grant +rep.</figcaption>
+				</figure>
+			</div>
 		</div>
 
 		<h2 id="awards">Awards</h2>
 		<div class="section">
 			<p>Use <code>/awards settings</code> to turn periodic awards on or off, choose the announcement channel, and set the weekly or monthly posting schedule. Hugo can rank members by messages sent, chat XP, voice XP, or reputation, then post the winners on a schedule or immediately with <code>/awards post</code>.</p>
 			<p>Each award category can show a configurable number of winners and optionally grant a winner role. You can preview the current period with <code>/awards preview</code>, list configured awards with <code>/awards list</code>, and exclude roles from winning with <code>/awards exclude</code>.</p>
+			<div class="screenshot-grid">
+				<figure class="screenshot">
+					<img src="docs/awards.png" alt="Hugo awards command overview">
+					<figcaption>Use <code>/awards</code> to manage recurring winner posts based on server activity.</figcaption>
+				</figure>
+				<figure class="screenshot">
+					<img src="docs/awardssettings.png" alt="Hugo awards settings configuration">
+					<figcaption>Use <code>/awards settings</code> to control the schedule, channel, and overall awards behavior.</figcaption>
+				</figure>
+			</div>
+			<div class="screenshot-grid">
+				<figure class="screenshot">
+					<img src="docs/awardsadd.png" alt="Hugo awards add configuration">
+					<figcaption>Use <code>/awards add</code> to define the award categories and winner criteria you want.</figcaption>
+				</figure>
+				<figure class="screenshot">
+					<img src="docs/awardspost.png" alt="Hugo awards post command example">
+					<figcaption>Use <code>/awards post</code> to publish the current winners immediately.</figcaption>
+				</figure>
+			</div>
 		</div>
 
 		<h2 id="color-roles">Color Roles</h2>
@@ -912,12 +1016,62 @@ About Me:</pre>
 			<p>The <code>/color</code> feature lets members choose their own name color from a color-role menu. Hugo comes with 50 preconfigured colors, so you can create a full color list without manually adding every color yourself.</p>
 			<p>Use <code>/color create</code> to create the roles around a role anchor, then <code>/color post</code> to post the selection embeds. Use <code>/color default</code> to give users a fallback color before they choose one, and <code>/color remember</code> to restore color roles when members rejoin. You can still add, edit, remove, or reorder colors later if your server wants a custom palette.</p>
 			<p>The <code>/flair</code> feature is the more personal version: users can create a personal role with their own hex RGB color, and if enabled, a custom role icon too. Use <code>/color flair</code> to tune who can use it, whether custom names or icons are allowed, and whether flair roles should be recreated on rejoin.</p>
+			<div class="screenshot-grid color-overview-grid">
+				<figure class="screenshot">
+					<img src="docs/color.png" alt="Hugo color command overview">
+					<figcaption>Use <code>/color</code> to manage the color-role system and how members pick colors.</figcaption>
+				</figure>
+				<figure class="screenshot">
+					<img src="docs/colors.png" alt="Hugo color role list example">
+					<figcaption>Hugo comes with a large built-in color set so you do not need to create every color role by hand.</figcaption>
+				</figure>
+			</div>
+			<div class="screenshot-grid color-manage-grid">
+				<figure class="screenshot">
+					<img src="docs/colorcreate.png" alt="Hugo color create command setup">
+					<figcaption>Use <code>/color create</code> to generate the color roles around a chosen anchor role.</figcaption>
+				</figure>
+				<figure class="screenshot">
+					<img src="docs/colorpost.png" alt="Hugo color post command setup">
+					<figcaption>Use <code>/color post</code> to publish the color selection embeds for members.</figcaption>
+				</figure>
+			</div>
+			<div class="screenshot-grid color-flair-grid">
+				<figure class="screenshot">
+					<img src="docs/colorflair.png" alt="Hugo color flair configuration">
+					<figcaption>Use <code>/color flair</code> to control who can create custom flair roles and what they are allowed to customize.</figcaption>
+				</figure>
+				<figure class="screenshot">
+					<img src="docs/flair.png" alt="Hugo flair role example">
+					<figcaption><code>/flair</code> lets users create a more personal custom role with their own color and, if enabled, a role icon.</figcaption>
+				</figure>
+			</div>
 		</div>
 
 		<h2 id="groups">Groups</h2>
 		<div class="section">
 			<p>The <code>/group</code> feature is for private channel access without creating a visible role for every private space. Instead of giving someone a role that other members can notice and ask about, Hugo stores a named group and applies the needed channel permissions directly for the users in that group.</p>
 			<p>This is useful when you want hidden channels for a small set of people, but you do not want a public-looking role that makes everyone wonder what it is for or why they do not have it too. It also avoids the tedious Discord admin work of opening every channel and manually adding or removing user permission overwrites one person at a time.</p>
+			<div class="screenshot-grid">
+				<figure class="screenshot">
+					<img src="docs/group.png" alt="Hugo group command configuration">
+					<figcaption>Use <code>/group</code> to create named private-access groups without exposing a visible server role for each one.</figcaption>
+				</figure>
+				<figure class="screenshot">
+					<img src="docs/grouppermissions.png" alt="Hugo group permissions editor">
+					<figcaption>Use <code>/group edit-permissions</code> to control which channel permissions Hugo grants to members and moderators in that group.</figcaption>
+				</figure>
+			</div>
+			<div class="screenshot-grid">
+				<figure class="screenshot">
+					<img src="docs/groupexample.png" alt="Example of a private group channel managed by Hugo">
+					<figcaption>Once a group is linked to channels, Hugo adds and removes member-specific permission overwrites for that private space automatically.</figcaption>
+				</figure>
+				<figure class="screenshot">
+					<img src="docs/groupdelete.png" alt="Hugo group delete command confirmation">
+					<figcaption>Use <code>/group delete</code> when a private group is no longer needed and you want Hugo to remove its saved setup.</figcaption>
+				</figure>
+			</div>
 		</div>
 
 		<h2 id="confessions">Confessions</h2>
@@ -976,52 +1130,6 @@ About Me:</pre>
 			<p>Use <code>/template</code> to save reusable messages and embeds. Templates are useful when multiple features should send the same polished message, or when you want to build an embed once and reuse it in automessages, autoresponses, sticky messages, or other message-based features.</p>
 			<p>Use <code>/echo</code> to send a message as Hugo. This is useful for announcements, rules, formatted embeds, or any message that should come from the bot instead of a moderator's personal account.</p>
 			<p>Use <code>/edit</code> to edit a message Hugo already sent, including messages created through <code>/echo</code> or other bot-authored posts. That lets you fix wording or update information without deleting and reposting the message.</p>
-		</div>
-
-		<h2 id="configuration">Configuration Basics</h2>
-		<div class="grid">
-			<div class="section workflow">
-				<h3>Use the dashboard for larger setup work</h3>
-				<p>The <a href="https://dashboard.hugobot.net">dashboard</a> is best for settings with many fields, message previews, role/channel pickers, and repeated configuration. Log in with Discord, choose a server where you have <code>Manage Server</code>, then open the section you want to edit.</p>
-			</div>
-
-			<div class="section workflow">
-				<h3>Use slash commands for quick changes</h3>
-				<p>Slash commands are best for one-off actions, moderation, testing, and small setting changes. The full option list is on the <a href="commands.html">commands page</a>.</p>
-			</div>
-
-			<div class="section workflow good">
-				<h3>Start with logs</h3>
-				<p>Configure <code>/logs</code> early. Error logs tell you when Hugo cannot post, assign roles, moderate users, or complete a task. Chat logs and general logs should be visible only to trusted moderators.</p>
-			</div>
-
-			<div class="section workflow warn">
-				<h3>Test before relying on automation</h3>
-				<p>Use <code>/emulate</code> for announcement events, preview buttons in the dashboard where available, and small test channels before enabling broad moderation, autoresponse, role, or message automation.</p>
-			</div>
-		</div>
-
-		<h2 id="troubleshooting">Troubleshooting</h2>
-		<div class="grid">
-			<div class="section workflow problem">
-				<h3>Hugo cannot assign or remove a role</h3>
-				<p>Check <code>Manage Roles</code>, then move Hugo's highest role above the target role. This is the most common cause even when the command looks correct.</p>
-			</div>
-
-			<div class="section workflow problem">
-				<h3>Hugo cannot post an embed</h3>
-				<p>Check channel permissions for <code>View Channel</code>, <code>Send Messages</code>, <code>Embed Links</code>, and <code>Attach Files</code>. Also check whether the feature is sending to the channel you expect.</p>
-			</div>
-
-			<div class="section workflow problem">
-				<h3>The dashboard does not show your server</h3>
-				<p>Make sure Hugo is in the server, you are logged in with the right Discord account, and your account has <code>Manage Server</code> or administrator access there.</p>
-			</div>
-
-			<div class="section workflow problem">
-				<h3>An automation is not firing</h3>
-				<p>Check that the feature is enabled, channel and role filters match the test case, cooldowns are not blocking it, and Hugo has permissions in both the source and output channels.</p>
-			</div>
 		</div>
 
 		<h2 id="reference">Reference</h2>
