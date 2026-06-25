@@ -829,12 +829,70 @@ About Me:</pre>
 			<p>Use <code>/honeypot</code> for trap channels that real members should not be using. If a non-bot user sends a message in one of those channels, Hugo deletes the message and kicks or bans them, depending on your settings.</p>
 			<p>Use <code>/honeypot settings</code> to enable the feature, choose kick or ban mode, and set the moderation reason. Use <code>/honeypot add</code> to add trap channels and optionally post a bait message, then use <code>/honeypot remove</code> and <code>/honeypot list</code> to manage the channel list.</p>
 			<p>This is useful for catching bots or raiders that blindly post in every visible channel. Hugo needs <code>Kick Members</code> to use honeypot, <code>Ban Members</code> if ban mode is enabled, and a role high enough to act on the member who triggers the trap.</p>
+			<div class="screenshot-grid">
+				<figure class="screenshot">
+					<img src="docs/honeypot.png" alt="Hugo honeypot command overview">
+					<figcaption>Use <code>/honeypot</code> to manage trap channels that should never be posted in by real members.</figcaption>
+				</figure>
+				<figure class="screenshot">
+					<img src="docs/honeypotsettings.png" alt="Hugo honeypot settings configuration">
+					<figcaption>Use <code>/honeypot settings</code> to enable the feature and choose whether it kicks or bans.</figcaption>
+				</figure>
+			</div>
+			<figure class="screenshot">
+				<img src="docs/honeypotexample.png" alt="Example Hugo honeypot trap channel setup">
+				<figcaption>Trap channels can be dressed up with a bait message so bots or raiders reveal themselves by posting there.</figcaption>
+			</figure>
+			<figure class="screenshot">
+				<img src="docs/honeypotban.png" alt="Hugo honeypot configuration using ban mode">
+				<figcaption>Switch honeypot to ban mode when you want the trap to remove offenders more aggressively.</figcaption>
+			</figure>
 		</div>
 
 		<h2 id="leveling">Leveling</h2>
 		<div class="section">
 			<p>Use <code>/xp</code> to configure Hugo's chat and voice XP systems. Use <code>/xp settings chat</code>, <code>/xp settings voice</code>, and <code>/xp settings combine</code> to enable or disable each XP pool or combined XP mode, then tune cooldowns, XP ranges, ignored channels, level-up messages, and level/rank/leaderboard responses.</p>
-			<p>Use <code>/reward</code> to attach roles to specific levels. Use <code>/reward settings chat</code> and <code>/reward settings voice</code> to enable or disable chat and voice rewards, decide whether old rank roles should be removed, and then add the actual role rewards for each level.</p>
+			<p>Use <code>/reward</code> to attach roles to specific levels. Use <code>/reward settings chat</code> and <code>/reward settings voice</code> to enable or disable chat and voice rewards, decide whether old rank roles should be removed, and then add the actual role rewards for each level with <code>/reward add</code>.</p>
+			<div class="screenshot-grid">
+				<figure class="screenshot">
+					<img src="docs/xpsettingschat.png" alt="Hugo chat XP settings configuration">
+					<figcaption>Use <code>/xp settings chat</code> to tune chat XP behavior.</figcaption>
+				</figure>
+				<figure class="screenshot">
+					<img src="docs/xpsettingsvoice.png" alt="Hugo voice XP settings configuration">
+					<figcaption>Use <code>/xp settings voice</code> to tune voice XP behavior.</figcaption>
+				</figure>
+			</div>
+			<div class="screenshot-grid">
+				<figure class="screenshot">
+					<img src="docs/rewardsettingsvoice.png" alt="Hugo voice reward settings configuration">
+					<figcaption>Use <code>/reward settings voice</code> to control voice reward behavior.</figcaption>
+				</figure>
+				<figure class="screenshot">
+					<img src="docs/rewardaddchat.png" alt="Hugo chat reward add command setup">
+					<figcaption>Use <code>/reward add chat</code> to attach a role to a chat level.</figcaption>
+				</figure>
+			</div>
+			<div class="screenshot-grid">
+				<figure class="screenshot">
+					<img src="docs/rewardpromotechat.png" alt="Hugo chat reward promotion example">
+					<figcaption>Use <code>/reward promote chat</code> to change the message when rewards are granted.</figcaption>
+				</figure>
+				<figure class="screenshot">
+					<img src="docs/xpadvancevoice.png" alt="Hugo voice XP advance example">
+					<figcaption>Use <code>/xp advance voice</code> to change the message when advancing voice levels.</figcaption>
+				</figure>
+			</div>
+			<div class="screenshot-grid">
+				<figure class="screenshot">
+					<img src="docs/promote.png" alt="Hugo promote command example">
+					<figcaption><code>/set xp chat</code> can move someone forward when you need to adjust their level-related progress manually.</figcaption>
+				</figure>
+				<figure class="screenshot">
+					<img src="docs/ranklevel.png" alt="Hugo rank and level example">
+					<figcaption>Members can check their current level and rank progress with the leveling commands.</figcaption>
+				</figure>
+			</div>
 		</div>
 
 		<h2 id="reputation">Reputation</h2>
