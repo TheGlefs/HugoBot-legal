@@ -350,6 +350,7 @@
 			<a href="#quick-start">Quick Start</a>
 			<a href="#setup-checklist">Setup Checklist</a>
 			<a href="#permissions">Permissions</a>
+			<a href="#logs">Logs</a>
 			<a href="#configuration">Configuration</a>
 			<a href="#troubleshooting">Troubleshooting</a>
 			<a href="#template-setup">Template Setup</a>
@@ -421,6 +422,23 @@
 				<li><strong>Channels and threads:</strong> Duplicate needs <code>Manage Channels</code>. Group permission syncing needs <code>Manage Roles</code>/<code>Manage Permissions</code> on the affected channels. Voice generator needs <code>Manage Channels</code>, plus <code>View Channel</code>, <code>Connect</code>, and <code>Move Members</code> where it creates and moves users. Autothread needs <code>Send Messages</code>, <code>Create Public Threads</code>, <code>Send Messages in Threads</code>, and <code>Manage Messages</code> if messages are deleted. Sticky messages need <code>View Channel</code>, <code>Send Messages</code>, and <code>Manage Messages</code>.</li>
 				<li><strong>Invite tracking:</strong> Hugo needs <code>Manage Server</code> permission to read the server invite list. Discord only exposes invite information through that permission. Hugo only uses it to read the server's invite list.</li>
 			</ul>
+		</div>
+
+		<h2 id="logs">Logs</h2>
+		<div class="section">
+			<p>Use <code>/logs general</code>, <code>/logs chat</code>, and <code>/logs error</code> to set up different log channels. <code>/logs chat</code> is dedicated to chat message delete and edit events, while <code>/logs error</code> tracks critical bot errors. You can enable and disable specific log types to keep channels clean and relevant.</p>
+			<figure class="screenshot">
+				<img src="docs/logs.png" alt="Hugo logs command settings">
+				<figcaption>Configure each log channel and disable or enable specific log types.</figcaption>
+			</figure>
+			<figure class="screenshot">
+				<img src="docs/logsexample.png" alt="Hugo logs example">
+				<figcaption>Log example.</figcaption>
+			</figure>
+			<figure class="screenshot">
+				<img src="docs/logsenable.png" alt="Hugo logs enable">
+				<figcaption>Configure which events are logged.</figcaption>
+			</figure>
 		</div>
 
 		<h2 id="configuration">Configuration Basics</h2>
@@ -1087,18 +1105,62 @@ About Me:</pre>
 			<div class="section">
 				<p>Use <code>/qotd settings</code> to turn automatic Question of the Day posts on or off, choose the questions channel, set the interval, and configure message, embed, thread, credit, and pending-pitch display options.</p>
 				<p>Members can use <code>/pitch</code> to submit question ideas. Use <code>/qotd pitch</code> to tune that command surface separately. Moderators can use <code>/pitches</code> to review and manage those pitches, and <code>/qotd</code> subcommands such as <code>add</code>, <code>bulk-add</code>, <code>queue</code>, <code>post</code>, <code>skip</code>, <code>move</code>, <code>remove</code>, <code>preview</code>, and <code>next</code> to control what gets posted and when.</p>
+				<figure class="screenshot">
+					<img src="docs/qotd.png" alt="Hugo QOTD command settings">
+					<figcaption>Use <code>/qotd</code> to manage the Question of the Day feature.</figcaption>
+				</figure>
+				<figure class="screenshot">
+					<img src="docs/qotdsettings.png" alt="Hugo QOTD settings">
+					<figcaption>Use <code>/qotd settings</code> to configure the core QOTD options.</figcaption>
+				</figure>
+				<figure class="screenshot">
+					<img src="docs/qotdpitch.png" alt="Hugo QOTD pitch settings">
+					<figcaption>Use <code>/qotd pitch</code> to tune the pitch command surface separately.</figcaption>
+				</figure>
+				<figure class="screenshot">
+					<img src="docs/qotdexample.png" alt="Example QOTD posted by Hugo">
+					<figcaption>Example Question of the Day posted by Hugo.</figcaption>
+				</figure>
 			</div>
 
 			<h2 id="starboard">Starboard</h2>
 			<div class="section">
 				<p>Use <code>/starboard settings</code> to turn the starboard on or off and highlight messages that receive enough star reactions. You can set the starboard channel, required stars, moderator-star threshold, ignored channels or categories, custom post text, embed formatting, thread creation, and whether the original author is credited.</p>
 				<p>Members can use <code>/quotes</code> to view and delete starboard entries for their own messages. Use <code>/starboard quotes</code> to tune that command surface separately, including whether it is enabled, its cooldown, and any level or booster requirements.</p>
+				<figure class="screenshot">
+					<img src="docs/starboard.png" alt="Hugo starboard command">
+					<figcaption>Use <code>/starboard</code> to manage starboard behavior.</figcaption>
+				</figure>
+				<figure class="screenshot">
+					<img src="docs/starboardsettings.png" alt="Hugo starboard settings">
+					<figcaption>Use <code>/starboard settings</code> to configure the core starboard options.</figcaption>
+				</figure>
+				<figure class="screenshot">
+					<img src="docs/starboardquotes.png" alt="Hugo starboard quotes settings">
+					<figcaption>Use <code>/starboard quotes</code> to control the quotes command surface.</figcaption>
+				</figure>
+				<figure class="screenshot">
+					<img src="docs/starboardexample.png" alt="Example starboard post by Hugo">
+					<figcaption>Example starboard post by Hugo.</figcaption>
+				</figure>
 			</div>
 
 			<h2 id="reminders">Reminders</h2>
 			<div class="section">
 				<p>Users can create reminders with flexible time formats like <code>2h 30m</code>, <code>3mo</code>, or <code>1 year 3 days</code> using <code>/remind</code>, and members can view, edit, cancel, and search their own active reminders with <code>/reminders</code>.</p>
 				<p>Use <code>/reminder remind</code> and <code>/reminder reminders</code> to control whether those command surfaces are enabled, cooldowns, the allowed reminder channel, whether <code>/remind</code> replies are ephemeral, and level or booster requirements.</p>
+				<figure class="screenshot">
+					<img src="docs/reminderremind.png" alt="Hugo reminders remind settings">
+					<figcaption>Use <code>/reminder remind</code> to control the remind command surface.</figcaption>
+				</figure>
+				<figure class="screenshot">
+					<img src="docs/reminderreminders.png" alt="Hugo reminder reminders settings">
+					<figcaption>Use <code>/reminder reminders</code> to control the reminders command surface.</figcaption>
+				</figure>
+				<figure class="screenshot">
+					<img src="docs/remindexample.png" alt="Example reminder set with Hugo">
+					<figcaption>Example reminder set with Hugo.</figcaption>
+				</figure>
 			</div>
 
 			<h2 id="birthdays">Birthdays</h2>
@@ -1106,6 +1168,22 @@ About Me:</pre>
 				<p>Users can set their birthday with <code>/birthday</code>. They can choose the day and month, optionally add a birth year if they want Hugo to show their age, and enable or disable birthday announcements for themselves.</p>
 				<p>Use <code>/birthdays settings</code> to turn birthday announcements on or off and control the announcement channel, birthday messages with or without age, optional birthday threads, thread messages, and embed title or footer text. Birthday announcements follow the server timezone configured in <code>/settings</code>.</p>
 				<p>Use <code>/birthdays birthday</code> to control the <code>/birthday</code> command surface itself, including whether it is enabled, its cooldown, whether responses are ephemeral, and any level or booster requirements.</p>
+				<figure class="screenshot">
+					<img src="docs/birthdayssettings.png" alt="Hugo birthdays settings">
+					<figcaption>Use <code>/birthdays settings</code> to configure the core birthday options.</figcaption>
+				</figure>
+				<figure class="screenshot">
+					<img src="docs/birthdaysbirthday.png" alt="Hugo birthdays birthday settings">
+					<figcaption>Use <code>/birthdays birthday</code> to control the birthday command surface.</figcaption>
+				</figure>
+				<figure class="screenshot">
+					<img src="docs/birthday.png" alt="Hugo birthday command">
+					<figcaption>Users can set their birthday with <code>/birthday</code>.</figcaption>
+				</figure>
+				<figure class="screenshot">
+					<img src="docs/birthdayexample.png" alt="Example birthday announcement by Hugo">
+					<figcaption>Example birthday announcement by Hugo.</figcaption>
+				</figure>
 			</div>
 
 			<h2 id="stream-alerts">Stream Alerts</h2>
@@ -1113,6 +1191,22 @@ About Me:</pre>
 				<p>Use <code>/twitch</code> to watch Twitch streamers and post when they go live. Use <code>/twitch settings</code> to turn Twitch notifications on or off and set the notification channel and message, then add streamers by username or Twitch URL with <code>/twitch add</code>.</p>
 				<p>Use <code>/youtube</code> to watch YouTube channels and post when they upload a new video. Use <code>/youtube settings</code> to turn YouTube notifications on or off and set the notification channel and message, then add channels by channel ID, channel URL, or handle with <code>/youtube add</code>.</p>
 				<p>When you add a Twitch streamer who is already live or a YouTube channel that already has uploads, Hugo seeds the current stream/video so it does not immediately spam old notifications. It will notify on the next new live stream or upload.</p>
+				<figure class="screenshot">
+					<img src="docs/twitch.png" alt="Hugo twitch command">
+					<figcaption>Use <code>/twitch</code> to manage Twitch alerts.</figcaption>
+				</figure>
+				<figure class="screenshot">
+					<img src="docs/twitchsettings.png" alt="Hugo twitch settings">
+					<figcaption>Use <code>/twitch settings</code> to configure Twitch alerts.</figcaption>
+				</figure>
+				<figure class="screenshot">
+					<img src="docs/youtube.png" alt="Hugo youtube command">
+					<figcaption>Use <code>/youtube</code> to manage YouTube alerts.</figcaption>
+				</figure>
+				<figure class="screenshot">
+					<img src="docs/youtubesettings.png" alt="Hugo youtube settings">
+					<figcaption>Use <code>/youtube settings</code> to configure YouTube alerts.</figcaption>
+				</figure>
 			</div>
 
 			<h2 id="fun-commands">Fun Commands</h2>
@@ -1120,6 +1214,22 @@ About Me:</pre>
 				<p>Use <code>/fun</code> to configure the smaller user-facing commands: <code>/wisdom</code>, <code>/roll</code>, <code>/cat</code>, and <code>/fetch</code>. Each one can be enabled or disabled, given a cooldown, and tuned separately.</p>
 				<p>You can make a fun command <code>ephemeral</code>, meaning only the person who ran the command sees the response. You can also make it booster-only, require a minimum chat or voice level, and for public replies, limit it to a specific channel so the command does not spread across the server.</p>
 				<p>Use <code>/block</code> when a specific user should not be able to use one of those commands anymore without disabling it for everyone else.</p>
+				<figure class="screenshot">
+					<img src="docs/fun.png" alt="Hugo fun command">
+					<figcaption>Use <code>/fun</code> to manage fun commands.</figcaption>
+				</figure>
+				<figure class="screenshot">
+					<img src="docs/funcat.png" alt="Hugo fun cat settings">
+					<figcaption>Configure individual commands like <code>/cat</code>.</figcaption>
+				</figure>
+				<figure class="screenshot">
+					<img src="docs/wisdom.png" alt="Hugo wisdom command">
+					<figcaption>Example of the <code>/wisdom</code> command.</figcaption>
+				</figure>
+				<figure class="screenshot">
+					<img src="docs/block.png" alt="Hugo block command">
+					<figcaption>Use <code>/block</code> to restrict user access to commands.</figcaption>
+				</figure>
 			</div>
 
 			<h2 id="message-tools">Message Tools</h2>
@@ -1127,6 +1237,14 @@ About Me:</pre>
 				<p>Use <code>/template</code> to save reusable messages and embeds. Templates are useful when multiple features should send the same polished message, or when you want to build an embed once and reuse it in automessages, autoresponses, sticky messages, or other message-based features.</p>
 				<p>Use <code>/echo</code> to send a message as Hugo. This is useful for announcements, rules, formatted embeds, or any message that should come from the bot instead of a moderator's personal account.</p>
 				<p>Use <code>/edit</code> to edit a message Hugo already sent, including messages created through <code>/echo</code> or other bot-authored posts. That lets you fix wording or update information without deleting and reposting the message.</p>
+				<figure class="screenshot">
+					<img src="docs/template.png" alt="Hugo template command">
+					<figcaption>Use <code>/template</code> to manage templates.</figcaption>
+				</figure>
+				<figure class="screenshot">
+					<img src="docs/templatecreate.png" alt="Hugo template create command">
+					<figcaption>Create new templates with <code>/template create</code>.</figcaption>
+				</figure>
 			</div>
 
 			<h2 id="reference">Reference</h2>
