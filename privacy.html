@@ -2,15 +2,139 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hugo Privacy Policy</title>
   <style>
-    body { font-family: Arial, sans-serif; max-width: 800px; margin: 2rem auto; line-height: 1.6; }
-    h1, h2 { color: #333; }
+    body {
+      background-color: #f8fafc;
+      font-family: Arial, sans-serif;
+      color: #334155;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 1.25rem 3rem;
+      line-height: 1.6;
+    }
+
+    .top-page-nav {
+      margin-top: 1.5rem;
+      text-align: center;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.25rem;
+    }
+
+    .top-page-nav a {
+      display: inline-block;
+      padding: 0.5rem 0.8rem;
+      background-color: #4f46e5;
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 500;
+      font-size: 0.88rem;
+      line-height: 1.1;
+      transition: background-color 0.2s ease-in-out;
+    }
+
+    .top-page-nav a:hover {
+      background-color: #4338ca;
+      text-decoration: none;
+    }
+
+    .title-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .logo {
+      width: 60px;
+      height: auto;
+      background-color: transparent;
+      border: none;
+      box-shadow: none;
+      border-radius: 0;
+    }
+
+    h1 {
+      color: #dba622;
+      font-weight: 700;
+      font-size: 2.5rem;
+      margin: 0;
+    }
+
+    h2 {
+      color: #333333;
+    }
+
+    .meta {
+      text-align: center;
+      font-size: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .meta strong {
+      font-size: 1.2rem;
+    }
+
+    .back-to-top {
+      position: fixed;
+      left: 50%;
+      bottom: 1.25rem;
+      width: 56px;
+      height: 56px;
+      border: none;
+      border-radius: 999px;
+      background-color: #000000;
+      color: #ffffff;
+      font-size: 1.8rem;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.28);
+      opacity: 0;
+      pointer-events: none;
+      transform: translateX(-50%) translateY(8px);
+      transition: opacity 0.18s ease, transform 0.18s ease;
+      z-index: 1000;
+    }
+
+    .back-to-top.is-visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .back-to-top:hover {
+      background-color: #111111;
+    }
   </style>
 </head>
 <body>
-  <h1>Privacy Policy for Hugo</h1>
-  <p><strong>Last updated:</strong> 06/17/2026</p>
+  <nav class="top-page-nav">
+    <a href="https://discord.com/oauth2/authorize?client_id=1372571549613166713">Invite</a>
+    <a href="/features">Features</a>
+    <a href="/commands">Commands</a>
+    <a href="https://dashboard.hugobot.net/" target="_blank" rel="noopener noreferrer">Dashboard</a>
+    <a href="/docs">Documentation</a>
+    <a href="/terms">Terms of Service</a>
+    <a href="https://discord.gg/WNZVCcjh6a" target="_blank" rel="noopener noreferrer">Support Server</a>
+    <a href="https://patreon.com/HugoBot" target="_blank" rel="noopener noreferrer">Patreon</a>
+  </nav>
+
+  <div class="title-container">
+    <img src="hugo.png" alt="Hugo Logo" class="logo">
+    <h1>Hugo Privacy Policy</h1>
+  </div>
+
+  <p class="meta"><strong>Last updated:</strong> 06/17/2026</p>
 
   <h2>1. Data We Collect</h2>
   <p>Hugo collects and stores the following data in a local database to provide its features:</p>
@@ -121,5 +245,21 @@
 
   <h2>7. Contact</h2>
   <p>For privacy concerns, contact: <strong>glefs</strong> on Discord</p>
+
+  <button class="back-to-top" type="button" aria-label="Back to top" title="Back to top">&#x2303;</button>
+  <script>
+    const backToTopButton = document.querySelector('.back-to-top');
+
+    function updateBackToTopButton() {
+      if (!backToTopButton) return;
+      backToTopButton.classList.toggle('is-visible', window.scrollY > 240);
+    }
+
+    updateBackToTopButton();
+    window.addEventListener('scroll', updateBackToTopButton, { passive: true });
+    backToTopButton?.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
 </body>
 </html>
