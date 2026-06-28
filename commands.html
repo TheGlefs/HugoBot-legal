@@ -21,6 +21,35 @@
 			margin: 0 auto;
 		}
 
+		.top-page-nav {
+			margin-top: 1.5rem;
+			text-align: center;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			gap: 0.35rem;
+			max-width: 960px;
+			padding: 0 1rem;
+		}
+
+		.top-page-nav a {
+			display: inline-block;
+			padding: 0.6rem 1rem;
+			background-color: #4f46e5;
+			color: #ffffff;
+			text-decoration: none;
+			border-radius: 8px;
+			font-weight: 500;
+			font-size: 0.95rem;
+			line-height: 1.2;
+			transition: background-color 0.2s ease-in-out;
+		}
+
+		.top-page-nav a:hover {
+			background-color: #4338ca;
+			text-decoration: none;
+		}
+
 		.command-block {
 			background: #fff;
 			padding: 1.5rem 2rem;
@@ -152,10 +181,54 @@
 			color: #1e293b;
 			font-weight: 600;
 		}
+
+		.back-to-top {
+			position: fixed;
+			left: 50%;
+			bottom: 1.25rem;
+			width: 56px;
+			height: 56px;
+			border: none;
+			border-radius: 999px;
+			background-color: #000000;
+			color: #ffffff;
+			font-size: 1.8rem;
+			line-height: 1;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			cursor: pointer;
+			box-shadow: 0 10px 25px rgba(15, 23, 42, 0.28);
+			opacity: 0;
+			pointer-events: none;
+			transform: translateX(-50%) translateY(8px);
+			transition: opacity 0.18s ease, transform 0.18s ease;
+			z-index: 1000;
+		}
+
+		.back-to-top.is-visible {
+			opacity: 1;
+			pointer-events: auto;
+			transform: translateX(-50%) translateY(0);
+		}
+
+		.back-to-top:hover {
+			background-color: #111111;
+		}
 	</style>
 </head>
 
 <body>
+	<nav class="top-page-nav">
+		<a href="https://discord.com/oauth2/authorize?client_id=1372571549613166713">Invite</a>
+		<a href="/features">Features</a>
+		<a href="https://dashboard.hugobot.net/">Dashboard</a>
+		<a href="/docs">Documentation</a>
+		<a href="/terms">Terms of Service</a>
+		<a href="/privacy">Privacy Policy</a>
+		<a href="https://discord.gg/WNZVCcjh6a">Support Server</a>
+		<a href="https://patreon.com/HugoBot">Patreon</a>
+	</nav>
 	<div class="container">
 		<div class="title-container">
 			<img src="hugo.png" alt="Hugo Logo" class="logo">
@@ -406,7 +479,7 @@
 			<p><strong>Options:</strong></p>
 			<ul>
 				<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable new account kick?</span></li>
-				<li><code>days</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Minimum account age in days</span></li>
+				<li><code>age</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Account age threshold (e.g. 7d, 24h, 30m)</span></li>
 				<li><code>reason</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Kick/ban reason</span></li>
 				<li><code>ban</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ban instead of kick?</span></li>
 				<li><code>retroactive</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Apply retroactively?</span></li>
@@ -464,8 +537,8 @@
 						<li><code>title</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Thread title override (default: global)</span>
 	<div class="replacements"><code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{date}</span></code>, <code><span class="tag-replacement">{time}</span></code></div></li>
 						<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Thread message override (default: global)</span></li>
-						<li><code>message-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Send thread message? (default: global)?</span></li>
-						<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable for this channel? (default: yes)?</span></li>
+						<li><code>message-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Send thread message? (default: global)</span></li>
+						<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable for this channel? (default: yes)</span></li>
 					</ul>
 				</li>
 				<li><code class="subcommand-name">edit</code>: <span class="subcommand-description">Edit per-channel settings</span>
@@ -698,211 +771,193 @@
 				<li><code class="subcommand-name">join</code>: <span class="subcommand-description">Announce when users join</span>
 					<ul>
 						<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable join announcements?</span></li>
-						<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Join message</span>
+						<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Join message or "reset"</span>
 	<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{invitertag}</span></code>, <code><span class="tag-replacement">{invitername}</span></code>, <code><span class="tag-replacement">{inviteruser}</span></code>, <code><span class="tag-replacement">{age}</span></code></div></li>
 						<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Join message channel</span></li>
 						<li><code>ping</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ping users mentioned in the message?</span></li>
-						<li><code>reset</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Reset message to default?</span></li>
 					</ul>
 				</li>
 				<li><code class="subcommand-name">leave</code>: <span class="subcommand-description">Announce when users leave</span>
 					<ul>
 						<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable leave announcements?</span></li>
-						<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Leave message</span>
+						<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Leave message or "reset"</span>
 	<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code></div></li>
 						<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Leave message channel</span></li>
 						<li><code>ping</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ping users mentioned in the message?</span></li>
-						<li><code>reset</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Reset message to default?</span></li>
 					</ul>
 				</li>
 				<li><code class="subcommand-name">leave-verified</code>: <span class="subcommand-description">Extra announcement when verified users leave</span>
 					<ul>
 						<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable for verified users leaving?</span></li>
-						<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Verified leave message</span>
+						<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Verified leave message or "reset"</span>
 	<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code></div></li>
 						<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Verified leave channel</span></li>
 						<li><code>ping</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ping users mentioned in the message?</span></li>
-						<li><code>reset</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Reset message to default?</span></li>
 					</ul>
 				</li>
 				<li><code class="subcommand-name">rejoin</code>: <span class="subcommand-description">Announce when users rejoin</span>
 					<ul>
 						<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable rejoin announcements?</span></li>
-						<li><code>same-user</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Rejoin message</span>
+						<li><code>same-user</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Rejoin message or "reset"</span>
 	<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{invitertag}</span></code>, <code><span class="tag-replacement">{invitername}</span></code>, <code><span class="tag-replacement">{inviteruser}</span></code>, <code><span class="tag-replacement">{age}</span></code></div></li>
-						<li><code>name-change</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Name-change rejoin message</span>
+						<li><code>name-change</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Name-change rejoin message or "reset"</span>
 	<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{oldname}</span></code>, <code><span class="tag-replacement">{olduser}</span></code>, <code><span class="tag-replacement">{invitertag}</span></code>, <code><span class="tag-replacement">{invitername}</span></code>, <code><span class="tag-replacement">{inviteruser}</span></code>, <code><span class="tag-replacement">{age}</span></code></div></li>
 						<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Rejoin message channel</span></li>
 						<li><code>ping</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ping users mentioned in the message?</span></li>
-						<li><code>reset</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Reset message to default?</span></li>
 					</ul>
 				</li>
 				<li><code class="subcommand-name">rejoin-verified</code>: <span class="subcommand-description">Extra announcement when verified users rejoin</span>
 					<ul>
 						<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable for verified users rejoining?</span></li>
-						<li><code>same-user</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Verified rejoin message</span>
+						<li><code>same-user</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Verified rejoin message or "reset"</span>
 	<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{invitertag}</span></code>, <code><span class="tag-replacement">{invitername}</span></code>, <code><span class="tag-replacement">{inviteruser}</span></code>, <code><span class="tag-replacement">{age}</span></code></div></li>
-						<li><code>name-change</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Verified name-change message</span>
+						<li><code>name-change</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Verified name-change message or "reset"</span>
 	<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{oldname}</span></code>, <code><span class="tag-replacement">{olduser}</span></code>, <code><span class="tag-replacement">{invitertag}</span></code>, <code><span class="tag-replacement">{invitername}</span></code>, <code><span class="tag-replacement">{inviteruser}</span></code>, <code><span class="tag-replacement">{age}</span></code></div></li>
 						<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Verified rejoin channel</span></li>
 						<li><code>ping</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ping users mentioned in the message?</span></li>
-						<li><code>reset</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Reset message to default?</span></li>
 					</ul>
 				</li>
 				<li><code class="subcommand-name">ban</code>: <span class="subcommand-description">Announce when users are banned</span>
 					<ul>
 						<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable ban announcements?</span></li>
-						<li><code>permanent</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Permanent ban message</span>
+						<li><code>permanent</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Permanent ban message or "reset"</span>
 	<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{modtag}</span></code>, <code><span class="tag-replacement">{modname}</span></code>, <code><span class="tag-replacement">{moduser}</span></code>, <code><span class="tag-replacement">{reason}</span></code></div></li>
-						<li><code>temporary</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Temporary ban message</span>
+						<li><code>temporary</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Temporary ban message or "reset"</span>
 	<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{modtag}</span></code>, <code><span class="tag-replacement">{modname}</span></code>, <code><span class="tag-replacement">{moduser}</span></code>, <code><span class="tag-replacement">{reason}</span></code>, <code><span class="tag-replacement">{duration}</span></code></div></li>
 						<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Ban message channel</span></li>
 						<li><code>ping</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ping users mentioned in the message?</span></li>
-						<li><code>reset</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Reset message to default?</span></li>
 					</ul>
 				</li>
 				<li><code class="subcommand-name">ban-verified</code>: <span class="subcommand-description">Extra announcement when verified users are banned</span>
 					<ul>
 						<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable for verified bans?</span></li>
-						<li><code>permanent</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Verified permanent ban message</span>
+						<li><code>permanent</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Verified permanent ban message or "reset"</span>
 	<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{modtag}</span></code>, <code><span class="tag-replacement">{modname}</span></code>, <code><span class="tag-replacement">{moduser}</span></code>, <code><span class="tag-replacement">{reason}</span></code></div></li>
-						<li><code>temporary</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Verified temporary ban message</span>
+						<li><code>temporary</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Verified temporary ban message or "reset"</span>
 	<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{modtag}</span></code>, <code><span class="tag-replacement">{modname}</span></code>, <code><span class="tag-replacement">{moduser}</span></code>, <code><span class="tag-replacement">{reason}</span></code>, <code><span class="tag-replacement">{duration}</span></code></div></li>
 						<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Verified ban channel</span></li>
 						<li><code>ping</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ping users mentioned in the message?</span></li>
-						<li><code>reset</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Reset message to default?</span></li>
 					</ul>
 				</li>
 				<li><code class="subcommand-name">unban</code>: <span class="subcommand-description">Announce when users are unbanned</span>
 					<ul>
 						<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable unban announcements?</span></li>
-						<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Unban message</span>
+						<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Unban message or "reset"</span>
 	<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{modtag}</span></code>, <code><span class="tag-replacement">{modname}</span></code>, <code><span class="tag-replacement">{moduser}</span></code></div></li>
 						<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Unban message channel</span></li>
 						<li><code>ping</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ping users mentioned in the message?</span></li>
-						<li><code>reset</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Reset message to default?</span></li>
 					</ul>
 				</li>
 				<li><code class="subcommand-name">unban-verified</code>: <span class="subcommand-description">Extra announcement when verified users are unbanned</span>
 					<ul>
 						<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable for verified unbans?</span></li>
-						<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Verified unban message</span>
+						<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Verified unban message or "reset"</span>
 	<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{modtag}</span></code>, <code><span class="tag-replacement">{modname}</span></code>, <code><span class="tag-replacement">{moduser}</span></code></div></li>
 						<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Verified unban channel</span></li>
 						<li><code>ping</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ping users mentioned in the message?</span></li>
-						<li><code>reset</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Reset message to default?</span></li>
 					</ul>
 				</li>
 				<li><code class="subcommand-name">kick</code>: <span class="subcommand-description">Announce when users are kicked</span>
 					<ul>
 						<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable kick announcements?</span></li>
-						<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Kick message</span>
+						<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Kick message or "reset"</span>
 	<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{modtag}</span></code>, <code><span class="tag-replacement">{modname}</span></code>, <code><span class="tag-replacement">{moduser}</span></code>, <code><span class="tag-replacement">{reason}</span></code></div></li>
 						<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Kick message channel</span></li>
 						<li><code>ping</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ping users mentioned in the message?</span></li>
-						<li><code>reset</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Reset message to default?</span></li>
 					</ul>
 				</li>
 				<li><code class="subcommand-name">kick-verified</code>: <span class="subcommand-description">Extra announcement when verified users are kicked</span>
 					<ul>
 						<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable for verified kicks?</span></li>
-						<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Verified kick message</span>
+						<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Verified kick message or "reset"</span>
 	<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{modtag}</span></code>, <code><span class="tag-replacement">{modname}</span></code>, <code><span class="tag-replacement">{moduser}</span></code>, <code><span class="tag-replacement">{reason}</span></code></div></li>
 						<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Verified kick channel</span></li>
 						<li><code>ping</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ping users mentioned in the message?</span></li>
-						<li><code>reset</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Reset message to default?</span></li>
 					</ul>
 				</li>
 				<li><code class="subcommand-name">timeout</code>: <span class="subcommand-description">Announce when users are timed out</span>
 					<ul>
 						<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable timeout announcements?</span></li>
-						<li><code>apply</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Timeout applied message</span>
+						<li><code>apply</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Timeout applied message or "reset"</span>
 	<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{modtag}</span></code>, <code><span class="tag-replacement">{modname}</span></code>, <code><span class="tag-replacement">{moduser}</span></code>, <code><span class="tag-replacement">{reason}</span></code>, <code><span class="tag-replacement">{expiresat}</span></code>, <code><span class="tag-replacement">{expiresin}</span></code></div></li>
-						<li><code>remove</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Timeout removed message</span>
+						<li><code>remove</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Timeout removed message or "reset"</span>
 	<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{modtag}</span></code>, <code><span class="tag-replacement">{modname}</span></code>, <code><span class="tag-replacement">{moduser}</span></code></div></li>
-						<li><code>expire</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Timeout expired message</span>
+						<li><code>expire</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Timeout expired message or "reset"</span>
 	<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code></div></li>
 						<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Timeout message channel</span></li>
 						<li><code>ping</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ping users mentioned in the message?</span></li>
-						<li><code>reset</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Reset message to default?</span></li>
 					</ul>
 				</li>
 				<li><code class="subcommand-name">timeout-verified</code>: <span class="subcommand-description">Extra announcement when verified users are timed out</span>
 					<ul>
 						<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable for verified timeouts?</span></li>
-						<li><code>apply</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Verified timeout applied message</span>
+						<li><code>apply</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Verified timeout applied message or "reset"</span>
 	<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{modtag}</span></code>, <code><span class="tag-replacement">{modname}</span></code>, <code><span class="tag-replacement">{moduser}</span></code>, <code><span class="tag-replacement">{reason}</span></code>, <code><span class="tag-replacement">{expiresat}</span></code>, <code><span class="tag-replacement">{expiresin}</span></code></div></li>
-						<li><code>remove</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Verified timeout removed message</span>
+						<li><code>remove</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Verified timeout removed message or "reset"</span>
 	<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{modtag}</span></code>, <code><span class="tag-replacement">{modname}</span></code>, <code><span class="tag-replacement">{moduser}</span></code></div></li>
-						<li><code>expire</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Verified timeout expired message</span>
+						<li><code>expire</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Verified timeout expired message or "reset"</span>
 	<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code></div></li>
 						<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Verified timeout channel</span></li>
 						<li><code>ping</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ping users mentioned in the message?</span></li>
-						<li><code>reset</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Reset message to default?</span></li>
 					</ul>
 				</li>
 				<li><code class="subcommand-name">verified</code>: <span class="subcommand-description">Announce when users become verified</span>
 					<ul>
 						<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable verified announcements?</span></li>
-						<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Verified message</span>
+						<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Verified message or "reset"</span>
 	<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code></div></li>
-						<li><code>rejoin-same-user</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Rejoin re-verify message (same name)</span>
+						<li><code>rejoin-same-user</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Rejoin re-verify message (same name) or "reset"</span>
 	<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code></div></li>
-						<li><code>rejoin-name-change</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Rejoin re-verify message (name change)</span>
+						<li><code>rejoin-name-change</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Rejoin re-verify message (name change) or "reset"</span>
 	<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{oldname}</span></code>, <code><span class="tag-replacement">{olduser}</span></code></div></li>
 						<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Verified message channel</span></li>
 						<li><code>ping</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ping users mentioned in the message?</span></li>
-						<li><code>reset</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Reset message to default?</span></li>
 					</ul>
 				</li>
 				<li><code class="subcommand-name">verified-secondary</code>: <span class="subcommand-description">Extra announcement when users become verified</span>
 					<ul>
 						<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable secondary verified announcements?</span></li>
-						<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Secondary verified message</span>
+						<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Secondary verified message or "reset"</span>
 	<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code></div></li>
-						<li><code>rejoin-same-user</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Secondary rejoin verify (same name)</span>
+						<li><code>rejoin-same-user</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Secondary rejoin verify (same name) or "reset"</span>
 	<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code></div></li>
-						<li><code>rejoin-name-change</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Secondary rejoin verify (name change)</span>
+						<li><code>rejoin-name-change</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Secondary rejoin verify (name change) or "reset"</span>
 	<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{oldname}</span></code>, <code><span class="tag-replacement">{olduser}</span></code></div></li>
 						<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Secondary verified channel</span></li>
 						<li><code>ping</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ping users mentioned in the message?</span></li>
-						<li><code>reset</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Reset message to default?</span></li>
 					</ul>
 				</li>
 				<li><code class="subcommand-name">jail</code>: <span class="subcommand-description">Announce when users are jailed or released</span>
 					<ul>
 						<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable jail announcements?</span></li>
-						<li><code>apply</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Jail applied message</span>
+						<li><code>apply</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Jail applied message or "reset"</span>
 	<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code></div></li>
-						<li><code>remove</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Jail released message</span>
+						<li><code>remove</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Jail released message or "reset"</span>
 	<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code></div></li>
 						<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Jail message channel</span></li>
 						<li><code>ping</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ping users mentioned in the message?</span></li>
-						<li><code>reset</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Reset message to default?</span></li>
 					</ul>
 				</li>
 				<li><code class="subcommand-name">jail-verified</code>: <span class="subcommand-description">Extra announcement for verified jail/release</span>
 					<ul>
 						<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable for verified jail?</span></li>
-						<li><code>apply</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Verified jail applied message</span>
+						<li><code>apply</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Verified jail applied message or "reset"</span>
 	<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code></div></li>
-						<li><code>remove</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Verified jail released message</span>
+						<li><code>remove</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Verified jail released message or "reset"</span>
 	<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code></div></li>
 						<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Verified jail channel</span></li>
 						<li><code>ping</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ping users mentioned in the message?</span></li>
-						<li><code>reset</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Reset message to default?</span></li>
 					</ul>
 				</li>
 				<li><code class="subcommand-name">jail-secondary</code>: <span class="subcommand-description">Extra announcement for jail/release</span>
 					<ul>
 						<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable secondary jail announcements?</span></li>
-						<li><code>apply</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Secondary jail applied message</span>
+						<li><code>apply</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Secondary jail applied message or "reset"</span>
 	<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code></div></li>
-						<li><code>remove</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Secondary jail released message</span>
+						<li><code>remove</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Secondary jail released message or "reset"</span>
 	<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code></div></li>
 						<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Secondary jail channel</span></li>
 						<li><code>ping</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ping users mentioned in the message?</span></li>
-						<li><code>reset</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Reset message to default?</span></li>
 					</ul>
 				</li>
 			</ul>
@@ -948,6 +1003,7 @@
 					<ul>
 						<li><code>role</code> <span class="arg-meta">(required, role)</span>: <span class="argument-description">Role that triggers the DM</span></li>
 						<li><code>message</code> <span class="arg-meta">(required, string)</span>: <span class="argument-description">Message to send</span></li>
+						<li><code>retroactive</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Apply retroactively?</span></li>
 					</ul>
 				</li>
 				<li><code class="subcommand-name">edit</code>: <span class="subcommand-description">Edit a role DM trigger</span>
@@ -1866,24 +1922,24 @@
 						</li>
 					</ul>
 				</li>
-				<li><code class="subcommand-name">advance</code>: <span class="subcommand-description">Level-up messages</span>
+				<li><code class="subcommand-name">advance</code>: <span class="subcommand-description">Level-up advance messages</span>
 					<ul>
-						<li><code class="subcommand-name">chat</code>: <span class="subcommand-description">Chat level-up message</span>
+						<li><code class="subcommand-name">chat</code>: <span class="subcommand-description">Chat level-up advance message</span>
 							<ul>
-								<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable level-up message?</span></li>
-								<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Level-up message text</span>
+								<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable chat advance message?</span></li>
+								<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Chat advance message</span>
 	<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{level}</span></code>, <code><span class="tag-replacement">{xp}</span></code>, <code><span class="tag-replacement">{xpneed}</span></code>, <code><span class="tag-replacement">{xpmiss}</span></code></div></li>
-								<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Target channel</span></li>
+								<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Channel for chat advance message</span></li>
 								<li><code>channel-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Limit to channel?</span></li>
 								<li><code>ping</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ping the user?</span></li>
 							</ul>
 						</li>
-						<li><code class="subcommand-name">voice</code>: <span class="subcommand-description">Voice level-up message</span>
+						<li><code class="subcommand-name">voice</code>: <span class="subcommand-description">Voice level-up advance message</span>
 							<ul>
-								<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable level-up message?</span></li>
-								<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Level-up message text</span>
+								<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable voice advance message?</span></li>
+								<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Voice advance message</span>
 	<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{level}</span></code>, <code><span class="tag-replacement">{xp}</span></code>, <code><span class="tag-replacement">{xpneed}</span></code>, <code><span class="tag-replacement">{xpmiss}</span></code></div></li>
-								<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Target channel</span></li>
+								<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Channel for voice advance message</span></li>
 								<li><code>channel-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Limit to channel?</span></li>
 								<li><code>ping</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ping the user?</span></li>
 							</ul>
@@ -1897,7 +1953,7 @@
 								<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable /level chat?</span></li>
 								<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Response message</span>
 	<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{level}</span></code>, <code><span class="tag-replacement">{xp}</span></code>, <code><span class="tag-replacement">{xpneed}</span></code>, <code><span class="tag-replacement">{xpmiss}</span></code>, <code><span class="tag-replacement">{rank}</span></code>, <code><span class="tag-replacement">{members}</span></code></div></li>
-								<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Target channel</span></li>
+								<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Channel for /level chat</span></li>
 								<li><code>channel-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Limit to channel?</span></li>
 								<li><code>ping</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ping the user?</span></li>
 								<li><code>ephemeral</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Send ephemerally?</span></li>
@@ -1908,7 +1964,7 @@
 								<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable /level voice?</span></li>
 								<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Response message</span>
 	<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{level}</span></code>, <code><span class="tag-replacement">{xp}</span></code>, <code><span class="tag-replacement">{xpneed}</span></code>, <code><span class="tag-replacement">{xpmiss}</span></code>, <code><span class="tag-replacement">{rank}</span></code>, <code><span class="tag-replacement">{members}</span></code></div></li>
-								<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Target channel</span></li>
+								<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Channel for /level voice</span></li>
 								<li><code>channel-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Limit to channel?</span></li>
 								<li><code>ping</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ping the user?</span></li>
 								<li><code>ephemeral</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Send ephemerally?</span></li>
@@ -1923,7 +1979,7 @@
 								<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable /rank chat?</span></li>
 								<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Response message</span>
 	<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{level}</span></code>, <code><span class="tag-replacement">{xp}</span></code>, <code><span class="tag-replacement">{xpneed}</span></code>, <code><span class="tag-replacement">{xpmiss}</span></code>, <code><span class="tag-replacement">{rank}</span></code>, <code><span class="tag-replacement">{members}</span></code></div></li>
-								<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Target channel</span></li>
+								<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Channel for /rank chat</span></li>
 								<li><code>channel-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Limit to channel?</span></li>
 								<li><code>ping</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ping the user?</span></li>
 								<li><code>ephemeral</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Send ephemerally?</span></li>
@@ -1934,7 +1990,7 @@
 								<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable /rank voice?</span></li>
 								<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Response message</span>
 	<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{level}</span></code>, <code><span class="tag-replacement">{xp}</span></code>, <code><span class="tag-replacement">{xpneed}</span></code>, <code><span class="tag-replacement">{xpmiss}</span></code>, <code><span class="tag-replacement">{rank}</span></code>, <code><span class="tag-replacement">{members}</span></code></div></li>
-								<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Target channel</span></li>
+								<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Channel for /rank voice</span></li>
 								<li><code>channel-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Limit to channel?</span></li>
 								<li><code>ping</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ping the user?</span></li>
 								<li><code>ephemeral</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Send ephemerally?</span></li>
@@ -1947,7 +2003,7 @@
 						<li><code class="subcommand-name">chat</code>: <span class="subcommand-description">/leaderboard chat settings</span>
 							<ul>
 								<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable /leaderboard chat?</span></li>
-								<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Target channel</span></li>
+								<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Channel for /leaderboard chat</span></li>
 								<li><code>channel-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Limit to channel?</span></li>
 								<li><code>ephemeral</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Send ephemerally?</span></li>
 								<li><code>ping</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ping the user?</span></li>
@@ -1956,7 +2012,7 @@
 						<li><code class="subcommand-name">voice</code>: <span class="subcommand-description">/leaderboard voice settings</span>
 							<ul>
 								<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable /leaderboard voice?</span></li>
-								<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Target channel</span></li>
+								<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Channel for /leaderboard voice</span></li>
 								<li><code>channel-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Limit to channel?</span></li>
 								<li><code>ephemeral</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Send ephemerally?</span></li>
 								<li><code>ping</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ping the user?</span></li>
@@ -2082,8 +2138,8 @@
 								<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Chat reward message</span>
 	<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{level}</span></code>, <code><span class="tag-replacement">{xp}</span></code>, <code><span class="tag-replacement">{xpneed}</span></code>, <code><span class="tag-replacement">{xpmiss}</span></code>, <code><span class="tag-replacement">{roletag}</span></code>, <code><span class="tag-replacement">{rolename}</span></code></div></li>
 								<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Channel for chat reward message</span></li>
-								<li><code>channel-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Limit message to selected channel?</span></li>
-								<li><code>ping</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ping the user in the chat promote message?</span></li>
+								<li><code>channel-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Limit to channel?</span></li>
+								<li><code>ping</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ping the user?</span></li>
 							</ul>
 						</li>
 						<li><code class="subcommand-name">voice</code>: <span class="subcommand-description">Voice role-reward promote message</span>
@@ -2092,8 +2148,8 @@
 								<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Voice reward message</span>
 	<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{level}</span></code>, <code><span class="tag-replacement">{xp}</span></code>, <code><span class="tag-replacement">{xpneed}</span></code>, <code><span class="tag-replacement">{xpmiss}</span></code>, <code><span class="tag-replacement">{roletag}</span></code>, <code><span class="tag-replacement">{rolename}</span></code></div></li>
 								<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Channel for voice reward message</span></li>
-								<li><code>channel-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Limit message to selected channel?</span></li>
-								<li><code>ping</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ping the user in the voice promote message?</span></li>
+								<li><code>channel-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Limit to channel?</span></li>
+								<li><code>ping</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ping the user?</span></li>
 							</ul>
 						</li>
 					</ul>
@@ -2960,6 +3016,21 @@
 			</ul>
 		</div>
 	</div>
+	<button class="back-to-top" type="button" aria-label="Back to top" title="Back to top">&#x2303;</button>
+	<script>
+		const backToTopButton = document.querySelector('.back-to-top');
+
+		function updateBackToTopButton() {
+			if (!backToTopButton) return;
+			backToTopButton.classList.toggle('is-visible', window.scrollY > 240);
+		}
+
+		updateBackToTopButton();
+		window.addEventListener('scroll', updateBackToTopButton, { passive: true });
+		backToTopButton?.addEventListener('click', () => {
+			window.scrollTo({ top: 0, behavior: 'smooth' });
+		});
+	</script>
 </body>
 
 </html>
