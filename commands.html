@@ -639,6 +639,52 @@
 		</div>
 
 		<div class="command-block">
+			<h3>/autoreact</h3>
+			<p><strong>Description:</strong> Automatically react with selected emojis in chosen channels</p>
+			<p><strong>Subcommands:</strong></p>
+			<ul>
+				<li><code class="subcommand-name">settings</code>: <span class="subcommand-description">Autoreact settings</span>
+					<ul>
+						<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable automatic reactions?</span></li>
+					</ul>
+				</li>
+					<li><code class="subcommand-name">add</code>: <span class="subcommand-description">Add an autoreact entry</span>
+						<ul>
+							<li><code>channel</code> <span class="arg-meta">(required, channel)</span>: <span class="argument-description">Channel to react in</span></li>
+							<li><code>emojis</code> <span class="arg-meta">(required, string)</span>: <span class="argument-description">Emojis separated by spaces or commas</span></li>
+						</ul>
+					</li>
+					<li><code class="subcommand-name">edit</code>: <span class="subcommand-description">Edit an existing autoreact entry</span>
+						<ul>
+							<li><code>channel</code> <span class="arg-meta">(required, string)</span>: <span class="argument-description">Channel entry to edit</span></li>
+							<li><code>new-channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Move this entry to another channel</span></li>
+							<li><code>emojis</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">New emojis separated by spaces or commas</span></li>
+						</ul>
+					</li>
+					<li><code class="subcommand-name">enable</code>: <span class="subcommand-description">Enable an individual autoreact entry</span>
+						<ul>
+							<li><code>channel</code> <span class="arg-meta">(required, string)</span>: <span class="argument-description">Channel entry to enable</span></li>
+						</ul>
+					</li>
+					<li><code class="subcommand-name">disable</code>: <span class="subcommand-description">Disable an individual autoreact entry</span>
+						<ul>
+							<li><code>channel</code> <span class="arg-meta">(required, string)</span>: <span class="argument-description">Channel entry to disable</span></li>
+						</ul>
+					</li>
+					<li><code class="subcommand-name">remove</code>: <span class="subcommand-description">Remove an autoreact entry</span>
+						<ul>
+							<li><code>channel</code> <span class="arg-meta">(required, string)</span>: <span class="argument-description">Channel entry to remove</span></li>
+						</ul>
+					</li>
+					<li><code class="subcommand-name">list</code>: <span class="subcommand-description">List all autoreact entries</span>
+						<ul>
+							<li><code>channel</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Specific channel to view</span></li>
+						</ul>
+					</li>
+			</ul>
+		</div>
+
+		<div class="command-block">
 			<h3>/automessage</h3>
 			<p><strong>Description:</strong> Recurring messages sent to channels at set intervals</p>
 			<p><strong>Subcommands:</strong></p>
@@ -2658,6 +2704,7 @@
 						<li><code>ephemeral</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ephemeral responses?</span></li>
 					</ul>
 				</li>
+				<li><code class="subcommand-name">list</code>: <span class="subcommand-description">List all registered birthdays</span></li>
 			</ul>
 		</div>
 
