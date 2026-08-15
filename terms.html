@@ -70,6 +70,27 @@
 
     h2 {
       color: #333333;
+      margin-top: 2.25rem;
+      scroll-margin-top: 1rem;
+    }
+
+    h3 {
+      color: #475569;
+      margin-top: 1.5rem;
+    }
+
+    a {
+      color: #4338ca;
+    }
+
+    a:hover {
+      text-decoration-thickness: 2px;
+    }
+
+    code {
+      background: #e2e8f0;
+      border-radius: 4px;
+      padding: 0.08rem 0.3rem;
     }
 
     .meta {
@@ -80,6 +101,66 @@
 
     .meta strong {
       font-size: 1.2rem;
+    }
+
+    .lede {
+      font-size: 1.05rem;
+      text-align: center;
+      margin: 0 auto 1.5rem;
+      max-width: 760px;
+    }
+
+    .summary,
+    .contents {
+      border: 1px solid #cbd5e1;
+      border-radius: 12px;
+      background: #ffffff;
+      padding: 1rem 1.25rem;
+      margin: 1.5rem 0;
+    }
+
+    .summary {
+      border-left: 5px solid #4f46e5;
+    }
+
+    .summary h2,
+    .contents h2 {
+      margin-top: 0;
+    }
+
+    .summary ul,
+    .contents ul {
+      margin-bottom: 0;
+    }
+
+    .contents ul {
+      columns: 2;
+      column-gap: 2rem;
+      padding-left: 1.25rem;
+    }
+
+    .contents li {
+      break-inside: avoid;
+      margin-bottom: 0.3rem;
+    }
+
+    section {
+      scroll-margin-top: 1rem;
+    }
+
+    @media (max-width: 640px) {
+      .title-container {
+        align-items: flex-start;
+      }
+
+      h1 {
+        font-size: 2rem;
+        line-height: 1.15;
+      }
+
+      .contents ul {
+        columns: 1;
+      }
     }
 
     .back-to-top {
@@ -134,63 +215,217 @@
     <h1>Hugo Terms of Service</h1>
   </div>
 
-  <p class="meta"><strong>Last updated:</strong> 05/04/2026</p>
+  <p class="meta"><strong>Effective and last updated:</strong> 08/15/2026</p>
 
-  <h2>1. Acceptance of Terms</h2>
-  <p>By inviting and using <strong>Hugo</strong> in your Discord server, or by interacting with Hugo in any server, you agree to these Terms of Service and our <a href="privacy.html">Privacy Policy</a>. If you do not agree, you must remove Hugo from your server or stop using its features.</p>
+  <main>
+    <p class="lede">These Terms govern intentional use of the official hosted Hugo Discord bot, public website, and web dashboard. They explain what users and server administrators may do, who is responsible for configured automation, and the limits of the service.</p>
 
-  <h2>2. Eligibility</h2>
-  <ul>
-    <li>You must comply with <a href="https://discord.com/terms">Discord's Terms of Service</a> and <a href="https://discord.com/guidelines">Community Guidelines</a>.</li>
-    <li>You must be at least 13 years old (or the minimum age required in your country).</li>
-  </ul>
+    <div class="summary">
+      <h2>At a Glance</h2>
+      <ul>
+        <li>When interacting through Discord or signing in to the dashboard, use only your own Discord account and comply with Discord's rules and applicable law. Invite or configure Hugo only in servers you are authorized to manage.</li>
+        <li>Server administrators control Hugo's permissions, logging, and automation. They remain responsible for configuration, moderation decisions, required notices, and human review.</li>
+        <li>You keep your rights in content you submit, while giving Hugo the limited permission needed to store, format, send, display, and otherwise process it for the features you request.</li>
+        <li>Premium access can depend on the current server owner's entitlement and a limited trial. Patreon and its payment providers control payment processing; Hugo does not request or obtain payment-card details from Patreon for billing.</li>
+        <li>Hugo is provided as is and depends heavily on Discord and other services. Automated or scheduled actions can be delayed, duplicated, incomplete, or fail.</li>
+      </ul>
+    </div>
 
-  <h2>3. Usage Rules</h2>
-  <ul>
-    <li>You may not use Hugo for illegal, harmful, or abusive purposes.</li>
-    <li>You may not attempt to exploit, disrupt, or reverse engineer Hugo.</li>
-    <li>You may not abuse Hugo's features (e.g., spamming commands, automating interactions, or circumventing rate limits or cooldowns).</li>
-    <li>Hugo may be removed from your server, or your access to specific features may be restricted, at any time for violations.</li>
-  </ul>
+    <nav class="contents" aria-label="Terms of service contents">
+      <h2>Contents</h2>
+      <ul>
+        <li><a href="#scope">Scope and Acceptance</a></li>
+        <li><a href="#eligibility">Eligibility and Authority</a></li>
+        <li><a href="#use">Acceptable Use</a></li>
+        <li><a href="#content">Submitted Content</a></li>
+        <li><a href="#administration">Server Administration</a></li>
+        <li><a href="#dashboard">Dashboard and Account Security</a></li>
+        <li><a href="#premium">Premium, Trials and Billing</a></li>
+        <li><a href="#third-parties">Third-Party Services</a></li>
+        <li><a href="#privacy">Privacy and Data</a></li>
+        <li><a href="#availability">Availability and Service Changes</a></li>
+        <li><a href="#termination">Suspension and Termination</a></li>
+        <li><a href="#disclaimers">Disclaimers</a></li>
+        <li><a href="#liability">Limitation of Liability</a></li>
+        <li><a href="#changes">Changes to These Terms</a></li>
+        <li><a href="#general">General Terms</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
 
-  <h2>4. User-Submitted Content</h2>
-  <ul>
-    <li>Content you submit through Hugo's features (such as confessions, suggestions, QOTD pitches, reminders, autoresponse text, and announcement templates) is your responsibility. Do not submit content that is illegal, harmful, or violates Discord's guidelines.</li>
-    <li>Confessions are posted anonymously, but server moderators may be able to reveal the author using Hugo's moderation tools.</li>
-    <li>Hugo does not moderate or filter user-submitted content. Server administrators are responsible for moderating their own servers.</li>
-  </ul>
+    <section id="scope">
+      <h2>1. Scope and Acceptance</h2>
+      <p>These Terms of Service are an agreement between you and Hugo's owner/operator (the <strong>Operator</strong>). <strong>Hugo</strong> or the <strong>Service</strong> means the official hosted Hugo Discord bot, its public pages, and its web dashboard. A separately self-hosted copy of Hugo's source code is governed by its applicable source-code license and the terms chosen by that copy's operator.</p>
+      <p>These Terms apply when you intentionally use Hugo, including by inviting or configuring it, signing in to the dashboard, submitting a command or component interaction, or asking Hugo to process content. By continuing that intentional use after these Terms are made available, you agree to them. The <a href="/privacy">Privacy Policy</a> is incorporated into these Terms and explains data processing.</p>
+      <p>Merely being a member of a server where administrators have enabled Hugo is not treated here as your affirmative acceptance of every optional feature. If you do not agree, do not intentionally interact with Hugo, ask the server's administrators about their configuration, and do not sign in to the dashboard. An authorized administrator may remove Hugo, but removal does not itself erase stored data or cancel a third-party subscription.</p>
+    </section>
 
-  <h2>5. Server Administration</h2>
-  <ul>
-    <li>Server administrators are responsible for configuring Hugo appropriately for their community.</li>
-    <li>Hugo provides moderation tools (such as warnings, account age and role-based kicks, verification, group permissions, message deletion, and logging) as aids. Hugo's owner is not responsible for how these tools are used.</li>
-    <li>When logging is enabled, Hugo may post server event details (message edits/deletes, member changes, etc.) to your configured log channels. Administrators are responsible for restricting access to log channels appropriately.</li>
-  </ul>
+    <section id="eligibility">
+      <h2>2. Eligibility and Authority</h2>
+      <ul>
+        <li>You may interact with Hugo through Discord or sign in to its dashboard only if Discord permits you to use Discord, you are at least 13 years old, and you meet any higher minimum age required by Discord or applicable law, whichever is higher.</li>
+        <li>If you have not reached the age of legal majority where you live, your parent or legal guardian must review and agree to these Terms on your behalf and provide any permission or supervision required by applicable law.</li>
+        <li>You must comply with <a href="https://discord.com/terms" target="_blank" rel="noopener noreferrer">Discord's Terms of Service</a>, <a href="https://discord.com/guidelines" target="_blank" rel="noopener noreferrer">Community Guidelines</a>, and any other Discord rules that apply to your account, server, content, or use of apps.</li>
+        <li>You may invite, configure, or authorize Hugo for a server only if you have the server owner's permission and the required Discord permissions. If you configure Hugo for a server or organization, you represent that you are authorized to make those configuration choices. If you explicitly accept these Terms on an organization's behalf, you also represent that you have authority to bind that organization; otherwise, you accept them only for yourself.</li>
+      </ul>
+    </section>
 
-  <h2>6. Dashboard</h2>
-  <p>The web dashboard uses Discord OAuth2 to authenticate you. By logging in, you authorize Hugo to access your Discord user ID and server list for the purpose of managing Hugo's settings. Session data is stored locally and is not shared with third parties.</p>
+    <section id="use">
+      <h2>3. Acceptable Use</h2>
+      <p>You may not use Hugo, its dashboard, or its outputs to:</p>
+      <ul>
+        <li>Break the law, violate Discord's rules, infringe intellectual-property or privacy rights, or facilitate conduct that another person could not lawfully perform directly.</li>
+        <li>Harass, threaten, stalk, exploit, discriminate against, defraud, or dox anyone; expose private information without authority; or create, distribute, or facilitate child sexual abuse material, non-consensual intimate content, or other unlawful sexual content.</li>
+        <li>Spam, raid, scam, phish, distribute malware, manipulate engagement or server statistics, evade Discord or Hugo enforcement, or impersonate Hugo, the Operator, another person, or an organization deceptively.</li>
+        <li>Use self-bots, scripts, coordinated accounts, or other automation to overload Hugo, manufacture interactions, bypass permissions, evade rate limits or cooldowns, farm trials, or obtain an unfair or unauthorized result.</li>
+        <li>Probe, exploit, or bypass the official hosted Service's security; access non-public systems or another user's or server's data; extract credentials or secrets; interfere with service operation; or test hosted infrastructure without prior authorization.</li>
+        <li>Submit malicious, deceptive, or unauthorized URLs, files, embeds, attachments, or media, or cause Hugo or Discord to fetch or distribute content you are not entitled to use.</li>
+        <li>Use moderation, logging, member tracking, role, DM, message, or scheduling features without the authority, notices, permissions, or consents required for your server and jurisdiction.</li>
+      </ul>
+      <p>An applicable source-code license or law may separately permit you to inspect, modify, or test a copy of source code you control. It does not authorize access to, or security testing of, the official hosted Service or another person's systems without permission.</p>
+      <p>Do not submit passwords, authentication tokens, private keys, payment-card data, medical records, government identifiers, or other secrets or highly sensitive information to Hugo. Hugo is not designed as an emergency service or a secure vault.</p>
+    </section>
 
-  <h2>7. Premium Features</h2>
-  <p>Some features may require a patron subscription. Premium status may be verified periodically. Features, pricing, and availability of premium tiers may change at any time.</p>
+    <section id="content">
+      <h2>4. Submitted Content and Intellectual Property</h2>
+      <p><strong>Submitted Content</strong> means text, commands, configuration, templates, embeds, URLs, media, attachments, names, moderation reasons, QOTD pitches, confessions, suggestions, reminders, announcements, autoresponses, automessages, role DMs, and other material that you deliberately provide to Hugo. <strong>Processed Content</strong> means ordinary Discord messages, attachments, profile details, and other Discord data that a server-configured feature makes available to Hugo without the affected member deliberately submitting it to Hugo.</p>
+      <ul>
+        <li>You retain whatever rights you already hold in Submitted Content. For Submitted Content that you deliberately provide, you represent that you have the rights, authority, and permissions needed to submit it and have Hugo process or publish it as configured.</li>
+        <li>For that Submitted Content, you grant the Operator and necessary service providers a limited, non-exclusive, worldwide, royalty-free permission to host, cache, copy, reformat, resize, convert, transmit, display, repost, edit, and delete it only as reasonably needed to provide, maintain, secure, and troubleshoot the requested feature, follow the applicable configuration, comply with law, and enforce these Terms.</li>
+        <li>Server-configured features can inspect, filter, copy, transform, log, or repost Processed Content, including ordinary messages and attachments, as described in the Privacy Policy. This disclosure does not claim that an administrator owns or can license another member's content.</li>
+        <li>The operational permission for Submitted Content ends when that content is deleted from Hugo's live systems, except for copies that remain on Discord, in logs or backups, with a third-party provider, or for a lawful retention reason described in the Privacy Policy.</li>
+        <li>Content sent to a server channel, direct message, configured log, feed, or remote provider is not confidential merely because Hugo handled it. Check the destination and its audience before submitting content.</li>
+        <li>A confession or anonymous suggestion may omit your identity from the public post, but it is not confidential or untraceable. Hugo stores an author mapping; users authorized to run <code>/reveal</code>&mdash;by default, users with Manage Server&mdash;can reveal an author, and configured Discord logs can include the author and submitted text.</li>
+        <li>The Operator does not independently pre-screen every submission. Server-configured AutoMod, honeypot, filtering, logging, and moderation rules can nevertheless inspect, block, delete, repost, or act on content automatically.</li>
+        <li>The Hugo name, branding, hosted pages, and service materials remain the property of the Operator or applicable licensors. Nothing in these Terms overrides rights granted by an applicable open-source license or third-party license.</li>
+      </ul>
+    </section>
 
-  <h2>8. Data</h2>
-  <p>Hugo collects and stores data as described in our <a href="privacy.html">Privacy Policy</a>. By using Hugo, you consent to this data collection. You may request deletion of your server's data by contacting Hugo's owner.</p>
+    <section id="administration">
+      <h2>5. Server Administration and Automated Actions</h2>
+      <p>By enabling a feature, server administrators instruct Hugo to perform the configured actions. Depending on permissions and settings, Hugo can read, filter, delete, repost, or log messages; send direct messages; assign or remove roles; create or edit channels and threads; change Hugo's server-specific nickname; issue warnings; time out, kick, or ban members; restore state; and schedule later actions without a separate human confirmation each time.</p>
+      <ul>
+        <li>Administrators are responsible for choosing appropriate settings, granting only necessary Discord permissions, respecting role hierarchy, testing automation, reviewing results, and keeping authorized access current.</li>
+        <li>Administrators must provide any notices and obtain any permissions or consents required for message logging, moderation, birthdays, account-age checks, member activity, anonymous submissions, DMs, or other configured processing.</li>
+        <li>Log channels may contain deleted or edited messages, attachments, member identity, moderation reasons, failed CAPTCHA submissions and expected answers, or other sensitive server information. Administrators must restrict access appropriately and manage deletion or retention to the extent Discord's permissions and features allow.</li>
+        <li>Automated moderation can produce false positives and false negatives. Missing permissions, role hierarchy, stale or incomplete Discord data, conflicting settings, rate limits, outages, or later configuration changes can cause actions to be delayed, duplicated, incomplete, or fail.</li>
+        <li>Server administrators, not the Operator, make and enforce their community rules and remain responsible for reviewing disputed outcomes, handling member appeals, and deciding whether a moderation action should stand.</li>
+        <li>Hugo is an administrative aid, not a substitute for human judgment, active moderation, legal compliance, safeguarding procedures, emergency response, or independent records and backups.</li>
+      </ul>
+    </section>
 
-  <h2>9. Availability</h2>
-  <p>Hugo is provided "as is" without guarantees of uptime, reliability, or support. Features may change or be discontinued at any time without notice.</p>
+    <section id="dashboard">
+      <h2>6. Dashboard and Account Security</h2>
+      <ul>
+        <li>The dashboard uses Discord OAuth. Management access requires that Discord report you as the server owner or as having Administrator or Manage Server permission. Details about OAuth scopes, session files, cookies, cached account/server data, and security logs are in the <a href="/privacy">Privacy Policy</a>.</li>
+        <li>Use only your own Discord account. Keep that account, its recovery methods, your device, and your dashboard session secure. Do not share session cookies, OAuth credentials, access tokens, or authenticated browser access.</li>
+        <li>Log out after using a shared or untrusted device. Tell the Operator promptly if you reasonably believe an unauthorized person used your dashboard session or changed Hugo's settings.</li>
+        <li>Dashboard actions can be attributed to the signed-in Discord account in security or server logs. Actions reasonably attributable to an account or session you authorized are treated as your actions, subject to these Terms and applicable law.</li>
+        <li>A dashboard permission check does not replace the server owner's own access-management responsibilities. Discord permission or ownership changes can revoke access or take time to appear.</li>
+      </ul>
+    </section>
 
-  <h2>10. Liability</h2>
-  <p>Hugo's owner is not responsible for any damages, losses, or issues arising from use of Hugo, including but not limited to data loss, misconfigured moderation actions, or service interruptions.</p>
+    <section id="premium">
+      <h2>7. Premium Access, Trials and Billing</h2>
+      <ul>
+        <li>Some commands, event handlers, dashboard controls, or higher limits require premium access. Eligibility is currently associated with the Discord server owner's qualifying subscriber or other entitlement status, not the individual administrator invoking a feature. An owner-scoped paid entitlement can apply to multiple servers owned by that Discord account, while a server ownership change can affect access.</li>
+        <li>Hugo periodically verifies entitlement status and can cache the last known result. Activation or loss of access may not be immediate, and a temporary Discord or verification failure can delay an update.</li>
+        <li>Trial access uses one owner-level timer and one server-level timer. Each can start only once and then runs continuously for 30 days. A qualifying check while Hugo's last-known status does not show paid or permanent access starts any still-unused timer, and trial access remains only while both timers are less than 30 days old. Because live role refresh happens in the background for a later check, newly qualified access that has not yet been recognized can start or consume those timers. Each server keeps its own one-time server timer, so transferring ownership does not reset that timer; the new owner brings that owner's separate one-time timer. Likewise, another server has its own server timer but does not reset its owner's timer. The separate start dates can give a server less than 30 days. A trial does not pause, require payment details, or convert into an automatic charge.</li>
+        <li>Premium access can be obtained through <a href="https://patreon.com/HugoBot" target="_blank" rel="noopener noreferrer">Hugo's Patreon page</a>. For ordinary subscriber access, Hugo recognizes the current server owner's qualifying role in Hugo's configured supporter Discord server; an Operator-set permanent override can also grant access. A Patreon payment alone may not be recognized until the correct Discord account has the qualifying role. Patreon and its payment providers handle checkout, recurring billing, account cancellation controls, and related payment processing. Refund eligibility can depend on the offer, the Operator, <a href="https://www.patreon.com/policy/legal" target="_blank" rel="noopener noreferrer">Patreon's terms and policies</a>, applicable payment-provider rules, and law.</li>
+        <li>Removing Hugo, leaving a server, changing ownership, or no longer using a premium feature does not cancel a Patreon membership. Cancel it through the provider. Conversely, cancelling or losing a qualifying entitlement can stop premium-gated automation without erasing its saved configuration or other stored data.</li>
+        <li>Premium features, limits, eligibility methods, and prices can change prospectively, subject to any offer-specific terms and applicable law. Nothing in these Terms limits refund or cancellation rights that applicable law does not allow the Operator or provider to exclude.</li>
+      </ul>
+    </section>
 
-  <h2>11. Changes to Terms</h2>
-  <p>These terms may be updated at any time. Continued use of Hugo after changes constitutes acceptance of the updated terms.</p>
+    <section id="third-parties">
+      <h2>8. Third-Party Services and Links</h2>
+      <p>Hugo depends on or links to services including Discord, Patreon, Twitch, YouTube, Tenor, The Cat API, GitHub when remote backups are configured, bot-listing services, Discord's CDN, and remote hosts selected through user-supplied URLs. The <a href="/privacy">Privacy Policy</a> explains what data can be sent to them.</p>
+      <ul>
+        <li>Each provider's own terms, privacy policy, content rules, account requirements, rate limits, and availability apply to its service. Hugo does not control those providers, and no affiliation with or endorsement by them is claimed unless explicitly stated.</li>
+        <li>Provider outages, API or policy changes, removed content, expired credentials, authorization failures, geographic restrictions, or rate limits can disable or change a Hugo feature without warning.</li>
+        <li>When you configure a public channel, account, feed, image, attachment, or other remote URL, you authorize Hugo to make the requests reasonably needed for that feature and represent that Hugo is permitted to fetch and use the resource.</li>
+        <li>The Operator does not control third-party content, security, data retention, or independent actions. Responsibility for purchases remains subject to the applicable offer, provider terms, these Terms, and law. A link or fetched result is not an endorsement or guarantee.</li>
+      </ul>
+    </section>
 
-  <h2>12. Contact</h2>
-  <p>For questions or issues, contact: <strong>glefs</strong> on Discord</p>
+    <section id="privacy">
+      <h2>9. Privacy and Data</h2>
+      <p>The <a href="/privacy">Privacy Policy</a> explains what Hugo processes, where data can be sent, dashboard sessions and cookies, retention, backups, security limitations, and how to make an applicable access, correction, or deletion request. Using Hugo does not replace any separate notice, permission, or consent required by applicable law.</p>
+      <ul>
+        <li>If you configure Hugo to process another person's data, you are responsible for having the authority and providing any notice or choice required for that use.</li>
+        <li>Removing Hugo from a server, leaving a server, blocking the bot, cancelling premium, or disabling a feature does not necessarily delete stored settings, member records, Discord messages, logs, backups, dashboard sessions, or patron records.</li>
+        <li>A successful logout destroys the current server-side dashboard session and clears its cookie. A failed logout can leave them in place until a later successful logout or expiry. Logging out does not delete bot records, and other separately authenticated sessions can remain until they are logged out, expire, or are otherwise destroyed.</li>
+        <li>Deletion and access requests can require proof of identity or server authority and remain subject to the scopes, backup windows, Discord-hosted copies, third-party retention, and legal exceptions described in the Privacy Policy.</li>
+      </ul>
+    </section>
+
+    <section id="availability">
+      <h2>10. Availability and Service Changes</h2>
+      <ul>
+        <li>Hugo is provided without an uptime, response-time, restoration, support, or service-level guarantee. Maintenance, bugs, host failures, Discord outages, rate limits, revoked permissions, and third-party failures can interrupt it.</li>
+        <li>Commands, moderation, logging, reminders, scheduled messages or actions, birthdays, awards, feeds, backups, and other automation can be delayed, duplicated, incomplete, missed, or fail entirely. Do not rely on Hugo for emergencies, legal deadlines, immediate safety intervention, or your only copy of important information.</li>
+        <li>The Operator may add, change, limit, suspend, or discontinue features, integrations, commands, limits, or supported environments for security, reliability, legal, platform, cost, or product reasons, subject to applicable law and offer-specific commitments.</li>
+        <li>Hugo can enforce technical limits, cooldowns, quotas, payload limits, and anti-abuse controls, even if a lower limit was not previously reached.</li>
+        <li>The Operator may provide support but does not promise a response or resolution within a particular period.</li>
+      </ul>
+    </section>
+
+    <section id="termination">
+      <h2>11. Suspension and Termination</h2>
+      <p>The Operator may restrict a user, server, feature, dashboard session, trial, or entitlement; refuse a request; or remove Hugo when reasonably necessary to address a Terms violation, abuse, fraud, security threat, legal or Discord requirement, loss of required third-party access, operational risk, or harm to the Service or others. Urgent action may occur without advance notice.</p>
+      <p>You can stop intentionally interacting with Hugo, log out of the dashboard, ask an authorized administrator to disable a feature or remove Hugo, and separately cancel any third-party subscription. An Operator restriction, suspension, or removal does not itself cancel recurring Patreon billing; use the provider's controls to cancel it. Mandatory refund and consumer rights remain unaffected. If you believe Operator enforcement was mistaken, contact the support server with the relevant user/server ID and context; review does not guarantee restoration.</p>
+      <p>Ending use does not automatically erase data or Discord-hosted content. Sections that by their nature must continue&mdash;including the limited permissions needed for copies retained under Section 4, payment or refund obligations that have already arisen under an applicable offer or provider terms, disclaimers, liability limits, data retention, and general terms&mdash;survive termination to the extent permitted by law.</p>
+    </section>
+
+    <section id="disclaimers">
+      <h2>12. Disclaimers</h2>
+      <p>To the maximum extent permitted by applicable law, Hugo is provided <strong>"as is"</strong> and <strong>"as available"</strong>. The Operator disclaims implied warranties of merchantability, fitness for a particular purpose, non-infringement, and any warranty arising from course of dealing or usage of trade.</p>
+      <p>The Operator does not warrant that Hugo will be uninterrupted, secure, accurate, compatible, error-free, or suitable for a particular server; that content or external results are lawful or reliable; that moderation will catch every violation or avoid every false positive; that scheduled actions or backups will complete; or that lost configuration or data can be recovered.</p>
+      <p>Nothing in these Terms excludes a warranty, remedy, or statutory consumer right that cannot lawfully be excluded.</p>
+    </section>
+
+    <section id="liability">
+      <h2>13. Limitation of Liability</h2>
+      <p>To the maximum extent permitted by applicable law, the Operator is not liable for indirect, incidental, special, consequential, exemplary, or punitive damages, or for lost data, content, access, revenue, profits, reputation, opportunities, or expected savings arising from or related to Hugo.</p>
+      <p>This limitation includes losses arising from server configuration, automated moderation, role or permission changes, user-submitted or third-party content, Discord actions, account compromise outside the Operator's reasonable control, missed or duplicate notifications, failed scheduled actions, service interruption, data loss, or third-party services.</p>
+      <p>You remain responsible for your own content, instructions, server configuration, legal compliance, and misuse of Hugo. Nothing in these Terms limits or excludes liability where doing so would be unlawful.</p>
+    </section>
+
+    <section id="changes">
+      <h2>14. Changes to These Terms</h2>
+      <p>The Operator may revise these Terms when Hugo's features, risks, providers, business model, or legal obligations change. Unless a revision states a later date, the effective date is the date displayed at the top. Where reasonably practicable, notice of material changes may be provided through the Service or support server; notice will be provided where applicable law requires it.</p>
+      <p>Changes apply from their effective date. Your continued intentional use after that date means you accept the revised Terms. If you do not agree, stop using Hugo, ask an authorized administrator to remove or disable it as appropriate, and separately cancel any third-party subscription you no longer want.</p>
+    </section>
+
+    <section id="general">
+      <h2>15. General Terms</h2>
+      <ul>
+        <li>These Terms, the Privacy Policy, and any offer-specific terms expressly presented at purchase form the agreement governing the official hosted Service. Third-party provider terms remain separate and can also apply.</li>
+        <li>If a provision is found unenforceable, it will be limited or removed only to the minimum extent necessary, and the remaining provisions continue.</li>
+        <li>A failure to enforce a provision once is not a waiver of the right to enforce it later.</li>
+        <li>Section titles are for readability and do not change the meaning of these Terms.</li>
+        <li>Nothing here creates an employment, agency, partnership, franchise, fiduciary, or joint-venture relationship between you and the Operator.</li>
+        <li>If these Terms conflict with the Privacy Policy about how personal data is processed, the Privacy Policy controls that issue. Mandatory law controls wherever it cannot validly be changed by agreement.</li>
+      </ul>
+    </section>
+
+    <section id="contact">
+      <h2>16. Contact</h2>
+      <p>For questions, enforcement reviews, billing-access problems, or other issues, contact <strong>glefs</strong> on Discord or use Hugo's <a href="https://discord.gg/WNZVCcjh6a" target="_blank" rel="noopener noreferrer">support server</a>. For a Patreon charge, cancellation, or provider refund request, you may also need to use Patreon or the applicable payment provider's support and account controls.</p>
+    </section>
+  </main>
 
   <button class="back-to-top" type="button" aria-label="Back to top" title="Back to top">&#x2303;</button>
   <script>
+    const pageLogo = document.querySelector('.logo');
     const backToTopButton = document.querySelector('.back-to-top');
+
+    if (pageLogo?.complete && pageLogo.naturalWidth === 0) {
+      pageLogo.hidden = true;
+    }
+    pageLogo?.addEventListener('error', () => {
+      pageLogo.hidden = true;
+    }, { once: true });
 
     function updateBackToTopButton() {
       if (!backToTopButton) return;
