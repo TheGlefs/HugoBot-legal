@@ -241,6 +241,10 @@
 		<div class="command-block">
 			<h3>/setup</h3>
 			<p><strong>Description:</strong> Run the bot setup process</p>
+			<p><strong>Options:</strong></p>
+			<ul>
+				<li><code>step</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Resume from a specific step (1-11)</span></li>
+			</ul>
 		</div>
 
 		<div class="command-block">
@@ -1375,8 +1379,8 @@
 					<ul>
 						<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable the starboard?</span></li>
 						<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Channel to use as the starboard</span></li>
-						<li><code>stars</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">How many stars messages need</span></li>
-						<li><code>mod-stars</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Stars needed from moderators</span></li>
+						<li><code>stars</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">How many stars messages need (1-100)</span></li>
+						<li><code>mod-stars</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Stars needed from moderators (1-100)</span></li>
 						<li><code>thread-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable starboard threads?</span></li>
 						<li><code>thread-title</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Title of the threads</span></li>
 						<li><code>thread-message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Message to send in new threads</span></li>
@@ -1389,7 +1393,7 @@
 						<li><code>embed-footer</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Footer text on the embed</span></li>
 						<li><code>embed-footer-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Show the embed footer?</span></li>
 						<li><code>credit</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Show original author on posts?</span></li>
-						<li><code>emoji</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Star emoji (default: ⭐)</span></li>
+						<li><code>emoji</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Star emoji (default: star)</span></li>
 						<li><code>min-chat-level</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min chat level</span></li>
 						<li><code>min-voice-level</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min voice level</span></li>
 					</ul>
@@ -1397,7 +1401,7 @@
 				<li><code class="subcommand-name">add</code>: <span class="subcommand-description">Add a keyword that sends a reply to the starboard</span>
 					<ul>
 						<li><code>keyword</code> <span class="arg-meta">(required, string)</span>: <span class="argument-description">The trigger keyword</span></li>
-						<li><code>exact</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Match full reply only? (default: true)?</span></li>
+						<li><code>exact</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Match full reply only? (default: true)</span></li>
 					</ul>
 				</li>
 				<li><code class="subcommand-name">remove</code>: <span class="subcommand-description">Remove a keyword from the starboard triggers</span>
@@ -1425,7 +1429,7 @@
 				<li><code class="subcommand-name">quotes</code>: <span class="subcommand-description">/quotes settings</span>
 					<ul>
 						<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable /quotes?</span></li>
-						<li><code>cooldown</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Cooldown (seconds)</span></li>
+						<li><code>cooldown</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Cooldown (0-86400 seconds)</span></li>
 						<li><code>min-level-chat</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min chat level</span></li>
 						<li><code>min-level-voice</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Min voice level</span></li>
 						<li><code>booster-only</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Booster only?</span></li>
@@ -1569,7 +1573,7 @@
 					<ul>
 						<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable kicking users with forbidden roles?</span></li>
 						<li><code>ban</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ban instead of kick?</span></li>
-						<li><code>reason</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Reason provided when kicking</span></li>
+						<li><code>reason</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Reason provided when kicking or banning</span></li>
 					</ul>
 				</li>
 				<li><code class="subcommand-name">add</code>: <span class="subcommand-description">Add forbidden role</span>
@@ -1691,7 +1695,7 @@
 			<p><strong>Options:</strong></p>
 			<ul>
 				<li><code>user</code> <span class="arg-meta">(required, user)</span>: <span class="argument-description">User to time out</span></li>
-				<li><code>duration</code> <span class="arg-meta">(required, string)</span>: <span class="argument-description">Timeout duration (e.g. 10m, 1h 30m, 7d)</span></li>
+				<li><code>duration</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Duration for a new timeout; omit to remove one</span></li>
 				<li><code>reason</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Reason for the timeout</span></li>
 			</ul>
 		</div>
@@ -1706,9 +1710,9 @@
 				<li><code>timeframe</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Only delete messages within this period (e.g. 2h, 3d, 1w)</span></li>
 				<li><code>amount</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Max messages to delete</span></li>
 				<li><code>include-replies</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Also delete direct replies to the target?</span></li>
-				<li><code>include-contiguous</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Also delete adjacent messages from the same replier? (requires include-replies)?</span></li>
-				<li><code>from</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Delete this message ID/URL and everything older </span></li>
-				<li><code>until</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Delete from newest up to and including this message ID/URL</span></li>
+				<li><code>include-contiguous</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Also delete adjacent messages from the same replier? Requires include-replies.</span></li>
+				<li><code>from</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Delete this message and everything older (exclusive with until)</span></li>
+				<li><code>until</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Delete newest messages through this message (exclusive with from)</span></li>
 			</ul>
 		</div>
 
@@ -1794,7 +1798,7 @@
 				</li>
 				<li><code class="subcommand-name">quotes</code>: <span class="subcommand-description">Toggle block a user from /quotes</span>
 					<ul>
-						<li><code>user</code> <span class="arg-meta">(required, user)</span>: <span class="argument-description">The user to block or unblock</span></li>
+						<li><code>user</code> <span class="arg-meta">(required, user)</span>: <span class="argument-description">User to block or unblock</span></li>
 					</ul>
 				</li>
 				<li><code class="subcommand-name">rep</code>: <span class="subcommand-description">Toggle block a user from /rep</span>
@@ -1827,9 +1831,9 @@
 						<li><code>user</code> <span class="arg-meta">(required, user)</span>: <span class="argument-description">User to block or unblock</span></li>
 					</ul>
 				</li>
-				<li><code class="subcommand-name">list</code>: <span class="subcommand-description">List blocked users for a fun command</span>
+				<li><code class="subcommand-name">list</code>: <span class="subcommand-description">List blocked users for a supported command</span>
 					<ul>
-						<li><code>command</code> <span class="arg-meta">(required, string)</span>: <span class="argument-description">Command to list blocked users for</span></li>
+						<li><code>command</code> <span class="arg-meta">(required, string)</span>: <span class="argument-description">Supported command to list blocked users for</span></li>
 					</ul>
 				</li>
 			</ul>
@@ -1837,18 +1841,18 @@
 
 		<div class="command-block">
 			<h3>/purge</h3>
-			<p><strong>Description:</strong> Kick or ban members who don&#039;t have a role reward</p>
+			<p><strong>Description:</strong> Kick or ban members by reward role, inactivity, or XP</p>
 			<p><strong>Options:</strong></p>
 			<ul>
 				<li><code>reward-role</code> <span class="arg-meta">(optional, role)</span>: <span class="argument-description">Kick/ban members below this reward role (or without any)</span></li>
-				<li><code>inactive</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Kick/ban members inactive for this duration (e.g. 2w, 30d)</span></li>
+				<li><code>inactive</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Kick/ban members with no messages for this duration (e.g. 2w, 30d)</span></li>
 				<li><code>xp</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Kick/ban members below this XP amount</span></li>
 				<li><code>grace</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Skip members who joined within this period (default: 1d)</span></li>
 				<li><code>immune</code> <span class="arg-meta">(optional, role)</span>: <span class="argument-description">Skip members with this role</span></li>
-				<li><code>immune-rank</code> <span class="arg-meta">(optional, role)</span>: <span class="argument-description">Skip members at or above this reward role (use with inactive)</span></li>
+				<li><code>immune-rank</code> <span class="arg-meta">(optional, role)</span>: <span class="argument-description">Skip members at or above this reward role</span></li>
 				<li><code>reason</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Reason for the kick/ban</span></li>
 				<li><code>ban</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ban instead of kick?</span></li>
-				<li><code>pool</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">XP pool for filters (default: chat)</span></li>
+				<li><code>pool</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">XP/reward pool for filters (default: chat)</span></li>
 			</ul>
 		</div>
 

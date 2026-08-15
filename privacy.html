@@ -70,6 +70,27 @@
 
     h2 {
       color: #333333;
+      margin-top: 2.25rem;
+      scroll-margin-top: 1rem;
+    }
+
+    h3 {
+      color: #475569;
+      margin-top: 1.5rem;
+    }
+
+    a {
+      color: #4338ca;
+    }
+
+    a:hover {
+      text-decoration-thickness: 2px;
+    }
+
+    code {
+      background: #e2e8f0;
+      border-radius: 4px;
+      padding: 0.08rem 0.3rem;
     }
 
     .meta {
@@ -80,6 +101,66 @@
 
     .meta strong {
       font-size: 1.2rem;
+    }
+
+    .lede {
+      font-size: 1.05rem;
+      text-align: center;
+      margin: 0 auto 1.5rem;
+      max-width: 760px;
+    }
+
+    .summary,
+    .contents {
+      border: 1px solid #cbd5e1;
+      border-radius: 12px;
+      background: #ffffff;
+      padding: 1rem 1.25rem;
+      margin: 1.5rem 0;
+    }
+
+    .summary {
+      border-left: 5px solid #4f46e5;
+    }
+
+    .summary h2,
+    .contents h2 {
+      margin-top: 0;
+    }
+
+    .summary ul,
+    .contents ul {
+      margin-bottom: 0;
+    }
+
+    .contents ul {
+      columns: 2;
+      column-gap: 2rem;
+      padding-left: 1.25rem;
+    }
+
+    .contents li {
+      break-inside: avoid;
+      margin-bottom: 0.3rem;
+    }
+
+    section {
+      scroll-margin-top: 1rem;
+    }
+
+    @media (max-width: 640px) {
+      .title-container {
+        align-items: flex-start;
+      }
+
+      h1 {
+        font-size: 2rem;
+        line-height: 1.15;
+      }
+
+      .contents ul {
+        columns: 1;
+      }
     }
 
     .back-to-top {
@@ -134,121 +215,203 @@
     <h1>Hugo Privacy Policy</h1>
   </div>
 
-  <p class="meta"><strong>Last updated:</strong> 06/17/2026</p>
+  <p class="meta"><strong>Last updated:</strong> 08/15/2026</p>
 
-  <h2>1. Data We Collect</h2>
-  <p>Hugo collects and stores the following data in a local database to provide its features:</p>
+  <main>
+    <p class="lede">This policy explains what the Hugo Discord bot, public website, and web dashboard process, what is kept, why it is used, where it may be sent, and how to request deletion.</p>
 
-  <h3>Per-User Data (stored per server)</h3>
-  <ul>
-    <li>Discord user ID, username, and display name.</li>
-    <li>Username and display name history (up to 20 previous names per user per server).</li>
-    <li>Chat XP/chat level, voice XP/voice level, reputation count, invite count, and who invited you (inviter's user ID) for leaderboards, awards, and logging features.</li>
-    <li>Per-period award counters such as messages sent, chat XP, voice XP, and reputation earned during the current awards period.</li>
-    <li>Birthday settings if you use /birthday: whether birthday announcements are enabled for you, your birth month/day, optional birth year, and the last date your birthday was announced.</li>
-    <li>Your level alert preference (whether Hugo should show your level-up/reward alerts).</li>
-    <li>CAPTCHA attempt counts, verification status, and jail status.</li>
-    <li>AutoKick progress data: the number of counted messages toward the configured threshold, the currently required threshold while tracking is active, and the current AutoKick expiry timestamp/deadline for that server.</li>
-    <li>AutoMod infraction history, including timestamps, triggered rules/actions, limited trigger details (such as a matched bad word or detected link), and which automated actions were executed.</li>
-    <li>A cached list of your roles (updated on role changes, used in leave/kick/ban log embeds).</li>
-    <li>Last message activity timestamp and server join timestamp.</li>
-  </ul>
+    <div class="summary">
+      <h2>At a Glance</h2>
+      <ul>
+        <li>Hugo stores server settings and the user records needed for enabled features. Most bot data is keyed by Discord server and user IDs.</li>
+        <li>Hugo does not sell personal data and does not use advertising, behavioral analytics, AI/LLM, or third-party tracking services.</li>
+        <li>Regular chat messages and voice audio are not kept in Hugo's primary database, but configured Discord log channels can contain message content, attachments, moderation details, and other event data.</li>
+        <li>The dashboard uses a necessary session cookie. Its server temporarily processes IP addresses for rate limiting and stores Discord OAuth session data in local files.</li>
+        <li>The database is backed up locally every day. A deployment can also be configured to send a compressed full-database backup to an operator-controlled GitHub repository.</li>
+      </ul>
+    </div>
 
-  <h3>Server Data</h3>
-  <ul>
-    <li>Server IDs, channel IDs, and role IDs needed for configuration.</li>
-    <li>All server settings you configure through Hugo's commands or dashboard. Where a feature allows custom text (such as announcement messages, autoresponse triggers and responses, automessages, sticky messages, role DMs, level-up messages, birthday messages, awards text, reputation feedback, AutoMod warning/action reasons, embed titles and footers, thread titles, Twitch/YouTube alerts, bump reminders, captcha messages, kick/ban reasons, voice generator name templates, color role name formats, and saved message templates), that text is stored as part of the configuration.</li>
-    <li>AutoMod settings, including enabled rules, bad-word lists, thresholds, warning templates, and automated action settings.</li>
-    <li>Scheduled tasks such as reminders, scheduled kicks/bans/unbans, timeout-expiry notices, automessages, warnings, QOTD posts, birthday announcements, and awards. These may include text you provide (e.g., reminder messages, kick/ban reasons).</li>
-    <li>QOTD data, including pending pitch questions (with question text, author ID, username, and timestamp), approved queue entries, skip lists, and recent posted-question history (up to 20 recent questions with timestamps).</li>
-    <li>Saved message/embed templates, including template names, text content, embed data, and who saved them and when.</li>
-    <li>Flair role details: custom role names, colors, and icon URLs you provide.</li>
-    <li>Per-command blocked user ID lists.</li>
-    <li>Confessions and suggestions metadata: the author's user ID, timestamp, and the Discord message ID (up to 1,000 each per server). The text itself is only posted to Discord, not stored by Hugo. Server moderators may be able to reveal the author of a confession.</li>
-    <li>Starboard entry metadata: the original message ID, starboard message ID, and author's user ID. The message content is re-posted to the starboard channel on Discord, not stored by Hugo.</li>
-    <li>Moderation warnings (including reason text, moderator ID, and expiry date).</li>
-    <li>A cache of server invite codes (invite code, inviter user ID, use count, max uses, and expiry) for invite tracking.</li>
-    <li>A cache of pinned message IDs and author IDs per channel for pin/unpin logging.</li>
-    <li>Reaction role bindings for emoji, button, and dropdown role menus (message IDs, channel IDs, and role mappings).</li>
-    <li>Group definitions (group names, member user IDs, channel IDs, and permissions).</li>
-    <li>Voice generator settings and active spawned-channel metadata (generator channel IDs, spawned channel IDs, naming templates, and owner user IDs).</li>
-    <li>Role DM rules (role IDs and the DM text to send when that role is granted).</li>
-    <li>Twitch and YouTube subscription settings, including watched streamer/channel IDs or names and the last notified stream/video ID to avoid duplicate alerts.</li>
-    <li>Pending age-alert entries when "wait until verified" is enabled (user ID, inviter ID, and join timestamp).</li>
-    <li>Patron subscription status and trial dates per server owner, plus per-server trial-use tracking to prevent repeated free-trial abuse.</li>
-  </ul>
+    <nav class="contents" aria-label="Privacy policy contents">
+      <h2>Contents</h2>
+      <ul>
+        <li><a href="#scope">Scope</a></li>
+        <li><a href="#data">Data Hugo Processes</a></li>
+        <li><a href="#content">Messages, DMs, Media &amp; Voice</a></li>
+        <li><a href="#use">How Data Is Used</a></li>
+        <li><a href="#sharing">Sharing &amp; External Services</a></li>
+        <li><a href="#cookies">Dashboard Cookies &amp; Technical Data</a></li>
+        <li><a href="#retention">Retention, Backups &amp; Deletion</a></li>
+        <li><a href="#security">Security</a></li>
+        <li><a href="#choices">Your Choices &amp; Requests</a></li>
+        <li><a href="#children">Children</a></li>
+        <li><a href="#changes">Policy Changes</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
 
-  <h3>Dashboard Data</h3>
-  <ul>
-    <li>If you use the web dashboard, Hugo stores a session containing your Discord OAuth2 tokens (access and refresh tokens) to authenticate you. These are stored locally in session files.</li>
-  </ul>
+    <section id="scope">
+      <h2>1. Scope</h2>
+      <p>This policy covers Hugo's Discord bot, the pages hosted by Hugo, and the Hugo dashboard. Discord, Patreon, GitHub, Twitch, YouTube, Tenor, bot-listing sites, and any website you choose to open have their own privacy practices. Server owners and administrators also decide which Hugo features and Discord log channels to enable, who can see those channels, and what configuration text or user IDs they submit.</p>
+      <p>In this policy, <strong>process</strong> means that Hugo reads or uses data, including data held briefly in memory. <strong>store</strong> means that Hugo intentionally writes data to its SQLite database, dashboard session files, backups, or a configured Discord channel.</p>
+    </section>
 
-  <h2>2. Data We Do NOT Collect</h2>
-  <ul>
-    <li><strong>Regular message content</strong> &mdash; Hugo reads messages to process commands and features such as chat XP, autoresponses, sticky messages, autothreads, reputation, starboard keywords, AutoMod, and honeypot moderation, but does not store full regular chat messages. Some moderation features may store limited derived details needed to enforce rules, such as AutoMod trigger details (for example a matched bad word or detected link) and per-user AutoMod infraction history. Text you explicitly submit through Hugo's features (reminders, autoresponses, announcements, QOTD pitches, automessages, saved templates, flair names, Twitch/YouTube subscriptions, and moderation reasons) is stored as described above. If logging is enabled, Hugo posts embeds to your server's log channels for a wide range of server events (message edits/deletes, thread and channel changes, role changes, member joins/leaves, and more). Logged message embeds may include message content and re-uploaded attachments, and AutoMod log embeds may include short message previews and trigger details. This data is sent to Discord and is not stored by Hugo.</li>
-    <li><strong>Direct messages</strong> &mdash; Hugo does not log or store DM content.</li>
-    <li><strong>Voice or audio data</strong> &mdash; Hugo does not listen to or record voice channels.</li>
-    <li><strong>Email addresses or IP addresses.</strong></li>
-  </ul>
+    <section id="data">
+      <h2>2. Data Hugo Processes</h2>
 
-  <h2>3. How Data is Used</h2>
-  <ul>
-    <li>Chat XP, voice XP, level, and reputation data is used to calculate levels, enforce minimum level requirements on commands, display leaderboards/rank information, and determine awards.</li>
-    <li>Invite data is used to track which invite a new member used, to display invite counts and leaderboards, and to show who invited a user in leave, kick, and ban log embeds.</li>
-    <li>Username and display name history is used to show previous names in log embeds when a user changes their name.</li>
-    <li>CAPTCHA and verification data is used to manage the verification process, track failed attempts, and enforce timeouts.</li>
-    <li>AutoKick progress data is used to determine whether a recently joined member has met the configured message threshold in time, to resume or reschedule active checks after restarts or setting changes, and to preserve already counted progress when the feature is disabled and later re-enabled.</li>
-    <li>The role cache is used to display a user's roles in leave, kick, and ban log embeds after the user is no longer in the server.</li>
-    <li>Activity timestamps are used to track active and inactive members.</li>
-    <li>Birthday data is used to post birthday announcements, optionally include age, and prevent duplicate birthday posts on the same date.</li>
-    <li>Per-period award counters are used to determine winners for scheduled awards and are reset when an award period ends.</li>
-    <li>Warning data is used to track moderation history and enforce automated punishments at configured thresholds.</li>
-    <li>AutoMod settings and infraction history are used to detect rule violations, remove messages, send warnings, and apply configured escalation actions such as timeouts, kicks, or bans.</li>
-    <li>Scheduled tasks are used to execute timed actions such as reminders, CAPTCHA timeout kicks, automessages, scheduled QOTD posts, birthday announcements, awards, timeout-expiry notices, and temporary unbans.</li>
-    <li>The pinned message cache is used to detect pin and unpin events for logging.</li>
-    <li>Confession and suggestion metadata is used to link anonymous posts back to authors for moderation purposes.</li>
-    <li>Server settings text (announcements, autoresponses, automessages, role DMs, level-up messages, birthday messages, Twitch/YouTube alerts, etc.) is used to send configured messages when their corresponding events occur.</li>
-    <li>QOTD pitch questions, approved queues, skip lists, and history are used to review, schedule, avoid repeats, and post Question of the Day content.</li>
-    <li>Flair details are used to create, restore, and manage personal color roles for users.</li>
-    <li>Per-command blocked user IDs are used to prevent specific users from accessing specific commands.</li>
-    <li>Starboard metadata is used to track which messages have been starred and prevent duplicate starboard entries.</li>
-    <li>Reaction role bindings are used to assign or remove roles when users interact with configured reaction, button, or dropdown role messages.</li>
-    <li>Group definitions are used to manage channel access permissions for sets of users.</li>
-    <li>Voice generator metadata is used to create, track, rename, and clean up temporary voice channels.</li>
-    <li>Role DM rules are used to send configured direct messages when a user gains a matching role.</li>
-    <li>Twitch and YouTube subscription data is used to poll for new live streams/uploads and avoid duplicate notifications.</li>
-    <li>Pending age-alert entries are used to delay "new account" alerts until a user becomes verified when that option is enabled.</li>
-    <li>Patron data is used to determine access to premium features.</li>
-    <li>Dashboard OAuth tokens are used to authenticate users on the web dashboard.</li>
-  </ul>
+      <h3>Discord Account and Member Data</h3>
+      <p>Hugo receives account, member, server, channel, role, message, interaction, and voice-state data from Discord as needed to operate. The persistent per-server user record can include:</p>
+      <ul>
+        <li>Discord user ID, username, display name, server join timestamp, last message activity timestamp, and a cached role list.</li>
+        <li>Up to 20 previous usernames or display names per user per server.</li>
+        <li>Chat XP and level, voice XP and level, reputation, invite count, inviter user ID, and current-period message, XP, voice XP, and reputation counters.</li>
+        <li>Birthday announcement preference, birth month and day, optional birth year, the last announced date, and level-alert preference.</li>
+        <li>Verification status, CAPTCHA attempt information, jail status, AutoKick message progress, required threshold, and deadline.</li>
+        <li>AutoMod infraction history with timestamps, triggered rules or actions, limited trigger details such as a matched word or detected link, and actions taken.</li>
+      </ul>
+      <p>Most of these records are keyed by both server ID and user ID. Exceptions include dashboard sessions and owner-level patron records, which can apply across servers.</p>
 
-  <h2>4. Data Sharing</h2>
-  <ul>
-    <li>Your data is <strong>never sold</strong> to third parties.</li>
-    <li>Hugo communicates with the Discord API to function. If Twitch or YouTube notifications are enabled, Hugo also queries Twitch and YouTube using the configured streamer/channel identifiers to check live or upload status. Bot metadata (such as command list and server count) may be shared with Top.gg for bot listing purposes. No user data is sent to third-party analytics, tracking, or advertising services.</li>
-    <li>Data may be disclosed if required by law.</li>
-  </ul>
+      <h3>Server Settings and Submitted Content</h3>
+      <ul>
+        <li>Server, channel, role, message, emoji, sticker, invite, and owner IDs needed to identify Discord resources; server names, icons, permissions, and related live Discord data may be read or cached for the dashboard and bot features.</li>
+        <li>Settings configured by commands or the dashboard, including enabled features, permissions, blocked user IDs, thresholds, cooldowns, per-user command cooldown/last-use timestamps, channels, roles, colors, time zones, language choices, and other options.</li>
+        <li>Custom text and URLs supplied for announcements, autoresponses, automessages, sticky messages, role DMs, logs, level alerts, birthdays, awards, reputation, moderation, CAPTCHA, QOTD, bump reminders, Twitch/YouTube alerts, embeds, threads, voice-channel names, flair/color roles, and saved templates.</li>
+        <li>AutoMod rules, bad-word lists, thresholds, warning templates, moderation reasons, escalation settings, warnings, moderator IDs, and warning expiry dates.</li>
+        <li>Scheduled tasks for reminders, kicks, bans, unbans, timeout-expiry notices, automessages, warnings, QOTD posts, birthdays, awards, and related actions. A task can contain a user ID, channel ID, execution time, reminder text, or moderation reason.</li>
+        <li>QOTD pitches and queues, including question text, author ID, username, timestamp, approved questions, skip/shuffle state, and up to 20 recent history entries.</li>
+        <li>Saved message/embed templates, including names, content, embed fields, URLs, saver ID, and timestamps.</li>
+        <li>Confession and suggestion mappings containing the author's user ID, timestamp, and Discord message ID, capped at 1,000 of each per server. The submission text is kept on Discord rather than copied into Hugo's database. Authorized moderators can reveal the mapped author.</li>
+        <li>Starboard mappings containing original and starboard message IDs and author IDs. Starboard content is copied to Discord, not to Hugo's database.</li>
+        <li>Invite-code tracking data, pinned-message IDs and author IDs, reaction-role bindings, group names and membership/channel/permission data, and group notification history.</li>
+        <li>Voice-generator settings and active temporary-channel metadata, including generator/spawned channel IDs, owner user IDs, and naming templates.</li>
+        <li>Flair role names, colors, and icon URLs; role-DM rules; Twitch/YouTube subscriptions and last-notified IDs; and pending age-alert entries with user, inviter, and join information.</li>
+        <li>Patron/subscriber status, owner and server trial dates, permanent access overrides, and trial-use records. Hugo does not receive or store payment-card details.</li>
+      </ul>
 
-  <h2>5. Data Retention &amp; Deletion</h2>
-  <ul>
-    <li>All user data is scoped to the server it was collected in.</li>
-    <li>When Hugo is removed from a server, cached data for that server is cleared.</li>
-    <li>Confessions and suggestions are automatically pruned when a server exceeds 1,000 entries.</li>
-    <li>AutoMod infraction history is automatically trimmed to recent entries only (currently up to 30 days and up to 250 entries per user per server).</li>
-    <li>AutoKick progress data is kept per server while Hugo remains in that server and may be preserved when the feature is disabled so previously counted progress can resume if the feature is later re-enabled.</li>
-    <li>Scheduled tasks are deleted once executed or manually cancelled.</li>
-    <li>You may request deletion of your server's data by contacting Hugo's owner.</li>
-  </ul>
+      <h3>CAPTCHA Challenge Data</h3>
+      <p>Hugo's CAPTCHA is generated locally; it does not use reCAPTCHA, hCaptcha, or another CAPTCHA provider. Active challenge records can contain Discord message IDs, component/modal identifiers, labels, and the expected answer. The stored challenge list is capped at 50 entries per server. Submitted answers are compared in memory; when server logging is enabled, a failed answer, the expected answer, and the user's identity can be posted to that server's Discord log channel.</p>
 
-  <h2>6. Security</h2>
-  <p>Data is stored in a local SQLite database with no external database services. Reasonable measures are taken to protect stored data, but no system is 100% secure.</p>
+      <h3>Dashboard Session Data</h3>
+      <p>Signing in requests only Discord's <code>identify</code> and <code>guilds</code> OAuth scopes, not the email scope. The server-side session can contain:</p>
+      <ul>
+        <li>Discord OAuth access and refresh tokens, token expiry and login timestamps, OAuth state, and a CSRF token.</li>
+        <li>A cached Discord user object, which can include ID, username, display/global name, avatar, and related profile fields returned by Discord.</li>
+        <li>A cached list of your Discord servers and the ownership, icon, and permission information returned by Discord.</li>
+      </ul>
+      <p>The browser receives a signed session identifier, not the raw OAuth tokens.</p>
 
-  <h2>7. Contact</h2>
-  <p>For privacy concerns, contact: <strong>glefs</strong> on Discord</p>
+      <h3>Operational and Security Data</h3>
+      <p>Console and configured Discord error logs may contain timestamps, feature names, server/channel/user IDs, usernames or server names, sanitized error details, and action results. Dashboard audit messages can identify the signed-in Discord user who changed a setting, and rejected dashboard access can log the user's ID and target server ID. The dashboard can also log Content Security Policy violation reports, which may include document, source, and blocked-resource URLs. The application does not define a fixed retention period for host console logs.</p>
+    </section>
+
+    <section id="content">
+      <h2>3. Messages, DMs, Media &amp; Voice</h2>
+      <ul>
+        <li><strong>Regular messages:</strong> Hugo reads message content and metadata when needed for commands, XP, autoresponses, sticky messages, autothreads, reputation, starboard, AutoMod, honeypot, moderation, and logging. Full ordinary chat messages are not intentionally copied into Hugo's primary database. They can remain temporarily in Discord.js's in-memory message cache (currently up to 200 recent messages per channel), and AutoMod can retain full and normalized message content in memory for up to 24 hours, capped at 50 messages per user per server, to evaluate repeated-message rules. These in-memory copies are evicted or disappear on restart.</li>
+        <li><strong>Content you submit to a feature:</strong> reminders, custom responses, announcements, QOTD pitches, templates, moderation reasons, configuration text, and similar content are stored because the feature cannot work without them.</li>
+        <li><strong>Discord logs and reposts:</strong> if a server enables logging, Hugo can post message edits/deletions, message content, attachment copies, AutoMod previews and trigger details, CAPTCHA failures, member/role/channel/thread events, and moderation data to Discord. Starboard posts, confessions, suggestions, QOTD posts, and configured messages also live on Discord. Discord and the server's channel permissions and retention practices apply to those copies.</li>
+        <li><strong>Direct messages:</strong> Hugo can send configured role, reminder, moderation, or owner DMs, but does not intentionally log or store the contents of DMs sent to the bot.</li>
+        <li><strong>Voice:</strong> Hugo processes voice-channel join/leave and related state needed for voice XP, temporary channels, and logs. It does not listen to, record, transcribe, or store voice audio.</li>
+        <li><strong>Media:</strong> Hugo can download Discord-hosted attachments, emojis, stickers, avatars, or user-supplied images into memory so it can validate, convert, proxy, or re-upload them. Those temporary buffers are not intentionally retained after the operation, although resulting copies may remain on Discord.</li>
+      </ul>
+    </section>
+
+    <section id="use">
+      <h2>4. How Data Is Used</h2>
+      <ul>
+        <li>Provide requested commands, dashboard controls, scheduled messages/actions, role automation, temporary voice channels, feeds, reminders, and other configured features.</li>
+        <li>Calculate XP, levels, rankings, reputation, invite statistics, activity, awards, cooldowns, and feature eligibility.</li>
+        <li>Verify members, enforce AutoKick/AutoMod/moderation rules, retain warning history, restore applicable roles/settings, and support server safety logs.</li>
+        <li>Remember server configuration, avoid duplicate notifications/posts, associate anonymous submissions with authors for authorized moderation, and resume scheduled work after restarts.</li>
+        <li>Authenticate dashboard users, confirm that they can manage a server, maintain session security, and prevent abuse.</li>
+        <li>Determine premium access and prevent repeated trial use.</li>
+        <li>Diagnose failures, protect the service, recover from data loss, and maintain reliability.</li>
+      </ul>
+    </section>
+
+    <section id="sharing">
+      <h2>5. Sharing and External Services</h2>
+      <p>Hugo does <strong>not sell personal data</strong>. It does not include third-party advertising, behavioral analytics, tracking pixels, AI/LLM processing, or hosted error-monitoring services. Data is disclosed only as needed for the following:</p>
+      <ul>
+        <li><strong>Discord:</strong> Hugo receives data from and sends commands, messages, embeds, attachments, roles, channel changes, moderation actions, and OAuth requests to Discord. Dashboard avatars and server icons may load directly from Discord's CDN, which receives ordinary web-request information such as your IP address and user agent.</li>
+        <li><strong>GitHub, only when remote database backup is configured:</strong> Hugo sends a compressed copy of the complete SQLite database to an operator-selected repository through the GitHub API. This includes the stored server and user data described above. GitHub processes that backup under its own terms and the repository/account access configuration.</li>
+        <li><strong>Twitch and YouTube:</strong> when a server configures feed notifications, Hugo sends the configured public streamer/channel identifier to the relevant service, processes public stream/video details needed to build the Discord alert, and stores the resolved channel details and latest notified stream/video ID. Twitch uses Hugo's application credentials rather than an end user's Twitch account; YouTube public pages and feeds are requested without end-user YouTube authentication.</li>
+        <li><strong>Bot listings:</strong> Hugo can send its bot/application ID and total server count to Top.gg, Discord Bots GG, and Discord Bot List. Its public command structure can also be uploaded to Discord Bot List. These payloads do not include per-user records or server configuration.</li>
+        <li><strong>Media and utility providers:</strong> the cat command requests an image from The Cat API. The dashboard can ask Tenor for a GIF selected by URL, and Hugo uses Discord media/CDN hosts for Discord assets.</li>
+        <li><strong>URLs supplied by users or administrators:</strong> if a feature is asked to fetch an image or other allowed remote resource, the destination host receives the URL request and ordinary server-side network metadata. Source URLs for configured server-specific bot avatars or banners can be stored for later re-fetching, while embed media URLs can be passed to Discord for fetching or proxying. Do not put secrets in a URL submitted to Hugo.</li>
+        <li><strong>Patreon and other links:</strong> the public pages link to third-party sites. If you follow a link or purchase a subscription, that provider handles the visit or payment under its own policy. Hugo stores access/trial status, not payment-card data.</li>
+        <li><strong>Legal and safety needs:</strong> data may be preserved or disclosed when reasonably necessary to comply with law, protect users or the service, investigate abuse, or enforce applicable terms.</li>
+      </ul>
+    </section>
+
+    <section id="cookies">
+      <h2>6. Dashboard Cookies and Technical Data</h2>
+      <ul>
+        <li>The dashboard uses one necessary, signed session cookie (default name <code>hugobot.sid</code>). It is HTTP-only, SameSite=Lax, and Secure in production. The cookie has a rolling one-hour expiry; authenticated sessions also have an absolute seven-day limit from login.</li>
+        <li>Logging out destroys the server-side session and clears the cookie. Hugo does not use advertising cookies and does not store dashboard data in browser localStorage or IndexedDB.</li>
+        <li>The dashboard temporarily uses client IP addresses as rate-limit keys for API, login, security-report, and media-proxy abuse prevention. Hugo does not write IP addresses to its SQLite feature database and does not configure an application access log, although a hosting provider or reverse proxy may keep ordinary infrastructure logs.</li>
+        <li>Browsers can automatically send a Content Security Policy violation report to Hugo. The report is rate-limited and written to the application console for diagnosis.</li>
+      </ul>
+    </section>
+
+    <section id="retention">
+      <h2>7. Retention, Backups and Deletion</h2>
+      <ul>
+        <li><strong>Primary database:</strong> unless a specific limit applies, settings and user records remain until they are overwritten, reset, or explicitly deleted. A member leaving a server does not generally remove their XP, names/history, role snapshot, invites, reputation, activity, or birthday record. Most feature records are server-scoped; dashboard sessions and owner-level patron records are not.</li>
+        <li><strong>Removing Hugo:</strong> when Hugo leaves a server, it clears scheduled-task rows and several server-specific runtime caches. Persistent settings and member rows are <strong>not automatically deleted</strong>. Contact Hugo's owner to request deletion.</li>
+        <li><strong>Automatic limits:</strong> name history is limited to 20 entries; QOTD recent history to 20; and confession and suggestion mappings to 1,000 each per server. AutoMod keeps no more than 250 infraction records from the preceding 30 days when that user's next infraction triggers cleanup; a dormant user's older records can remain longer. Current CAPTCHA challenge storage is capped.</li>
+        <li><strong>Feature lifecycle:</strong> successfully completed, terminal, or cancelled scheduled tasks are removed; transient failures can remain for retry. Period award counters reset after the period. AutoKick progress can be retained while disabled so tracking can resume. Expired warnings are marked inactive rather than erased. Starboard tombstones are eligible for 30-day pruning when later starboard activity runs cleanup. Birthday opt-out disables announcements but does not erase the stored date. Other feature records remain until their feature removes them or they are reset/deleted.</li>
+        <li><strong>Dashboard sessions:</strong> session files normally expire after one hour without renewal, are destroyed on logout or invalid authentication, and cannot remain authenticated beyond seven days from the original login.</li>
+        <li><strong>Local backups:</strong> Hugo creates a full database backup at startup and then daily. Local daily backup files are pruned after seven days.</li>
+        <li><strong>Optional GitHub backups:</strong> when enabled, the full backup is gzip-compressed and committed to an operator-selected GitHub repository. The configured pruning window can be 1 to 3,650 days and defaults to 30 days. Pruning creates a deletion commit; older Git objects, repository history, provider caches, or provider backups can retain data longer than that window.</li>
+        <li><strong>Discord and operational logs:</strong> deleting a live database row does not delete messages, attachments, or log embeds already sent to Discord. Console/infrastructure log retention depends on the deployment environment and is not fixed by Hugo's application code.</li>
+        <li><strong>Deletion scope and backups:</strong> whole-server deletion removes live settings, member rows, and scheduled tasks, but does not automatically remove owner-level patron records, dashboard sessions, Discord-hosted messages, operational logs, or existing backups. Copies can remain until local backups rotate and, if remote backups are enabled, for longer in GitHub history or provider backups.</li>
+      </ul>
+    </section>
+
+    <section id="security">
+      <h2>8. Security</h2>
+      <p>Hugo's primary store is a local SQLite database. Dashboard OAuth sessions are kept in local session files. Security measures in the application include production HTTPS-only session cookies, HTTP-only/SameSite cookie settings, OAuth state and CSRF validation, session-ID regeneration, a seven-day absolute login limit, request and response size limits, input validation, permission checks, rate limits, timeouts, security headers, and restricted session-directory permissions where the operating system supports them.</p>
+      <p>The live SQLite database, dashboard session files, local backups, and optional gzip GitHub backups do not have application-level at-rest encryption in Hugo's code. Their confidentiality depends on host filesystem protections and, for remote backup, the operator's GitHub account, repository visibility, credentials, and access controls. No service can guarantee absolute security.</p>
+    </section>
+
+    <section id="choices">
+      <h2>9. Your Choices and Requests</h2>
+      <ul>
+        <li>Server administrators can disable features, reset many settings, remove configured entries, and control access to Discord log channels. Individual commands allow users to manage certain data such as reminders, leveling alerts, confessions, suggestions, and whether birthdays are announced. Some feature controls disable use without erasing the underlying record.</li>
+        <li>Removing Hugo or leaving a server does not by itself erase persistent records. Blocking the bot also does not delete them.</li>
+        <li>You may ask for access, correction, or deletion of applicable Hugo-held data by contacting Hugo's owner. Include your Discord user ID and, for server data, the server ID. Additional proof may be required to confirm identity or server authority.</li>
+        <li>There is no automated full-data export endpoint or comprehensive self-service per-user deletion function. Requests are handled manually.</li>
+        <li>For content already stored by Discord, including server log messages, contact the server's administrators or Discord as appropriate; Hugo's database deletion cannot remove every Discord-hosted copy.</li>
+      </ul>
+    </section>
+
+    <section id="children">
+      <h2>10. Children</h2>
+      <p>Hugo is not intended for anyone who is not permitted to use Discord or who is under 13. If you believe Hugo has stored data relating to a child who should not be using the service, contact Hugo's owner so it can be reviewed and deleted where appropriate. See the <a href="/terms">Terms of Service</a> for eligibility rules.</p>
+    </section>
+
+    <section id="changes">
+      <h2>11. Changes to This Policy</h2>
+      <p>This policy may be updated when Hugo's features, storage, integrations, or legal obligations change. The date at the top identifies the latest revision. Continued use after an update is subject to the revised policy.</p>
+    </section>
+
+    <section id="contact">
+      <h2>12. Contact</h2>
+      <p>For privacy questions or requests, contact <strong>glefs</strong> on Discord or use Hugo's <a href="https://discord.gg/WNZVCcjh6a" target="_blank" rel="noopener noreferrer">support server</a>.</p>
+    </section>
+  </main>
 
   <button class="back-to-top" type="button" aria-label="Back to top" title="Back to top">&#x2303;</button>
   <script>
+    const pageLogo = document.querySelector('.logo');
     const backToTopButton = document.querySelector('.back-to-top');
+
+    if (pageLogo?.complete && pageLogo.naturalWidth === 0) {
+      pageLogo.hidden = true;
+    }
+    pageLogo?.addEventListener('error', () => {
+      pageLogo.hidden = true;
+    }, { once: true });
 
     function updateBackToTopButton() {
       if (!backToTopButton) return;
