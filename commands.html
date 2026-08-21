@@ -326,6 +326,12 @@
 					</ul>
 				</li>
 				<li><code class="subcommand-name">list</code>: <span class="subcommand-description">List all colors</span></li>
+				<li><code class="subcommand-name">import</code>: <span class="subcommand-description">Replace the color list from an exported string</span>
+					<ul>
+						<li><code>colors</code> <span class="arg-meta">(required, string)</span>: <span class="argument-description">Exported color list string</span></li>
+					</ul>
+				</li>
+				<li><code class="subcommand-name">export</code>: <span class="subcommand-description">Export the color list as a copyable string</span></li>
 				<li><code class="subcommand-name">edit</code>: <span class="subcommand-description">Edit color in the list</span>
 					<ul>
 						<li><code>name</code> <span class="arg-meta">(required, string)</span>: <span class="argument-description">Name of the color</span></li>
@@ -351,6 +357,7 @@
 						<li><code>suffix</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Suffix for the roles</span></li>
 					</ul>
 				</li>
+				<li><code class="subcommand-name">delete</code>: <span class="subcommand-description">Delete color roles</span></li>
 				<li><code class="subcommand-name">post</code>: <span class="subcommand-description">Post color role selection embeds</span>
 					<ul>
 						<li><code>channel</code> <span class="arg-meta">(required, channel)</span>: <span class="argument-description">Color selection channel</span></li>
@@ -382,7 +389,7 @@
 			<ul>
 				<li><code>title</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Role name or "clear" or "delete"</span></li>
 				<li><code>hex</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Hex color (e.g. FF0000) or "clear" or "delete"</span></li>
-				<li><code>hex2</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Second hex color for gradient (e.g. 00FF00) or "clear" or "delete"</span></li>
+				<li><code>hex2</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Second color for a gradient, or solid color when used alone, or "clear" or "delete"</span></li>
 				<li><code>link</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Icon URL (PNG/JPEG/WebP) or "clear" or "delete"</span></li>
 			</ul>
 		</div>
