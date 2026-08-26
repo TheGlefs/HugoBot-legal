@@ -499,14 +499,29 @@
 
 		<div class="command-block">
 			<h3>/autokick</h3>
-			<p><strong>Description:</strong> Kick/ban joins with too few messages</p>
-			<p><strong>Options:</strong></p>
+			<p><strong>Description:</strong> Kick/ban new joins until they meet the message requirement</p>
+			<p><strong>Subcommands:</strong></p>
 			<ul>
-				<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable low-activity join kick?</span></li>
-				<li><code>messages</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Minimum messages required</span></li>
-				<li><code>duration</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Time limit (e.g. 10m, 1h, 2d)</span></li>
-				<li><code>reason</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Kick/ban reason</span></li>
-				<li><code>ban</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ban instead of kick?</span></li>
+				<li><code class="subcommand-name">settings</code>: <span class="subcommand-description">Autokick settings</span>
+					<ul>
+						<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable low-activity join kick?</span></li>
+						<li><code>messages</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Minimum messages required</span></li>
+						<li><code>duration</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Time limit (e.g. 10m, 1h, 2d)</span></li>
+						<li><code>reason</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Kick/ban reason</span></li>
+						<li><code>ban</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ban instead of kick?</span></li>
+					</ul>
+				</li>
+				<li><code class="subcommand-name">exempt</code>: <span class="subcommand-description">Exempt a role from autokick</span>
+					<ul>
+						<li><code>role</code> <span class="arg-meta">(required, role)</span>: <span class="argument-description">Role to exempt from autokick</span></li>
+					</ul>
+				</li>
+				<li><code class="subcommand-name">unexempt</code>: <span class="subcommand-description">Remove a role exemption from autokick</span>
+					<ul>
+						<li><code>role</code> <span class="arg-meta">(required, role)</span>: <span class="argument-description">Role to remove from autokick exemptions</span></li>
+					</ul>
+				</li>
+				<li><code class="subcommand-name">clear</code>: <span class="subcommand-description">Remove all autokick role exemptions</span></li>
 			</ul>
 		</div>
 
