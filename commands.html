@@ -714,6 +714,35 @@
 		</div>
 
 		<div class="command-block">
+			<h3>/conversion</h3>
+			<p><strong>Description:</strong> Automatically convert temperatures in messages</p>
+			<p><strong>Subcommands:</strong></p>
+			<ul>
+				<li><code class="subcommand-name">settings</code>: <span class="subcommand-description">Automatic conversion settings</span>
+					<ul>
+						<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable automatic conversions?</span></li>
+						<li><code>reply</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Reply to the original message?</span></li>
+						<li><code>embed-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Use embed?</span></li>
+						<li><code>embed-title-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Show embed title?</span></li>
+						<li><code>embed-title</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Embed title text</span></li>
+						<li><code>embed-footer</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Embed footer text</span></li>
+						<li><code>embed-footer-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Show embed footer?</span></li>
+					</ul>
+				</li>
+				<li><code class="subcommand-name">ignore</code>: <span class="subcommand-description">Add channel/category to ignore list</span>
+					<ul>
+						<li><code>channel</code> <span class="arg-meta">(required, channel)</span>: <span class="argument-description">Channel or category to ignore</span></li>
+					</ul>
+				</li>
+				<li><code class="subcommand-name">allow</code>: <span class="subcommand-description">Remove channel/category from ignore list</span>
+					<ul>
+						<li><code>channel</code> <span class="arg-meta">(required, channel)</span>: <span class="argument-description">Channel or category to allow</span></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+
+		<div class="command-block">
 			<h3>/automessage</h3>
 			<p><strong>Description:</strong> Recurring messages sent to channels at set intervals</p>
 			<p><strong>Subcommands:</strong></p>
@@ -1748,6 +1777,7 @@
 				<li><code>from</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Delete this message and everything older (exclusive with until)</span></li>
 				<li><code>until</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Delete newest messages through this message (exclusive with from)</span></li>
 			</ul>
+			<p><strong>Behavior:</strong> Use <strong>Stop Search</strong> to confirm and delete only the matches found so far. After confirmation, use <strong>Stop Deleting</strong> to halt the remaining deletions.</p>
 		</div>
 
 		<div class="command-block">
