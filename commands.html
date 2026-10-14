@@ -872,15 +872,27 @@
 		<div class="command-block">
 			<h3>/announce</h3>
 			<p><strong>Description:</strong> Announce join, leave, ban, kick, timeout and jail events</p>
+			<p><code>{invitercount}</code> shows the inviter's stored invite total, matching <code>/invites</code>, or <code>N/A</code> if the inviter is unknown. Secondary join/rejoin messages run independently of the main messages. When enabled, <code>rejoin-secondary</code> replaces <code>join-secondary</code> for returning users.</p>
 			<p><strong>Subcommands:</strong></p>
 			<ul>
 				<li><code class="subcommand-name">join</code>: <span class="subcommand-description">Announce when users join</span>
 					<ul>
 						<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable join announcements?</span></li>
 						<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Join message or "reset"</span>
-	<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{invitertag}</span></code>, <code><span class="tag-replacement">{invitername}</span></code>, <code><span class="tag-replacement">{inviteruser}</span></code>, <code><span class="tag-replacement">{age}</span></code></div></li>
+	<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{invitertag}</span></code>, <code><span class="tag-replacement">{invitername}</span></code>, <code><span class="tag-replacement">{inviteruser}</span></code>, <code><span class="tag-replacement">{invitercount}</span></code>, <code><span class="tag-replacement">{age}</span></code></div></li>
 						<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Join message channel</span></li>
 						<li><code>ping</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ping users mentioned in the message?</span></li>
+						<li><code>ignore-bots</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ignore announcements about bots?</span></li>
+					</ul>
+				</li>
+				<li><code class="subcommand-name">join-secondary</code>: <span class="subcommand-description">Extra announcement when users join</span>
+					<ul>
+						<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable secondary join announcements?</span></li>
+						<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Secondary join message or "reset"</span>
+	<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{invitertag}</span></code>, <code><span class="tag-replacement">{invitername}</span></code>, <code><span class="tag-replacement">{inviteruser}</span></code>, <code><span class="tag-replacement">{invitercount}</span></code>, <code><span class="tag-replacement">{age}</span></code></div></li>
+						<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Secondary join channel</span></li>
+						<li><code>ping</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ping users mentioned in the message?</span></li>
+						<li><code>ignore-bots</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ignore announcements about bots?</span></li>
 					</ul>
 				</li>
 				<li><code class="subcommand-name">leave</code>: <span class="subcommand-description">Announce when users leave</span>
@@ -890,6 +902,7 @@
 	<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code></div></li>
 						<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Leave message channel</span></li>
 						<li><code>ping</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ping users mentioned in the message?</span></li>
+						<li><code>ignore-bots</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ignore announcements about bots?</span></li>
 					</ul>
 				</li>
 				<li><code class="subcommand-name">leave-verified</code>: <span class="subcommand-description">Extra announcement when verified users leave</span>
@@ -899,28 +912,43 @@
 	<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code></div></li>
 						<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Verified leave channel</span></li>
 						<li><code>ping</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ping users mentioned in the message?</span></li>
+						<li><code>ignore-bots</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ignore announcements about bots?</span></li>
 					</ul>
 				</li>
 				<li><code class="subcommand-name">rejoin</code>: <span class="subcommand-description">Announce when users rejoin</span>
 					<ul>
 						<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable rejoin announcements?</span></li>
 						<li><code>same-user</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Rejoin message or "reset"</span>
-	<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{invitertag}</span></code>, <code><span class="tag-replacement">{invitername}</span></code>, <code><span class="tag-replacement">{inviteruser}</span></code>, <code><span class="tag-replacement">{age}</span></code></div></li>
+	<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{invitertag}</span></code>, <code><span class="tag-replacement">{invitername}</span></code>, <code><span class="tag-replacement">{inviteruser}</span></code>, <code><span class="tag-replacement">{invitercount}</span></code>, <code><span class="tag-replacement">{age}</span></code></div></li>
 						<li><code>name-change</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Name-change rejoin message or "reset"</span>
-	<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{oldname}</span></code>, <code><span class="tag-replacement">{olduser}</span></code>, <code><span class="tag-replacement">{invitertag}</span></code>, <code><span class="tag-replacement">{invitername}</span></code>, <code><span class="tag-replacement">{inviteruser}</span></code>, <code><span class="tag-replacement">{age}</span></code></div></li>
+	<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{oldname}</span></code>, <code><span class="tag-replacement">{olduser}</span></code>, <code><span class="tag-replacement">{invitertag}</span></code>, <code><span class="tag-replacement">{invitername}</span></code>, <code><span class="tag-replacement">{inviteruser}</span></code>, <code><span class="tag-replacement">{invitercount}</span></code>, <code><span class="tag-replacement">{age}</span></code></div></li>
 						<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Rejoin message channel</span></li>
 						<li><code>ping</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ping users mentioned in the message?</span></li>
+						<li><code>ignore-bots</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ignore announcements about bots?</span></li>
+					</ul>
+				</li>
+				<li><code class="subcommand-name">rejoin-secondary</code>: <span class="subcommand-description">Extra announcement when users rejoin</span>
+					<ul>
+						<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable secondary rejoin announcements?</span></li>
+						<li><code>same-user</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Secondary rejoin message or "reset"</span>
+	<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{invitertag}</span></code>, <code><span class="tag-replacement">{invitername}</span></code>, <code><span class="tag-replacement">{inviteruser}</span></code>, <code><span class="tag-replacement">{invitercount}</span></code>, <code><span class="tag-replacement">{age}</span></code></div></li>
+						<li><code>name-change</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Secondary name-change rejoin message or "reset"</span>
+	<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{oldname}</span></code>, <code><span class="tag-replacement">{olduser}</span></code>, <code><span class="tag-replacement">{invitertag}</span></code>, <code><span class="tag-replacement">{invitername}</span></code>, <code><span class="tag-replacement">{inviteruser}</span></code>, <code><span class="tag-replacement">{invitercount}</span></code>, <code><span class="tag-replacement">{age}</span></code></div></li>
+						<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Secondary rejoin channel</span></li>
+						<li><code>ping</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ping users mentioned in the message?</span></li>
+						<li><code>ignore-bots</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ignore announcements about bots?</span></li>
 					</ul>
 				</li>
 				<li><code class="subcommand-name">rejoin-verified</code>: <span class="subcommand-description">Extra announcement when verified users rejoin</span>
 					<ul>
 						<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable for verified users rejoining?</span></li>
 						<li><code>same-user</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Verified rejoin message or "reset"</span>
-	<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{invitertag}</span></code>, <code><span class="tag-replacement">{invitername}</span></code>, <code><span class="tag-replacement">{inviteruser}</span></code>, <code><span class="tag-replacement">{age}</span></code></div></li>
+	<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{invitertag}</span></code>, <code><span class="tag-replacement">{invitername}</span></code>, <code><span class="tag-replacement">{inviteruser}</span></code>, <code><span class="tag-replacement">{invitercount}</span></code>, <code><span class="tag-replacement">{age}</span></code></div></li>
 						<li><code>name-change</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Verified name-change message or "reset"</span>
-	<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{oldname}</span></code>, <code><span class="tag-replacement">{olduser}</span></code>, <code><span class="tag-replacement">{invitertag}</span></code>, <code><span class="tag-replacement">{invitername}</span></code>, <code><span class="tag-replacement">{inviteruser}</span></code>, <code><span class="tag-replacement">{age}</span></code></div></li>
+	<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{oldname}</span></code>, <code><span class="tag-replacement">{olduser}</span></code>, <code><span class="tag-replacement">{invitertag}</span></code>, <code><span class="tag-replacement">{invitername}</span></code>, <code><span class="tag-replacement">{inviteruser}</span></code>, <code><span class="tag-replacement">{invitercount}</span></code>, <code><span class="tag-replacement">{age}</span></code></div></li>
 						<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Verified rejoin channel</span></li>
 						<li><code>ping</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ping users mentioned in the message?</span></li>
+						<li><code>ignore-bots</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ignore announcements about bots?</span></li>
 					</ul>
 				</li>
 				<li><code class="subcommand-name">ban</code>: <span class="subcommand-description">Announce when users are banned</span>
@@ -932,6 +960,7 @@
 	<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{modtag}</span></code>, <code><span class="tag-replacement">{modname}</span></code>, <code><span class="tag-replacement">{moduser}</span></code>, <code><span class="tag-replacement">{reason}</span></code>, <code><span class="tag-replacement">{duration}</span></code></div></li>
 						<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Ban message channel</span></li>
 						<li><code>ping</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ping users mentioned in the message?</span></li>
+						<li><code>ignore-bots</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ignore announcements about bots?</span></li>
 					</ul>
 				</li>
 				<li><code class="subcommand-name">ban-verified</code>: <span class="subcommand-description">Extra announcement when verified users are banned</span>
@@ -943,6 +972,7 @@
 	<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{modtag}</span></code>, <code><span class="tag-replacement">{modname}</span></code>, <code><span class="tag-replacement">{moduser}</span></code>, <code><span class="tag-replacement">{reason}</span></code>, <code><span class="tag-replacement">{duration}</span></code></div></li>
 						<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Verified ban channel</span></li>
 						<li><code>ping</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ping users mentioned in the message?</span></li>
+						<li><code>ignore-bots</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ignore announcements about bots?</span></li>
 					</ul>
 				</li>
 				<li><code class="subcommand-name">unban</code>: <span class="subcommand-description">Announce when users are unbanned</span>
@@ -952,6 +982,7 @@
 	<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{modtag}</span></code>, <code><span class="tag-replacement">{modname}</span></code>, <code><span class="tag-replacement">{moduser}</span></code></div></li>
 						<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Unban message channel</span></li>
 						<li><code>ping</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ping users mentioned in the message?</span></li>
+						<li><code>ignore-bots</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ignore announcements about bots?</span></li>
 					</ul>
 				</li>
 				<li><code class="subcommand-name">unban-verified</code>: <span class="subcommand-description">Extra announcement when verified users are unbanned</span>
@@ -961,6 +992,7 @@
 	<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{modtag}</span></code>, <code><span class="tag-replacement">{modname}</span></code>, <code><span class="tag-replacement">{moduser}</span></code></div></li>
 						<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Verified unban channel</span></li>
 						<li><code>ping</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ping users mentioned in the message?</span></li>
+						<li><code>ignore-bots</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ignore announcements about bots?</span></li>
 					</ul>
 				</li>
 				<li><code class="subcommand-name">kick</code>: <span class="subcommand-description">Announce when users are kicked</span>
@@ -970,6 +1002,7 @@
 	<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{modtag}</span></code>, <code><span class="tag-replacement">{modname}</span></code>, <code><span class="tag-replacement">{moduser}</span></code>, <code><span class="tag-replacement">{reason}</span></code></div></li>
 						<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Kick message channel</span></li>
 						<li><code>ping</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ping users mentioned in the message?</span></li>
+						<li><code>ignore-bots</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ignore announcements about bots?</span></li>
 					</ul>
 				</li>
 				<li><code class="subcommand-name">kick-verified</code>: <span class="subcommand-description">Extra announcement when verified users are kicked</span>
@@ -979,6 +1012,7 @@
 	<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{modtag}</span></code>, <code><span class="tag-replacement">{modname}</span></code>, <code><span class="tag-replacement">{moduser}</span></code>, <code><span class="tag-replacement">{reason}</span></code></div></li>
 						<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Verified kick channel</span></li>
 						<li><code>ping</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ping users mentioned in the message?</span></li>
+						<li><code>ignore-bots</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ignore announcements about bots?</span></li>
 					</ul>
 				</li>
 				<li><code class="subcommand-name">timeout</code>: <span class="subcommand-description">Announce when users are timed out</span>
@@ -992,6 +1026,7 @@
 	<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code></div></li>
 						<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Timeout message channel</span></li>
 						<li><code>ping</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ping users mentioned in the message?</span></li>
+						<li><code>ignore-bots</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ignore announcements about bots?</span></li>
 					</ul>
 				</li>
 				<li><code class="subcommand-name">timeout-verified</code>: <span class="subcommand-description">Extra announcement when verified users are timed out</span>
@@ -1005,6 +1040,7 @@
 	<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code></div></li>
 						<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Verified timeout channel</span></li>
 						<li><code>ping</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ping users mentioned in the message?</span></li>
+						<li><code>ignore-bots</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ignore announcements about bots?</span></li>
 					</ul>
 				</li>
 				<li><code class="subcommand-name">verified</code>: <span class="subcommand-description">Announce when users become verified</span>
@@ -1018,6 +1054,7 @@
 	<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{oldname}</span></code>, <code><span class="tag-replacement">{olduser}</span></code></div></li>
 						<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Verified message channel</span></li>
 						<li><code>ping</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ping users mentioned in the message?</span></li>
+						<li><code>ignore-bots</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ignore announcements about bots?</span></li>
 					</ul>
 				</li>
 				<li><code class="subcommand-name">verified-secondary</code>: <span class="subcommand-description">Extra announcement when users become verified</span>
@@ -1031,6 +1068,7 @@
 	<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{oldname}</span></code>, <code><span class="tag-replacement">{olduser}</span></code></div></li>
 						<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Secondary verified channel</span></li>
 						<li><code>ping</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ping users mentioned in the message?</span></li>
+						<li><code>ignore-bots</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ignore announcements about bots?</span></li>
 					</ul>
 				</li>
 				<li><code class="subcommand-name">jail</code>: <span class="subcommand-description">Announce when users are jailed or released</span>
@@ -1042,6 +1080,7 @@
 	<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code></div></li>
 						<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Jail message channel</span></li>
 						<li><code>ping</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ping users mentioned in the message?</span></li>
+						<li><code>ignore-bots</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ignore announcements about bots?</span></li>
 					</ul>
 				</li>
 				<li><code class="subcommand-name">jail-verified</code>: <span class="subcommand-description">Extra announcement for verified jail/release</span>
@@ -1053,6 +1092,7 @@
 	<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code></div></li>
 						<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Verified jail channel</span></li>
 						<li><code>ping</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ping users mentioned in the message?</span></li>
+						<li><code>ignore-bots</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ignore announcements about bots?</span></li>
 					</ul>
 				</li>
 				<li><code class="subcommand-name">jail-secondary</code>: <span class="subcommand-description">Extra announcement for jail/release</span>
@@ -1064,6 +1104,7 @@
 	<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code></div></li>
 						<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Secondary jail channel</span></li>
 						<li><code>ping</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ping users mentioned in the message?</span></li>
+						<li><code>ignore-bots</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ignore announcements about bots?</span></li>
 					</ul>
 				</li>
 			</ul>
@@ -2134,30 +2175,30 @@
 						</li>
 					</ul>
 				</li>
-				<li><code class="subcommand-name">ignore</code>: <span class="subcommand-description">Ignore a channel for XP</span>
+				<li><code class="subcommand-name">ignore</code>: <span class="subcommand-description">Ignore a channel or category for XP</span>
 					<ul>
-						<li><code class="subcommand-name">chat</code>: <span class="subcommand-description">Ignore a chat channel</span>
+						<li><code class="subcommand-name">chat</code>: <span class="subcommand-description">Ignore a chat channel or category</span>
 							<ul>
-								<li><code>channel</code> <span class="arg-meta">(required, channel)</span>: <span class="argument-description">Channel to ignore</span></li>
+								<li><code>channel</code> <span class="arg-meta">(required, channel)</span>: <span class="argument-description">Channel or category to ignore</span></li>
 							</ul>
 						</li>
-						<li><code class="subcommand-name">voice</code>: <span class="subcommand-description">Ignore a voice channel</span>
+						<li><code class="subcommand-name">voice</code>: <span class="subcommand-description">Ignore a voice channel or category</span>
 							<ul>
-								<li><code>channel</code> <span class="arg-meta">(required, channel)</span>: <span class="argument-description">Channel to ignore</span></li>
+								<li><code>channel</code> <span class="arg-meta">(required, channel)</span>: <span class="argument-description">Channel or category to ignore</span></li>
 							</ul>
 						</li>
 					</ul>
 				</li>
-				<li><code class="subcommand-name">allow</code>: <span class="subcommand-description">Unignore a channel for XP</span>
+				<li><code class="subcommand-name">allow</code>: <span class="subcommand-description">Unignore a channel or category for XP</span>
 					<ul>
-						<li><code class="subcommand-name">chat</code>: <span class="subcommand-description">Allow a chat channel</span>
+						<li><code class="subcommand-name">chat</code>: <span class="subcommand-description">Allow a chat channel or category</span>
 							<ul>
-								<li><code>channel</code> <span class="arg-meta">(required, channel)</span>: <span class="argument-description">Channel to allow</span></li>
+								<li><code>channel</code> <span class="arg-meta">(required, channel)</span>: <span class="argument-description">Channel or category to allow</span></li>
 							</ul>
 						</li>
-						<li><code class="subcommand-name">voice</code>: <span class="subcommand-description">Allow a voice channel</span>
+						<li><code class="subcommand-name">voice</code>: <span class="subcommand-description">Allow a voice channel or category</span>
 							<ul>
-								<li><code>channel</code> <span class="arg-meta">(required, channel)</span>: <span class="argument-description">Channel to allow</span></li>
+								<li><code>channel</code> <span class="arg-meta">(required, channel)</span>: <span class="argument-description">Channel or category to allow</span></li>
 							</ul>
 						</li>
 					</ul>
@@ -2166,6 +2207,68 @@
 					<ul>
 						<li><code class="subcommand-name">chat</code>: <span class="subcommand-description">Chat XP ignore list</span></li>
 						<li><code class="subcommand-name">voice</code>: <span class="subcommand-description">Voice XP ignore list</span></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+
+		<div class="command-block">
+			<h3>/decay</h3>
+			<p><strong>Description:</strong> Configure XP decay after inactivity for chat and voice.</p>
+			<p><strong>Subcommand Groups:</strong></p>
+			<ul>
+				<li><code class="subcommand-name">settings</code>: <span class="subcommand-description">Configure XP decay settings</span>
+					<ul>
+						<li><code class="subcommand-name">chat</code>: <span class="subcommand-description">Configure chat XP decay</span>
+							<ul>
+								<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable chat XP decay?</span></li>
+								<li><code>inactivity</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Time without chat XP before decay begins (e.g. 7d)</span></li>
+								<li><code>interval</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Time between chat XP decay steps (e.g. 1d)</span></li>
+								<li><code>amount</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">XP or percent lost per step</span></li>
+								<li><code>amount-type</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Choose a flat XP amount or percentage</span></li>
+								<li><code>curve</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Keep decay steady or accelerate over time</span></li>
+								<li><code>remove-reward-roles</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Remove reward roles when levels fall?</span></li>
+								<li><code>floor-level</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Lowest level decay can reach</span></li>
+							</ul>
+						</li>
+						<li><code class="subcommand-name">voice</code>: <span class="subcommand-description">Configure voice XP decay</span>
+							<ul>
+								<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable voice XP decay?</span></li>
+								<li><code>inactivity</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Time without voice XP before decay begins (e.g. 7d)</span></li>
+								<li><code>interval</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Time between voice XP decay steps (e.g. 1d)</span></li>
+								<li><code>amount</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">XP or percent lost per step</span></li>
+								<li><code>amount-type</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Choose a flat XP amount or percentage</span></li>
+								<li><code>curve</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Keep decay steady or accelerate over time</span></li>
+								<li><code>remove-reward-roles</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Remove reward roles when levels fall?</span></li>
+								<li><code>floor-level</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Lowest level decay can reach</span></li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li><code class="subcommand-name">exempt</code>: <span class="subcommand-description">Exempt a user from XP decay</span>
+					<ul>
+						<li><code class="subcommand-name">chat</code>: <span class="subcommand-description">Exempt a user from chat XP decay</span>
+							<ul><li><code>user</code> <span class="arg-meta">(required, user)</span>: <span class="argument-description">User to exempt</span></li></ul>
+						</li>
+						<li><code class="subcommand-name">voice</code>: <span class="subcommand-description">Exempt a user from voice XP decay</span>
+							<ul><li><code>user</code> <span class="arg-meta">(required, user)</span>: <span class="argument-description">User to exempt</span></li></ul>
+						</li>
+					</ul>
+				</li>
+				<li><code class="subcommand-name">unexempt</code>: <span class="subcommand-description">Remove a user's XP decay exemption</span>
+					<ul>
+						<li><code class="subcommand-name">chat</code>: <span class="subcommand-description">Remove a user's chat XP decay exemption</span>
+							<ul><li><code>user</code> <span class="arg-meta">(required, user)</span>: <span class="argument-description">User to remove from exemptions</span></li></ul>
+						</li>
+						<li><code class="subcommand-name">voice</code>: <span class="subcommand-description">Remove a user's voice XP decay exemption</span>
+							<ul><li><code>user</code> <span class="arg-meta">(required, user)</span>: <span class="argument-description">User to remove from exemptions</span></li></ul>
+						</li>
+					</ul>
+				</li>
+				<li><code class="subcommand-name">list</code>: <span class="subcommand-description">List users exempt from XP decay</span>
+					<ul>
+						<li><code class="subcommand-name">chat</code>: <span class="subcommand-description">List users exempt from chat XP decay</span></li>
+						<li><code class="subcommand-name">voice</code>: <span class="subcommand-description">List users exempt from voice XP decay</span></li>
 					</ul>
 				</li>
 			</ul>
