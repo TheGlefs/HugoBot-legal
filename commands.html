@@ -260,9 +260,9 @@
 						<li><code>keep-verified-on-rejoin</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Keep verified status when a verified user rejoins?</span></li>
 						<li><code>mention-roles</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable role mentions in logs?</span></li>
 						<li><code>show-log-event</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Show localized log event labels in embed footers?</span></li>
-						<li><code>user-tag-format</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Name format in logs or "reset" for default. Placeholders: {tag} {name} {user}</span>
+						<li><code>user-tag-format</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Name format in logs or "reset" for default.</span>
 							<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code></div></li>
-						<li><code>executor-tag-format</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Name format for executors in logs or "reset" for default. Placeholders: {tag} {name} {user}</span>
+						<li><code>executor-tag-format</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Name format for executors in logs or "reset" for default.</span>
 							<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code></div></li>
 						<li><code>timezone</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">IANA timezone for timestamps (e.g. America/New_York)</span></li>
 						<li><code>locale</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">BCP 47 locale for date/number formatting (e.g. en-US)</span></li>
@@ -551,7 +551,7 @@
 						<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable Age Alert?</span></li>
 						<li><code>age</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Account age threshold (e.g. 7d, 24h, 30m)</span></li>
 						<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Alert channel</span></li>
-						<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Alert message. Placeholders: {tag} {name} {user}</span>
+						<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Alert message.</span>
 							<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{invitertag}</span></code>, <code><span class="tag-replacement">{invitername}</span></code>, <code><span class="tag-replacement">{inviteruser}</span></code>, <code><span class="tag-replacement">{age}</span></code></div></li>
 						<li><code>wait-verified</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Delay alert until verified?</span></li>
 					</ul>
@@ -571,9 +571,9 @@
 				<li><code class="subcommand-name">settings</code>: <span class="subcommand-description">Configure Auto Thread</span>
 					<ul>
 						<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable Auto Thread?</span></li>
-						<li><code>title</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Default heading for new threads. Placeholders: {name} {user} {date} {time}</span>
+						<li><code>title</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Default heading for new threads.</span>
 							<div class="replacements"><code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{date}</span></code>, <code><span class="tag-replacement">{time}</span></code></div></li>
-						<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Message to send in new threads. Placeholders: {name} {user}</span>
+						<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Message to send in new threads.</span>
 							<div class="replacements"><code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code></div></li>
 						<li><code>message-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable sending the message?</span></li>
 					</ul>
@@ -581,9 +581,9 @@
 				<li><code class="subcommand-name">add</code>: <span class="subcommand-description">Add an Auto Thread channel</span>
 					<ul>
 						<li><code>channel</code> <span class="arg-meta">(required, channel)</span>: <span class="argument-description">Channel to add</span></li>
-						<li><code>title</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Thread heading override (default: global). Placeholders: {name} {user} {date} {time}</span>
+						<li><code>title</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Thread heading override (default: global).</span>
 							<div class="replacements"><code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{date}</span></code>, <code><span class="tag-replacement">{time}</span></code></div></li>
-						<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Thread message override (default: global). Placeholders: {name} {user}</span>
+						<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Thread message override (default: global).</span>
 							<div class="replacements"><code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code></div></li>
 						<li><code>title-enable</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Thread heading source: global or local</span></li>
 						<li><code>message-enable</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Thread message: global, local, or disable</span></li>
@@ -593,9 +593,9 @@
 					<ul>
 						<li><code>channel</code> <span class="arg-meta">(required, channel)</span>: <span class="argument-description">Channel to edit</span></li>
 						<li><code>new-channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Move this entry to another channel</span></li>
-						<li><code>title</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Thread heading override (default: global). Placeholders: {name} {user} {date} {time}</span>
+						<li><code>title</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Thread heading override (default: global).</span>
 							<div class="replacements"><code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{date}</span></code>, <code><span class="tag-replacement">{time}</span></code></div></li>
-						<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Thread message override (default: global). Placeholders: {name} {user}</span>
+						<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Thread message override (default: global).</span>
 							<div class="replacements"><code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code></div></li>
 						<li><code>title-enable</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Thread heading source: global or local</span></li>
 						<li><code>message-enable</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Thread message: global, local, or disable</span></li>
@@ -746,7 +746,7 @@
 					<ul>
 						<li><code>title</code> <span class="arg-meta">(required, string)</span>: <span class="argument-description">Name of the saved response</span></li>
 						<li><code>trigger</code> <span class="arg-meta">(required, string)</span>: <span class="argument-description">Text to match</span></li>
-						<li><code>response</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Response text. Placeholders: {tag} {name} {user}</span>
+						<li><code>response</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Response text.</span>
 							<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code></div></li>
 						<li><code>template-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Use the saved template? Falls back to response if unavailable</span></li>
 						<li><code>template</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Saved template to use as response</span></li>
@@ -765,7 +765,7 @@
 						<li><code>title</code> <span class="arg-meta">(required, string)</span>: <span class="argument-description">Response name to edit</span></li>
 						<li><code>new-title</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">New name</span></li>
 						<li><code>trigger</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Text to match</span></li>
-						<li><code>response</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">New response text. Placeholders: {tag} {name} {user}</span>
+						<li><code>response</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">New response text.</span>
 							<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code></div></li>
 						<li><code>template-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Use the saved template? Falls back to response if unavailable</span></li>
 						<li><code>template</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Template name</span></li>
@@ -815,7 +815,7 @@
 					<ul>
 						<li><code>title</code> <span class="arg-meta">(required, string)</span>: <span class="argument-description">Name of the saved response</span></li>
 						<li><code>trigger</code> <span class="arg-meta">(required, string)</span>: <span class="argument-description">Regex pattern</span></li>
-						<li><code>response</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Response text. Placeholders: {tag} {name} {user}</span>
+						<li><code>response</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Response text.</span>
 							<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code></div></li>
 						<li><code>template-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Use the saved template? Falls back to response if unavailable</span></li>
 						<li><code>template</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Saved template to use as response</span></li>
@@ -834,7 +834,7 @@
 						<li><code>title</code> <span class="arg-meta">(required, string)</span>: <span class="argument-description">Response name to edit</span></li>
 						<li><code>new-title</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">New name</span></li>
 						<li><code>trigger</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Regex pattern</span></li>
-						<li><code>response</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">New response text. Placeholders: {tag} {name} {user}</span>
+						<li><code>response</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">New response text.</span>
 							<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code></div></li>
 						<li><code>template-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Use the saved template? Falls back to response if unavailable</span></li>
 						<li><code>template</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Template name</span></li>
@@ -1070,7 +1070,7 @@
 				<li><code class="subcommand-name">join</code>: <span class="subcommand-description">Announce joins</span>
 					<ul>
 						<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable posts?</span></li>
-						<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Join message or "reset" for default. Placeholders: {tag} {name} {user}</span>
+						<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Join message or "reset" for default.</span>
 							<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{invitertag}</span></code>, <code><span class="tag-replacement">{invitername}</span></code>, <code><span class="tag-replacement">{inviteruser}</span></code>, <code><span class="tag-replacement">{invitercount}</span></code>, <code><span class="tag-replacement">{age}</span></code></div></li>
 						<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Post here</span></li>
 						<li><code>ping</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ping users?</span></li>
@@ -1080,7 +1080,7 @@
 				<li><code class="subcommand-name">join-secondary</code>: <span class="subcommand-description">Extra join announcement</span>
 					<ul>
 						<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable posts?</span></li>
-						<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Secondary join message or "reset" for default. Placeholders: {tag} {name} {user}</span>
+						<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Secondary join message or "reset" for default.</span>
 							<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{invitertag}</span></code>, <code><span class="tag-replacement">{invitername}</span></code>, <code><span class="tag-replacement">{inviteruser}</span></code>, <code><span class="tag-replacement">{invitercount}</span></code>, <code><span class="tag-replacement">{age}</span></code></div></li>
 						<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Post here</span></li>
 						<li><code>ping</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ping users?</span></li>
@@ -1090,7 +1090,7 @@
 				<li><code class="subcommand-name">leave</code>: <span class="subcommand-description">Announce departures</span>
 					<ul>
 						<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable posts?</span></li>
-						<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Leave message or "reset" for default. Placeholders: {tag} {name} {user}</span>
+						<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Leave message or "reset" for default.</span>
 							<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code></div></li>
 						<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Post here</span></li>
 						<li><code>ping</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ping users?</span></li>
@@ -1100,7 +1100,7 @@
 				<li><code class="subcommand-name">leave-verified</code>: <span class="subcommand-description">Announce verified departures</span>
 					<ul>
 						<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable posts?</span></li>
-						<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Verified leave message or "reset" for default. Placeholders: {tag} {name} {user}</span>
+						<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Verified leave message or "reset" for default.</span>
 							<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code></div></li>
 						<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Post here</span></li>
 						<li><code>ping</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ping users?</span></li>
@@ -1110,7 +1110,7 @@
 				<li><code class="subcommand-name">kick</code>: <span class="subcommand-description">Announce kicks</span>
 					<ul>
 						<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable posts?</span></li>
-						<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Kick message or "reset" for default. Placeholders: {tag} {name} {user}</span>
+						<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Kick message or "reset" for default.</span>
 							<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{modtag}</span></code>, <code><span class="tag-replacement">{modname}</span></code>, <code><span class="tag-replacement">{moduser}</span></code>, <code><span class="tag-replacement">{reason}</span></code></div></li>
 						<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Post here</span></li>
 						<li><code>ping</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ping users?</span></li>
@@ -1120,7 +1120,7 @@
 				<li><code class="subcommand-name">kick-verified</code>: <span class="subcommand-description">Announce verified kicks</span>
 					<ul>
 						<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable posts?</span></li>
-						<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Verified kick message or "reset" for default. Placeholders: {tag} {name} {user}</span>
+						<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Verified kick message or "reset" for default.</span>
 							<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{modtag}</span></code>, <code><span class="tag-replacement">{modname}</span></code>, <code><span class="tag-replacement">{moduser}</span></code>, <code><span class="tag-replacement">{reason}</span></code></div></li>
 						<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Post here</span></li>
 						<li><code>ping</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ping users?</span></li>
@@ -1130,9 +1130,9 @@
 				<li><code class="subcommand-name">ban</code>: <span class="subcommand-description">Announce bans</span>
 					<ul>
 						<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable posts?</span></li>
-						<li><code>permanent</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Permanent ban message or "reset" for default. Placeholders: {tag} {name} {user}</span>
+						<li><code>permanent</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Permanent ban message or "reset" for default.</span>
 							<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{modtag}</span></code>, <code><span class="tag-replacement">{modname}</span></code>, <code><span class="tag-replacement">{moduser}</span></code>, <code><span class="tag-replacement">{reason}</span></code></div></li>
-						<li><code>temporary</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Temporary ban message or "reset" for default. Placeholders: {tag} {name} {user}</span>
+						<li><code>temporary</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Temporary ban message or "reset" for default.</span>
 							<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{modtag}</span></code>, <code><span class="tag-replacement">{modname}</span></code>, <code><span class="tag-replacement">{moduser}</span></code>, <code><span class="tag-replacement">{reason}</span></code>, <code><span class="tag-replacement">{duration}</span></code></div></li>
 						<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Post here</span></li>
 						<li><code>ping</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ping users?</span></li>
@@ -1142,9 +1142,9 @@
 				<li><code class="subcommand-name">ban-verified</code>: <span class="subcommand-description">Announce verified bans</span>
 					<ul>
 						<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable posts?</span></li>
-						<li><code>permanent</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Verified permanent ban message or "reset" for default. Placeholders: {tag} {name} {user}</span>
+						<li><code>permanent</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Verified permanent ban message or "reset" for default.</span>
 							<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{modtag}</span></code>, <code><span class="tag-replacement">{modname}</span></code>, <code><span class="tag-replacement">{moduser}</span></code>, <code><span class="tag-replacement">{reason}</span></code></div></li>
-						<li><code>temporary</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Verified temporary ban message or "reset" for default. Placeholders: {tag} {name} {user}</span>
+						<li><code>temporary</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Verified temporary ban message or "reset" for default.</span>
 							<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{modtag}</span></code>, <code><span class="tag-replacement">{modname}</span></code>, <code><span class="tag-replacement">{moduser}</span></code>, <code><span class="tag-replacement">{reason}</span></code>, <code><span class="tag-replacement">{duration}</span></code></div></li>
 						<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Post here</span></li>
 						<li><code>ping</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ping users?</span></li>
@@ -1154,7 +1154,7 @@
 				<li><code class="subcommand-name">unban</code>: <span class="subcommand-description">Announce unbans</span>
 					<ul>
 						<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable posts?</span></li>
-						<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Unban message or "reset" for default. Placeholders: {tag} {name} {user}</span>
+						<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Unban message or "reset" for default.</span>
 							<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{modtag}</span></code>, <code><span class="tag-replacement">{modname}</span></code>, <code><span class="tag-replacement">{moduser}</span></code></div></li>
 						<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Post here</span></li>
 						<li><code>ping</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ping users?</span></li>
@@ -1164,7 +1164,7 @@
 				<li><code class="subcommand-name">unban-verified</code>: <span class="subcommand-description">Announce verified unbans</span>
 					<ul>
 						<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable posts?</span></li>
-						<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Verified unban message or "reset" for default. Placeholders: {tag} {name} {user}</span>
+						<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Verified unban message or "reset" for default.</span>
 							<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{modtag}</span></code>, <code><span class="tag-replacement">{modname}</span></code>, <code><span class="tag-replacement">{moduser}</span></code></div></li>
 						<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Post here</span></li>
 						<li><code>ping</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ping users?</span></li>
@@ -1174,11 +1174,11 @@
 				<li><code class="subcommand-name">verified</code>: <span class="subcommand-description">Announce verifications</span>
 					<ul>
 						<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable posts?</span></li>
-						<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Verified message or "reset" for default. Placeholders: {tag} {name} {user}</span>
+						<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Verified message or "reset" for default.</span>
 							<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code></div></li>
-						<li><code>rejoin-old-name</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Rejoin re-verify message (same name) or "reset" for default. Placeholders: {tag} {name} {user}</span>
+						<li><code>rejoin-old-name</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Rejoin re-verify message (same name) or "reset" for default.</span>
 							<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code></div></li>
-						<li><code>rejoin-new-name</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Rejoin re-verify message (name change) or "reset" for default. Placeholders: {tag} {name} {user}</span>
+						<li><code>rejoin-new-name</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Rejoin re-verify message (name change) or "reset" for default.</span>
 							<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{oldname}</span></code>, <code><span class="tag-replacement">{olduser}</span></code></div></li>
 						<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Post here</span></li>
 						<li><code>ping</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ping users?</span></li>
@@ -1188,11 +1188,11 @@
 				<li><code class="subcommand-name">verified-secondary</code>: <span class="subcommand-description">Extra verification announcement</span>
 					<ul>
 						<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable posts?</span></li>
-						<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Secondary verified message or "reset" for default. Placeholders: {tag} {name} {user}</span>
+						<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Secondary verified message or "reset" for default.</span>
 							<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code></div></li>
-						<li><code>rejoin-old-name</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Secondary rejoin verify (same name) or "reset" for default. Placeholders: {tag} {name} {user}</span>
+						<li><code>rejoin-old-name</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Secondary rejoin verify (same name) or "reset" for default.</span>
 							<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code></div></li>
-						<li><code>rejoin-new-name</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Secondary rejoin verify (name change) or "reset" for default. Placeholders: {tag} {name} {user}</span>
+						<li><code>rejoin-new-name</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Secondary rejoin verify (name change) or "reset" for default.</span>
 							<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{oldname}</span></code>, <code><span class="tag-replacement">{olduser}</span></code></div></li>
 						<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Post here</span></li>
 						<li><code>ping</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ping users?</span></li>
@@ -1202,9 +1202,9 @@
 				<li><code class="subcommand-name">rejoin</code>: <span class="subcommand-description">Announce rejoins</span>
 					<ul>
 						<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable posts?</span></li>
-						<li><code>old-name</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Rejoin message or "reset" for default. Placeholders: {tag} {name} {user}</span>
+						<li><code>old-name</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Rejoin message or "reset" for default.</span>
 							<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{invitertag}</span></code>, <code><span class="tag-replacement">{invitername}</span></code>, <code><span class="tag-replacement">{inviteruser}</span></code>, <code><span class="tag-replacement">{invitercount}</span></code>, <code><span class="tag-replacement">{age}</span></code></div></li>
-						<li><code>new-name</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Name-change rejoin message or "reset" for default. Placeholders: {tag} {name} {user}</span>
+						<li><code>new-name</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Name-change rejoin message or "reset" for default.</span>
 							<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{oldname}</span></code>, <code><span class="tag-replacement">{olduser}</span></code>, <code><span class="tag-replacement">{invitertag}</span></code>, <code><span class="tag-replacement">{invitername}</span></code>, <code><span class="tag-replacement">{inviteruser}</span></code>, <code><span class="tag-replacement">{invitercount}</span></code>, <code><span class="tag-replacement">{age}</span></code></div></li>
 						<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Post here</span></li>
 						<li><code>ping</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ping users?</span></li>
@@ -1214,9 +1214,9 @@
 				<li><code class="subcommand-name">rejoin-secondary</code>: <span class="subcommand-description">Extra rejoin announcement</span>
 					<ul>
 						<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable posts?</span></li>
-						<li><code>old-name</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Secondary rejoin message or "reset" for default. Placeholders: {tag} {name} {user}</span>
+						<li><code>old-name</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Secondary rejoin message or "reset" for default.</span>
 							<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{invitertag}</span></code>, <code><span class="tag-replacement">{invitername}</span></code>, <code><span class="tag-replacement">{inviteruser}</span></code>, <code><span class="tag-replacement">{invitercount}</span></code>, <code><span class="tag-replacement">{age}</span></code></div></li>
-						<li><code>new-name</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Secondary name-change rejoin message or "reset" for default. Placeholders: {tag} {name} {user}</span>
+						<li><code>new-name</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Secondary name-change rejoin message or "reset" for default.</span>
 							<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{oldname}</span></code>, <code><span class="tag-replacement">{olduser}</span></code>, <code><span class="tag-replacement">{invitertag}</span></code>, <code><span class="tag-replacement">{invitername}</span></code>, <code><span class="tag-replacement">{inviteruser}</span></code>, <code><span class="tag-replacement">{invitercount}</span></code>, <code><span class="tag-replacement">{age}</span></code></div></li>
 						<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Post here</span></li>
 						<li><code>ping</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ping users?</span></li>
@@ -1226,9 +1226,9 @@
 				<li><code class="subcommand-name">rejoin-verified</code>: <span class="subcommand-description">Announce verified rejoins</span>
 					<ul>
 						<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable posts?</span></li>
-						<li><code>old-name</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Verified rejoin message or "reset" for default. Placeholders: {tag} {name} {user}</span>
+						<li><code>old-name</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Verified rejoin message or "reset" for default.</span>
 							<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{invitertag}</span></code>, <code><span class="tag-replacement">{invitername}</span></code>, <code><span class="tag-replacement">{inviteruser}</span></code>, <code><span class="tag-replacement">{invitercount}</span></code>, <code><span class="tag-replacement">{age}</span></code></div></li>
-						<li><code>new-name</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Verified name-change message or "reset" for default. Placeholders: {tag} {name} {user}</span>
+						<li><code>new-name</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Verified name-change message or "reset" for default.</span>
 							<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{oldname}</span></code>, <code><span class="tag-replacement">{olduser}</span></code>, <code><span class="tag-replacement">{invitertag}</span></code>, <code><span class="tag-replacement">{invitername}</span></code>, <code><span class="tag-replacement">{inviteruser}</span></code>, <code><span class="tag-replacement">{invitercount}</span></code>, <code><span class="tag-replacement">{age}</span></code></div></li>
 						<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Post here</span></li>
 						<li><code>ping</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ping users?</span></li>
@@ -1238,11 +1238,11 @@
 				<li><code class="subcommand-name">timeout</code>: <span class="subcommand-description">Announce timeouts</span>
 					<ul>
 						<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable posts?</span></li>
-						<li><code>apply</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Timeout applied message or "reset" for default. Placeholders: {tag} {name} {user}</span>
+						<li><code>apply</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Timeout applied message or "reset" for default.</span>
 							<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{modtag}</span></code>, <code><span class="tag-replacement">{modname}</span></code>, <code><span class="tag-replacement">{moduser}</span></code>, <code><span class="tag-replacement">{reason}</span></code>, <code><span class="tag-replacement">{expiresat}</span></code>, <code><span class="tag-replacement">{expiresin}</span></code></div></li>
-						<li><code>remove</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Timeout removed message or "reset" for default. Placeholders: {tag} {name} {user}</span>
+						<li><code>remove</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Timeout removed message or "reset" for default.</span>
 							<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{modtag}</span></code>, <code><span class="tag-replacement">{modname}</span></code>, <code><span class="tag-replacement">{moduser}</span></code></div></li>
-						<li><code>expire</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Timeout expired message or "reset" for default. Placeholders: {tag} {name} {user}</span>
+						<li><code>expire</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Timeout expired message or "reset" for default.</span>
 							<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code></div></li>
 						<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Post here</span></li>
 						<li><code>ping</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ping users?</span></li>
@@ -1251,11 +1251,11 @@
 				<li><code class="subcommand-name">timeout-verified</code>: <span class="subcommand-description">Announce verified timeouts</span>
 					<ul>
 						<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable posts?</span></li>
-						<li><code>apply</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Verified timeout applied message or "reset" for default. Placeholders: {tag} {name} {user}</span>
+						<li><code>apply</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Verified timeout applied message or "reset" for default.</span>
 							<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{modtag}</span></code>, <code><span class="tag-replacement">{modname}</span></code>, <code><span class="tag-replacement">{moduser}</span></code>, <code><span class="tag-replacement">{reason}</span></code>, <code><span class="tag-replacement">{expiresat}</span></code>, <code><span class="tag-replacement">{expiresin}</span></code></div></li>
-						<li><code>remove</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Verified timeout removed message or "reset" for default. Placeholders: {tag} {name} {user}</span>
+						<li><code>remove</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Verified timeout removed message or "reset" for default.</span>
 							<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{modtag}</span></code>, <code><span class="tag-replacement">{modname}</span></code>, <code><span class="tag-replacement">{moduser}</span></code></div></li>
-						<li><code>expire</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Verified timeout expired message or "reset" for default. Placeholders: {tag} {name} {user}</span>
+						<li><code>expire</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Verified timeout expired message or "reset" for default.</span>
 							<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code></div></li>
 						<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Post here</span></li>
 						<li><code>ping</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ping users?</span></li>
@@ -1264,9 +1264,9 @@
 				<li><code class="subcommand-name">jail</code>: <span class="subcommand-description">Announce jail and release</span>
 					<ul>
 						<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable posts?</span></li>
-						<li><code>apply</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Jail applied message or "reset" for default. Placeholders: {tag} {name} {user}</span>
+						<li><code>apply</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Jail applied message or "reset" for default.</span>
 							<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code></div></li>
-						<li><code>remove</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Jail released message or "reset" for default. Placeholders: {tag} {name} {user}</span>
+						<li><code>remove</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Jail released message or "reset" for default.</span>
 							<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code></div></li>
 						<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Post here</span></li>
 						<li><code>ping</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ping users?</span></li>
@@ -1275,9 +1275,9 @@
 				<li><code class="subcommand-name">jail-verified</code>: <span class="subcommand-description">Announce verified jail/release</span>
 					<ul>
 						<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable posts?</span></li>
-						<li><code>apply</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Verified jail applied message or "reset" for default. Placeholders: {tag} {name} {user}</span>
+						<li><code>apply</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Verified jail applied message or "reset" for default.</span>
 							<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code></div></li>
-						<li><code>remove</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Verified jail released message or "reset" for default. Placeholders: {tag} {name} {user}</span>
+						<li><code>remove</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Verified jail released message or "reset" for default.</span>
 							<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code></div></li>
 						<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Post here</span></li>
 						<li><code>ping</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ping users?</span></li>
@@ -1286,9 +1286,9 @@
 				<li><code class="subcommand-name">jail-secondary</code>: <span class="subcommand-description">Extra jail/release announcement</span>
 					<ul>
 						<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable posts?</span></li>
-						<li><code>apply</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Secondary jail applied message or "reset" for default. Placeholders: {tag} {name} {user}</span>
+						<li><code>apply</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Secondary jail applied message or "reset" for default.</span>
 							<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code></div></li>
-						<li><code>remove</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Secondary jail released message or "reset" for default. Placeholders: {tag} {name} {user}</span>
+						<li><code>remove</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Secondary jail released message or "reset" for default.</span>
 							<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code></div></li>
 						<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Post here</span></li>
 						<li><code>ping</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Ping users?</span></li>
@@ -1347,7 +1347,7 @@
 				<li><code class="subcommand-name">add</code>: <span class="subcommand-description">Add a Role DM trigger</span>
 					<ul>
 						<li><code>role</code> <span class="arg-meta">(required, role)</span>: <span class="argument-description">Role that triggers the DM</span></li>
-						<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Message to send. Placeholders: {tag} {name} {user}</span>
+						<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Message to send.</span>
 							<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code></div></li>
 						<li><code>template-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Use the saved template? Falls back to message if unavailable</span></li>
 						<li><code>template</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Use a saved template as the message</span></li>
@@ -1361,7 +1361,7 @@
 				<li><code class="subcommand-name">edit</code>: <span class="subcommand-description">Edit a Role DM trigger</span>
 					<ul>
 						<li><code>role</code> <span class="arg-meta">(required, role)</span>: <span class="argument-description">Trigger role to edit</span></li>
-						<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">New message to send. Placeholders: {tag} {name} {user}</span>
+						<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">New message to send.</span>
 							<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code></div></li>
 						<li><code>template-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Use the saved template? Falls back to message if unavailable</span></li>
 						<li><code>template</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Template name</span></li>
@@ -1707,7 +1707,7 @@
 						<li><code>stars</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">How many stars messages need (1-100)</span></li>
 						<li><code>mod-stars</code> <span class="arg-meta">(optional, integer)</span>: <span class="argument-description">Stars needed from moderators (1-100)</span></li>
 						<li><code>thread-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Create Starboard threads?</span></li>
-						<li><code>thread-title</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Default heading for new threads. Placeholders: {name} {user}</span>
+						<li><code>thread-title</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Default heading for new threads.</span>
 							<div class="replacements"><code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{date}</span></code>, <code><span class="tag-replacement">{time}</span></code></div></li>
 						<li><code>thread-message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Message to send in new threads</span></li>
 						<li><code>thread-message-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Send the thread message?</span></li>
@@ -1782,7 +1782,7 @@
 					<ul>
 						<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable Twitch notifications?</span></li>
 						<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Channel for notifications</span></li>
-						<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Notification message. Placeholders: {name}</span>
+						<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Notification message.</span>
 							<div class="replacements"><code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{title}</span></code>, <code><span class="tag-replacement">{url}</span></code>, <code><span class="tag-replacement">{game}</span></code></div></li>
 					</ul>
 				</li>
@@ -1810,7 +1810,7 @@
 					<ul>
 						<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable YouTube notifications?</span></li>
 						<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Channel for notifications</span></li>
-						<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Notification message. Placeholders: {name}</span>
+						<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Notification message.</span>
 							<div class="replacements"><code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{title}</span></code>, <code><span class="tag-replacement">{url}</span></code>, <code><span class="tag-replacement">{published}</span></code></div></li>
 					</ul>
 				</li>
@@ -1840,7 +1840,7 @@
 				<li><code class="subcommand-name">settings</code>: <span class="subcommand-description">Configure Voice Generator</span>
 					<ul>
 						<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable voice generators?</span></li>
-						<li><code>name</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Default name for generated channels. Placeholders: {name} {user}</span>
+						<li><code>name</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Default name for generated channels.</span>
 							<div class="replacements"><code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{date}</span></code>, <code><span class="tag-replacement">{time}</span></code>, <code><span class="tag-replacement">{count}</span></code></div></li>
 					</ul>
 				</li>
@@ -1962,10 +1962,10 @@
 					<ul>
 						<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable AutoMod?</span></li>
 						<li><code>warn-dm-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Send a warning by DM?</span></li>
-						<li><code>warn-dm-message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Message sent by DM for deleteWarn rules. Placeholders: {tag} {name} {user}</span>
+						<li><code>warn-dm-message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Message sent by DM for deleteWarn rules.</span>
 							<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{channel}</span></code>, <code><span class="tag-replacement">{rule}</span></code>, <code><span class="tag-replacement">{trigger}</span></code></div></li>
 						<li><code>warn-channel-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Send a warning in the same channel?</span></li>
-						<li><code>warn-channel-message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Message sent in the same channel for deleteWarn rules. Placeholders: {tag} {name} {user}</span>
+						<li><code>warn-channel-message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Message sent in the same channel for deleteWarn rules.</span>
 							<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{channel}</span></code>, <code><span class="tag-replacement">{rule}</span></code>, <code><span class="tag-replacement">{trigger}</span></code></div></li>
 					</ul>
 				</li>
@@ -1986,7 +1986,7 @@
 						<li><code>count</code> <span class="arg-meta">(required, integer)</span>: <span class="argument-description">Infractions required before acting</span></li>
 						<li><code>window</code> <span class="arg-meta">(required, string)</span>: <span class="argument-description">Time window for counting infractions (e.g. 6h, 30m)</span></li>
 						<li><code>duration</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Timeout duration (required for timeout, e.g. 1h, 1d)</span></li>
-						<li><code>reason</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Reason used when timing out, kicking or banning. Placeholders: {tag} {name} {user}</span>
+						<li><code>reason</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Reason used when timing out, kicking or banning.</span>
 							<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{channel}</span></code>, <code><span class="tag-replacement">{rule}</span></code>, <code><span class="tag-replacement">{trigger}</span></code>, <code><span class="tag-replacement">{action}</span></code>, <code><span class="tag-replacement">{count}</span></code>, <code><span class="tag-replacement">{window}</span></code>, <code><span class="tag-replacement">{duration}</span></code></div></li>
 					</ul>
 				</li>
@@ -2058,6 +2058,7 @@
 			<p><strong>Description:</strong> Block or unblock a user from a command</p>
 			<p><strong>Subcommands:</strong></p>
 			<ul>
+				<li><code class="subcommand-name">help</code>: <span class="subcommand-description">Explain this command</span></li>
 				<li><code class="subcommand-name">wisdom</code>: <span class="subcommand-description">Block or unblock a user from /wisdom</span>
 					<ul>
 						<li><code>user</code> <span class="arg-meta">(required, user)</span>: <span class="argument-description">User to block or unblock</span></li>
@@ -2168,12 +2169,14 @@
 						<li><code>user</code> <span class="arg-meta">(required, user)</span>: <span class="argument-description">User to block or unblock</span></li>
 					</ul>
 				</li>
-				<li><code class="subcommand-name">list</code>: <span class="subcommand-description">List blocked users for a supported command</span>
+				<li><code class="subcommand-name">list</code>: <span class="subcommand-description">List command blocks, optionally filtered by command or user</span>
 					<ul>
-						<li><code>command</code> <span class="arg-meta">(required, string)</span>: <span class="argument-description">Supported command to list blocked users for</span></li>
+						<li><code>command</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Show blocks for this command only</span></li>
+						<li><code>user</code> <span class="arg-meta">(optional, user)</span>: <span class="argument-description">Show commands this user is blocked from</span></li>
 					</ul>
 				</li>
 			</ul>
+			<p>Use <code>/block list</code> to see each command with blocks and its blocked users. Set <code>command</code> to list users blocked from one command, or set <code>user</code> to list every command that user is blocked from. Set both to check whether that user is blocked from that command.</p>
 		</div>
 
 		<div class="command-block">
@@ -2319,7 +2322,7 @@
 						<li><code class="subcommand-name">chat</code>: <span class="subcommand-description">Chat level-up advance message</span>
 							<ul>
 								<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable chat advance message?</span></li>
-								<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Chat advance message. Placeholders: {tag} {name} {user}</span>
+								<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Chat advance message.</span>
 									<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{level}</span></code>, <code><span class="tag-replacement">{xp}</span></code>, <code><span class="tag-replacement">{xpneed}</span></code>, <code><span class="tag-replacement">{xpmiss}</span></code></div></li>
 								<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Channel for chat advance message</span></li>
 								<li><code>channel-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Restrict to the selected channel?</span></li>
@@ -2329,7 +2332,7 @@
 						<li><code class="subcommand-name">voice</code>: <span class="subcommand-description">Voice level-up advance message</span>
 							<ul>
 								<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable voice advance message?</span></li>
-								<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Voice advance message. Placeholders: {tag} {name} {user}</span>
+								<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Voice advance message.</span>
 									<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{level}</span></code>, <code><span class="tag-replacement">{xp}</span></code>, <code><span class="tag-replacement">{xpneed}</span></code>, <code><span class="tag-replacement">{xpmiss}</span></code></div></li>
 								<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Channel for voice advance message</span></li>
 								<li><code>channel-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Restrict to the selected channel?</span></li>
@@ -2343,7 +2346,7 @@
 						<li><code class="subcommand-name">chat</code>: <span class="subcommand-description">/level chat response</span>
 							<ul>
 								<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable /level chat?</span></li>
-								<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Response message. Placeholders: {tag} {name} {user}</span>
+								<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Response message.</span>
 									<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{level}</span></code>, <code><span class="tag-replacement">{xp}</span></code>, <code><span class="tag-replacement">{xpneed}</span></code>, <code><span class="tag-replacement">{xpmiss}</span></code>, <code><span class="tag-replacement">{rank}</span></code>, <code><span class="tag-replacement">{members}</span></code></div></li>
 								<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Channel for /level chat</span></li>
 								<li><code>channel-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Restrict to the selected channel?</span></li>
@@ -2354,7 +2357,7 @@
 						<li><code class="subcommand-name">voice</code>: <span class="subcommand-description">/level voice response</span>
 							<ul>
 								<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable /level voice?</span></li>
-								<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Response message. Placeholders: {tag} {name} {user}</span>
+								<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Response message.</span>
 									<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{level}</span></code>, <code><span class="tag-replacement">{xp}</span></code>, <code><span class="tag-replacement">{xpneed}</span></code>, <code><span class="tag-replacement">{xpmiss}</span></code>, <code><span class="tag-replacement">{rank}</span></code>, <code><span class="tag-replacement">{members}</span></code></div></li>
 								<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Channel for /level voice</span></li>
 								<li><code>channel-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Restrict to the selected channel?</span></li>
@@ -2369,7 +2372,7 @@
 						<li><code class="subcommand-name">chat</code>: <span class="subcommand-description">/rank chat response</span>
 							<ul>
 								<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable /rank chat?</span></li>
-								<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Response message. Placeholders: {tag} {name} {user}</span>
+								<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Response message.</span>
 									<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{level}</span></code>, <code><span class="tag-replacement">{xp}</span></code>, <code><span class="tag-replacement">{xpneed}</span></code>, <code><span class="tag-replacement">{xpmiss}</span></code>, <code><span class="tag-replacement">{rank}</span></code>, <code><span class="tag-replacement">{members}</span></code></div></li>
 								<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Channel for /rank chat</span></li>
 								<li><code>channel-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Restrict to the selected channel?</span></li>
@@ -2380,7 +2383,7 @@
 						<li><code class="subcommand-name">voice</code>: <span class="subcommand-description">/rank voice response</span>
 							<ul>
 								<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable /rank voice?</span></li>
-								<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Response message. Placeholders: {tag} {name} {user}</span>
+								<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Response message.</span>
 									<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{level}</span></code>, <code><span class="tag-replacement">{xp}</span></code>, <code><span class="tag-replacement">{xpneed}</span></code>, <code><span class="tag-replacement">{xpmiss}</span></code>, <code><span class="tag-replacement">{rank}</span></code>, <code><span class="tag-replacement">{members}</span></code></div></li>
 								<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Channel for /rank voice</span></li>
 								<li><code>channel-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Restrict to the selected channel?</span></li>
@@ -2615,7 +2618,7 @@
 						<li><code class="subcommand-name">chat</code>: <span class="subcommand-description">Chat role-reward promote message</span>
 							<ul>
 								<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable chat reward message?</span></li>
-								<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Chat reward message. Placeholders: {tag} {name} {user}</span>
+								<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Chat reward message.</span>
 									<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{level}</span></code>, <code><span class="tag-replacement">{xp}</span></code>, <code><span class="tag-replacement">{xpneed}</span></code>, <code><span class="tag-replacement">{xpmiss}</span></code>, <code><span class="tag-replacement">{roletag}</span></code>, <code><span class="tag-replacement">{rolename}</span></code></div></li>
 								<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Channel for chat reward message</span></li>
 								<li><code>channel-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Restrict to the selected channel?</span></li>
@@ -2625,7 +2628,7 @@
 						<li><code class="subcommand-name">voice</code>: <span class="subcommand-description">Voice role-reward promote message</span>
 							<ul>
 								<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable voice reward message?</span></li>
-								<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Voice reward message. Placeholders: {tag} {name} {user}</span>
+								<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Voice reward message.</span>
 									<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{level}</span></code>, <code><span class="tag-replacement">{xp}</span></code>, <code><span class="tag-replacement">{xpneed}</span></code>, <code><span class="tag-replacement">{xpmiss}</span></code>, <code><span class="tag-replacement">{roletag}</span></code>, <code><span class="tag-replacement">{rolename}</span></code></div></li>
 								<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Channel for voice reward message</span></li>
 								<li><code>channel-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Restrict to the selected channel?</span></li>
@@ -3159,21 +3162,21 @@
 					<ul>
 						<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable birthday announcements and /birthday?</span></li>
 						<li><code>channel</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Birthday announcement channel</span></li>
-						<li><code>message-with-age</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Birthday message when age is known. Placeholders: {tag} {name} {user}</span>
+						<li><code>message-with-age</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Birthday message when age is known.</span>
 							<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{age}</span></code></div></li>
-						<li><code>message-without-age</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Birthday message when age is hidden. Placeholders: {tag} {name} {user}</span>
+						<li><code>message-without-age</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Birthday message when age is hidden.</span>
 							<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code></div></li>
 						<li><code>thread-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable birthday threads?</span></li>
-						<li><code>thread-title</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Default heading for new threads. Placeholders: {name}</span>
+						<li><code>thread-title</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Default heading for new threads.</span>
 							<div class="replacements"><code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{date}</span></code>, <code><span class="tag-replacement">{time}</span></code></div></li>
-						<li><code>thread-message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Message to send in new threads. Placeholders: {tag} {name} {user}</span>
+						<li><code>thread-message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Message to send in new threads.</span>
 							<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code></div></li>
 						<li><code>thread-message-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Send the thread message?</span></li>
 						<li><code>embed-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Send the birthday post as an embed?</span></li>
-						<li><code>embed-title</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Embed heading. Placeholders: {name}</span>
+						<li><code>embed-title</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Embed heading.</span>
 							<div class="replacements"><code><span class="tag-replacement">{name}</span></code></div></li>
 						<li><code>embed-title-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Show the embed heading?</span></li>
-						<li><code>embed-footer</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Footer text on the embed. Placeholders: {name}</span>
+						<li><code>embed-footer</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Footer text on the embed.</span>
 							<div class="replacements"><code><span class="tag-replacement">{name}</span></code></div></li>
 						<li><code>embed-footer-enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Show the embed footer?</span></li>
 						<li><code>cooldown</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Cooldown (30s, 2m, or a number of seconds)</span></li>
@@ -3252,7 +3255,7 @@
 					<ul>
 						<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable rep?</span></li>
 						<li><code>cooldown</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Rep cooldown (30s, 2m, or a number of seconds)</span></li>
-						<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Feedback message. Placeholders: {tag} {name} {user}</span>
+						<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Feedback message.</span>
 							<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code></div></li>
 						<li><code>require-reply</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Require reply? If false, show a recipient picker</span></li>
 						<li><code>feedback-delete</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Delay before deleting feedback (30s or 2m, with 0 for never)</span></li>
@@ -3340,11 +3343,11 @@
 					<ul>
 						<li><code>enable</code> <span class="arg-meta">(optional, boolean)</span>: <span class="argument-description">Enable tickets?</span></li>
 						<li><code>category</code> <span class="arg-meta">(optional, channel)</span>: <span class="argument-description">Category for new ticket channels</span></li>
-						<li><code>open-name</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Open ticket channel name. Placeholders: {name} {user}</span>
+						<li><code>open-name</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Open ticket channel name.</span>
 							<div class="replacements"><code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{date}</span></code>, <code><span class="tag-replacement">{time}</span></code></div></li>
-						<li><code>closed-name</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Closed ticket channel name. Placeholders: {name} {user}</span>
+						<li><code>closed-name</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Closed ticket channel name.</span>
 							<div class="replacements"><code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code>, <code><span class="tag-replacement">{date}</span></code>, <code><span class="tag-replacement">{time}</span></code></div></li>
-						<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Message shown before the ticket issue. Placeholders: {tag} {name} {user}</span>
+						<li><code>message</code> <span class="arg-meta">(optional, string)</span>: <span class="argument-description">Message shown before the ticket issue.</span>
 							<div class="replacements"><code><span class="tag-replacement">{tag}</span></code>, <code><span class="tag-replacement">{name}</span></code>, <code><span class="tag-replacement">{user}</span></code></div></li>
 					</ul>
 				</li>
